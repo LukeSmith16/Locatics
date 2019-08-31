@@ -11,6 +11,7 @@
 		07068466231AD01C0023EB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07068465231AD01C0023EB27 /* Assets.xcassets */; };
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
 		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
+		07068485231B02A50023EB27 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07068484231B02A50023EB27 /* .swiftlint.yml */; };
 		85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */; };
 		8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		07068476231AD0780023EB27 /* LocaticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
+		07068484231B02A50023EB27 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 			children = (
 				07068470231AD0380023EB27 /* App */,
 				07068481231AD19D0023EB27 /* .xcode-version.txt */,
+				07068484231B02A50023EB27 /* .swiftlint.yml */,
 			);
 			path = Locatics;
 			sourceTree = "<group>";
@@ -143,7 +146,6 @@
 				E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */,
 				32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -158,6 +160,7 @@
 				07068457231AD01B0023EB27 /* Sources */,
 				07068458231AD01B0023EB27 /* Frameworks */,
 				07068459231AD01B0023EB27 /* Resources */,
+				07068483231B01E00023EB27 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07068485231B02A50023EB27 /* .swiftlint.yml in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
 				07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */,
@@ -246,6 +250,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		07068483231B01E00023EB27 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		373C6A628EE1F93E61A7D002 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
