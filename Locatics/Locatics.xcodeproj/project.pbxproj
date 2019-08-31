@@ -11,6 +11,8 @@
 		07068466231AD01C0023EB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07068465231AD01C0023EB27 /* Assets.xcassets */; };
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
 		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
+		85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */; };
+		8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,12 @@
 		07068476231AD0780023EB27 /* LocaticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
+		2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FDCAFA8D314EC1AED51C6B /* Pods-Locatics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.debug.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2F6E04830CD9866274D999 /* Pods-Locatics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.release.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.release.xcconfig"; sourceTree = "<group>"; };
+		E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.debug.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +68,8 @@
 				0706845D231AD01B0023EB27 /* Locatics */,
 				07068477231AD0780023EB27 /* LocaticsTests */,
 				0706845C231AD01B0023EB27 /* Products */,
+				77F34425DD14F7DB3B921D57 /* Pods */,
+				25255E8E94C985334A2BE030 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +126,27 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		25255E8E94C985334A2BE030 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */,
+				2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77F34425DD14F7DB3B921D57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5FDCAFA8D314EC1AED51C6B /* Pods-Locatics.debug.xcconfig */,
+				DB2F6E04830CD9866274D999 /* Pods-Locatics.release.xcconfig */,
+				E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */,
+				32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0706846D231AD01C0023EB27 /* Build configuration list for PBXNativeTarget "Locatics" */;
 			buildPhases = (
+				D877DB0B467BB96A18E6D9B1 /* [CP] Check Pods Manifest.lock */,
 				07068457231AD01B0023EB27 /* Sources */,
 				07068458231AD01B0023EB27 /* Frameworks */,
 				07068459231AD01B0023EB27 /* Resources */,
@@ -138,6 +172,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0706847D231AD0780023EB27 /* Build configuration list for PBXNativeTarget "LocaticsTests" */;
 			buildPhases = (
+				373C6A628EE1F93E61A7D002 /* [CP] Check Pods Manifest.lock */,
 				07068472231AD0780023EB27 /* Sources */,
 				07068473231AD0780023EB27 /* Frameworks */,
 				07068474231AD0780023EB27 /* Resources */,
@@ -209,6 +244,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		373C6A628EE1F93E61A7D002 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocaticsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D877DB0B467BB96A18E6D9B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Locatics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07068457231AD01B0023EB27 /* Sources */ = {
@@ -366,6 +448,7 @@
 		};
 		0706846E231AD01C0023EB27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5FDCAFA8D314EC1AED51C6B /* Pods-Locatics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -385,6 +468,7 @@
 		};
 		0706846F231AD01C0023EB27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB2F6E04830CD9866274D999 /* Pods-Locatics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -404,6 +488,7 @@
 		};
 		0706847E231AD0780023EB27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -424,6 +509,7 @@
 		};
 		0706847F231AD0780023EB27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
