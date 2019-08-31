@@ -10,6 +10,7 @@
 		0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706845E231AD01B0023EB27 /* AppDelegate.swift */; };
 		07068466231AD01C0023EB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07068465231AD01C0023EB27 /* Assets.xcassets */; };
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
+		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,7 @@
 		0706846A231AD01C0023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068476231AD0780023EB27 /* LocaticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				07068470231AD0380023EB27 /* App */,
+				07068481231AD19D0023EB27 /* .xcode-version.txt */,
 			);
 			path = Locatics;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
+				07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
