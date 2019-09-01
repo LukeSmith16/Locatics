@@ -12,6 +12,8 @@
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
 		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
 		07068485231B02A50023EB27 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07068484231B02A50023EB27 /* .swiftlint.yml */; };
+		0759E888231BE0B200AA987B /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0759E887231BE0B200AA987B /* main.storyboard */; };
+		0759E88A231BE11A00AA987B /* LocaticsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E889231BE11A00AA987B /* LocaticsTest.swift */; };
 		85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */; };
 		8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
 		07068484231B02A50023EB27 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		0759E887231BE0B200AA987B /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		0759E889231BE11A00AA987B /* LocaticsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsTest.swift; sourceTree = "<group>"; };
 		2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +103,7 @@
 			children = (
 				07068471231AD03C0023EB27 /* Assets */,
 				0706845E231AD01B0023EB27 /* AppDelegate.swift */,
+				0759E887231BE0B200AA987B /* main.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -106,9 +111,9 @@
 		07068471231AD03C0023EB27 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				07068467231AD01C0023EB27 /* LaunchScreen.storyboard */,
 				07068465231AD01C0023EB27 /* Assets.xcassets */,
 				0706846A231AD01C0023EB27 /* Info.plist */,
+				0759E886231BE08400AA987B /* Launch */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -125,8 +130,17 @@
 		07068480231AD0830023EB27 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0759E889231BE11A00AA987B /* LocaticsTest.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		0759E886231BE08400AA987B /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				07068467231AD01C0023EB27 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		25255E8E94C985334A2BE030 /* Frameworks */ = {
@@ -205,6 +219,7 @@
 					};
 					07068475231AD0780023EB27 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 						TestTargetID = 0706845A231AD01B0023EB27;
 					};
 				};
@@ -233,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0759E888231BE0B200AA987B /* main.storyboard in Resources */,
 				07068485231B02A50023EB27 /* .swiftlint.yml in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
@@ -326,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0759E88A231BE11A00AA987B /* LocaticsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +529,7 @@
 			baseConfigurationReference = E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
 				INFOPLIST_FILE = LocaticsTests/Info.plist;
@@ -522,6 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Locatics.app/Locatics";
@@ -533,6 +552,7 @@
 			baseConfigurationReference = 32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
 				INFOPLIST_FILE = LocaticsTests/Info.plist;
