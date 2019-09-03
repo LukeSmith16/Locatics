@@ -12,7 +12,11 @@
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
 		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
 		07068485231B02A50023EB27 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07068484231B02A50023EB27 /* .swiftlint.yml */; };
-		0759E888231BE0B200AA987B /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0759E887231BE0B200AA987B /* main.storyboard */; };
+		0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */; };
+		0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E8231ED5530084770E /* RootModuleFactory.swift */; };
+		0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */; };
+		0726E9EE231EDA920084770E /* OnboardingWelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0726E9ED231EDA920084770E /* OnboardingWelcomePageViewController.xib */; };
+		0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */; };
 		0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0759E88B231BEA8100AA987B /* Colors.xcassets */; };
 		0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */; };
 		0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E892231BED2400AA987B /* UIFont+Extensions.swift */; };
@@ -59,7 +63,11 @@
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
 		07068484231B02A50023EB27 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		0759E887231BE0B200AA987B /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructorTests.swift; sourceTree = "<group>"; };
+		0726E9E8231ED5530084770E /* RootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactory.swift; sourceTree = "<group>"; };
+		0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactoryTests.swift; sourceTree = "<group>"; };
+		0726E9ED231EDA920084770E /* OnboardingWelcomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingWelcomePageViewController.xib; sourceTree = "<group>"; };
+		0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomePageViewController.swift; sourceTree = "<group>"; };
 		0759E88B231BEA8100AA987B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		0759E892231BED2400AA987B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -136,7 +144,6 @@
 				0759E886231BE08400AA987B /* Launch */,
 				07068470231AD0380023EB27 /* App */,
 				07FC7D7B231C0977006CA6E0 /* Onboarding */,
-				0759E887231BE0B200AA987B /* main.storyboard */,
 				07068481231AD19D0023EB27 /* .xcode-version.txt */,
 				07068484231B02A50023EB27 /* .swiftlint.yml */,
 			);
@@ -185,6 +192,31 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		0726E9EC231EDA6B0084770E /* OnboardingPages */ = {
+			isa = PBXGroup;
+			children = (
+				0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */,
+			);
+			path = OnboardingPages;
+			sourceTree = "<group>";
+		};
+		0726E9EF231EDAA30084770E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0726E9F0231EDAAB0084770E /* PageViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0726E9F0231EDAAB0084770E /* PageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7DA0231C16AF006CA6E0 /* OnboardingViewController.xib */,
+				0726E9ED231EDA920084770E /* OnboardingWelcomePageViewController.xib */,
+			);
+			path = PageViewControllers;
+			sourceTree = "<group>";
+		};
 		0759E886231BE08400AA987B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */,
+				0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */,
 				07FC7D72231C082E006CA6E0 /* Factories */,
 			);
 			path = Coordinators;
@@ -233,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */,
+				0726E9E8231ED5530084770E /* RootModuleFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -241,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D79231C0889006CA6E0 /* CoordinatorFactoryTests.swift */,
+				0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -378,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D97231C14A5006CA6E0 /* OnboardingViewController.swift */,
+				0726E9EC231EDA6B0084770E /* OnboardingPages */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -385,7 +421,7 @@
 		07FC7D9F231C169C006CA6E0 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				07FC7DA0231C16AF006CA6E0 /* OnboardingViewController.xib */,
+				0726E9EF231EDAA30084770E /* Controllers */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -495,13 +531,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0759E888231BE0B200AA987B /* main.storyboard in Resources */,
 				07068485231B02A50023EB27 /* .swiftlint.yml in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				07FC7DA1231C16AF006CA6E0 /* OnboardingViewController.xib in Resources */,
 				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
 				07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */,
+				0726E9EE231EDA920084770E /* OnboardingWelcomePageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +625,9 @@
 				0759E89B231BF86900AA987B /* App.swift in Sources */,
 				07FC7D82231C09C2006CA6E0 /* OnboardingCoordinator.swift in Sources */,
 				07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */,
+				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
 				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
+				0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */,
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
 				07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */,
@@ -605,7 +643,9 @@
 				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
 				07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */,
 				07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */,
+				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,
 				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
+				0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */,
 				07FC7D92231C147F006CA6E0 /* OnboardingViewModelTests.swift in Sources */,
 				07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */,
 				07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */,
