@@ -11,11 +11,27 @@ import XCTest
 @testable import Locatics
 class OnboardingViewControllerTests: XCTestCase {
 
+    var sut: OnboardingViewController!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = OnboardingViewController()
+        _ = sut.view
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        super.tearDown()
+    }
+
+    func test_viewIsNotNil() {
+        XCTAssertNotNil(sut.view)
+    }
+
+    func test_isPageViewControllerDataSource() {
+        XCTAssertNotNil(sut.dataSource)
+    }
+
+    func test_isPageViewControllerDelegate() {
+        XCTAssertNotNil(sut.delegate)
     }
 }

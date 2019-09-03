@@ -31,7 +31,7 @@ class OnboardingCoordinator: CoordinatorInterface, OnboardingCoordinatorOutput {
 private extension OnboardingCoordinator {
     func startOnboarding() {
         let onboardingModule = factory.createOnboardingModule(delegate: self)
-        root.pushViewController(onboardingModule, animated: true)
+        root.setViewControllers([onboardingModule], animated: true)
     }
 }
 
