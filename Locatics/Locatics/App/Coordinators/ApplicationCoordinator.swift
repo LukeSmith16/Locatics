@@ -6,12 +6,21 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 private var onboardingWasShown = false
 
 enum LaunchInstructor {
     case main, onboarding
+
+    static func configure(userOnboarded: Bool) -> LaunchInstructor {
+        switch userOnboarded {
+        case true:
+            return .main
+        case false:
+            return .onboarding
+        }
+    }
 }
 
 protocol CoordinatorInterface: class {
@@ -20,11 +29,19 @@ protocol CoordinatorInterface: class {
 
 class ApplicationCoordinator: CoordinatorInterface {
 
-    private let launchInstructor: LaunchInstructor
+    private let window: UIWindow!
+    let launchInstructor: LaunchInstructor
+
+    private let rootModuleFactory: RootModuleFactoryInterface
     private let coordinatorFactory: CoordinatorFactoryInterface
 
-    init(launchInstructor: LaunchInstructor, coordinatorFactory: CoordinatorFactoryInterface) {
+    init(window: UIWindow,
+         launchInstructor: LaunchInstructor,
+         coordinatorFactory: CoordinatorFactoryInterface,
+         rootModuleFactory: RootModuleFactoryInterface) {
+        self.window = window
         self.launchInstructor = launchInstructor
+        self.rootModuleFactory = rootModuleFactory
         self.coordinatorFactory = coordinatorFactory
     }
 
@@ -40,7 +57,10 @@ class ApplicationCoordinator: CoordinatorInterface {
 
 private extension ApplicationCoordinator {
     func startOnboardingFlow() {
-        let onboardingCoordinator = coordinatorFactory.createOnboardingCoordinatorFlow()
+        let rootController = rootModuleFactory.createRootNavigationController()
+        window.rootViewController = rootController
+
+        let onboardingCoordinator = coordinatorFactory.createOnboardingCoordinatorFlow(root: rootController)
         onboardingCoordinator.start()
     }
 }
