@@ -9,12 +9,12 @@
 import UIKit
 
 protocol CoordinatorFactoryInterface: class {
-    func createOnboardingCoordinatorFlow() -> CoordinatorInterface & OnboardingCoordinatorOutput
+    func createOnboardingCoordinatorFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput
 }
 
 final class CoordinatorFactory: CoordinatorFactoryInterface {
-    func createOnboardingCoordinatorFlow() -> CoordinatorInterface & OnboardingCoordinatorOutput {
-        let onboardingCoordinator = OnboardingCoordinator(root: UINavigationController(),
+    func createOnboardingCoordinatorFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput {
+        let onboardingCoordinator = OnboardingCoordinator(root: root,
                                                           factory: OnboardingModuleFactory())
         return onboardingCoordinator
     }
