@@ -8,9 +8,17 @@
 
 import UIKit
 
-class App {
-    let window = UIWindow()
+protocol AppInterface {
+    func start()
+}
+
+class App: AppInterface {
+    let window: UIWindow!
     var applicationCoordinator: CoordinatorInterface?
+
+    init(window: UIWindow) {
+        self.window = window
+    }
 
     func start() {
         setupApplicationCoordinator()

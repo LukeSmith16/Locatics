@@ -15,7 +15,6 @@
 		0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */; };
 		0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E8231ED5530084770E /* RootModuleFactory.swift */; };
 		0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */; };
-		0726E9EE231EDA920084770E /* OnboardingWelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0726E9ED231EDA920084770E /* OnboardingWelcomePageViewController.xib */; };
 		0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */; };
 		0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0759E88B231BEA8100AA987B /* Colors.xcassets */; };
 		0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */; };
@@ -24,6 +23,10 @@
 		0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E896231BF14000AA987B /* UIColor+Extensions.swift */; };
 		0759E899231BF86100AA987B /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E898231BF86100AA987B /* AppTests.swift */; };
 		0759E89B231BF86900AA987B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E89A231BF86900AA987B /* App.swift */; };
+		0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */; };
+		0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */; };
+		0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */; };
+		0773F70523204A9B00EA62E1 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -38,7 +41,6 @@
 		07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */; };
 		07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */; };
 		07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */; };
-		07FC7DA1231C16AF006CA6E0 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FC7DA0231C16AF006CA6E0 /* OnboardingViewController.xib */; };
 		85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */; };
 		8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */; };
 /* End PBXBuildFile section */
@@ -66,7 +68,6 @@
 		0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructorTests.swift; sourceTree = "<group>"; };
 		0726E9E8231ED5530084770E /* RootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactory.swift; sourceTree = "<group>"; };
 		0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactoryTests.swift; sourceTree = "<group>"; };
-		0726E9ED231EDA920084770E /* OnboardingWelcomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingWelcomePageViewController.xib; sourceTree = "<group>"; };
 		0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomePageViewController.swift; sourceTree = "<group>"; };
 		0759E88B231BEA8100AA987B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ExtensionsTests.swift"; sourceTree = "<group>"; };
@@ -75,6 +76,10 @@
 		0759E896231BF14000AA987B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0759E898231BF86100AA987B /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		0759E89A231BF86900AA987B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAboutPageViewController.swift; sourceTree = "<group>"; };
+		0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsPageViewController.swift; sourceTree = "<group>"; };
+		0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGetStartedPageViewController.swift; sourceTree = "<group>"; };
+		0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -89,7 +94,6 @@
 		07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManagerTests.swift; sourceTree = "<group>"; };
-		07FC7DA0231C16AF006CA6E0 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,8 +148,8 @@
 				0759E886231BE08400AA987B /* Launch */,
 				07068470231AD0380023EB27 /* App */,
 				07FC7D7B231C0977006CA6E0 /* Onboarding */,
-				07068481231AD19D0023EB27 /* .xcode-version.txt */,
 				07068484231B02A50023EB27 /* .swiftlint.yml */,
+				07068481231AD19D0023EB27 /* .xcode-version.txt */,
 			);
 			path = Locatics;
 			sourceTree = "<group>";
@@ -196,25 +200,11 @@
 			isa = PBXGroup;
 			children = (
 				0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */,
+				0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */,
+				0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */,
+				0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */,
 			);
 			path = OnboardingPages;
-			sourceTree = "<group>";
-		};
-		0726E9EF231EDAA30084770E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				0726E9F0231EDAAB0084770E /* PageViewControllers */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		0726E9F0231EDAAB0084770E /* PageViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				07FC7DA0231C16AF006CA6E0 /* OnboardingViewController.xib */,
-				0726E9ED231EDA920084770E /* OnboardingWelcomePageViewController.xib */,
-			);
-			path = PageViewControllers;
 			sourceTree = "<group>";
 		};
 		0759E886231BE08400AA987B /* Launch */ = {
@@ -241,6 +231,14 @@
 				0759E896231BF14000AA987B /* UIColor+Extensions.swift */,
 			);
 			path = "Extensions+Helpers";
+			sourceTree = "<group>";
+		};
+		0773F70323204A7D00EA62E1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		07FC7D63231BFA8A006CA6E0 /* Coordinators */ = {
@@ -380,7 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D96231C149C006CA6E0 /* Controllers */,
-				07FC7D9F231C169C006CA6E0 /* XIBs */,
+				0773F70323204A7D00EA62E1 /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -416,14 +414,6 @@
 				0726E9EC231EDA6B0084770E /* OnboardingPages */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		07FC7D9F231C169C006CA6E0 /* XIBs */ = {
-			isa = PBXGroup;
-			children = (
-				0726E9EF231EDAA30084770E /* Controllers */,
-			);
-			path = XIBs;
 			sourceTree = "<group>";
 		};
 		25255E8E94C985334A2BE030 /* Frameworks */ = {
@@ -531,13 +521,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0773F70523204A9B00EA62E1 /* OnboardingStoryboard.storyboard in Resources */,
 				07068485231B02A50023EB27 /* .swiftlint.yml in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
-				07FC7DA1231C16AF006CA6E0 /* OnboardingViewController.xib in Resources */,
 				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
 				07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */,
-				0726E9EE231EDA920084770E /* OnboardingWelcomePageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,17 +608,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */,
 				07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */,
 				07FC7D88231C0BCA006CA6E0 /* OnboardingModuleFactory.swift in Sources */,
 				0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */,
 				0759E89B231BF86900AA987B /* App.swift in Sources */,
 				07FC7D82231C09C2006CA6E0 /* OnboardingCoordinator.swift in Sources */,
 				07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */,
+				0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */,
 				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
 				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
 				0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */,
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
+				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
 				07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */,
 				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
 			);
