@@ -14,6 +14,9 @@ protocol RootModuleFactoryInterface {
 
 class RootModuleFactory: RootModuleFactoryInterface {
     func createRootNavigationController() -> UINavigationController {
-        return UINavigationController()
+        let rootNavigationController = UINavigationController()
+        rootNavigationController.setNavigationBarHidden(true, animated: true)
+
+        return rootNavigationController
     }
 }

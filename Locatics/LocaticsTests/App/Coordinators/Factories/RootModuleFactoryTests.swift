@@ -26,4 +26,10 @@ class RootModuleFactoryTests: XCTestCase {
 
         XCTAssertTrue(navController.viewControllers.isEmpty)
     }
+
+    func test_rootNavigationControllerNavBarIsHidden() {
+        let navController = sut.createRootNavigationController()
+
+        XCTAssertTrue(navController.isNavigationBarHidden)
+    }
 }
