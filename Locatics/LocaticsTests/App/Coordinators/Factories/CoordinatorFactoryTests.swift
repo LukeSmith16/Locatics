@@ -24,7 +24,7 @@ class CoordinatorFactoryTests: XCTestCase {
 
     func test_createOnboardingCoordinatorFlowReturnsOnboardingCoordinator() {
         let navController = UINavigationController()
-        let coordinator = sut.createOnboardingCoordinatorFlow(root: navController)
+        let coordinator = sut.createOnboardingFlow(root: navController)
 
         XCTAssertTrue(coordinator.self is OnboardingCoordinator)
         XCTAssertTrue(navController.viewControllers.isEmpty)

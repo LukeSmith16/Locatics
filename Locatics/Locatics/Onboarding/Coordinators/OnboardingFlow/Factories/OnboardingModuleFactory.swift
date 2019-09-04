@@ -14,7 +14,7 @@ protocol OnboardingModuleFactoryInterface {
 
 class OnboardingModuleFactory: OnboardingModuleFactoryInterface {
     func createOnboardingModule(delegate: OnboardingViewModelCoordinatorDelegate?) -> OnboardingViewController {
-        let onboardingViewController = OnboardingViewController()
+        let onboardingViewController = loadOnboardingStoryboard()
         onboardingViewController.onboardingViewModel = createOnboardingViewModel(delegate: delegate)
 
         return onboardingViewController
@@ -22,6 +22,15 @@ class OnboardingModuleFactory: OnboardingModuleFactoryInterface {
 }
 
 private extension OnboardingModuleFactory {
+    func loadOnboardingStoryboard() -> OnboardingViewController {
+        let onboardingSB = UIStoryboard(name: "OnboardingStoryboard", bundle: Bundle.main)
+        guard let onboardingVC = onboardingSB.instantiateInitialViewController() as? OnboardingViewController else {
+            fatalError("Could not load onboarding storyboard properly")
+        }
+
+        return onboardingVC
+    }
+
     func createOnboardingViewModel(delegate: OnboardingViewModelCoordinatorDelegate?) -> OnboardingViewModelInterface {
         let onboardingViewModel = OnboardingViewModel()
         onboardingViewModel.coordinatorDelegate = delegate

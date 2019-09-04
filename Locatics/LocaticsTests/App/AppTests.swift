@@ -11,13 +11,16 @@ import XCTest
 @testable import Locatics
 class AppTests: XCTestCase {
 
+    var window: UIWindow!
     var sut: App!
 
     override func setUp() {
-        sut = App()
+        window = UIWindow()
+        sut = App(window: window)
     }
 
     override func tearDown() {
+        window = nil
         sut = nil
 
         let domain = Bundle.main.bundleIdentifier!
@@ -29,6 +32,10 @@ class AppTests: XCTestCase {
 
     func test_windowIsNotNil() {
         XCTAssertNotNil(sut.window)
+    }
+
+    func test_windowUsesInitWindow() {
+        XCTAssertEqual(sut.window, window)
     }
 
     func test_startApplicationCoordinatorGetsCalledWhenAppStarts() {

@@ -60,7 +60,7 @@ private extension ApplicationCoordinator {
         let rootController = rootModuleFactory.createRootNavigationController()
         window.rootViewController = rootController
 
-        let onboardingCoordinator = coordinatorFactory.createOnboardingCoordinatorFlow(root: rootController)
+        let onboardingCoordinator = coordinatorFactory.createOnboardingFlow(root: rootController)
         onboardingCoordinator.start()
     }
 }

@@ -63,7 +63,7 @@ private extension ApplicationCoordinatorTests {
             self.onboardingCoordinator = onboardingCoordinator
         }
 
-        func createOnboardingCoordinatorFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput {
+        func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput {
             return onboardingCoordinator
         }
     }
