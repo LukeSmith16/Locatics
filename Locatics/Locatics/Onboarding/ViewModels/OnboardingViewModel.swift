@@ -32,7 +32,7 @@ protocol OnboardingViewModelInterface {
 }
 
 class OnboardingViewModel: OnboardingViewModelInterface {
-    weak var coordinatorDelegate: OnboardingViewModelCoordinatorDelegate?
+    var coordinator: OnboardingViewModelCoordinatorDelegate?
     weak var viewDelegate: OnboardingViewModelViewDelegate?
 
     var locationPermissionsManager: LocationPermissionsManagerInterface? {
@@ -56,7 +56,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
             return
         }
 
-        coordinatorDelegate?.goToOnboardingFinished()
+        coordinator?.goToOnboardingFinished()
     }
 
     func handlePermissionsTapped() {
@@ -64,7 +64,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
     }
 
     func handleGoToAppSettings() {
-        coordinatorDelegate?.goToAppSettings()
+        coordinator?.goToAppSettings()
     }
 
     func getInitialPageViewController() -> UIViewController {

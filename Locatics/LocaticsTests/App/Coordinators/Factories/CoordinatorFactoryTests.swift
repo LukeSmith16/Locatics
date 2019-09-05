@@ -22,7 +22,7 @@ class CoordinatorFactoryTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_createOnboardingCoordinatorFlowReturnsOnboardingCoordinator() {
+    func test_createOnboardingCoordinatorFlow_returnsOnboardingCoordinator() {
         let navController = UINavigationController()
         let coordinator = sut.createOnboardingFlow(root: navController)
 

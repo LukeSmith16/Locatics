@@ -67,9 +67,10 @@ extension OnboardingViewController: OnboardingViewModelViewDelegate {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Go to app settings",
                                                 style: .cancel,
-                                                handler: { [weak self] (_) in
-            guard let `self` = self else { return }
+                                                handler: { [unowned self] (_) in
             self.onboardingViewModel?.handleGoToAppSettings()
         }))
+
+        self.present(alertController, animated: true, completion: nil)
     }
 }

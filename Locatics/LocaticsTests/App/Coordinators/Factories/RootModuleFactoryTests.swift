@@ -21,13 +21,13 @@ class RootModuleFactoryTests: XCTestCase {
         sut = nil
     }
 
-    func test_createRootNavigationControllerReturnsEmptyNavigationController() {
+    func test_createRootNavigationController_returnsEmptyNavigationController() {
         let navController = sut.createRootNavigationController()
 
         XCTAssertTrue(navController.viewControllers.isEmpty)
     }
 
-    func test_rootNavigationControllerNavBarIsHidden() {
+    func test_rootNavigationController_navBarisHidden() {
         let navController = sut.createRootNavigationController()
 
         XCTAssertTrue(navController.isNavigationBarHidden)

@@ -34,7 +34,7 @@ private extension OnboardingModuleFactory {
     func createOnboardingViewModel(delegate: OnboardingViewModelCoordinatorDelegate?) -> OnboardingViewModelInterface {
         let onboardingViewModel = OnboardingViewModel()
         onboardingViewModel.locationPermissionsManager = LocationPermissionsManager()
-        onboardingViewModel.coordinatorDelegate = delegate
+        onboardingViewModel.coordinator = delegate
 
         return onboardingViewModel
     }

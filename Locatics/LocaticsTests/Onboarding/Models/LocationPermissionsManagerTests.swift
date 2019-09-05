@@ -27,12 +27,6 @@ class LocationPermissionsManagerTests: XCTestCase {
         XCTAssertNotNil(sut.locationManager)
     }
 
-    func test_hasAuthorizedLocationPermissions_isFalseByDefault() {
-        let authorizedPermissions = sut.hasAuthorizedLocationPermissions()
-
-        XCTAssertFalse(authorizedPermissions)
-    }
-
     func test_didChangeAuthAlways_callsPermissionsGranted() {
         let mockLocationPermissionsManagerDelegate = MockLocationPermissionsManagerDelegate()
         sut.delegate = mockLocationPermissionsManagerDelegate

@@ -31,7 +31,7 @@ class ApplicationCoordinatorTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_onboardingFlowGetsCalledWhenLaunchInstructorIsOnboarding() {
+    func test_onboardingFlowGetsCalledWhenLaunchInstructor_isOnboarding() {
         sut = ApplicationCoordinator(window: window,
                                      launchInstructor: .onboarding,
                                      coordinatorFactory: mockCoordinatorFactory,
@@ -42,7 +42,7 @@ class ApplicationCoordinatorTests: XCTestCase {
         XCTAssertTrue(mockOnboardingCoordinator.startWasCalled)
     }
 
-    func test_windowRootControllerIsNotNilAfterStart() {
+    func test_windowRootControllerIsNotNil_afterStart() {
         sut = ApplicationCoordinator(window: window,
                                      launchInstructor: .onboarding,
                                      coordinatorFactory: mockCoordinatorFactory,

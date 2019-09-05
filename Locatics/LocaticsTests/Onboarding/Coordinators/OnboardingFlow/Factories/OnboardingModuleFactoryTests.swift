@@ -22,7 +22,7 @@ class OnboardingModuleFactoryTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_createOnboardingModuleInjectsViewModelIntoVC() {
+    func test_createOnboardingModule_injectsViewModelIntoVC() {
         let onboardingModule = sut.createOnboardingModule(delegate: nil)
         XCTAssertNotNil(onboardingModule.onboardingViewModel)
     }

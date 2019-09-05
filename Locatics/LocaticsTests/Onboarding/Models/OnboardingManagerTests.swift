@@ -18,11 +18,11 @@ class OnboardingManagerTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_onboardingDefaultIsFalse() {
+    func test_onboardingDefault_isFalse() {
         XCTAssertFalse(OnboardingManager.hasOnboarded())
     }
 
-    func test_onboardingDefaultIsTrueWhenSet() {
+    func test_onboardingDefault_isTrueWhenSet() {
         OnboardingManager.setOnboarding(true)
         XCTAssertTrue(OnboardingManager.hasOnboarded())
     }

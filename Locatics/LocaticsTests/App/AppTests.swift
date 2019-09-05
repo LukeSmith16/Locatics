@@ -30,21 +30,21 @@ class AppTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_windowIsNotNil() {
+    func test_window_isNotNil() {
         XCTAssertNotNil(sut.window)
     }
 
-    func test_windowUsesInitWindow() {
+    func test_window_usesInitWindow() {
         XCTAssertEqual(sut.window, window)
     }
 
-    func test_startApplicationCoordinatorGetsCalledWhenAppStarts() {
+    func test_startApplicationCoordinatorGetsCalled_whenAppStarts() {
         sut.start()
 
         XCTAssertNotNil(sut.applicationCoordinator)
     }
 
-    func test_startCallsMainAppCoordinatorWithConfigForOnboardingFlow() {
+    func test_startCallsMainAppCoordinatorWithConfig_forOnboardingFlow() {
         OnboardingManager.setOnboarding(false)
 
         sut.start()

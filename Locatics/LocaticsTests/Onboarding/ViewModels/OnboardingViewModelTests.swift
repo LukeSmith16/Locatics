@@ -13,32 +13,32 @@ class OnboardingViewModelTests: XCTestCase {
 
     var expectation: XCTestExpectation?
 
-    private var viewDelegate: MockOnboardingViewModelViewDelegate!
+    private var viewBinder: MockOnboardingViewModelViewDelegate!
     private var locationPermManager: MockLocationPermissionsManager!
     var sut: OnboardingViewModel!
 
     override func setUp() {
-        viewDelegate = MockOnboardingViewModelViewDelegate()
+        viewBinder = MockOnboardingViewModelViewDelegate()
         locationPermManager = MockLocationPermissionsManager()
 
         sut = OnboardingViewModel()
-        sut.viewDelegate = viewDelegate
+        sut.viewDelegate = viewBinder
         sut.locationPermissionsManager = locationPermManager
-        sut.coordinatorDelegate = self
+        sut.coordinator = self
     }
 
     override func tearDown() {
         expectation = nil
-        viewDelegate = nil
+        viewBinder = nil
         locationPermManager = nil
         sut = nil
         super.tearDown()
     }
 
-    func test_handleFinishOnboardingCallsGoToOnboardingFinished() {
+    func test_handleFinishOnboardingCalls_goToOnboardingFinished() {
         locationPermManager.authorizePermsState = true
 
-        XCTAssertNotNil(sut.coordinatorDelegate)
+        XCTAssertNotNil(sut.coordinator)
 
         expectation = XCTestExpectation(description: "Wait for goToOnboardingFinished to be called")
         sut.handleFinishOnboarding()
@@ -61,7 +61,7 @@ class OnboardingViewModelTests: XCTestCase {
     }
 
     func test_handleGoToAppSettings_callsGoToAppSettings() {
-        XCTAssertNotNil(sut.coordinatorDelegate)
+        XCTAssertNotNil(sut.coordinator)
 
         expectation = XCTestExpectation(description: "Wait for goToAppSettings to be called")
         sut.handleGoToAppSettings()
@@ -72,7 +72,7 @@ class OnboardingViewModelTests: XCTestCase {
     func test_permissionsDenied_callsViewDelegatePermissionsWereDenied() {
         sut.permissionsDenied()
 
-        XCTAssertTrue(viewDelegate.calledLocationPermissionsWereDenied)
+        XCTAssertTrue(viewBinder.calledLocationPermissionsWereDenied)
     }
 
     func test_getInitialPageVC_isOnboardingWelcomePageVC() {

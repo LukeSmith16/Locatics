@@ -10,11 +10,11 @@ import XCTest
 
 @testable import Locatics
 class LaunchInstructorTests: XCTestCase {
-    func test_launchInstructorFlowsToMainWhenOnboardingTrue() {
+    func test_launchInstructorFlowsToMain_whenOnboardingTrue() {
         XCTAssertTrue(LaunchInstructor.configure(userOnboarded: true) == .main)
     }
 
-    func test_launchInstructorFlowsToOnboardingWhenOnboardingFalse() {
+    func test_launchInstructorFlowsToOnboarding_whenOnboardingFalse() {
         XCTAssertTrue(LaunchInstructor.configure(userOnboarded: false) == .onboarding)
     }
 }
