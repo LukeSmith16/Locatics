@@ -30,9 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "07068475231AD0780023EB27"
@@ -44,6 +42,16 @@
                identifier = "London, England"
                referenceType = "1">
             </LocationScenarioReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0773F7152321708C00EA62E1"
+               BuildableName = "LocaticsUITests.xctest"
+               BlueprintName = "LocaticsUITests"
+               ReferencedContainer = "container:Locatics.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>

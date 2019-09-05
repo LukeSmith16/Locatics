@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Locatics
 class UIColorExtensionsTests: XCTestCase {
-    func test_colorConstValues() {
+    func test_colorConst_values() {
         let background = ColorTheme.Background
         XCTAssertEqual(background.rawValue, "background")
 
@@ -29,7 +29,7 @@ class UIColorExtensionsTests: XCTestCase {
         XCTAssertEqual(title_secondary.rawValue, "title_secondary")
     }
 
-    func test_colorInitReturnsSameColorFromSuperInit() {
+    func test_colorInit_returnsSameColorFromSuperInit() {
         let colorInit = UIColor(colorTheme: .Background)
         let superInit = UIColor(named: "background")
 
