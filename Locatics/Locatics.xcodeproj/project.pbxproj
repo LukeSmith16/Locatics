@@ -27,6 +27,8 @@
 		0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */; };
 		0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */; };
 		0773F70523204A9B00EA62E1 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */; };
+		0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */; };
+		0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -80,6 +82,8 @@
 		0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsPageViewController.swift; sourceTree = "<group>"; };
 		0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGetStartedPageViewController.swift; sourceTree = "<group>"; };
 		0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
+		0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManager.swift; sourceTree = "<group>"; };
+		0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManagerTests.swift; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */,
+				0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */,
+				0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -623,6 +629,7 @@
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
 				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
 				07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */,
+				0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */,
 				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,6 +645,7 @@
 				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,
 				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
 				0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */,
+				0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */,
 				07FC7D92231C147F006CA6E0 /* OnboardingViewModelTests.swift in Sources */,
 				07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */,
 				07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */,

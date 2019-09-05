@@ -11,60 +11,114 @@ import XCTest
 @testable import Locatics
 class OnboardingViewControllerTests: XCTestCase {
 
+    private var viewModel: MockOnboardingViewModel!
     var sut: OnboardingViewController!
 
     override func setUp() {
+        viewModel = MockOnboardingViewModel()
+
         sut = OnboardingViewController()
+        sut.onboardingViewModel = viewModel
+
         _ = sut.view
     }
 
     override func tearDown() {
+        viewModel = nil
         sut = nil
         super.tearDown()
     }
 
-    func test_viewIsNotNil() {
+    func test_view_isNotNil() {
         XCTAssertNotNil(sut.view)
     }
 
-    func test_isPageViewControllerDataSource() {
+    func test_pageViewController_isDataSource() {
         XCTAssertNotNil(sut.dataSource)
     }
 
-    func test_isPageViewControllerDelegate() {
+    func test_pageViewController_isDelegate() {
         XCTAssertNotNil(sut.delegate)
     }
 
-    func test_viewControllerPagesIsNotNil() {
+    func test_doneTapped_callsHandleFinishOnboarding() {
+        sut.doneTapped(UIButton())
+
+        XCTAssertTrue(viewModel.calledHandleFinishOnboarding)
+    }
+
+    func test_permissionsTapped_callsHandlePermissionsTapped() {
+        sut.permissionsTapped(UIButton())
+
+        XCTAssertTrue(viewModel.calledHandlePermissionsTapped)
+    }
+
+    func test_viewControllerPages_isNotNil() {
         XCTAssertNotNil(sut.viewControllers)
         XCTAssertTrue(sut.presentationCount(for: sut) == 4)
     }
 
-    func test_viewControllerPagesAfter() {
-        XCTAssertNil(sut.pageViewController(sut, viewControllerAfter: UIViewController()))
+    func test_pageVCBefore_callsViewModelBeforeVC() {
+        _ = sut.pageViewController(sut, viewControllerBefore: UIViewController())
 
-        XCTAssertTrue(sut.viewControllers!.first! is OnboardingWelcomePageViewController)
-
-        XCTAssertTrue(getPageViewVCAfterVC(sut.pageViewControllers[0]) is OnboardingAboutPageViewController)
-        XCTAssertTrue(getPageViewVCAfterVC(sut.pageViewControllers[1]) is OnboardingPermissionsPageViewController)
-        XCTAssertTrue(getPageViewVCAfterVC(sut.pageViewControllers[2]) is OnboardingGetStartedPageViewController)
+        XCTAssertTrue(viewModel.calledGetPageVCBefore)
     }
 
-    func test_viewControllerPagesBefore() {
-         XCTAssertNil(sut.pageViewController(sut, viewControllerBefore: UIViewController()))
+    func test_pageVCBefore_isViewModelBeforeVC() {
+        let pageVCBefore = sut.pageViewController(sut, viewControllerBefore: UIViewController())
 
-        XCTAssertTrue(getPageViewVCBeforeVC(sut.pageViewControllers[3]) is OnboardingPermissionsPageViewController)
-        XCTAssertTrue(getPageViewVCBeforeVC(sut.pageViewControllers[2]) is OnboardingAboutPageViewController)
-        XCTAssertTrue(getPageViewVCBeforeVC(sut.pageViewControllers[1]) is OnboardingWelcomePageViewController)
+        XCTAssertTrue(pageVCBefore is OnboardingWelcomePageViewController)
+    }
+
+    func test_pageVCBefore_callsViewModelAfterVC() {
+        _ = sut.pageViewController(sut, viewControllerAfter: UIViewController())
+
+        XCTAssertTrue(viewModel.calledGetPageVCAfter)
+    }
+
+    func test_pageVCBefore_isViewModelAfterVC() {
+        let pageVCAfter = sut.pageViewController(sut, viewControllerAfter: UIViewController())
+
+        XCTAssertTrue(pageVCAfter is OnboardingPermissionsPageViewController)
     }
 }
 
 private extension OnboardingViewControllerTests {
-    func getPageViewVCAfterVC(_ viewController: UIViewController) -> UIViewController? {
-        return sut.pageViewController(sut, viewControllerAfter: viewController)
-    }
+    class MockOnboardingViewModel: OnboardingViewModelInterface {
+        var calledHandleFinishOnboarding = false
+        var calledHandlePermissionsTapped = false
 
-    func getPageViewVCBeforeVC(_ viewController: UIViewController) -> UIViewController? {
-        return sut.pageViewController(sut, viewControllerBefore: viewController)
+        var calledGetPageVCBefore = false
+        var calledGetPageVCAfter = false
+
+        weak var viewDelegate: OnboardingViewModelViewDelegate?
+
+        func handleFinishOnboarding() {
+            calledHandleFinishOnboarding = true
+        }
+
+        func handlePermissionsTapped() {
+            calledHandlePermissionsTapped = true
+        }
+
+        func getInitialPageViewController() -> UIViewController {
+            return OnboardingWelcomePageViewController()
+        }
+
+        func pageViewControllerCount() -> Int {
+            return 4
+        }
+
+        func getPageViewController(before viewController: UIViewController) -> UIViewController? {
+            calledGetPageVCBefore = true
+
+            return OnboardingWelcomePageViewController()
+        }
+
+        func getPageViewController(after viewController: UIViewController) -> UIViewController? {
+            calledGetPageVCAfter = true
+
+            return OnboardingPermissionsPageViewController()
+        }
     }
 }
