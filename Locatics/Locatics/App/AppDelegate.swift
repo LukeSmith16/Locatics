@@ -13,7 +13,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+
+    private var app: AppInterface? {
+        didSet {
+            app?.start()
+        }
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if CommandLine.arguments.contains("--uitesting") {
+            resetState()
+        }
+
+        self.window = UIWindow()
+        self.app = App(window: window!)
         return true
+    }
+
+    private func resetState() {
+        let bundleID = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: bundleID)
     }
 }

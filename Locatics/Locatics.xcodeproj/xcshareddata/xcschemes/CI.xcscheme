@@ -45,6 +45,16 @@
                referenceType = "1">
             </LocationScenarioReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0773F7152321708C00EA62E1"
+               BuildableName = "LocaticsUITests.xctest"
+               BlueprintName = "LocaticsUITests"
+               ReferencedContainer = "container:Locatics.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -18,28 +18,28 @@ class UIFontExtensionsTests: XCTestCase {
         XCTAssertEqual(font.pointSize, 18.0)
     }
 
-    func test_installedRegularH2() {
+    func test_installed_regularH2() {
         let font = Font.init(.installed(.HelveticaRegular), size: .standard(.h2)).instance
 
         XCTAssertEqual(font.fontName, "Helvetica")
         XCTAssertEqual(font.pointSize, 16.0)
     }
 
-    func test_installedRegularH3() {
+    func test_installed_regularH3() {
         let font = Font.init(.installed(.HelveticaRegular), size: .standard(.h3)).instance
 
         XCTAssertEqual(font.fontName, "Helvetica")
         XCTAssertEqual(font.pointSize, 12.0)
     }
 
-    func test_installedRegularH4() {
+    func test_installed_regularH4() {
         let font = Font.init(.installed(.HelveticaRegular), size: .standard(.h4)).instance
 
         XCTAssertEqual(font.fontName, "Helvetica")
         XCTAssertEqual(font.pointSize, 9.0)
     }
 
-    func test_installedRegularCustomSize() {
+    func test_installed_regularCustomSize() {
         let font = Font.init(.installed(.HelveticaRegular), size: .custom(20)).instance
 
         XCTAssertEqual(font.fontName, "Helvetica")
