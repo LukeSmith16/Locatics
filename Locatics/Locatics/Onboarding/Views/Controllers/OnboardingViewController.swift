@@ -9,7 +9,11 @@
 import UIKit
 
 class OnboardingViewController: UIPageViewController {
-    var onboardingViewModel: OnboardingViewModelInterface?
+    var onboardingViewModel: OnboardingViewModelInterface? {
+        didSet {
+            onboardingViewModel?.viewDelegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,3 +59,17 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 }
 
 extension OnboardingViewController: UIPageViewControllerDelegate {}
+
+extension OnboardingViewController: OnboardingViewModelViewDelegate {
+    func locationPermissionsWereDenied() {
+        let alertController = UIAlertController(title: "Denied Location Permissions",
+                                                message: "To change permissions navigate to the apps settings.",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Go to app settings",
+                                                style: .cancel,
+                                                handler: { [weak self] (_) in
+            guard let `self` = self else { return }
+            self.onboardingViewModel?.handleGoToAppSettings()
+        }))
+    }
+}

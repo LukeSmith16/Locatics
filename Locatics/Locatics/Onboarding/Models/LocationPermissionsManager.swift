@@ -42,7 +42,7 @@ class LocationPermissionsManager: NSObject, LocationPermissionsManagerInterface 
 
 extension LocationPermissionsManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        guard status == .authorizedAlways else {
+        guard status == .authorizedAlways || status == .authorizedWhenInUse else {
             delegate?.permissionsDenied()
             return
         }

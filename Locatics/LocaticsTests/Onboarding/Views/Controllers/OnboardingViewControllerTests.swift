@@ -85,6 +85,7 @@ class OnboardingViewControllerTests: XCTestCase {
 
 private extension OnboardingViewControllerTests {
     class MockOnboardingViewModel: OnboardingViewModelInterface {
+
         var calledHandleFinishOnboarding = false
         var calledHandlePermissionsTapped = false
 
@@ -100,6 +101,8 @@ private extension OnboardingViewControllerTests {
         func handlePermissionsTapped() {
             calledHandlePermissionsTapped = true
         }
+
+        func handleGoToAppSettings() {}
 
         func getInitialPageViewController() -> UIViewController {
             return OnboardingWelcomePageViewController()

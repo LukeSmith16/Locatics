@@ -25,7 +25,7 @@ class OnboardingCoordinatorTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_startAddsOnboardingVCToStack() {
+    func test_start_addsOnboardingVCToStack() {
         XCTAssertEqual(root.viewControllers.count, 0)
 
         sut.start()
@@ -34,7 +34,7 @@ class OnboardingCoordinatorTests: XCTestCase {
         XCTAssertTrue(root.viewControllers.first! is OnboardingViewController)
     }
 
-    func test_goToOnboardingFinishedCallesFinishedOnboarding() {
+    func test_goToOnboardingFinished_callsFinishedOnboarding() {
         sut = OnboardingCoordinator(root: root, factory: OnboardingModuleFactory())
 
         var calledFinishedOnboarding = false
@@ -46,5 +46,4 @@ class OnboardingCoordinatorTests: XCTestCase {
 
         XCTAssertTrue(calledFinishedOnboarding)
     }
-
 }

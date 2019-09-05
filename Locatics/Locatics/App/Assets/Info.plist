@@ -32,6 +32,14 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Locatics needs to access your location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Locatics needs to access your location ok</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Ok please let us access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>When in use</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -39,4 +39,9 @@ extension OnboardingCoordinator: OnboardingViewModelCoordinatorDelegate {
     func goToOnboardingFinished() {
         finishedOnboarding?()
     }
+
+    func goToAppSettings() {
+        guard let appSettingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(appSettingsURL, options: [:], completionHandler: nil)
+    }
 }

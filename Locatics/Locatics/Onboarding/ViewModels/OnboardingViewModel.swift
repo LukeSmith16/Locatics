@@ -10,6 +10,7 @@ import UIKit
 
 protocol OnboardingViewModelCoordinatorDelegate: class {
     func goToOnboardingFinished()
+    func goToAppSettings()
 }
 
 protocol OnboardingViewModelViewDelegate: class {
@@ -21,6 +22,7 @@ protocol OnboardingViewModelInterface {
 
     func handleFinishOnboarding()
     func handlePermissionsTapped()
+    func handleGoToAppSettings()
 
     func getInitialPageViewController() -> UIViewController
 
@@ -39,7 +41,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
         }
     }
 
-    private lazy var pageViewControllers: [UIViewController] = {
+    lazy var pageViewControllers: [UIViewController] = {
         return [
             self.getViewController(identifier: "OnboardingWelcomePageViewController"),
             self.getViewController(identifier: "OnboardingAboutPageViewController"),
@@ -49,11 +51,20 @@ class OnboardingViewModel: OnboardingViewModelInterface {
     }()
 
     func handleFinishOnboarding() {
+        guard locationPermissionsManager!.hasAuthorizedLocationPermissions() else {
+            handlePermissionsTapped()
+            return
+        }
+
         coordinatorDelegate?.goToOnboardingFinished()
     }
 
     func handlePermissionsTapped() {
         locationPermissionsManager?.authorizeLocationPermissions()
+    }
+
+    func handleGoToAppSettings() {
+        coordinatorDelegate?.goToAppSettings()
     }
 
     func getInitialPageViewController() -> UIViewController {
