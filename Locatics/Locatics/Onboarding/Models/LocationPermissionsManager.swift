@@ -32,7 +32,8 @@ class LocationPermissionsManager: NSObject, LocationPermissionsManagerInterface 
     }
 
     func hasAuthorizedLocationPermissions() -> Bool {
-        return CLLocationManager.authorizationStatus() == .authorizedAlways
+        return CLLocationManager.authorizationStatus() == .authorizedAlways ||
+               CLLocationManager.authorizationStatus() == .authorizedWhenInUse
     }
 
     func authorizeLocationPermissions() {

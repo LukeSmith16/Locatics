@@ -62,14 +62,11 @@ extension OnboardingViewController: UIPageViewControllerDelegate {}
 
 extension OnboardingViewController: OnboardingViewModelViewDelegate {
     func locationPermissionsWereDenied() {
-        let alertController = UIAlertController(title: "Denied Location Permissions",
-                                                message: "To change permissions navigate to the apps settings.",
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Go to app settings",
-                                                style: .cancel,
-                                                handler: { [unowned self] (_) in
-            self.onboardingViewModel?.handleGoToAppSettings()
-        }))
+        let alertController = AlertController.create(title: "Location Permissions",
+                                                     message: "You must allow Locatics to use your location before proceeding",
+                                                     actionTitle: "App Settings") { [unowned self] in
+                                                     self.onboardingViewModel?.handleGoToAppSettings()
+        }
 
         self.present(alertController, animated: true, completion: nil)
     }

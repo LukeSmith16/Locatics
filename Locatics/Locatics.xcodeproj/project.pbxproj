@@ -29,6 +29,8 @@
 		0773F70523204A9B00EA62E1 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */; };
 		0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */; };
 		0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */; };
+		0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70D23216EAD00EA62E1 /* AlertController.swift */; };
+		0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F71023216F6000EA62E1 /* AlertControllerTests.swift */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -84,6 +86,8 @@
 		0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
 		0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManager.swift; sourceTree = "<group>"; };
 		0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManagerTests.swift; sourceTree = "<group>"; };
+		0773F70D23216EAD00EA62E1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		0773F71023216F6000EA62E1 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				0759E89A231BF86900AA987B /* App.swift */,
 				07068471231AD03C0023EB27 /* Assets */,
 				07FC7D63231BFA8A006CA6E0 /* Coordinators */,
+				0773F70C23216E9900EA62E1 /* ViewComponents */,
 				0759E88F231BECE500AA987B /* Extensions+Helpers */,
 			);
 			path = App;
@@ -195,6 +200,7 @@
 			children = (
 				0759E898231BF86100AA987B /* AppTests.swift */,
 				07FC7D67231BFAC5006CA6E0 /* Coordinators */,
+				0773F70F23216F4F00EA62E1 /* ViewComponents */,
 				0759E88E231BECDC00AA987B /* Extensions+Helpers */,
 			);
 			path = App;
@@ -243,6 +249,22 @@
 				0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0773F70C23216E9900EA62E1 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0773F70D23216EAD00EA62E1 /* AlertController.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		0773F70F23216F4F00EA62E1 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0773F71023216F6000EA62E1 /* AlertControllerTests.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		07FC7D63231BFA8A006CA6E0 /* Coordinators */ = {
@@ -624,6 +646,7 @@
 				0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */,
 				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
 				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
+				0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */,
 				0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */,
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
@@ -640,6 +663,7 @@
 			files = (
 				07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */,
 				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
+				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
 				07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */,
 				07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */,
 				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,

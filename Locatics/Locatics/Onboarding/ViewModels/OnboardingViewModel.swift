@@ -35,11 +35,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
     var coordinator: OnboardingViewModelCoordinatorDelegate?
     weak var viewDelegate: OnboardingViewModelViewDelegate?
 
-    var locationPermissionsManager: LocationPermissionsManagerInterface? {
-        didSet {
-            locationPermissionsManager?.delegate = self
-        }
-    }
+    var locationPermissionsManager: LocationPermissionsManagerInterface?
 
     lazy var pageViewControllers: [UIViewController] = {
         return [
@@ -52,7 +48,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
 
     func handleFinishOnboarding() {
         guard locationPermissionsManager!.hasAuthorizedLocationPermissions() else {
-            handlePermissionsTapped()
+            permissionsDenied()
             return
         }
 
@@ -60,6 +56,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
     }
 
     func handlePermissionsTapped() {
+        locationPermissionsManager?.delegate = self
         locationPermissionsManager?.authorizeLocationPermissions()
     }
 

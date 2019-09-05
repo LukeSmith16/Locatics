@@ -46,12 +46,22 @@ class OnboardingViewModelTests: XCTestCase {
         wait(for: [expectation!], timeout: 2)
     }
 
-    func test_handleFinishOnboardingWithoutAuthorizingPerms_callsHandlePermsTapped() {
+    func test_handleFinishOnboardingWithoutAuthorizingPerms_callsPermDenied() {
         XCTAssertFalse(locationPermManager.calledAuthorizeLocationPermissions)
 
         sut.handleFinishOnboarding()
 
-        XCTAssertTrue(locationPermManager.calledAuthorizeLocationPermissions)
+        XCTAssertTrue(viewBinder.calledLocationPermissionsWereDenied)
+    }
+
+    func test_locationPermsManagerDelegate_isNilByDefault() {
+        XCTAssertNil(sut.locationPermissionsManager!.delegate)
+    }
+
+    func test_locationsPermsManagerDelegate_isNotNilAfterHandlePermsTapped() {
+        sut.handlePermissionsTapped()
+
+        XCTAssertNotNil(sut.locationPermissionsManager!.delegate)
     }
 
     func test_handlePermissionsTapped_callsAuthorizeLocationPermissions() {
