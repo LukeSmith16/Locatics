@@ -48,7 +48,7 @@ class ApplicationCoordinator: CoordinatorInterface {
     func start() {
         switch launchInstructor {
         case .main:
-            fatalError("Not implemented yet...")
+            startMainFlow()
         case .onboarding:
             startOnboardingFlow()
         }
@@ -61,6 +61,16 @@ private extension ApplicationCoordinator {
         window.rootViewController = rootController
 
         let onboardingCoordinator = coordinatorFactory.createOnboardingFlow(root: rootController)
+        onboardingCoordinator.finishedOnboarding = { [weak self] in
+            guard let `self` = self else { return }
+            onboardingWasShown = true
+            self.start()
+        }
+
         onboardingCoordinator.start()
+    }
+
+    func startMainFlow() {
+        
     }
 }

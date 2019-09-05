@@ -52,6 +52,10 @@ class ApplicationCoordinatorTests: XCTestCase {
 
         XCTAssertNotNil(window.rootViewController)
     }
+
+    func test_startOnboardingFlowFinished_startsMainFlow() {
+        
+    }
 }
 
 private extension ApplicationCoordinatorTests {
