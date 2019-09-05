@@ -32,6 +32,11 @@ class OnboardingViewModelTests: XCTestCase {
         viewBinder = nil
         locationPermManager = nil
         sut = nil
+
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+
         super.tearDown()
     }
 
@@ -52,6 +57,16 @@ class OnboardingViewModelTests: XCTestCase {
         sut.handleFinishOnboarding()
 
         XCTAssertTrue(viewBinder.calledLocationPermissionsWereDenied)
+    }
+
+    func test_handleFinishOnboarding_setsOnboardingValueTrue() {
+        locationPermManager.authorizePermsState = true
+
+        XCTAssertFalse(OnboardingManager.hasOnboarded())
+
+        sut.handleFinishOnboarding()
+
+        XCTAssertTrue(OnboardingManager.hasOnboarded())
     }
 
     func test_locationPermsManagerDelegate_isNilByDefault() {

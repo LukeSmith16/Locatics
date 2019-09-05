@@ -52,6 +52,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
             return
         }
 
+        OnboardingManager.setOnboarding(true)
         coordinator?.goToOnboardingFinished()
     }
 
