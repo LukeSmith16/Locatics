@@ -31,6 +31,7 @@
 		0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */; };
 		0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70D23216EAD00EA62E1 /* AlertController.swift */; };
 		0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F71023216F6000EA62E1 /* AlertControllerTests.swift */; };
+		0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F721232170A600EA62E1 /* OnboardingUITests.swift */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -51,6 +52,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		0706847B231AD0780023EB27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07068453231AD01B0023EB27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0706845A231AD01B0023EB27;
+			remoteInfo = Locatics;
+		};
+		0773F71B2321708C00EA62E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07068453231AD01B0023EB27 /* Project object */;
 			proxyType = 1;
@@ -88,6 +96,9 @@
 		0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManagerTests.swift; sourceTree = "<group>"; };
 		0773F70D23216EAD00EA62E1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0773F71023216F6000EA62E1 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
+		0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0773F71A2321708C00EA62E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0773F721232170A600EA62E1 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -127,6 +138,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0773F7132321708C00EA62E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +153,7 @@
 			children = (
 				0706845D231AD01B0023EB27 /* Locatics */,
 				07068477231AD0780023EB27 /* LocaticsTests */,
+				0773F7172321708C00EA62E1 /* LocaticsUITests */,
 				0706845C231AD01B0023EB27 /* Products */,
 				77F34425DD14F7DB3B921D57 /* Pods */,
 				25255E8E94C985334A2BE030 /* Frameworks */,
@@ -146,6 +165,7 @@
 			children = (
 				0706845B231AD01B0023EB27 /* Locatics.app */,
 				07068476231AD0780023EB27 /* LocaticsTests.xctest */,
+				0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,6 +285,23 @@
 				0773F71023216F6000EA62E1 /* AlertControllerTests.swift */,
 			);
 			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		0773F7172321708C00EA62E1 /* LocaticsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7202321709900EA62E1 /* Onboarding */,
+				0773F71A2321708C00EA62E1 /* Info.plist */,
+			);
+			path = LocaticsUITests;
+			sourceTree = "<group>";
+		};
+		0773F7202321709900EA62E1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0773F721232170A600EA62E1 /* OnboardingUITests.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		07FC7D63231BFA8A006CA6E0 /* Coordinators */ = {
@@ -505,6 +542,24 @@
 			productReference = 07068476231AD0780023EB27 /* LocaticsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0773F7152321708C00EA62E1 /* LocaticsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0773F71D2321708C00EA62E1 /* Build configuration list for PBXNativeTarget "LocaticsUITests" */;
+			buildPhases = (
+				0773F7122321708C00EA62E1 /* Sources */,
+				0773F7132321708C00EA62E1 /* Frameworks */,
+				0773F7142321708C00EA62E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0773F71C2321708C00EA62E1 /* PBXTargetDependency */,
+			);
+			name = LocaticsUITests;
+			productName = LocaticsUITests;
+			productReference = 0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -521,6 +576,10 @@
 					07068475231AD0780023EB27 = {
 						CreatedOnToolsVersion = 10.3;
 						LastSwiftMigration = 1030;
+						TestTargetID = 0706845A231AD01B0023EB27;
+					};
+					0773F7152321708C00EA62E1 = {
+						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 0706845A231AD01B0023EB27;
 					};
 				};
@@ -540,6 +599,7 @@
 			targets = (
 				0706845A231AD01B0023EB27 /* Locatics */,
 				07068475231AD0780023EB27 /* LocaticsTests */,
+				0773F7152321708C00EA62E1 /* LocaticsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -559,6 +619,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		07068474231AD0780023EB27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0773F7142321708C00EA62E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -678,6 +745,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0773F7122321708C00EA62E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -685,6 +760,11 @@
 			isa = PBXTargetDependency;
 			target = 0706845A231AD01B0023EB27 /* Locatics */;
 			targetProxy = 0706847B231AD0780023EB27 /* PBXContainerItemProxy */;
+		};
+		0773F71C2321708C00EA62E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0706845A231AD01B0023EB27 /* Locatics */;
+			targetProxy = 0773F71B2321708C00EA62E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -901,6 +981,46 @@
 			};
 			name = Release;
 		};
+		0773F71E2321708C00EA62E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = LocaticsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Locatics;
+			};
+			name = Debug;
+		};
+		0773F71F2321708C00EA62E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = LocaticsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Locatics;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -927,6 +1047,15 @@
 			buildConfigurations = (
 				0706847E231AD0780023EB27 /* Debug */,
 				0706847F231AD0780023EB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0773F71D2321708C00EA62E1 /* Build configuration list for PBXNativeTarget "LocaticsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0773F71E2321708C00EA62E1 /* Debug */,
+				0773F71F2321708C00EA62E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
