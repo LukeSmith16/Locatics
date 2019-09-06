@@ -26,12 +26,21 @@
 		0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */; };
 		0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */; };
 		0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */; };
-		0773F70523204A9B00EA62E1 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */; };
+		0773F70523204A9B00EA62E1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F70423204A9B00EA62E1 /* Onboarding.storyboard */; };
 		0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */; };
 		0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */; };
 		0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70D23216EAD00EA62E1 /* AlertController.swift */; };
 		0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F71023216F6000EA62E1 /* AlertControllerTests.swift */; };
 		0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F721232170A600EA62E1 /* OnboardingUITests.swift */; };
+		0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72523226E2700EA62E1 /* TabBarController.swift */; };
+		0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */; };
+		0773F7312322745E00EA62E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F7302322745E00EA62E1 /* Main.storyboard */; };
+		0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */; };
+		0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */; };
+		0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */; };
+		0773F73B23228AA500EA62E1 /* LocaticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */; };
+		0773F73D2322A16A00EA62E1 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */; };
+		0773F73F2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -91,7 +100,7 @@
 		0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAboutPageViewController.swift; sourceTree = "<group>"; };
 		0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsPageViewController.swift; sourceTree = "<group>"; };
 		0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGetStartedPageViewController.swift; sourceTree = "<group>"; };
-		0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
+		0773F70423204A9B00EA62E1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManager.swift; sourceTree = "<group>"; };
 		0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManagerTests.swift; sourceTree = "<group>"; };
 		0773F70D23216EAD00EA62E1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -99,6 +108,15 @@
 		0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0773F71A2321708C00EA62E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0773F721232170A600EA62E1 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
+		0773F72523226E2700EA62E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
+		0773F7302322745E00EA62E1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorTests.swift; sourceTree = "<group>"; };
+		0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapCoordinator.swift; sourceTree = "<group>"; };
+		0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsCoordinator.swift; sourceTree = "<group>"; };
+		0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -176,6 +194,7 @@
 				0759E886231BE08400AA987B /* Launch */,
 				07068470231AD0380023EB27 /* App */,
 				07FC7D7B231C0977006CA6E0 /* Onboarding */,
+				0773F72323226E0500EA62E1 /* Main */,
 				07068484231B02A50023EB27 /* .swiftlint.yml */,
 				07068481231AD19D0023EB27 /* .xcode-version.txt */,
 			);
@@ -210,6 +229,7 @@
 			children = (
 				07068480231AD0830023EB27 /* App */,
 				07FC7D7E231C0996006CA6E0 /* Onboarding */,
+				0773F72723226E8E00EA62E1 /* Main */,
 				0706847A231AD0780023EB27 /* Info.plist */,
 			);
 			path = LocaticsTests;
@@ -250,6 +270,7 @@
 			children = (
 				0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */,
 				0759E894231BF0EF00AA987B /* UIColor+ExtensionsTests.swift */,
+				0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -259,6 +280,7 @@
 			children = (
 				0759E892231BED2400AA987B /* UIFont+Extensions.swift */,
 				0759E896231BF14000AA987B /* UIColor+Extensions.swift */,
+				0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -266,7 +288,7 @@
 		0773F70323204A7D00EA62E1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				0773F70423204A9B00EA62E1 /* OnboardingStoryboard.storyboard */,
+				0773F70423204A9B00EA62E1 /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -302,6 +324,99 @@
 				0773F721232170A600EA62E1 /* OnboardingUITests.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0773F72323226E0500EA62E1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72D23226F4D00EA62E1 /* Coordinators */,
+				0773F72C23226F4700EA62E1 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0773F72423226E0D00EA62E1 /* TabBarFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */,
+				0773F72523226E2700EA62E1 /* TabBarController.swift */,
+			);
+			path = TabBarFlow;
+			sourceTree = "<group>";
+		};
+		0773F72723226E8E00EA62E1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72F23226F5B00EA62E1 /* Coordinators */,
+				0773F72E23226F5800EA62E1 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0773F72823226E9400EA62E1 /* TabBarFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */,
+				0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */,
+			);
+			path = TabBarFlow;
+			sourceTree = "<group>";
+		};
+		0773F72B23226F3C00EA62E1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7302322745E00EA62E1 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0773F72C23226F4700EA62E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72B23226F3C00EA62E1 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0773F72D23226F4D00EA62E1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72423226E0D00EA62E1 /* TabBarFlow */,
+				0773F7362322898D00EA62E1 /* MapFlow */,
+				0773F7372322899500EA62E1 /* LocaticsFlow */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0773F72E23226F5800EA62E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0773F72F23226F5B00EA62E1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72823226E9400EA62E1 /* TabBarFlow */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0773F7362322898D00EA62E1 /* MapFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */,
+			);
+			path = MapFlow;
+			sourceTree = "<group>";
+		};
+		0773F7372322899500EA62E1 /* LocaticsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */,
+			);
+			path = LocaticsFlow;
 			sourceTree = "<group>";
 		};
 		07FC7D63231BFA8A006CA6E0 /* Coordinators */ = {
@@ -609,7 +724,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0773F70523204A9B00EA62E1 /* OnboardingStoryboard.storyboard in Resources */,
+				0773F7312322745E00EA62E1 /* Main.storyboard in Resources */,
+				0773F70523204A9B00EA62E1 /* Onboarding.storyboard in Resources */,
 				07068485231B02A50023EB27 /* .swiftlint.yml in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
@@ -703,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0773F73B23228AA500EA62E1 /* LocaticsCoordinator.swift in Sources */,
 				0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */,
 				07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */,
 				07FC7D88231C0BCA006CA6E0 /* OnboardingModuleFactory.swift in Sources */,
@@ -713,13 +830,17 @@
 				0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */,
 				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
 				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
+				0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */,
 				0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */,
 				0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */,
+				0773F73D2322A16A00EA62E1 /* UIStoryboard+Extensions.swift in Sources */,
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
+				0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */,
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
 				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
 				07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */,
 				0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */,
+				0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */,
 				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,10 +854,13 @@
 				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
 				07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */,
 				07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */,
+				0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */,
+				0773F73F2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift in Sources */,
 				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,
 				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
 				0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */,
 				0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */,
+				0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */,
 				07FC7D92231C147F006CA6E0 /* OnboardingViewModelTests.swift in Sources */,
 				07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */,
 				07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */,
