@@ -40,6 +40,17 @@ class OnboardingViewModelTests: XCTestCase {
         super.tearDown()
     }
 
+    func test_onboardingStoryboardIdentifier_rawValues() {
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingWelcomePageViewController.rawValue,
+                       "OnboardingWelcomePageViewController")
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingAboutPageViewController.rawValue,
+                       "OnboardingAboutPageViewController")
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingPermissionsPageViewController.rawValue,
+                       "OnboardingPermissionsPageViewController")
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingGetStartedPageViewController.rawValue,
+                       "OnboardingGetStartedPageViewController")
+    }
+
     func test_handleFinishOnboardingCalls_goToOnboardingFinished() {
         locationPermManager.authorizePermsState = true
 
