@@ -31,6 +31,13 @@ protocol OnboardingViewModelInterface {
     func getPageViewController(after viewController: UIViewController) -> UIViewController?
 }
 
+enum OnboardingStoryboardIdentifier: String {
+    case onboardingWelcomePageViewController = "OnboardingWelcomePageViewController"
+    case onboardingAboutPageViewController = "OnboardingAboutPageViewController"
+    case onboardingPermissionsPageViewController = "OnboardingPermissionsPageViewController"
+    case onboardingGetStartedPageViewController = "OnboardingGetStartedPageViewController"
+}
+
 class OnboardingViewModel: OnboardingViewModelInterface {
     var coordinator: OnboardingViewModelCoordinatorDelegate?
     weak var viewDelegate: OnboardingViewModelViewDelegate?
@@ -39,10 +46,10 @@ class OnboardingViewModel: OnboardingViewModelInterface {
 
     lazy var pageViewControllers: [UIViewController] = {
         return [
-            self.getViewController(identifier: "OnboardingWelcomePageViewController"),
-            self.getViewController(identifier: "OnboardingAboutPageViewController"),
-            self.getViewController(identifier: "OnboardingPermissionsPageViewController"),
-            self.getViewController(identifier: "OnboardingGetStartedPageViewController")
+            self.getViewController(identifier: .onboardingWelcomePageViewController),
+            self.getViewController(identifier: .onboardingAboutPageViewController),
+            self.getViewController(identifier: .onboardingPermissionsPageViewController),
+            self.getViewController(identifier: .onboardingGetStartedPageViewController)
         ]
     }()
 
@@ -97,11 +104,11 @@ class OnboardingViewModel: OnboardingViewModelInterface {
 }
 
 private extension OnboardingViewModel {
-    func getViewController(identifier: String) -> UIViewController {
-        let onboardingStoryboard = UIStoryboard(name: "OnboardingStoryboard", bundle: Bundle.main)
-        let onboardingVCMatchingIdentifier = onboardingStoryboard.instantiateViewController(withIdentifier: identifier)
+    func getViewController(identifier: OnboardingStoryboardIdentifier) -> UIViewController {
+        let onboardingStoryboard = UIStoryboard.Storyboard.onboarding
+        let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: identifier.rawValue)
 
-        return onboardingVCMatchingIdentifier
+        return onboardingVC
     }
 
     func indexForPageViewController(_ viewController: UIViewController) -> Int {
