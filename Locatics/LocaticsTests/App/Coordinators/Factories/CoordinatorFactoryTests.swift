@@ -26,7 +26,17 @@ class CoordinatorFactoryTests: XCTestCase {
         let navController = UINavigationController()
         let coordinator = sut.createOnboardingFlow(root: navController)
 
-        XCTAssertTrue(coordinator.self is OnboardingCoordinator)
+        XCTAssertTrue(coordinator is OnboardingCoordinator)
         XCTAssertTrue(navController.viewControllers.isEmpty)
+    }
+
+    func test_createMainCoordinatorFlow_returnsTabBarCoordinator() {
+        let tabControllerSB = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let tabBarController = tabControllerSB.instantiateInitialViewController() as? TabBarController
+        let tabController = tabBarController!
+
+        let mainFlow = sut.createMainFlow(root: tabController)
+
+        XCTAssertTrue(mainFlow is TabBarCoordinator)
     }
 }
