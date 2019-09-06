@@ -71,6 +71,17 @@ class TabBarControllerTests: XCTestCase {
         XCTAssertNotNil(mockTabBarControllerClosures.calledController)
     }
 
+    func test_didSelectViewController_returnsIfNavControllerAlreadyExists() {
+        sut = createTabBarController()
+
+        mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
+
+        let navController = UINavigationController(rootViewController: UIViewController())
+        sut.tabBarController(sut, didSelect: navController)
+
+        XCTAssertNil(mockTabBarControllerClosures.calledController)
+    }
+
     func test_didSelectViewController_returnsIfVCIsNotNavController() {
         sut = createTabBarController()
 

@@ -44,12 +44,14 @@ private extension TabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let navController = viewController as? UINavigationController else { return }
+        guard let navigationVC = viewController as? UINavigationController, navigationVC.viewControllers.isEmpty else {
+            return
+        }
 
         if selectedIndex == TabIndex.map.rawValue {
-            onMapFlowSelect?(navController)
+            onMapFlowSelect?(navigationVC)
         } else if selectedIndex == TabIndex.locatics.rawValue {
-            onLocaticsFlowSelect?(navController)
+            onLocaticsFlowSelect?(navigationVC)
         }
     }
 }
