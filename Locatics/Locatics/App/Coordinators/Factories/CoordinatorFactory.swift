@@ -29,12 +29,16 @@ final class CoordinatorFactory: CoordinatorFactoryInterface {
     }
 
     func createMapFlow(root: UINavigationController) -> CoordinatorInterface {
-        let mapCoordinator = LocaticsMapCoordinator()
+        let mapCoordinator = LocaticsMapCoordinator(root: root,
+                                                    coordinatorFactory: CoordinatorFactory(),
+                                                    moduleFactory: LocaticsMapModuleFactory())
         return mapCoordinator
     }
 
     func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
-        let locaticsCoordinator = LocaticsCoordinator()
+        let locaticsCoordinator = LocaticsCoordinator(root: root,
+                                                      coordinatorFactory: CoordinatorFactory(),
+                                                      moduleFactory: LocaticsModuleFactory())
         return locaticsCoordinator
     }
 }

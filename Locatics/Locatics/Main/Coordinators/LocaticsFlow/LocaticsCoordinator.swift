@@ -9,7 +9,26 @@
 import UIKit
 
 class LocaticsCoordinator: CoordinatorInterface {
-    func start() {
+    private let root: UINavigationController
+    private let coordinatorFactory: CoordinatorFactoryInterface
+    private let moduleFactory: LocaticsModuleFactoryInterface
 
+    init(root: UINavigationController,
+         coordinatorFactory: CoordinatorFactoryInterface,
+         moduleFactory: LocaticsModuleFactoryInterface) {
+        self.root = root
+        self.coordinatorFactory = coordinatorFactory
+        self.moduleFactory = moduleFactory
+    }
+
+    func start() {
+        startLocaticsList()
+    }
+}
+
+private extension LocaticsCoordinator {
+    func startLocaticsList() {
+        let locaticsListModule = moduleFactory.createLocaticsListModule()
+        root.setViewControllers([locaticsListModule], animated: true)
     }
 }

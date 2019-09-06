@@ -44,6 +44,22 @@
 		0773F74A2322A72300EA62E1 /* MainUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7492322A72300EA62E1 /* MainUtilities.swift */; };
 		0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */; };
 		0773F74E2322A89A00EA62E1 /* MockPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F74D2322A89A00EA62E1 /* MockPermissionsManager.swift */; };
+		0773F7532322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */; };
+		0773F7572322B8C600EA62E1 /* LocaticsMapModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7562322B8C600EA62E1 /* LocaticsMapModuleFactory.swift */; };
+		0773F7592322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7582322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift */; };
+		0773F75E23230F9200EA62E1 /* LocaticsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F75D23230F9200EA62E1 /* LocaticsMapViewController.swift */; };
+		0773F7632323103400EA62E1 /* LocaticsMapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7622323103400EA62E1 /* LocaticsMapViewControllerTests.swift */; };
+		0773F7662323106200EA62E1 /* LocaticsMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7652323106200EA62E1 /* LocaticsMapViewModelTests.swift */; };
+		0773F76D232310A000EA62E1 /* LocaticsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F76C232310A000EA62E1 /* LocaticsMapViewModel.swift */; };
+		0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */; };
+		0773F775232316F100EA62E1 /* LocaticsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F774232316F100EA62E1 /* LocaticsListViewControllerTests.swift */; };
+		0773F7772323170000EA62E1 /* LocaticsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7762323170000EA62E1 /* LocaticsListViewController.swift */; };
+		0773F7792323171C00EA62E1 /* LocaticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7782323171C00EA62E1 /* LocaticsViewModel.swift */; };
+		0773F77B2323172800EA62E1 /* LocaticsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F77A2323172800EA62E1 /* LocaticsViewModelTests.swift */; };
+		0773F77E2323179000EA62E1 /* LocaticsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F77D2323179000EA62E1 /* LocaticsModuleFactory.swift */; };
+		0773F781232317A500EA62E1 /* LocaticsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F780232317A500EA62E1 /* LocaticsCoordinatorTests.swift */; };
+		0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F782232317B400EA62E1 /* LocaticsModuleFactoryTests.swift */; };
+		0773F7852323193E00EA62E1 /* LocaticsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0773F7842323193E00EA62E1 /* LocaticsListViewController.xib */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -123,6 +139,22 @@
 		0773F7492322A72300EA62E1 /* MainUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUtilities.swift; sourceTree = "<group>"; };
 		0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinatorFactory.swift; sourceTree = "<group>"; };
 		0773F74D2322A89A00EA62E1 /* MockPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPermissionsManager.swift; sourceTree = "<group>"; };
+		0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapCoordinatorTests.swift; sourceTree = "<group>"; };
+		0773F7562322B8C600EA62E1 /* LocaticsMapModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapModuleFactory.swift; sourceTree = "<group>"; };
+		0773F7582322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapModuleFactoryTests.swift; sourceTree = "<group>"; };
+		0773F75D23230F9200EA62E1 /* LocaticsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewController.swift; sourceTree = "<group>"; };
+		0773F7622323103400EA62E1 /* LocaticsMapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewControllerTests.swift; sourceTree = "<group>"; };
+		0773F7652323106200EA62E1 /* LocaticsMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModelTests.swift; sourceTree = "<group>"; };
+		0773F76C232310A000EA62E1 /* LocaticsMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModel.swift; sourceTree = "<group>"; };
+		0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocaticsMapViewController.xib; sourceTree = "<group>"; };
+		0773F774232316F100EA62E1 /* LocaticsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsListViewControllerTests.swift; sourceTree = "<group>"; };
+		0773F7762323170000EA62E1 /* LocaticsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsListViewController.swift; sourceTree = "<group>"; };
+		0773F7782323171C00EA62E1 /* LocaticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsViewModel.swift; sourceTree = "<group>"; };
+		0773F77A2323172800EA62E1 /* LocaticsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsViewModelTests.swift; sourceTree = "<group>"; };
+		0773F77D2323179000EA62E1 /* LocaticsModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsModuleFactory.swift; sourceTree = "<group>"; };
+		0773F780232317A500EA62E1 /* LocaticsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsCoordinatorTests.swift; sourceTree = "<group>"; };
+		0773F782232317B400EA62E1 /* LocaticsModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsModuleFactoryTests.swift; sourceTree = "<group>"; };
+		0773F7842323193E00EA62E1 /* LocaticsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocaticsListViewController.xib; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -337,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F72D23226F4D00EA62E1 /* Coordinators */,
+				0773F7672323107500EA62E1 /* ViewModels */,
 				0773F72C23226F4700EA62E1 /* Views */,
 			);
 			path = Main;
@@ -355,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F72F23226F5B00EA62E1 /* Coordinators */,
+				0773F7642323104500EA62E1 /* ViewModels */,
 				0773F72E23226F5800EA62E1 /* Views */,
 				0773F7432322A6C000EA62E1 /* TestHelpers */,
 			);
@@ -381,7 +415,9 @@
 		0773F72C23226F4700EA62E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0773F75C23230F7C00EA62E1 /* Controllers */,
 				0773F72B23226F3C00EA62E1 /* Storyboards */,
+				0773F76E2323154900EA62E1 /* XIBs */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +435,7 @@
 		0773F72E23226F5800EA62E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0773F7602323101E00EA62E1 /* Controllers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +444,8 @@
 			isa = PBXGroup;
 			children = (
 				0773F72823226E9400EA62E1 /* TabBarFlow */,
+				0773F7502322B7F000EA62E1 /* MapFlow */,
+				0773F7512322B7F500EA62E1 /* LocaticsFlow */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -415,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */,
+				0773F7552322B8AA00EA62E1 /* Factories */,
 			);
 			path = MapFlow;
 			sourceTree = "<group>";
@@ -423,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */,
+				0773F77C2323176A00EA62E1 /* Factories */,
 			);
 			path = LocaticsFlow;
 			sourceTree = "<group>";
@@ -497,6 +538,181 @@
 			children = (
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0773F7502322B7F000EA62E1 /* MapFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */,
+				0773F7542322B89300EA62E1 /* Factories */,
+			);
+			path = MapFlow;
+			sourceTree = "<group>";
+		};
+		0773F7512322B7F500EA62E1 /* LocaticsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F780232317A500EA62E1 /* LocaticsCoordinatorTests.swift */,
+				0773F77F2323179800EA62E1 /* Factories */,
+			);
+			path = LocaticsFlow;
+			sourceTree = "<group>";
+		};
+		0773F7542322B89300EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7582322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F7552322B8AA00EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7562322B8C600EA62E1 /* LocaticsMapModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F75A23230F6600EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F75D23230F9200EA62E1 /* LocaticsMapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F75B23230F6B00EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7762323170000EA62E1 /* LocaticsListViewController.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F75C23230F7C00EA62E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F75A23230F6600EA62E1 /* Map */,
+				0773F75B23230F6B00EA62E1 /* Locatics */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0773F7602323101E00EA62E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7612323102800EA62E1 /* Map */,
+				0773F773232316D800EA62E1 /* Locatics */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0773F7612323102800EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7622323103400EA62E1 /* LocaticsMapViewControllerTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F7642323104500EA62E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7692323108000EA62E1 /* Map */,
+				0773F76A2323108800EA62E1 /* Locatics */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0773F7672323107500EA62E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7682323107E00EA62E1 /* Map */,
+				0773F76B2323109200EA62E1 /* Locatics */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0773F7682323107E00EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F76C232310A000EA62E1 /* LocaticsMapViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F7692323108000EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7652323106200EA62E1 /* LocaticsMapViewModelTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F76A2323108800EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F77A2323172800EA62E1 /* LocaticsViewModelTests.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F76B2323109200EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7782323171C00EA62E1 /* LocaticsViewModel.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F76E2323154900EA62E1 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				0773F76F2323155B00EA62E1 /* Map */,
+				0773F7702323155E00EA62E1 /* Locatics */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		0773F76F2323155B00EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F7702323155E00EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7842323193E00EA62E1 /* LocaticsListViewController.xib */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F773232316D800EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F774232316F100EA62E1 /* LocaticsListViewControllerTests.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F77C2323176A00EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F77D2323179000EA62E1 /* LocaticsModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F77F2323179800EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F782232317B400EA62E1 /* LocaticsModuleFactoryTests.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		07FC7D63231BFA8A006CA6E0 /* Coordinators */ = {
@@ -810,8 +1026,10 @@
 				07068485231B02A50023EB27 /* .swiftlint.yml in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
+				0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
 				07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */,
+				0773F7852323193E00EA62E1 /* LocaticsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,12 +1125,14 @@
 				0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */,
 				0759E89B231BF86900AA987B /* App.swift in Sources */,
 				07FC7D82231C09C2006CA6E0 /* OnboardingCoordinator.swift in Sources */,
+				0773F7572322B8C600EA62E1 /* LocaticsMapModuleFactory.swift in Sources */,
 				07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */,
 				0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */,
 				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
 				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
 				0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */,
 				0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */,
+				0773F75E23230F9200EA62E1 /* LocaticsMapViewController.swift in Sources */,
 				0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */,
 				0773F73D2322A16A00EA62E1 /* UIStoryboard+Extensions.swift in Sources */,
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
@@ -921,8 +1141,12 @@
 				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
 				07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */,
 				0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */,
+				0773F76D232310A000EA62E1 /* LocaticsMapViewModel.swift in Sources */,
+				0773F7792323171C00EA62E1 /* LocaticsViewModel.swift in Sources */,
 				0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */,
 				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
+				0773F77E2323179000EA62E1 /* LocaticsModuleFactory.swift in Sources */,
+				0773F7772323170000EA62E1 /* LocaticsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,22 +1154,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0773F77B2323172800EA62E1 /* LocaticsViewModelTests.swift in Sources */,
 				07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */,
+				0773F7532322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift in Sources */,
 				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
 				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
 				07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */,
 				07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */,
 				0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */,
+				0773F7592322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift in Sources */,
 				0773F73F2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift in Sources */,
 				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,
 				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
+				0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */,
 				0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */,
+				0773F781232317A500EA62E1 /* LocaticsCoordinatorTests.swift in Sources */,
 				0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */,
 				0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */,
 				0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */,
 				07FC7D92231C147F006CA6E0 /* OnboardingViewModelTests.swift in Sources */,
+				0773F7632323103400EA62E1 /* LocaticsMapViewControllerTests.swift in Sources */,
+				0773F7662323106200EA62E1 /* LocaticsMapViewModelTests.swift in Sources */,
 				07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */,
 				07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */,
+				0773F775232316F100EA62E1 /* LocaticsListViewControllerTests.swift in Sources */,
 				0773F74E2322A89A00EA62E1 /* MockPermissionsManager.swift in Sources */,
 				0759E895231BF0EF00AA987B /* UIColor+ExtensionsTests.swift in Sources */,
 				0759E899231BF86100AA987B /* AppTests.swift in Sources */,

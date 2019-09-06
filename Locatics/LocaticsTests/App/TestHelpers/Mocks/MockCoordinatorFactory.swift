@@ -34,12 +34,16 @@ class MockCoordinatorFactory: CoordinatorFactoryInterface {
 
     func createMapFlow(root: UINavigationController) -> CoordinatorInterface {
         calledCreateMapFlow = true
-        return LocaticsMapCoordinator()
+        return LocaticsMapCoordinator(root: root,
+                                     coordinatorFactory: CoordinatorFactory(),
+                                     moduleFactory: LocaticsMapModuleFactory())
     }
 
     func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
         calledCreateLocaticsFlow = true
-        return LocaticsCoordinator()
+        return LocaticsCoordinator(root: root,
+                                   coordinatorFactory: CoordinatorFactory(),
+                                   moduleFactory: LocaticsModuleFactory())
     }
 }
 

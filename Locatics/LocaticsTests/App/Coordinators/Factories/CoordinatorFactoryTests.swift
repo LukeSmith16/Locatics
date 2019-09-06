@@ -39,4 +39,20 @@ class CoordinatorFactoryTests: XCTestCase {
 
         XCTAssertTrue(mainFlow is TabBarCoordinator)
     }
+
+    func test_createMapCoordinatorFlow_returnsLocaticsMapCoordinator() {
+        let navController = UINavigationController()
+
+        let locaticsMapFlow = sut.createMapFlow(root: navController)
+
+        XCTAssertTrue(locaticsMapFlow is LocaticsMapCoordinator)
+    }
+
+    func test_createLocaticsCoordinatorFlow_returnsLocaticsCoordinator() {
+        let navController = UINavigationController()
+
+        let locaticsMapFlow = sut.createLocaticsFlow(root: navController)
+
+        XCTAssertTrue(locaticsMapFlow is LocaticsCoordinator)
+    }
 }
