@@ -10,6 +10,10 @@ import UIKit
 
 protocol CoordinatorFactoryInterface: class {
     func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput
+
+    func createMainFlow(root: TabBarControllerInterface) -> CoordinatorInterface
+    func createMapFlow(root: UINavigationController) -> CoordinatorInterface
+    func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface
 }
 
 final class CoordinatorFactory: CoordinatorFactoryInterface {
@@ -17,5 +21,20 @@ final class CoordinatorFactory: CoordinatorFactoryInterface {
         let onboardingCoordinator = OnboardingCoordinator(root: root,
                                                           factory: OnboardingModuleFactory())
         return onboardingCoordinator
+    }
+
+    func createMainFlow(root: TabBarControllerInterface) -> CoordinatorInterface {
+        let tabBarCoordinator = TabBarCoordinator(tabBarController: root, coordinatorFactory: CoordinatorFactory())
+        return tabBarCoordinator
+    }
+
+    func createMapFlow(root: UINavigationController) -> CoordinatorInterface {
+        let mapCoordinator = LocaticsMapCoordinator()
+        return mapCoordinator
+    }
+
+    func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
+        let locaticsCoordinator = LocaticsCoordinator()
+        return locaticsCoordinator
     }
 }

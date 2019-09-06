@@ -8,8 +8,6 @@
 
 import UIKit
 
-private var onboardingWasShown = false
-
 enum LaunchInstructor {
     case main, onboarding
 
@@ -34,6 +32,8 @@ class ApplicationCoordinator: CoordinatorInterface {
 
     private let rootModuleFactory: RootModuleFactoryInterface
     private let coordinatorFactory: CoordinatorFactoryInterface
+
+    private var childCoordinators: [CoordinatorInterface] = []
 
     init(window: UIWindow,
          launchInstructor: LaunchInstructor,
@@ -63,14 +63,21 @@ private extension ApplicationCoordinator {
         let onboardingCoordinator = coordinatorFactory.createOnboardingFlow(root: rootController)
         onboardingCoordinator.finishedOnboarding = { [weak self] in
             guard let `self` = self else { return }
-            onboardingWasShown = true
-            self.start()
+            self.startMainFlow()
         }
 
         onboardingCoordinator.start()
     }
 
     func startMainFlow() {
-        
+        guard let rootTabBarController = rootModuleFactory.createTabBarController() as? TabBarController else {
+            fatalError("RootTabBarController should be of type TabBarController")
+        }
+
+        let tabBarCoordinator = coordinatorFactory.createMainFlow(root: rootTabBarController)
+        tabBarCoordinator.start()
+
+        childCoordinators.append(tabBarCoordinator)
+        window.rootViewController = rootTabBarController
     }
 }
