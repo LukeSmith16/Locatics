@@ -167,25 +167,6 @@ extension OnboardingViewModelTests: OnboardingViewModelCoordinatorDelegate {
 }
 
 private extension OnboardingViewModelTests {
-    class MockLocationPermissionsManager: LocationPermissionsManagerInterface {
-
-        var calledHasAuthorizedLocationPermissions = false
-        var calledAuthorizeLocationPermissions = false
-
-        var authorizePermsState = false
-
-        weak var delegate: LocationPermissionsManagerDelegate?
-
-        func hasAuthorizedLocationPermissions() -> Bool {
-            calledHasAuthorizedLocationPermissions = true
-            return authorizePermsState
-        }
-
-        func authorizeLocationPermissions() {
-            calledAuthorizeLocationPermissions = true
-        }
-    }
-
     class MockOnboardingViewModelViewDelegate: OnboardingViewModelViewDelegate {
         var calledLocationPermissionsWereDenied = false
 

@@ -62,28 +62,4 @@ private extension TabBarCoordinatorTests {
             onLocaticsFlowSelect?(UINavigationController())
         }
     }
-
-    class MockCoordinatorFactory: CoordinatorFactoryInterface {
-
-        var calledCreateMapFlow = false
-        var calledCreateLocaticsFlow = false
-
-        func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput {
-            return OnboardingCoordinator(root: root, factory: OnboardingModuleFactory())
-        }
-
-        func createMapFlow(root: UINavigationController) -> CoordinatorInterface {
-            calledCreateMapFlow = true
-            return LocaticsMapCoordinator()
-        }
-
-        func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
-            calledCreateLocaticsFlow = true
-            return LocaticsCoordinator()
-        }
-
-        func createMainFlow(root: TabBarControllerInterface) -> CoordinatorInterface {
-            return TabBarCoordinator(tabBarController: root, coordinatorFactory: CoordinatorFactory())
-        }
-    }
 }

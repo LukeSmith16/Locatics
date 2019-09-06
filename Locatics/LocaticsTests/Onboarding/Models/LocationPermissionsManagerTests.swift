@@ -45,18 +45,3 @@ class LocationPermissionsManagerTests: XCTestCase {
         XCTAssertTrue(mockLocationPermissionsManagerDelegate.calledPermissionsDenied)
     }
 }
-
-private extension LocationPermissionsManagerTests {
-    class MockLocationPermissionsManagerDelegate: LocationPermissionsManagerDelegate {
-        var calledPermissionsGranted = false
-        var calledPermissionsDenied = false
-
-        func permissionsGranted() {
-            calledPermissionsGranted = true
-        }
-
-        func permissionsDenied() {
-            calledPermissionsDenied = true
-        }
-    }
-}

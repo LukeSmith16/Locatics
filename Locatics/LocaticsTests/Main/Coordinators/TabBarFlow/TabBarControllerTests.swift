@@ -17,7 +17,7 @@ class TabBarControllerTests: XCTestCase {
     override func setUp() {
         mockTabBarControllerClosures = MockTabBarControllerClosure()
 
-        sut = createSUT()
+        sut = createTabBarController()
 
         _ = sut.view
     }
@@ -26,13 +26,6 @@ class TabBarControllerTests: XCTestCase {
         sut = nil
         mockTabBarControllerClosures = nil
         super.tearDown()
-    }
-
-    private func createSUT() -> TabBarController {
-        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        sut = mainStoryboard.instantiateInitialViewController() as? TabBarController
-
-        return sut
     }
 
     func test_tabIndex_rawValues() {
@@ -50,7 +43,7 @@ class TabBarControllerTests: XCTestCase {
     }
 
     func test_initialTabSelected_isMapFlow() {
-        sut = createSUT()
+        sut = createTabBarController()
 
         mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
         mockTabBarControllerClosures.addLocaticsSelectClosure(sut: sut)
@@ -64,7 +57,7 @@ class TabBarControllerTests: XCTestCase {
     }
 
     func test_onMapTabSelect_callsMapClosureWithNavController() {
-        sut = createSUT()
+        sut = createTabBarController()
         sut.selectedIndex = 1
 
         mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
@@ -79,7 +72,7 @@ class TabBarControllerTests: XCTestCase {
     }
 
     func test_didSelectViewController_returnsIfVCIsNotNavController() {
-        sut = createSUT()
+        sut = createTabBarController()
 
         mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
 
@@ -89,7 +82,7 @@ class TabBarControllerTests: XCTestCase {
     }
 
     func test_didSelectViewController_callsMapClosureWithNavController() {
-        sut = createSUT()
+        sut = createTabBarController()
         sut.selectedIndex = 1
 
         mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
@@ -103,7 +96,7 @@ class TabBarControllerTests: XCTestCase {
     }
 
     func test_onLocaticsTabSelect_callsLocaticsClosureWithNavController() {
-        sut = createSUT()
+        sut = createTabBarController()
         sut.selectedIndex = 0
 
         mockTabBarControllerClosures.addLocaticsSelectClosure(sut: sut)
