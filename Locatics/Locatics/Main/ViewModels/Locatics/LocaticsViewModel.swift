@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol LocaticsViewModelInterface {
+protocol LocaticsViewModelInterface {}
 
-}
-
-class LocaticsViewModel: LocaticsViewModelInterface {
-
-}
+class LocaticsViewModel: LocaticsViewModelInterface {}

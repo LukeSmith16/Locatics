@@ -9,9 +9,16 @@
 import Foundation
 
 protocol LocaticsMapViewModelInterface: class {
-
+    func getMainTitle() -> String
+    func getSubtitle() -> String
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
+    func getMainTitle() -> String {
+        return ""
+    }
 
+    func getSubtitle() -> String {
+        return ""
+    }
 }
