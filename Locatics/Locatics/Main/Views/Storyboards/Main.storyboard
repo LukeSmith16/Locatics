@@ -29,7 +29,7 @@
         <!--Item-->
         <scene sceneID="73S-Ky-fJw">
             <objects>
-                <navigationController id="8Dz-Xy-JrO" sceneMemberID="viewController">
+                <navigationController id="8Dz-Xy-JrO" customClass="NavigationViewController" customModule="Locatics" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="zEQ-GY-RMM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Emq-vj-BmX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -43,7 +43,7 @@
         <!--Item-->
         <scene sceneID="mzu-jb-KWj">
             <objects>
-                <navigationController id="Cm8-JZ-tPZ" sceneMemberID="viewController">
+                <navigationController id="Cm8-JZ-tPZ" customClass="NavigationViewController" customModule="Locatics" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="dqk-GO-dT4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tFl-LB-CdU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
