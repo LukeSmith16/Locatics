@@ -33,8 +33,8 @@ class MockLocationManager: LocationManagerInterface {
 }
 
 class MockLocationProvider: LocationProviderInterface {
-    var delegate: CLLocationManagerDelegate?
-    
+    weak var delegate: CLLocationManagerDelegate?
+
     var calledRequestLocation = false
 
     func requestLocation() {
