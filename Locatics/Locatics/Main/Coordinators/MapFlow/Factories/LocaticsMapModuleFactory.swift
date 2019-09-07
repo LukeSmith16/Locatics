@@ -14,6 +14,16 @@ protocol LocaticsMapModuleFactoryInterface: class {
 
 class LocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
     func createLocaticsMapModule() -> LocaticsMapViewController {
-        return LocaticsMapViewController()
+        let locaticsMapModule = LocaticsMapViewController()
+        locaticsMapModule.locaticsMapViewModel = createLocaticsMapViewModel()
+
+        return locaticsMapModule
+    }
+}
+
+private extension LocaticsMapModuleFactory {
+    func createLocaticsMapViewModel() -> LocaticsMapViewModelInterface {
+        let locaticsMapViewModel = LocaticsMapViewModel()
+        return locaticsMapViewModel
     }
 }
