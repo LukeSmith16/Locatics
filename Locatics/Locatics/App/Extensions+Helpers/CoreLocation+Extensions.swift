@@ -18,7 +18,15 @@ extension CLLocation: LocationData {}
 
 protocol LocationProviderInterface {
     var delegate: CLLocationManagerDelegate? {get set}
+    var allowsBackgroundLocationUpdates: Bool {get set}
     func requestLocation()
+    func startMonitoringVisits()
 }
 
 extension CLLocationManager: LocationProviderInterface {}
+
+protocol LocationGeocoderInterface {
+    func reverseGeocodeLocation(_ location: CLLocation, completionHandler: @escaping CLGeocodeCompletionHandler)
+}
+
+extension CLGeocoder: LocationGeocoderInterface {}
