@@ -10,11 +10,14 @@ import CoreLocation
 
 enum LocationError: Error {
     case locationNotFound
+    case notAuthorised
 
     var localizedDescription: String {
         switch self {
         case .locationNotFound:
             return "Your location could not be determined."
+        case .notAuthorised:
+            return "You have not enabled loction permissions."
         }
     }
 }
@@ -25,32 +28,42 @@ protocol LocationManagerInterface: class {
 }
 
 protocol LocationManagerDelegate: class {
-    func userDidEnterNewRegion(_ locationName: String)
+    func locationPermissionsNotAuthorised()
 }
 
 class LocationManager: NSObject, LocationManagerInterface {
-    weak var locationDelegate: LocationManagerDelegate?
+    weak var locationDelegate: LocationManagerDelegate? {
+        didSet {
+            setupLocationProvider()
+        }
+    }
 
     var locationProvider: LocationProviderInterface
     let locationGeocoder: LocationGeocoderInterface
     let locationStorage: LocationStorageInterface
+    let locationPermissions: LocationPermissionsManagerInterface
 
     private var findCurrentLocationCompletion: (Result<LocationData, LocationError>) -> Void
 
     init(locationProvider: LocationProviderInterface,
          locationGeocoder: LocationGeocoderInterface,
-         locationStorage: LocationStorageInterface) {
+         locationStorage: LocationStorageInterface,
+         locationPermissions: LocationPermissionsManagerInterface) {
         self.locationProvider = locationProvider
         self.locationGeocoder = locationGeocoder
         self.locationStorage = locationStorage
+        self.locationPermissions = locationPermissions
         self.findCurrentLocationCompletion = { (result) in }
 
         super.init()
-
-        setupLocationProvider()
     }
 
     func findCurrentLocation(completion: @escaping (Result<LocationData, LocationError>) -> Void) {
+        guard isLocationPermissionsAuthorised() else {
+            completion(.failure(.notAuthorised))
+            return
+        }
+
         findCurrentLocationCompletion = completion
         locationProvider.requestLocation()
     }
@@ -58,9 +71,18 @@ class LocationManager: NSObject, LocationManagerInterface {
 
 private extension LocationManager {
     func setupLocationProvider() {
+        guard isLocationPermissionsAuthorised() else {
+            locationDelegate?.locationPermissionsNotAuthorised()
+            return
+        }
+
         locationProvider.delegate = self
         locationProvider.allowsBackgroundLocationUpdates = true
         locationProvider.startMonitoringVisits()
+    }
+
+    func isLocationPermissionsAuthorised() -> Bool {
+        return locationPermissions.hasAuthorizedLocationPermissions()
     }
 }
 

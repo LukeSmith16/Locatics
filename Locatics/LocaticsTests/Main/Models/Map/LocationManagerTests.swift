@@ -16,6 +16,7 @@ class LocationManagerTests: XCTestCase {
     private var mockLocationProvider: MockLocationProvider!
     private var mockLocationGeocoder: MockLocationGeocoder!
     private var mockLocationStorage: MockLocationStorage!
+    private var mockLocationPermissionsManager: MockLocationPermissionsManager!
 
     var sut: LocationManager!
 
@@ -24,10 +25,13 @@ class LocationManagerTests: XCTestCase {
         mockLocationProvider = MockLocationProvider()
         mockLocationGeocoder = MockLocationGeocoder()
         mockLocationStorage = MockLocationStorage()
+        mockLocationPermissionsManager = MockLocationPermissionsManager()
+        mockLocationPermissionsManager.authorizePermsState = true
 
         sut = LocationManager(locationProvider: mockLocationProvider,
                               locationGeocoder: mockLocationGeocoder,
-                              locationStorage: mockLocationStorage)
+                              locationStorage: mockLocationStorage,
+                              locationPermissions: mockLocationPermissionsManager)
         sut.locationDelegate = mockLocationManagerObserver
     }
 
@@ -36,12 +40,15 @@ class LocationManagerTests: XCTestCase {
         mockLocationProvider = nil
         mockLocationManagerObserver = nil
         mockLocationStorage = nil
+        mockLocationPermissionsManager = nil
         super.tearDown()
     }
 
     func test_locationError_values() {
         XCTAssertEqual(LocationError.locationNotFound.localizedDescription,
                        "Your location could not be determined.")
+        XCTAssertEqual(LocationError.notAuthorised.localizedDescription,
+                       "You have not enabled loction permissions.")
     }
 
     func test_locationProvider_allowsBackgroundLocationUpdates() {
@@ -114,14 +121,37 @@ class LocationManagerTests: XCTestCase {
 
         XCTAssertTrue(mockLocationStorage.calledSaveLocationOnDisk)
     }
+
+    func test_findCurrentLocation_callsPermsNotAuthorisedDelegateIfNotAuthorised() {
+        mockLocationManagerObserver.calledLocationPermissionsNotAuthorised = false
+        mockLocationPermissionsManager.authorizePermsState = false
+
+        sut.findCurrentLocation { (result) in
+            switch result {
+            case .success(let success):
+                XCTFail("Should not be getting location if not authorised - \(success.coordinate)")
+            case .failure(let failure):
+                XCTAssertEqual(failure.localizedDescription, "You have not enabled loction permissions.")
+            }
+        }
+    }
+
+    func test_settingLocationDelegate_callsPermsNotAuthorisedIfNotAuthorised() {
+        mockLocationManagerObserver.calledLocationPermissionsNotAuthorised = false
+        mockLocationPermissionsManager.authorizePermsState = false
+
+        sut.locationDelegate = mockLocationManagerObserver
+
+        XCTAssertTrue(mockLocationManagerObserver.calledLocationPermissionsNotAuthorised)
+    }
 }
 
 private extension LocationManagerTests {
     class MockLocationManagerDelegate: LocationManagerDelegate {
-        var calledUserDidEnterNewRegion = false
+        var calledLocationPermissionsNotAuthorised = false
 
-        func userDidEnterNewRegion(_ locationName: String) {
-            calledUserDidEnterNewRegion = true
+        func locationPermissionsNotAuthorised() {
+            calledLocationPermissionsNotAuthorised = true
         }
     }
 
