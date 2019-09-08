@@ -78,6 +78,7 @@
 		0773F7AD2325492B00EA62E1 /* AppFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7AC2325492B00EA62E1 /* AppFileSystem.swift */; };
 		0773F7B0232558B700EA62E1 /* AppFileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */; };
 		0773F7B22325666100EA62E1 /* LocationStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7B12325666100EA62E1 /* LocationStorageTests.swift */; };
+		0773F7B423257E0500EA62E1 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7B323257E0500EA62E1 /* LocationTests.swift */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -191,6 +192,7 @@
 		0773F7AC2325492B00EA62E1 /* AppFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileSystem.swift; sourceTree = "<group>"; };
 		0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileSystemTests.swift; sourceTree = "<group>"; };
 		0773F7B12325666100EA62E1 /* LocationStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorageTests.swift; sourceTree = "<group>"; };
+		0773F7B323257E0500EA62E1 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 			children = (
 				0773F7A1232430EF00EA62E1 /* LocationManagerTests.swift */,
 				0773F7B12325666100EA62E1 /* LocationStorageTests.swift */,
+				0773F7B323257E0500EA62E1 /* LocationTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1303,6 +1306,7 @@
 				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
 				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
 				0773F7872323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift in Sources */,
+				0773F7B423257E0500EA62E1 /* LocationTests.swift in Sources */,
 				07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */,
 				07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */,
 				0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */,
