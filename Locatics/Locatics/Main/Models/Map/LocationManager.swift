@@ -30,22 +30,37 @@ protocol LocationManagerDelegate: class {
 
 class LocationManager: NSObject, LocationManagerInterface {
     weak var locationDelegate: LocationManagerDelegate?
+
     var locationProvider: LocationProviderInterface
+    let locationGeocoder: LocationGeocoderInterface
+    let locationStorage: LocationStorageInterface
 
     private var findCurrentLocationCompletion: (Result<LocationData, LocationError>) -> Void
 
-    init(locationProvider: LocationProviderInterface) {
+    init(locationProvider: LocationProviderInterface,
+         locationGeocoder: LocationGeocoderInterface,
+         locationStorage: LocationStorageInterface) {
         self.locationProvider = locationProvider
+        self.locationGeocoder = locationGeocoder
+        self.locationStorage = locationStorage
         self.findCurrentLocationCompletion = { (result) in }
 
         super.init()
 
-        self.locationProvider.delegate = self
+        setupLocationProvider()
     }
 
     func findCurrentLocation(completion: @escaping (Result<LocationData, LocationError>) -> Void) {
-        self.findCurrentLocationCompletion = completion
+        findCurrentLocationCompletion = completion
         locationProvider.requestLocation()
+    }
+}
+
+private extension LocationManager {
+    func setupLocationProvider() {
+        locationProvider.delegate = self
+        locationProvider.allowsBackgroundLocationUpdates = true
+        locationProvider.startMonitoringVisits()
     }
 }
 
@@ -57,5 +72,22 @@ extension LocationManager: CLLocationManagerDelegate {
         }
 
         findCurrentLocationCompletion(.success(lastLocation))
+    }
+
+    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+        let locationFromVisit = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
+        locationGeocoder.reverseGeocodeLocation(locationFromVisit) { [weak self] (placemarks, error) in
+            guard let `self` = self else { return }
+            guard let placemark = placemarks?.first, let description = placemark.thoroughfare, error == nil else {
+                return
+            }
+
+            self.newVisitReceived(visit, description: description)
+        }
+    }
+
+    func newVisitReceived(_ visit: CLVisit, description: String) {
+        let newLocation = VisitedLocation(visit: visit, description: description)
+        locationStorage.saveLocationOnDisk(newLocation)
     }
 }

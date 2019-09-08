@@ -14,13 +14,20 @@ class LocationManagerTests: XCTestCase {
 
     private var mockLocationManagerObserver: MockLocationManagerDelegate!
     private var mockLocationProvider: MockLocationProvider!
+    private var mockLocationGeocoder: MockLocationGeocoder!
+    private var mockLocationStorage: MockLocationStorage!
+
     var sut: LocationManager!
 
     override func setUp() {
         mockLocationManagerObserver = MockLocationManagerDelegate()
         mockLocationProvider = MockLocationProvider()
+        mockLocationGeocoder = MockLocationGeocoder()
+        mockLocationStorage = MockLocationStorage()
 
-        sut = LocationManager(locationProvider: mockLocationProvider)
+        sut = LocationManager(locationProvider: mockLocationProvider,
+                              locationGeocoder: mockLocationGeocoder,
+                              locationStorage: mockLocationStorage)
         sut.locationDelegate = mockLocationManagerObserver
     }
 
@@ -28,12 +35,21 @@ class LocationManagerTests: XCTestCase {
         sut = nil
         mockLocationProvider = nil
         mockLocationManagerObserver = nil
+        mockLocationStorage = nil
         super.tearDown()
     }
 
     func test_locationError_values() {
         XCTAssertEqual(LocationError.locationNotFound.localizedDescription,
                        "Your location could not be determined.")
+    }
+
+    func test_locationProvider_allowsBackgroundLocationUpdates() {
+        XCTAssertTrue(sut.locationProvider.allowsBackgroundLocationUpdates)
+    }
+
+    func test_locationProvider_callsStartMonitoringVisits() {
+        XCTAssertTrue(mockLocationProvider.calledStartMonitoringVisits)
     }
 
     func test_findCurrentLocation_callsRequestLocation() {
@@ -62,7 +78,7 @@ class LocationManagerTests: XCTestCase {
                 XCTAssertEqual(location.coordinate.latitude, givenLocation.coordinate.latitude)
                 XCTAssertEqual(location.coordinate.longitude, givenLocation.coordinate.longitude)
             case .failure(let failure):
-                XCTFail(failure.localizedDescription)
+                XCTFail("Shouldn't be failing when location is found - \(failure.localizedDescription)")
             }
         }
 
@@ -82,6 +98,22 @@ class LocationManagerTests: XCTestCase {
 
         sut.locationManager(CLLocationManager(), didUpdateLocations: [])
     }
+
+    func test_didVisit_callsReverseGeocodeLocation() {
+        let coordinate = CLLocationCoordinate2D(latitude: 25.0, longitude: 50.0)
+        let visit = MockCLVisit()
+        sut.locationManager(CLLocationManager(), didVisit: visit)
+
+        XCTAssert(mockLocationGeocoder.calledReverseGeocodeLocation)
+        XCTAssertEqual(mockLocationGeocoder.locationPassed!.coordinate.latitude, coordinate.latitude)
+        XCTAssertEqual(mockLocationGeocoder.locationPassed!.coordinate.longitude, coordinate.longitude)
+    }
+
+    func test_newVisitReceived_callsSaveLocationOnDisk() {
+        sut.newVisitReceived(MockCLVisit(), description: "Test")
+
+        XCTAssertTrue(mockLocationStorage.calledSaveLocationOnDisk)
+    }
 }
 
 private extension LocationManagerTests {
@@ -90,6 +122,31 @@ private extension LocationManagerTests {
 
         func userDidEnterNewRegion(_ locationName: String) {
             calledUserDidEnterNewRegion = true
+        }
+    }
+
+    class MockLocationGeocoder: CLGeocoder {
+        var calledReverseGeocodeLocation = false
+        var locationPassed: CLLocation?
+
+        let placemark = CLPlacemark()
+
+        override func reverseGeocodeLocation(_ location: CLLocation,
+                                             completionHandler: @escaping CLGeocodeCompletionHandler) {
+            calledReverseGeocodeLocation = true
+            locationPassed = location
+
+            super.reverseGeocodeLocation(location, completionHandler: completionHandler)
+        }
+    }
+
+    class MockLocationStorage: LocationStorageInterface {
+        var calledSaveLocationOnDisk = false
+
+        var lastVisitedLocation: VisitedLocationData?
+
+        func saveLocationOnDisk(_ location: VisitedLocation) {
+            calledSaveLocationOnDisk = true
         }
     }
 }
