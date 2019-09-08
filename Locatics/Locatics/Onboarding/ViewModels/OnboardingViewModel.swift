@@ -53,6 +53,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
         ]
     }()
 
+    // TODO: add check if auth status has not been determined if it aint then 'handlePermissionsTapped()'
     func handleFinishOnboarding() {
         guard locationPermissionsManager!.hasAuthorizedLocationPermissions() else {
             permissionsDenied()

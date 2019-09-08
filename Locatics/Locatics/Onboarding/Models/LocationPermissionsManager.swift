@@ -21,6 +21,7 @@ protocol LocationPermissionsManagerInterface {
     func authorizeLocationPermissions()
 }
 
+// TODO - Rewrite this class with a more POP approach
 class LocationPermissionsManager: NSObject, LocationPermissionsManagerInterface {
     weak var delegate: LocationPermissionsManagerDelegate?
 
