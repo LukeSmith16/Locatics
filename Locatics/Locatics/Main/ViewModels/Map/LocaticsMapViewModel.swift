@@ -14,11 +14,25 @@ protocol LocaticsMapViewModelInterface: class {
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
+
+    private(set) var locationManager: LocationManagerInterface
+
+    init(locationManager: LocationManagerInterface) {
+        self.locationManager = locationManager
+        self.locationManager.locationDelegate = self
+    }
+
     func getMainTitle() -> String {
         return ""
     }
 
     func getSubtitle() -> String {
         return ""
+    }
+}
+
+extension LocaticsMapViewModel: LocationManagerDelegate {
+    func locationPermissionsNotAuthorised() {
+
     }
 }
