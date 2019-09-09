@@ -12,6 +12,8 @@
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
 		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
 		07068485231B02A50023EB27 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07068484231B02A50023EB27 /* .swiftlint.yml */; };
+		070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94102326EBD4008FDB87 /* DateFormatterManager.swift */; };
+		070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */; };
 		0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */; };
 		0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E8231ED5530084770E /* RootModuleFactory.swift */; };
 		0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */; };
@@ -124,6 +126,8 @@
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
 		07068484231B02A50023EB27 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		070F94102326EBD4008FDB87 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManagerTests.swift; sourceTree = "<group>"; };
 		0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructorTests.swift; sourceTree = "<group>"; };
 		0726E9E8231ED5530084770E /* RootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactory.swift; sourceTree = "<group>"; };
 		0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactoryTests.swift; sourceTree = "<group>"; };
@@ -832,6 +836,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F7AC2325492B00EA62E1 /* AppFileSystem.swift */,
+				070F94102326EBD4008FDB87 /* DateFormatterManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -840,6 +845,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */,
+				070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1278,6 +1284,7 @@
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
 				0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */,
 				0773F7962323F6A900EA62E1 /* UINavigationItem+Extensions.swift in Sources */,
+				070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */,
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
 				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
 				0773F7AA232540CA00EA62E1 /* LocationStorage.swift in Sources */,
@@ -1318,6 +1325,7 @@
 				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
 				0773F7A2232430EF00EA62E1 /* LocationManagerTests.swift in Sources */,
 				0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */,
+				070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */,
 				0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */,
 				0773F781232317A500EA62E1 /* LocaticsCoordinatorTests.swift in Sources */,
 				0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */,
