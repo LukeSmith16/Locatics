@@ -76,12 +76,21 @@ class LocaticsMapViewControllerTests: XCTestCase {
     func test_mapViewDelegate_isNotNil() {
         XCTAssertNotNil(sut.mapView.delegate)
     }
+
+    func test_locaticsMapViewModelViewDelegate_isNotNil() {
+        XCTAssertNotNil(sut.locaticsMapViewModel?.viewDelegate)
+    }
+
+    
 }
 
 private extension LocaticsMapViewControllerTests {
     class MockLocaticsViewModel: LocaticsMapViewModelInterface {
+
         var calledGetMainTitle = false
         var calledGetSubtitle = false
+
+        weak var viewDelegate: LocaticsMapViewModelViewDelegate?
 
         func getMainTitle() -> String {
             calledGetMainTitle = true

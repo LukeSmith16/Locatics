@@ -12,7 +12,11 @@ import MapKit
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
 
-    var locaticsMapViewModel: LocaticsMapViewModelInterface?
+    var locaticsMapViewModel: LocaticsMapViewModelInterface? {
+        didSet {
+            locaticsMapViewModel?.viewDelegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,4 +39,15 @@ private extension LocaticsMapViewController {
 
 extension LocaticsMapViewController: MKMapViewDelegate {
 
+}
+
+extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
+    func setNavigationTitle(_ title: String) {
+        let subtitle = locaticsMapViewModel?.getSubtitle()
+        self.navigationItem.setTitle(title: title, subtitle: subtitle)
+    }
+
+    func showAlert(title: String, message: String) {
+        
+    }
 }
