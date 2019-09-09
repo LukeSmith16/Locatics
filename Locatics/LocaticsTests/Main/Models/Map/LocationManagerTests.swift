@@ -144,6 +144,21 @@ class LocationManagerTests: XCTestCase {
 
         XCTAssertTrue(mockLocationManagerObserver.calledLocationPermissionsNotAuthorised)
     }
+
+    func test_lastVisitedLocation_returnsLocationStorageLastVisitedLocation() {
+        mockLocationStorage.lastVisitedLocation = VisitedLocation(
+            CLLocationCoordinate2D(latitude: 20.0, longitude: 20.0),
+            date: Date(),
+            description: "Description")
+
+        guard let sutVisitedLocation = sut.lastVisitedLocation as? VisitedLocation,
+            let mockLastVisitedLocation = mockLocationStorage.lastVisitedLocation as? VisitedLocation else {
+            XCTFail("Should be convertible to 'VisitedLocation'")
+            return
+        }
+
+        XCTAssertTrue(sutVisitedLocation === mockLastVisitedLocation)
+    }
 }
 
 private extension LocationManagerTests {

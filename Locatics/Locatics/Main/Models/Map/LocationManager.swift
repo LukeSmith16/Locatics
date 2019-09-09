@@ -24,6 +24,8 @@ enum LocationError: Error {
 
 protocol LocationManagerInterface: class {
     var locationDelegate: LocationManagerDelegate? { get set }
+    var lastVisitedLocation: VisitedLocationData? { get }
+
     func findCurrentLocation(completion: @escaping (Result<LocationData, LocationError>) -> Void)
 }
 
@@ -32,6 +34,7 @@ protocol LocationManagerDelegate: class {
 }
 
 class LocationManager: NSObject, LocationManagerInterface {
+
     weak var locationDelegate: LocationManagerDelegate? {
         didSet {
             setupLocationProvider()
@@ -42,6 +45,10 @@ class LocationManager: NSObject, LocationManagerInterface {
     let locationGeocoder: LocationGeocoderInterface
     let locationStorage: LocationStorageInterface
     let locationPermissions: LocationPermissionsManagerInterface
+
+    var lastVisitedLocation: VisitedLocationData? {
+        return locationStorage.lastVisitedLocation
+    }
 
     private var findCurrentLocationCompletion: (Result<LocationData, LocationError>) -> Void
 

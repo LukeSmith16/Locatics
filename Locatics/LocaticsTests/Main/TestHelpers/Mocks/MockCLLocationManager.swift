@@ -20,6 +20,7 @@ class MockLocationManager: LocationManagerInterface {
 
     var locationBlockLocationValue: LocationData?
     var locationBlockErrorValue: LocationError?
+    var lastVisitedLocation: VisitedLocationData?
 
     weak var locationDelegate: LocationManagerDelegate?
 
