@@ -26,7 +26,7 @@ class LocationManagerTests: XCTestCase {
         mockLocationGeocoder = MockLocationGeocoder()
         mockLocationStorage = MockLocationStorage()
         mockLocationPermissionsManager = MockLocationPermissionsManager()
-        mockLocationPermissionsManager.authorizePermsState = true
+        mockLocationPermissionsManager.authorizePermsState = .authorizedAlways
 
         sut = LocationManager(locationProvider: mockLocationProvider,
                               locationGeocoder: mockLocationGeocoder,
@@ -124,7 +124,7 @@ class LocationManagerTests: XCTestCase {
 
     func test_findCurrentLocation_callsPermsNotAuthorisedDelegateIfNotAuthorised() {
         mockLocationManagerObserver.calledLocationPermissionsNotAuthorised = false
-        mockLocationPermissionsManager.authorizePermsState = false
+        mockLocationPermissionsManager.authorizePermsState = .denied
 
         sut.findCurrentLocation { (result) in
             switch result {
@@ -138,7 +138,7 @@ class LocationManagerTests: XCTestCase {
 
     func test_settingLocationDelegate_callsPermsNotAuthorisedIfNotAuthorised() {
         mockLocationManagerObserver.calledLocationPermissionsNotAuthorised = false
-        mockLocationPermissionsManager.authorizePermsState = false
+        mockLocationPermissionsManager.authorizePermsState = .denied
 
         sut.locationDelegate = mockLocationManagerObserver
 

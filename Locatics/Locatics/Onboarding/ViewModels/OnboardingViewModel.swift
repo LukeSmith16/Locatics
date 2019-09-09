@@ -53,10 +53,9 @@ class OnboardingViewModel: OnboardingViewModelInterface {
         ]
     }()
 
-    // TODO: add check if auth status has not been determined if it aint then 'handlePermissionsTapped()'
     func handleFinishOnboarding() {
         guard locationPermissionsManager!.hasAuthorizedLocationPermissions() else {
-            permissionsDenied()
+            handleAuthorisationError()
             return
         }
 
@@ -122,6 +121,14 @@ private extension OnboardingViewModel {
 
     func isIndexOutOfRange(_ index: Int) -> Bool {
         return !pageViewControllers.indices.contains(index)
+    }
+
+    func handleAuthorisationError() {
+        if locationPermissionsManager!.authorizationStatus() == .notDetermined {
+            handlePermissionsTapped()
+        } else {
+            permissionsDenied()
+        }
     }
 }
 

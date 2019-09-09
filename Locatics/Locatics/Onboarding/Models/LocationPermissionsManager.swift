@@ -18,27 +18,31 @@ protocol LocationPermissionsManagerInterface {
     var delegate: LocationPermissionsManagerDelegate? {get set}
 
     func hasAuthorizedLocationPermissions() -> Bool
+    func authorizationStatus() -> CLAuthorizationStatus
     func authorizeLocationPermissions()
 }
 
-// TODO - Rewrite this class with a more POP approach
 class LocationPermissionsManager: NSObject, LocationPermissionsManagerInterface {
     weak var delegate: LocationPermissionsManagerDelegate?
 
-    let locationManager = CLLocationManager()
+    private(set) var locationProviderPermissions: LocationProviderPermissionsInterface
 
-    override init() {
+    init(locationProviderPermissions: LocationProviderPermissionsInterface = CLLocationManager()) {
+        self.locationProviderPermissions = locationProviderPermissions
         super.init()
-        locationManager.delegate = self
+        self.locationProviderPermissions.delegate = self
     }
 
     func hasAuthorizedLocationPermissions() -> Bool {
-        return CLLocationManager.authorizationStatus() == .authorizedAlways ||
-               CLLocationManager.authorizationStatus() == .authorizedWhenInUse
+        return CLLocationManager.authorizationStatus() == .authorizedAlways
+    }
+
+    func authorizationStatus() -> CLAuthorizationStatus {
+        return CLLocationManager.authorizationStatus()
     }
 
     func authorizeLocationPermissions() {
-        locationManager.requestAlwaysAuthorization()
+        locationProviderPermissions.requestAlwaysAuthorization()
     }
 }
 

@@ -12,13 +12,16 @@ import CoreLocation
 @testable import Locatics
 class LocationPermissionsManagerTests: XCTestCase {
 
+    private var mockLocationProviderPermissions: MockLocationProviderPermissions!
     var sut: LocationPermissionsManager!
 
     override func setUp() {
-        sut = LocationPermissionsManager()
+        mockLocationProviderPermissions = MockLocationProviderPermissions()
+        sut = LocationPermissionsManager(locationProviderPermissions: mockLocationProviderPermissions)
     }
 
     override func tearDown() {
+        mockLocationProviderPermissions = nil
         sut = nil
         super.tearDown()
     }
@@ -31,7 +34,7 @@ class LocationPermissionsManagerTests: XCTestCase {
         let mockLocationPermissionsManagerDelegate = MockLocationPermissionsManagerDelegate()
         sut.delegate = mockLocationPermissionsManagerDelegate
 
-        sut.locationManager(sut.locationManager, didChangeAuthorization: .authorizedAlways)
+        sut.locationManager(CLLocationManager(), didChangeAuthorization: .authorizedAlways)
 
         XCTAssertTrue(mockLocationPermissionsManagerDelegate.calledPermissionsGranted)
     }
@@ -40,8 +43,43 @@ class LocationPermissionsManagerTests: XCTestCase {
         let mockLocationPermissionsManagerDelegate = MockLocationPermissionsManagerDelegate()
         sut.delegate = mockLocationPermissionsManagerDelegate
 
-        sut.locationManager(sut.locationManager, didChangeAuthorization: .denied)
+        sut.locationManager(CLLocationManager(), didChangeAuthorization: .denied)
 
         XCTAssertTrue(mockLocationPermissionsManagerDelegate.calledPermissionsDenied)
+    }
+
+    /// This test needs improving.
+    func test_hasAuthorizedLocationPermissions_callsAuthorizationStatus() {
+        let status = sut.hasAuthorizedLocationPermissions()
+
+        XCTAssertTrue(status)
+    }
+
+    func test_authorizeLocationPermissions_callsRequestAlwaysAuthorization() {
+        sut.authorizeLocationPermissions()
+
+        XCTAssertTrue(mockLocationProviderPermissions.calledRequestAlwaysAuthorization)
+    }
+
+    func test_authorizationStatus_callsAuthorizationStatus() {
+        let status = sut.authorizationStatus()
+
+        XCTAssertTrue(status == .authorizedAlways)
+    }
+}
+
+private extension LocationPermissionsManagerTests {
+    class MockLocationProviderPermissions: LocationProviderPermissionsInterface {
+        var calledRequestAlwaysAuthorization = false
+
+        weak var delegate: CLLocationManagerDelegate?
+
+        static func authorizationStatus() -> CLAuthorizationStatus {
+            return .authorizedAlways
+        }
+
+        func requestAlwaysAuthorization() {
+            calledRequestAlwaysAuthorization = true
+        }
     }
 }
