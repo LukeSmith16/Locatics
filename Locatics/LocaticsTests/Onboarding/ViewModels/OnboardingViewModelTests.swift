@@ -14,29 +14,45 @@ class OnboardingViewModelTests: XCTestCase {
     var expectation: XCTestExpectation?
 
     private var viewBinder: MockOnboardingViewModelViewDelegate!
-    private var locationPermManager: MockLocationPermissionsManager!
+    private var mockLocationPermManager: MockLocationPermissionsManager!
     var sut: OnboardingViewModel!
 
     override func setUp() {
         viewBinder = MockOnboardingViewModelViewDelegate()
-        locationPermManager = MockLocationPermissionsManager()
+        mockLocationPermManager = MockLocationPermissionsManager()
 
         sut = OnboardingViewModel()
         sut.viewDelegate = viewBinder
-        sut.locationPermissionsManager = locationPermManager
+        sut.locationPermissionsManager = mockLocationPermManager
         sut.coordinator = self
     }
 
     override func tearDown() {
         expectation = nil
         viewBinder = nil
-        locationPermManager = nil
+        mockLocationPermManager = nil
         sut = nil
+
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+
         super.tearDown()
     }
 
+    func test_onboardingStoryboardIdentifier_rawValues() {
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingWelcomePageViewController.rawValue,
+                       "OnboardingWelcomePageViewController")
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingAboutPageViewController.rawValue,
+                       "OnboardingAboutPageViewController")
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingPermissionsPageViewController.rawValue,
+                       "OnboardingPermissionsPageViewController")
+        XCTAssertEqual(OnboardingStoryboardIdentifier.onboardingGetStartedPageViewController.rawValue,
+                       "OnboardingGetStartedPageViewController")
+    }
+
     func test_handleFinishOnboardingCalls_goToOnboardingFinished() {
-        locationPermManager.authorizePermsState = true
+        mockLocationPermManager.authorizePermsState = .authorizedAlways
 
         XCTAssertNotNil(sut.coordinator)
 
@@ -47,11 +63,23 @@ class OnboardingViewModelTests: XCTestCase {
     }
 
     func test_handleFinishOnboardingWithoutAuthorizingPerms_callsPermDenied() {
-        XCTAssertFalse(locationPermManager.calledAuthorizeLocationPermissions)
+        mockLocationPermManager.authorizePermsState = .denied
+
+        XCTAssertFalse(mockLocationPermManager.calledAuthorizeLocationPermissions)
 
         sut.handleFinishOnboarding()
 
         XCTAssertTrue(viewBinder.calledLocationPermissionsWereDenied)
+    }
+
+    func test_handleFinishOnboarding_setsOnboardingValueTrue() {
+        mockLocationPermManager.authorizePermsState = .authorizedAlways
+
+        XCTAssertFalse(OnboardingManager.hasOnboarded())
+
+        sut.handleFinishOnboarding()
+
+        XCTAssertTrue(OnboardingManager.hasOnboarded())
     }
 
     func test_locationPermsManagerDelegate_isNilByDefault() {
@@ -67,7 +95,7 @@ class OnboardingViewModelTests: XCTestCase {
     func test_handlePermissionsTapped_callsAuthorizeLocationPermissions() {
         sut.handlePermissionsTapped()
 
-        XCTAssertTrue(locationPermManager.calledAuthorizeLocationPermissions)
+        XCTAssertTrue(mockLocationPermManager.calledAuthorizeLocationPermissions)
     }
 
     func test_handleGoToAppSettings_callsGoToAppSettings() {
@@ -128,6 +156,14 @@ class OnboardingViewModelTests: XCTestCase {
         XCTAssertTrue(onboardingPermissionsPageViewController is OnboardingPermissionsPageViewController)
         XCTAssertTrue(onboardingGetStartedPageViewController is OnboardingGetStartedPageViewController)
     }
+
+    func test_handleAuthorizationError_callsHandlePermissionsTappedIfAuthStatusUndetermined() {
+        mockLocationPermManager.authorizePermsState = .notDetermined
+
+        sut.handleFinishOnboarding()
+
+        XCTAssertTrue(mockLocationPermManager.calledAuthorizeLocationPermissions)
+    }
 }
 
 extension OnboardingViewModelTests: OnboardingViewModelCoordinatorDelegate {
@@ -141,25 +177,6 @@ extension OnboardingViewModelTests: OnboardingViewModelCoordinatorDelegate {
 }
 
 private extension OnboardingViewModelTests {
-    class MockLocationPermissionsManager: LocationPermissionsManagerInterface {
-
-        var calledHasAuthorizedLocationPermissions = false
-        var calledAuthorizeLocationPermissions = false
-
-        var authorizePermsState = false
-
-        weak var delegate: LocationPermissionsManagerDelegate?
-
-        func hasAuthorizedLocationPermissions() -> Bool {
-            calledHasAuthorizedLocationPermissions = true
-            return authorizePermsState
-        }
-
-        func authorizeLocationPermissions() {
-            calledAuthorizeLocationPermissions = true
-        }
-    }
-
     class MockOnboardingViewModelViewDelegate: OnboardingViewModelViewDelegate {
         var calledLocationPermissionsWereDenied = false
 

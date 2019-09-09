@@ -32,4 +32,11 @@ class RootModuleFactoryTests: XCTestCase {
 
         XCTAssertTrue(navController.isNavigationBarHidden)
     }
+
+    func test_createTabBarController_returnsTabBarControllerType() {
+        let tabBarController = sut.createTabBarController()
+
+        XCTAssertTrue(tabBarController is TabBarController)
+
+    }
 }

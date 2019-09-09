@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocaticsMapViewController" customModule="Locatics" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="GVF-h5-ecx" id="Q4B-I4-AXt"/>
+                <outlet property="view" destination="Vqn-mQ-24B" id="yRx-V7-vQH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Vqn-mQ-24B">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GVF-h5-ecx">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                </mapView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="GVF-h5-ecx" firstAttribute="leading" secondItem="tMs-kb-A3U" secondAttribute="leading" id="Nxe-i3-5wb"/>
+                <constraint firstItem="tMs-kb-A3U" firstAttribute="bottom" secondItem="GVF-h5-ecx" secondAttribute="bottom" id="Pa0-VH-LjQ"/>
+                <constraint firstItem="tMs-kb-A3U" firstAttribute="trailing" secondItem="GVF-h5-ecx" secondAttribute="trailing" id="Zlq-fX-MfL"/>
+                <constraint firstItem="GVF-h5-ecx" firstAttribute="top" secondItem="tMs-kb-A3U" secondAttribute="top" id="hHx-kw-3MV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="tMs-kb-A3U"/>
+            <point key="canvasLocation" x="-178.2608695652174" y="-430.58035714285711"/>
+        </view>
+    </objects>
+</document>

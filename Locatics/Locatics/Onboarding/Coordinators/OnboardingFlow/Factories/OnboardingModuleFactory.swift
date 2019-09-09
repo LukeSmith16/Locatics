@@ -23,7 +23,7 @@ class OnboardingModuleFactory: OnboardingModuleFactoryInterface {
 
 private extension OnboardingModuleFactory {
     func loadOnboardingStoryboard() -> OnboardingViewController {
-        let onboardingSB = UIStoryboard(name: "OnboardingStoryboard", bundle: Bundle.main)
+        let onboardingSB = UIStoryboard.Storyboard.onboarding
         guard let onboardingVC = onboardingSB.instantiateInitialViewController() as? OnboardingViewController else {
             fatalError("Could not load onboarding storyboard properly")
         }
