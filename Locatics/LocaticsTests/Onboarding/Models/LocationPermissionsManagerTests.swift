@@ -48,23 +48,10 @@ class LocationPermissionsManagerTests: XCTestCase {
         XCTAssertTrue(mockLocationPermissionsManagerDelegate.calledPermissionsDenied)
     }
 
-    /// This test needs improving.
-    func test_hasAuthorizedLocationPermissions_callsAuthorizationStatus() {
-        let status = sut.hasAuthorizedLocationPermissions()
-
-        XCTAssertTrue(status)
-    }
-
     func test_authorizeLocationPermissions_callsRequestAlwaysAuthorization() {
         sut.authorizeLocationPermissions()
 
         XCTAssertTrue(mockLocationProviderPermissions.calledRequestAlwaysAuthorization)
-    }
-
-    func test_authorizationStatus_callsAuthorizationStatus() {
-        let status = sut.authorizationStatus()
-
-        XCTAssertTrue(status == .authorizedAlways)
     }
 }
 
