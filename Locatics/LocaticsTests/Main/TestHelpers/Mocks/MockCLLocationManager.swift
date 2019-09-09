@@ -18,15 +18,22 @@ struct MockLocation: LocationData {
 
 class MockLocationManager: LocationManagerInterface {
 
-    var locationBlockLocationValue: LocationData?
+    var locationBlockLocationValue: VisitedLocationData?
     var locationBlockErrorValue: LocationError?
     var lastVisitedLocation: VisitedLocationData?
 
     weak var locationDelegate: LocationManagerDelegate?
 
-    func findCurrentLocation(completion: @escaping (Result<LocationData, LocationError>) -> Void) {
+    init() {
+        self.lastVisitedLocation = VisitedLocation(CLLocationCoordinate2D(latitude: 20.0,
+                                                                          longitude: 20.0),
+                                                   date: Date(),
+                                                   description: "Place name")
+    }
+
+    func findCurrentLocation(completion: @escaping (Result<String, LocationError>) -> Void) {
         if let locationBlockLocationValue = locationBlockLocationValue {
-            completion(.success(locationBlockLocationValue))
+            completion(.success(locationBlockLocationValue.description))
         } else {
             completion(.failure(locationBlockErrorValue!))
         }
