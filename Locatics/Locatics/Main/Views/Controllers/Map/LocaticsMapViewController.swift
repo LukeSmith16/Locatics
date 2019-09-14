@@ -36,6 +36,8 @@ private extension LocaticsMapViewController {
 
     func setupMapView() {
         self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
+        locaticsMapViewModel?.getUserRegion()
     }
 }
 
@@ -52,5 +54,12 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
 
     func showAlert(title: String, message: String) {
 
+    }
+
+    func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double) {
+        let coordinateRegion = MKCoordinateRegion(center: location,
+                                                  latitudinalMeters: latMeters,
+                                                  longitudinalMeters: lonMeters)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
 }

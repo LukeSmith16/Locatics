@@ -13,11 +13,14 @@ protocol LocaticsMapViewModelInterface: class {
 
     func getMainTitle() -> String
     func getSubtitle() -> String
+
+    func getUserRegion()
 }
 
 protocol LocaticsMapViewModelViewDelegate: class {
     func setNavigationTitle(_ title: String)
     func showAlert(title: String, message: String)
+    func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double)
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
@@ -46,6 +49,17 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
         let formattedArrivalDate = DateFormatterManager.hoursMinutes(from: lastVisitedLocation.date)
         return "Since " + formattedArrivalDate
     }
+
+    func getUserRegion() {
+        locationManager?.findCurrentLocation(completion: { [unowned self] (result) in
+            switch result {
+            case .success(let success):
+                self.viewDelegate?.updateMapRegion(location: success.coordinate, latMeters: 10000, lonMeters: 10000)
+            case .failure(let failure):
+                self.viewDelegate?.showAlert(title: "Error", message: failure.localizedDescription)
+            }
+        })
+    }
 }
 
 private extension LocaticsMapViewModel {
@@ -53,7 +67,7 @@ private extension LocaticsMapViewModel {
         locationManager?.findCurrentLocation(completion: { [unowned self] (result) in
             switch result {
             case .success(let success):
-                self.viewDelegate?.setNavigationTitle(success)
+                self.viewDelegate?.setNavigationTitle(success.description)
             case .failure(let failure):
                 self.viewDelegate?.showAlert(title: "Error", message: failure.localizedDescription)
             }

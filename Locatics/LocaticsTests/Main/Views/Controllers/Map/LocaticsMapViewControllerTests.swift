@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import MapKit
 
 @testable import Locatics
 class LocaticsMapViewControllerTests: XCTestCase {
@@ -93,6 +94,27 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertEqual(mockNavigationTitleView.setNewTitleValue, "Test")
         XCTAssertEqual(mockNavigationTitleView.setNewSubTitleValue, "the subtitle")
     }
+
+    func test_setupMapView_setsMapToShowUserLocation() {
+        XCTAssertTrue(sut.mapView.showsUserLocation)
+    }
+
+    func test_setupMapView_callsGetUserRegion() {
+        XCTAssertTrue(mockLocaticsMapViewModel.calledGetUserRegion)
+    }
+
+    func test_updateMapRegion_setsMapViewRegion() {
+        let mockMapView = MockMapView(frame: CGRect.zero)
+        sut.mapView = mockMapView
+
+        let location = Coordinate(latitude: 25, longitude: 25)
+        sut.updateMapRegion(location: location, latMeters: 15, lonMeters: 15)
+
+        XCTAssertEqual(mockMapView.coordinateRegion.center.latitude, location.latitude)
+        XCTAssertEqual(mockMapView.coordinateRegion.center.longitude, location.longitude)
+
+        XCTAssertTrue(mockMapView.calledSetRegion)
+    }
 }
 
 private extension LocaticsMapViewControllerTests {
@@ -100,6 +122,7 @@ private extension LocaticsMapViewControllerTests {
 
         var calledGetMainTitle = false
         var calledGetSubtitle = false
+        var calledGetUserRegion = false
 
         weak var viewDelegate: LocaticsMapViewModelViewDelegate?
 
@@ -111,6 +134,10 @@ private extension LocaticsMapViewControllerTests {
         func getSubtitle() -> String {
             calledGetSubtitle = true
             return "the subtitle"
+        }
+
+        func getUserRegion() {
+            calledGetUserRegion = true
         }
     }
 
@@ -129,6 +156,17 @@ private extension LocaticsMapViewControllerTests {
         func setNewSubtitle(_ subtitle: String?) {
             calledSetNewSubtitle = true
             setNewSubTitleValue = subtitle ?? ""
+        }
+    }
+
+    class MockMapView: MKMapView {
+        var calledSetRegion = false
+
+        var coordinateRegion: MKCoordinateRegion!
+
+        override func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
+            self.calledSetRegion = true
+            self.coordinateRegion = region
         }
     }
 }

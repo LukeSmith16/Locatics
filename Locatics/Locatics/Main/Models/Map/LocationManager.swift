@@ -28,7 +28,7 @@ protocol LocationManagerInterface: class {
     var locationDelegate: LocationManagerDelegate? { get set }
     var lastVisitedLocation: VisitedLocationData? { get }
 
-    func findCurrentLocation(completion: @escaping (Result<String, LocationError>) -> Void)
+    func findCurrentLocation(completion: @escaping (Result<VisitedLocationData, LocationError>) -> Void)
 }
 
 protocol LocationManagerDelegate: class {
@@ -52,7 +52,7 @@ class LocationManager: NSObject, LocationManagerInterface {
         return locationStorage.lastVisitedLocation
     }
 
-    private var findCurrentLocationCompletion: (Result<String, LocationError>) -> Void
+    private var findCurrentLocationCompletion: (Result<VisitedLocationData, LocationError>) -> Void
 
     init(locationProvider: LocationProviderInterface,
          locationGeocoder: LocationGeocoderInterface,
@@ -67,7 +67,7 @@ class LocationManager: NSObject, LocationManagerInterface {
         super.init()
     }
 
-    func findCurrentLocation(completion: @escaping (Result<String, LocationError>) -> Void) {
+    func findCurrentLocation(completion: @escaping (Result<VisitedLocationData, LocationError>) -> Void) {
         guard isLocationPermissionsAuthorised() else {
             completion(.failure(.notAuthorised))
             return
@@ -94,6 +94,20 @@ private extension LocationManager {
         return locationPermissions.hasAuthorizedLocationPermissions()
     }
 
+    func handleDidUpdateLocation(_ location: CLLocation) {
+        reverseGeocodeLocation(location) { [unowned self] (result) in
+            switch result {
+            case .success(let success):
+                let visitedLocation = VisitedLocation(location.coordinate,
+                                                      date: Date(),
+                                                      description: success)
+                self.findCurrentLocationCompletion(.success(visitedLocation))
+            case .failure(let failure):
+                self.findCurrentLocationCompletion(.failure(failure))
+            }
+        }
+    }
+
     func reverseGeocodeLocation(_ location: CLLocation, completion: @escaping (Result<String, LocationError>) -> Void) {
         locationGeocoder.reverseGeocodeLocation(location) { (placemarks, error) in
             guard let placemark = placemarks?.first, let description = placemark.thoroughfare, error == nil else {
@@ -114,9 +128,7 @@ extension LocationManager: CLLocationManagerDelegate {
         }
 
         DELETETHIS("DidUpdateLocations (Ignore)")
-        reverseGeocodeLocation(lastLocation) { [unowned self] (result) in
-            self.findCurrentLocationCompletion(result)
-        }
+        handleDidUpdateLocation(lastLocation)
     }
 
     // TODO: Implement error handling (via delegate?)

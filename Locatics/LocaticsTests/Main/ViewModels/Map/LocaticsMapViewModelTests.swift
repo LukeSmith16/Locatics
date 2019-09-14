@@ -92,12 +92,49 @@ class LocaticsMapViewModelTests: XCTestCase {
 
         XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
     }
+
+    func test_getUserRegion_callsGetCurrentUserLocation() {
+        mockLocationManager.locationBlockErrorValue = .locationNotFound
+
+        sut.getUserRegion()
+
+        XCTAssertTrue(mockLocationManager.calledFindCurrentLocation)
+    }
+
+    func test_getUserRegion_callsViewDelegateShowAlertWhenError() {
+        mockLocationManager.locationBlockErrorValue = .locationNotFound
+
+        sut.getUserRegion()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+    }
+
+    func test_getUserRegion_callsViewDelegateUpdateMapRegionWhenSuccess() {
+        let visitedLocation = VisitedLocation(MockLocation().coordinate, date: Date(), description: "Desc")
+        mockLocationManager.locationBlockLocationValue = visitedLocation
+
+        sut.getUserRegion()
+
+        XCTAssertFalse(mockLocaticsViewModelViewObserver.calledShowAlert)
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledUpdateMapRegion)
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.location.latitude == visitedLocation.coordinate.latitude)
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.location.longitude == visitedLocation.coordinate.longitude)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.latMeter, 10000)
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter, 10000)
+    }
 }
 
 private extension LocaticsMapViewModelTests {
     class MockLocaticsMapViewModelViewDelegate: LocaticsMapViewModelViewDelegate {
         var calledSetNavigationTitle = false
         var calledShowAlert = false
+        var calledUpdateMapRegion = false
+
+        var location: CLLocationCoordinate2D!
+        var latMeter: Double!
+        var lonMeter: Double!
 
         func setNavigationTitle(_ title: String) {
             calledSetNavigationTitle = true
@@ -105,6 +142,14 @@ private extension LocaticsMapViewModelTests {
 
         func showAlert(title: String, message: String) {
             calledShowAlert = true
+        }
+
+        func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double) {
+            self.location = location
+            self.latMeter = latMeters
+            self.lonMeter = lonMeters
+
+            calledUpdateMapRegion = true
         }
     }
 }

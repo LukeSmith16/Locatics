@@ -20,7 +20,7 @@ class UINavigationItemExtensionsTests: XCTestCase {
             XCTFail("NavigationTitleViewInterface should be 'NavigationTitleView'")
             return
         }
-        
+
         XCTAssertEqual(sut.titleView, navigationTitleViewOnSUT)
 
         let mainTitleView = sut.titleView!.subviews.first { (view) -> Bool in
