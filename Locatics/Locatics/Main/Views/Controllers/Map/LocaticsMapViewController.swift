@@ -37,13 +37,13 @@ private extension LocaticsMapViewController {
     func setupMapView() {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
+        self.mapView.tintColor = UIColor(colorTheme: .Interactable_Secondary)
+
         locaticsMapViewModel?.getUserRegion()
     }
 }
 
-extension LocaticsMapViewController: MKMapViewDelegate {
-
-}
+extension LocaticsMapViewController: MKMapViewDelegate {}
 
 extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
     func setNavigationTitle(_ title: String) {

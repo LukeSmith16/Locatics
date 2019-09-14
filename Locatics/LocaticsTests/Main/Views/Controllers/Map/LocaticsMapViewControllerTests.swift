@@ -115,6 +115,10 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertTrue(mockMapView.calledSetRegion)
     }
+
+    func test_setupMapView_setsMapViewTintColorToInteractableSecondary() {
+        XCTAssertEqual(sut.mapView.tintColor, UIColor(colorTheme: .Interactable_Secondary))
+    }
 }
 
 private extension LocaticsMapViewControllerTests {
