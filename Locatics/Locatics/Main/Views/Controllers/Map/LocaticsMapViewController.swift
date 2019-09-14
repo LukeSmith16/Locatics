@@ -11,6 +11,7 @@ import MapKit
 
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addLocaticButton: UIButton!
 
     var navigationTitleView: NavigationTitleViewInterface?
 
@@ -24,6 +25,10 @@ class LocaticsMapViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationTitleView()
         setupMapView()
+    }
+
+    @IBAction func addLocaticTapped(_ sender: Any) {
+        locaticsMapViewModel?.addLocaticWasTapped()
     }
 }
 

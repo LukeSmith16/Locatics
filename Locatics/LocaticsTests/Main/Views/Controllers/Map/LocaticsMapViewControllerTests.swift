@@ -34,6 +34,14 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.view)
     }
 
+    func test_mapView_isNotNil() {
+        XCTAssertNotNil(sut.mapView)
+    }
+
+    func test_addLocaticButton_isNotNil() {
+        XCTAssertNotNil(sut.addLocaticButton)
+    }
+
     func test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel() {
         XCTAssertTrue(mockLocaticsMapViewModel.calledGetMainTitle)
         XCTAssertTrue(mockLocaticsMapViewModel.calledGetSubtitle)
@@ -68,10 +76,6 @@ class LocaticsMapViewControllerTests: XCTestCase {
             XCTFail("Couldn't find a subtitle")
             return
         }
-    }
-
-    func test_mapView_isNotNil() {
-        XCTAssertNotNil(sut.mapView)
     }
 
     func test_mapViewDelegate_isNotNil() {
@@ -119,6 +123,12 @@ class LocaticsMapViewControllerTests: XCTestCase {
     func test_setupMapView_setsMapViewTintColorToInteractableSecondary() {
         XCTAssertEqual(sut.mapView.tintColor, UIColor(colorTheme: .Interactable_Secondary))
     }
+
+    func test_addLocaticTapped_callsViewModelAddLocaticWasTapped() {
+        sut.addLocaticTapped(UIButton())
+
+        XCTAssertTrue(mockLocaticsMapViewModel.calledAddLocaticWasTapped)
+    }
 }
 
 private extension LocaticsMapViewControllerTests {
@@ -127,6 +137,7 @@ private extension LocaticsMapViewControllerTests {
         var calledGetMainTitle = false
         var calledGetSubtitle = false
         var calledGetUserRegion = false
+        var calledAddLocaticWasTapped = false
 
         weak var viewDelegate: LocaticsMapViewModelViewDelegate?
 
@@ -142,6 +153,10 @@ private extension LocaticsMapViewControllerTests {
 
         func getUserRegion() {
             calledGetUserRegion = true
+        }
+
+        func addLocaticWasTapped() {
+            calledAddLocaticWasTapped = true
         }
     }
 

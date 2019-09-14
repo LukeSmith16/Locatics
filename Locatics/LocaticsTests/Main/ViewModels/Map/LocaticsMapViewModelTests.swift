@@ -124,6 +124,31 @@ class LocaticsMapViewModelTests: XCTestCase {
         XCTAssertEqual(mockLocaticsViewModelViewObserver.latMeter, 10000)
         XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter, 10000)
     }
+
+    func test_addLocaticWasTapped_callsUpdateMapRegionWithValues() {
+        sut.addLocaticWasTapped()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledUpdateMapRegion)
+
+        let lastVisitedLocation = mockLocationManager.lastVisitedLocation!
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.location.latitude,
+                       lastVisitedLocation.latitude)
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.location.longitude,
+                       lastVisitedLocation.longitude)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.latMeter,
+                       50)
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter,
+                       50)
+    }
+
+    func test_addLocaticWasTapped_doesNotCallUpdateMapRegionWhenLastVisitedLocationIsNil() {
+        mockLocationManager.lastVisitedLocation = nil
+
+        sut.addLocaticWasTapped()
+
+        XCTAssertFalse(mockLocaticsViewModelViewObserver.calledUpdateMapRegion)
+    }
 }
 
 private extension LocaticsMapViewModelTests {

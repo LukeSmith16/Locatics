@@ -24,9 +24,14 @@ class LocationManagerTests: XCTestCase {
         mockLocationManagerObserver = MockLocationManagerDelegate()
         mockLocationProvider = MockLocationProvider()
         mockLocationGeocoder = MockLocationGeocoder()
-        mockLocationStorage = MockLocationStorage()
         mockLocationPermissionsManager = MockLocationPermissionsManager()
         mockLocationPermissionsManager.authorizePermsState = .authorizedAlways
+
+        mockLocationStorage = MockLocationStorage()
+        mockLocationStorage.lastVisitedLocation = VisitedLocation(
+            CLLocationCoordinate2D(latitude: 20.0, longitude: 20.0),
+            date: Date(),
+            description: "Description")
 
         sut = LocationManager(locationProvider: mockLocationProvider,
                               locationGeocoder: mockLocationGeocoder,
@@ -130,11 +135,6 @@ class LocationManagerTests: XCTestCase {
     }
 
     func test_lastVisitedLocation_returnsLocationStorageLastVisitedLocation() {
-        mockLocationStorage.lastVisitedLocation = VisitedLocation(
-            CLLocationCoordinate2D(latitude: 20.0, longitude: 20.0),
-            date: Date(),
-            description: "Description")
-
         guard let sutVisitedLocation = sut.lastVisitedLocation as? VisitedLocation,
             let mockLastVisitedLocation = mockLocationStorage.lastVisitedLocation as? VisitedLocation else {
             XCTFail("Should be convertible to 'VisitedLocation'")
@@ -157,6 +157,44 @@ class LocationManagerTests: XCTestCase {
 
         XCTAssertFalse(mockLocationGeocoder.calledReverseGeocodeLocation)
     }
+
+    func test_handleDidUpdateLocation_setsLastVisitedLocationAndCallsFindCurrentLocationCompletion() {
+        let mockLocation = MockLocation()
+        let location = CLLocation(latitude: mockLocation.coordinate.latitude,
+                                  longitude: mockLocation.coordinate.longitude)
+        sut.locationManager(CLLocationManager(), didUpdateLocations: [location])
+
+        sut.handleDidUpdateLocation(location)
+
+        guard let visitedLocation = sut.lastVisitedLocation else {
+            XCTFail("LastVisitedLocation should not be nil")
+            return
+        }
+
+        XCTAssertTrue(mockLocationGeocoder.calledReverseGeocodeLocation)
+        XCTAssertEqual(visitedLocation.coordinate.latitude,
+                       mockLocation.coordinate.latitude)
+        XCTAssertEqual(visitedLocation.coordinate.longitude,
+                       mockLocation.coordinate.longitude)
+    }
+
+    func test_handleDidUpdateLocation_failsWhenLocationIsInvalid() {
+        mockLocationGeocoder.shouldFail = true
+
+        sut.locationManager(CLLocationManager(), didUpdateLocations: [CLLocation()])
+        sut.handleDidUpdateLocation(CLLocation())
+
+        guard let visitedLocation = sut.lastVisitedLocation else {
+            XCTFail("LastVisitedLocation should not be nil")
+            return
+        }
+
+        XCTAssertTrue(mockLocationGeocoder.calledReverseGeocodeLocation)
+        XCTAssertEqual(visitedLocation.coordinate.latitude,
+                       20.0)
+        XCTAssertEqual(visitedLocation.coordinate.longitude,
+                       20.0)
+    }
 }
 
 private extension LocationManagerTests {
@@ -168,23 +206,23 @@ private extension LocationManagerTests {
         }
     }
 
-    class MockLocationGeocoder: CLGeocoder {
+    class MockLocationGeocoder: LocationGeocoderInterface {
         var calledReverseGeocodeLocation = false
         var locationPassed: CLLocation?
 
-        let placemark = CLPlacemark()
+        let placemark = MockCLPlacemark()
 
         var shouldFail = false
 
-        override func reverseGeocodeLocation(_ location: CLLocation,
-                                             completionHandler: @escaping CLGeocodeCompletionHandler) {
+        func reverseGeocodeLocation(_ location: CLLocation,
+                                    completionHandler: @escaping CLGeocodeCompletionHandler) {
             calledReverseGeocodeLocation = true
             locationPassed = location
 
             if shouldFail {
                 completionHandler(nil, NSError())
             } else {
-                completionHandler(nil, nil)
+                completionHandler([placemark], nil)
             }
         }
     }
@@ -196,6 +234,12 @@ private extension LocationManagerTests {
 
         func saveLocationOnDisk(_ location: VisitedLocation) {
             calledSaveLocationOnDisk = true
+        }
+    }
+
+    class MockCLPlacemark: CLPlacemark {
+        override var thoroughfare: String? {
+            return "TestThoroughfare"
         }
     }
 }

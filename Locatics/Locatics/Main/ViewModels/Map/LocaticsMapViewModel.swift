@@ -15,6 +15,7 @@ protocol LocaticsMapViewModelInterface: class {
     func getSubtitle() -> String
 
     func getUserRegion()
+    func addLocaticWasTapped()
 }
 
 protocol LocaticsMapViewModelViewDelegate: class {
@@ -59,6 +60,13 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
                 self.viewDelegate?.showAlert(title: "Error", message: failure.localizedDescription)
             }
         })
+    }
+
+    func addLocaticWasTapped() {
+        guard let lastVisitedLocation = locationManager?.lastVisitedLocation else { return }
+        viewDelegate?.updateMapRegion(location: lastVisitedLocation.coordinate,
+                                      latMeters: 50,
+                                      lonMeters: 50)
     }
 }
 
