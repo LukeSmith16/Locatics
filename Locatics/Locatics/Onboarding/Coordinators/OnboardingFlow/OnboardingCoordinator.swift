@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OnboardingCoordinatorOutput {
+protocol OnboardingCoordinatorOutput: class {
     var finishedOnboarding: (() -> Void)? { get set }
 }
 

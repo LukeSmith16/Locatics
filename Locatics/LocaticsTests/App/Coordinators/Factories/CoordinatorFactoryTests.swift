@@ -26,7 +26,33 @@ class CoordinatorFactoryTests: XCTestCase {
         let navController = UINavigationController()
         let coordinator = sut.createOnboardingFlow(root: navController)
 
-        XCTAssertTrue(coordinator.self is OnboardingCoordinator)
+        XCTAssertTrue(coordinator is OnboardingCoordinator)
         XCTAssertTrue(navController.viewControllers.isEmpty)
+    }
+
+    func test_createMainCoordinatorFlow_returnsTabBarCoordinator() {
+        let tabControllerSB = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let tabBarController = tabControllerSB.instantiateInitialViewController() as? TabBarController
+        let tabController = tabBarController!
+
+        let mainFlow = sut.createMainFlow(root: tabController)
+
+        XCTAssertTrue(mainFlow is TabBarCoordinator)
+    }
+
+    func test_createMapCoordinatorFlow_returnsLocaticsMapCoordinator() {
+        let navController = UINavigationController()
+
+        let locaticsMapFlow = sut.createMapFlow(root: navController)
+
+        XCTAssertTrue(locaticsMapFlow is LocaticsMapCoordinator)
+    }
+
+    func test_createLocaticsCoordinatorFlow_returnsLocaticsCoordinator() {
+        let navController = UINavigationController()
+
+        let locaticsMapFlow = sut.createLocaticsFlow(root: navController)
+
+        XCTAssertTrue(locaticsMapFlow is LocaticsCoordinator)
     }
 }

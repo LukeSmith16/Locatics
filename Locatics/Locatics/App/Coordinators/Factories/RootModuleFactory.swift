@@ -10,6 +10,7 @@ import UIKit
 
 protocol RootModuleFactoryInterface {
     func createRootNavigationController() -> UINavigationController
+    func createTabBarController() -> TabBarControllerInterface
 }
 
 class RootModuleFactory: RootModuleFactoryInterface {
@@ -18,5 +19,14 @@ class RootModuleFactory: RootModuleFactoryInterface {
         rootNavigationController.setNavigationBarHidden(true, animated: true)
 
         return rootNavigationController
+    }
+
+    func createTabBarController() -> TabBarControllerInterface {
+        let mainStoryboard = UIStoryboard.Storyboard.main
+        guard let tabBarController = mainStoryboard.instantiateInitialViewController() as? TabBarController else {
+            fatalError("Could not get TabBarController from storyboard file")
+        }
+
+        return tabBarController
     }
 }

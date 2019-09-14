@@ -14,12 +14,15 @@ class ApplicationCoordinatorTests: XCTestCase {
     var window: UIWindow!
     var sut: CoordinatorInterface?
 
-    fileprivate var mockCoordinatorFactory: MockCoordinatorFactory!
-    fileprivate var mockOnboardingCoordinator: MockOnboardingCoordinator!
+    private var mockCoordinatorFactory: MockCoordinatorFactory!
+    private var mockOnboardingCoordinator: MockOnboardingCoordinator!
+    private var mockMainCoordinator: MockMainCoordinator!
 
     override func setUp() {
         mockOnboardingCoordinator = MockOnboardingCoordinator()
-        mockCoordinatorFactory = MockCoordinatorFactory(onboardingCoordinator: mockOnboardingCoordinator)
+        mockMainCoordinator = MockMainCoordinator()
+        mockCoordinatorFactory = MockCoordinatorFactory(onboardingCoordinator: mockOnboardingCoordinator,
+                                                        mainCoordinator: mockMainCoordinator)
         window = UIWindow()
     }
 
@@ -28,6 +31,7 @@ class ApplicationCoordinatorTests: XCTestCase {
         window = nil
         mockCoordinatorFactory = nil
         mockOnboardingCoordinator = nil
+        mockMainCoordinator = nil
         super.tearDown()
     }
 
@@ -52,29 +56,32 @@ class ApplicationCoordinatorTests: XCTestCase {
 
         XCTAssertNotNil(window.rootViewController)
     }
-}
 
-private extension ApplicationCoordinatorTests {
-    class MockCoordinatorFactory: CoordinatorFactoryInterface {
+    func test_startOnboardingFlowFinished_startsMainFlow() {
+        sut = ApplicationCoordinator(window: window,
+                                     launchInstructor: .onboarding,
+                                     coordinatorFactory: mockCoordinatorFactory,
+                                     rootModuleFactory: RootModuleFactory())
 
-        let onboardingCoordinator: MockOnboardingCoordinator
+        sut?.start()
 
-        init(onboardingCoordinator: MockOnboardingCoordinator) {
-            self.onboardingCoordinator = onboardingCoordinator
-        }
+        mockOnboardingCoordinator.triggerFinishOnboarding()
 
-        func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput {
-            return onboardingCoordinator
-        }
+        XCTAssertTrue(window.rootViewController is UITabBarController)
+        XCTAssertTrue(mockMainCoordinator.startWasCalled)
     }
 
-    class MockOnboardingCoordinator: CoordinatorInterface, OnboardingCoordinatorOutput {
-        var finishedOnboarding: (() -> Void)?
+    func test_startMainFlowGetsCalledWhenLaunchInstructor_isMain() {
+        sut = ApplicationCoordinator(window: window,
+                                     launchInstructor: .main,
+                                     coordinatorFactory: mockCoordinatorFactory,
+                                     rootModuleFactory: RootModuleFactory())
 
-        var startWasCalled = false
+        sut?.start()
 
-        func start() {
-            startWasCalled = true
-        }
+        XCTAssertTrue(window.rootViewController is UITabBarController)
+        XCTAssertTrue(mockMainCoordinator.startWasCalled)
+
+        XCTAssertFalse(mockOnboardingCoordinator.startWasCalled)
     }
 }

@@ -8,8 +8,6 @@
 
 import UIKit
 
-private var onboardingWasShown = false
-
 enum LaunchInstructor {
     case main, onboarding
 
@@ -35,6 +33,8 @@ class ApplicationCoordinator: CoordinatorInterface {
     private let rootModuleFactory: RootModuleFactoryInterface
     private let coordinatorFactory: CoordinatorFactoryInterface
 
+    private var childCoordinators: [CoordinatorInterface] = []
+
     init(window: UIWindow,
          launchInstructor: LaunchInstructor,
          coordinatorFactory: CoordinatorFactoryInterface,
@@ -48,7 +48,7 @@ class ApplicationCoordinator: CoordinatorInterface {
     func start() {
         switch launchInstructor {
         case .main:
-            fatalError("Not implemented yet...")
+            startMainFlow()
         case .onboarding:
             startOnboardingFlow()
         }
@@ -61,6 +61,23 @@ private extension ApplicationCoordinator {
         window.rootViewController = rootController
 
         let onboardingCoordinator = coordinatorFactory.createOnboardingFlow(root: rootController)
+        onboardingCoordinator.finishedOnboarding = { [weak self] in
+            guard let `self` = self else { return }
+            self.startMainFlow()
+        }
+
         onboardingCoordinator.start()
+    }
+
+    func startMainFlow() {
+        guard let rootTabBarController = rootModuleFactory.createTabBarController() as? TabBarController else {
+            fatalError("RootTabBarController should be of type TabBarController")
+        }
+
+        let tabBarCoordinator = coordinatorFactory.createMainFlow(root: rootTabBarController)
+        tabBarCoordinator.start()
+
+        childCoordinators.append(tabBarCoordinator)
+        window.rootViewController = rootTabBarController
     }
 }
