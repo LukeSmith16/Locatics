@@ -25,7 +25,9 @@ class LocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
 private extension LocaticsMapModuleFactory {
     func createLocaticsMapViewModel() -> LocaticsMapViewModelInterface {
         let locationManager = createLocationManager()
-        let locaticsMapViewModel = LocaticsMapViewModel(locationManager: locationManager)
+        let locaticsMapViewModel = LocaticsMapViewModel()
+        locaticsMapViewModel.locationManager = locationManager
+
         return locaticsMapViewModel
     }
 

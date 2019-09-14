@@ -63,7 +63,7 @@ class LocationManagerTests: XCTestCase {
         sut.findCurrentLocation { (result) in
             switch result {
             case .success(let location):
-                XCTFail("\(location.coordinate)")
+                XCTFail("\(location)")
             case .failure(let failure):
                 XCTFail(failure.localizedDescription)
             }
@@ -76,27 +76,11 @@ class LocationManagerTests: XCTestCase {
         XCTAssertNotNil(sut.locationProvider.delegate)
     }
 
-    func test_didUpdateLocations_callsCompletionBlockWithLocationWhenValid() {
-        let givenLocation = CLLocation(latitude: 50.0, longitude: 25.0)
-
-        sut.findCurrentLocation { (result) in
-            switch result {
-            case .success(let location):
-                XCTAssertEqual(location.coordinate.latitude, givenLocation.coordinate.latitude)
-                XCTAssertEqual(location.coordinate.longitude, givenLocation.coordinate.longitude)
-            case .failure(let failure):
-                XCTFail("Shouldn't be failing when location is found - \(failure.localizedDescription)")
-            }
-        }
-
-        sut.locationManager(CLLocationManager(), didUpdateLocations: [givenLocation])
-    }
-
     func test_didUpdateLocations_callsCompletionBlockWithErrorWhenInvalid() {
         sut.findCurrentLocation { (result) in
             switch result {
             case .success(let location):
-                XCTFail("Shouldn't be returning location when error occurs - \(location.coordinate)")
+                XCTFail("Shouldn't be returning location when error occurs - \(location)")
             case .failure(let failure):
                 XCTAssertEqual(failure.localizedDescription,
                                LocationError.locationNotFound.localizedDescription)
@@ -111,7 +95,7 @@ class LocationManagerTests: XCTestCase {
         let visit = MockCLVisit()
         sut.locationManager(CLLocationManager(), didVisit: visit)
 
-        XCTAssert(mockLocationGeocoder.calledReverseGeocodeLocation)
+        XCTAssertTrue(mockLocationGeocoder.calledReverseGeocodeLocation)
         XCTAssertEqual(mockLocationGeocoder.locationPassed!.coordinate.latitude, coordinate.latitude)
         XCTAssertEqual(mockLocationGeocoder.locationPassed!.coordinate.longitude, coordinate.longitude)
     }
@@ -129,7 +113,7 @@ class LocationManagerTests: XCTestCase {
         sut.findCurrentLocation { (result) in
             switch result {
             case .success(let success):
-                XCTFail("Should not be getting location if not authorised - \(success.coordinate)")
+                XCTFail("Should not be getting location if not authorised - \(success)")
             case .failure(let failure):
                 XCTAssertEqual(failure.localizedDescription, "You have not enabled loction permissions.")
             }
@@ -159,6 +143,20 @@ class LocationManagerTests: XCTestCase {
 
         XCTAssertTrue(sutVisitedLocation === mockLastVisitedLocation)
     }
+
+    func test_didUpdateLocations_callsReverseGeocodeLocation() {
+        let givenLocation = CLLocation(latitude: 10.0, longitude: 10.0)
+
+        sut.locationManager(CLLocationManager(), didUpdateLocations: [givenLocation])
+
+        XCTAssertTrue(mockLocationGeocoder.calledReverseGeocodeLocation)
+    }
+
+    func test_didUpdateLocations_failsWhenNoLocationsPassed() {
+        sut.locationManager(CLLocationManager(), didUpdateLocations: [])
+
+        XCTAssertFalse(mockLocationGeocoder.calledReverseGeocodeLocation)
+    }
 }
 
 private extension LocationManagerTests {
@@ -176,12 +174,18 @@ private extension LocationManagerTests {
 
         let placemark = CLPlacemark()
 
+        var shouldFail = false
+
         override func reverseGeocodeLocation(_ location: CLLocation,
                                              completionHandler: @escaping CLGeocodeCompletionHandler) {
             calledReverseGeocodeLocation = true
             locationPassed = location
 
-            super.reverseGeocodeLocation(location, completionHandler: completionHandler)
+            if shouldFail {
+                completionHandler(nil, NSError())
+            } else {
+                completionHandler(nil, nil)
+            }
         }
     }
 
