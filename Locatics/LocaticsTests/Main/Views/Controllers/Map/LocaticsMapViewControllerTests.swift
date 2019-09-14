@@ -81,7 +81,18 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.locaticsMapViewModel?.viewDelegate)
     }
 
-    
+    func test_setNavigationTitle_callsSetTitleWithValue() {
+        let mockNavigationTitleView = MockNavigationTitleView()
+        sut.navigationTitleView = mockNavigationTitleView
+
+        sut.setNavigationTitle("Test")
+
+        XCTAssertTrue(mockNavigationTitleView.calledSetNewTitle)
+        XCTAssertTrue(mockNavigationTitleView.calledSetNewSubtitle)
+
+        XCTAssertEqual(mockNavigationTitleView.setNewTitleValue, "Test")
+        XCTAssertEqual(mockNavigationTitleView.setNewSubTitleValue, "the subtitle")
+    }
 }
 
 private extension LocaticsMapViewControllerTests {
@@ -100,6 +111,24 @@ private extension LocaticsMapViewControllerTests {
         func getSubtitle() -> String {
             calledGetSubtitle = true
             return "the subtitle"
+        }
+    }
+
+    class MockNavigationTitleView: NavigationTitleViewInterface {
+        var calledSetNewTitle = false
+        var calledSetNewSubtitle = false
+
+        var setNewTitleValue = ""
+        var setNewSubTitleValue = ""
+
+        func setNewTitle(_ title: String?) {
+            calledSetNewTitle = true
+            setNewTitleValue = title ?? ""
+        }
+
+        func setNewSubtitle(_ subtitle: String?) {
+            calledSetNewSubtitle = true
+            setNewSubTitleValue = subtitle ?? ""
         }
     }
 }

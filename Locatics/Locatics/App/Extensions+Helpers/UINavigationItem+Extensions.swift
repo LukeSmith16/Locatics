@@ -8,8 +8,35 @@
 
 import UIKit
 
+protocol NavigationTitleViewInterface: class {
+    func setNewTitle(_ title: String?)
+    func setNewSubtitle(_ subtitle: String?)
+}
+
+class NavigationTitleView: UIStackView, NavigationTitleViewInterface {
+
+    private var mainTitleLabel: UILabel!
+    private var subtitleLabel: UILabel!
+
+    convenience init(mainTitleLabel: UILabel, subtitleLabel: UILabel) {
+        self.init()
+        self.mainTitleLabel = mainTitleLabel
+        self.subtitleLabel = subtitleLabel
+        self.insertArrangedSubview(mainTitleLabel, at: 0)
+        self.insertArrangedSubview(subtitleLabel, at: 1)
+    }
+
+    func setNewTitle(_ title: String?) {
+        self.mainTitleLabel.text = title
+    }
+
+    func setNewSubtitle(_ subtitle: String?) {
+        self.subtitleLabel.text = subtitle
+    }
+}
+
 extension UINavigationItem {
-    func setTitle(title: String?, subtitle: String?) {
+    func setupTitleView(title: String?, subtitle: String?) -> NavigationTitleViewInterface {
         let mainTitleLabel = UILabel()
         mainTitleLabel.text = title
         mainTitleLabel.textAlignment = .center
@@ -22,17 +49,19 @@ extension UINavigationItem {
         subtitleLabel.textAlignment = .center
         subtitleLabel.sizeToFit()
 
-        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, subtitleLabel])
-        stackView.distribution = .equalCentering
-        stackView.axis = .vertical
-        stackView.alignment = .center
+        let navigationTitleView = NavigationTitleView(mainTitleLabel: mainTitleLabel, subtitleLabel: subtitleLabel)
+        navigationTitleView.distribution = .equalCentering
+        navigationTitleView.axis = .vertical
+        navigationTitleView.alignment = .center
 
         let width = max(mainTitleLabel.frame.size.width, subtitleLabel.frame.size.width)
-        stackView.frame = CGRect(x: 0, y: 0, width: width, height: 35)
+        navigationTitleView.frame = CGRect(x: 0, y: 0, width: width, height: 35)
 
         mainTitleLabel.sizeToFit()
         subtitleLabel.sizeToFit()
 
-        self.titleView = stackView
+        self.titleView = navigationTitleView
+
+        return navigationTitleView
     }
 }

@@ -10,9 +10,18 @@ import XCTest
 
 @testable import Locatics
 class UINavigationItemExtensionsTests: XCTestCase {
-    func test_setTitle_setsTitleViewWithTitleAndSubTitle() {
+    func test_setupTitleView_setsTitleViewWithTitleAndSubTitle() {
         let sut = UINavigationItem()
-        sut.setTitle(title: "Main title", subtitle: "Subtitle")
+        let navigationTitleView = sut.setupTitleView(title: "Main title", subtitle: "Subtitle")
+
+        XCTAssertNotNil(sut.titleView)
+
+        guard let navigationTitleViewOnSUT = navigationTitleView as? NavigationTitleView else {
+            XCTFail("NavigationTitleViewInterface should be 'NavigationTitleView'")
+            return
+        }
+        
+        XCTAssertEqual(sut.titleView, navigationTitleViewOnSUT)
 
         let mainTitleView = sut.titleView!.subviews.first { (view) -> Bool in
             if let label = view as? UILabel {
@@ -49,5 +58,23 @@ class UINavigationItemExtensionsTests: XCTestCase {
         XCTAssertEqual(subtitleLabel.font.familyName, Font.FontName.HelveticaRegular.rawValue)
         XCTAssertTrue(subtitleLabel.font.pointSize == CGFloat(Font.FontSize.standard(.h2).value))
         XCTAssertEqual(subtitleLabel.textAlignment, NSTextAlignment.center)
+    }
+
+    func test_navigationTitleView_setNewTitle() {
+        let mainLabel = UILabel()
+        let sut = NavigationTitleView(mainTitleLabel: mainLabel, subtitleLabel: UILabel())
+
+        sut.setNewTitle("Test title")
+
+        XCTAssertEqual(mainLabel.text, "Test title")
+    }
+
+    func test_navigationTitleView_setNewSubtitle() {
+        let subLabel = UILabel()
+        let sut = NavigationTitleView(mainTitleLabel: UILabel(), subtitleLabel: subLabel)
+
+        sut.setNewSubtitle("Test subtitle")
+
+        XCTAssertEqual(subLabel.text, "Test subtitle")
     }
 }

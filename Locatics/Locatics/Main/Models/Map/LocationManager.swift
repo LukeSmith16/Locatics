@@ -8,6 +8,8 @@
 
 import CoreLocation
 
+import UserNotifications
+
 enum LocationError: Error {
     case locationNotFound
     case notAuthorised
@@ -111,29 +113,65 @@ extension LocationManager: CLLocationManagerDelegate {
             return
         }
 
+        DELETETHIS("DidUpdateLocations (Ignore)")
         reverseGeocodeLocation(lastLocation) { [unowned self] (result) in
             self.findCurrentLocationCompletion(result)
         }
     }
 
+    // TODO: Implement error handling (via delegate?)
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+        DELETETHIS()
+
         let locationFromVisit = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
         reverseGeocodeLocation(locationFromVisit) { (result) in
             switch result {
             case .success(let success):
                 self.newVisitReceived(visit, description: success)
             case .failure(let failure):
+                self.DELETETHIS("DIDVISIT was called but fail on geocode")
                 print(failure.localizedDescription)
             }
         }
     }
 
+    func DELETETHIS(_ message: String = "LOCATICS") {
+        let notificationCenter = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        notificationCenter.requestAuthorization(options: options) {
+            (didAllow, error) in
+            if !didAllow {
+                print("User has declined notifications")
+            }
+        }
+
+        let content = UNMutableNotificationContent()
+
+        content.title = message
+        content.body = "Location visit monitoring got triggered"
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+
+        let identifier = "Local Notification"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false))
+
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+
     func newVisitReceived(_ visit: CLVisit, description: String) {
+        DELETETHIS()
+
         let newLocation = VisitedLocation(visit: visit, description: description)
         locationStorage.saveLocationOnDisk(newLocation)
     }
 
+    // TODO: Handle this... (was crashing at times for some reason)
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        DELETETHIS(error.localizedDescription)
         print(error.localizedDescription)
     }
 }
