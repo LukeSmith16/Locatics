@@ -18,6 +18,9 @@
 		0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E8231ED5530084770E /* RootModuleFactory.swift */; };
 		0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */; };
 		0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */; };
+		073F2838232D4457003137D4 /* AddLocaticCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073F2837232D4457003137D4 /* AddLocaticCardView.swift */; };
+		073F283A232D4460003137D4 /* AddLocaticCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073F2839232D4460003137D4 /* AddLocaticCardView.xib */; };
+		073F283C232D4479003137D4 /* AddLocaticCardViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */; };
 		0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0759E88B231BEA8100AA987B /* Colors.xcassets */; };
 		0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */; };
 		0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E892231BED2400AA987B /* UIFont+Extensions.swift */; };
@@ -81,6 +84,13 @@
 		0773F7B0232558B700EA62E1 /* AppFileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */; };
 		0773F7B22325666100EA62E1 /* LocationStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7B12325666100EA62E1 /* LocationStorageTests.swift */; };
 		0773F7B423257E0500EA62E1 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7B323257E0500EA62E1 /* LocationTests.swift */; };
+		0775C38D232E4DBA002AAFDE /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C38C232E4DBA002AAFDE /* ActionButton.swift */; };
+		0775C38F232E4F6E002AAFDE /* ActionButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C38E232E4F6E002AAFDE /* ActionButtonTests.swift */; };
+		0775C391232E509E002AAFDE /* SliderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C390232E509E002AAFDE /* SliderControl.swift */; };
+		0775C393232E50A8002AAFDE /* SliderControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C392232E50A8002AAFDE /* SliderControlTests.swift */; };
+		0775C395232E5584002AAFDE /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C394232E5584002AAFDE /* UIView+Extensions.swift */; };
+		0775C39C232E62E2002AAFDE /* AddLocaticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C39B232E62E2002AAFDE /* AddLocaticViewModel.swift */; };
+		0775C39E232E62ED002AAFDE /* AddLocaticViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C39D232E62ED002AAFDE /* AddLocaticViewModelTests.swift */; };
 		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
 		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
 		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
@@ -132,6 +142,9 @@
 		0726E9E8231ED5530084770E /* RootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactory.swift; sourceTree = "<group>"; };
 		0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactoryTests.swift; sourceTree = "<group>"; };
 		0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomePageViewController.swift; sourceTree = "<group>"; };
+		073F2837232D4457003137D4 /* AddLocaticCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticCardView.swift; sourceTree = "<group>"; };
+		073F2839232D4460003137D4 /* AddLocaticCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLocaticCardView.xib; sourceTree = "<group>"; };
+		073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticCardViewTests.swift; sourceTree = "<group>"; };
 		0759E88B231BEA8100AA987B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		0759E892231BED2400AA987B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -197,6 +210,13 @@
 		0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileSystemTests.swift; sourceTree = "<group>"; };
 		0773F7B12325666100EA62E1 /* LocationStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorageTests.swift; sourceTree = "<group>"; };
 		0773F7B323257E0500EA62E1 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		0775C38C232E4DBA002AAFDE /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		0775C38E232E4F6E002AAFDE /* ActionButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonTests.swift; sourceTree = "<group>"; };
+		0775C390232E509E002AAFDE /* SliderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderControl.swift; sourceTree = "<group>"; };
+		0775C392232E50A8002AAFDE /* SliderControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderControlTests.swift; sourceTree = "<group>"; };
+		0775C394232E5584002AAFDE /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		0775C39B232E62E2002AAFDE /* AddLocaticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticViewModel.swift; sourceTree = "<group>"; };
+		0775C39D232E62ED002AAFDE /* AddLocaticViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticViewModelTests.swift; sourceTree = "<group>"; };
 		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -340,6 +360,38 @@
 			path = OnboardingPages;
 			sourceTree = "<group>";
 		};
+		073F2833232D43F7003137D4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				073F2837232D4457003137D4 /* AddLocaticCardView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		073F2834232D4419003137D4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		073F2835232D441E003137D4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				073F2839232D4460003137D4 /* AddLocaticCardView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		073F2836232D4427003137D4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		0759E886231BE08400AA987B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +425,7 @@
 				0773F78E2323B85500EA62E1 /* UIImage+Extensions.swift */,
 				0773F7952323F6A900EA62E1 /* UINavigationItem+Extensions.swift */,
 				0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */,
+				0775C394232E5584002AAFDE /* UIView+Extensions.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -389,6 +442,8 @@
 			isa = PBXGroup;
 			children = (
 				0773F70D23216EAD00EA62E1 /* AlertController.swift */,
+				0775C38C232E4DBA002AAFDE /* ActionButton.swift */,
+				0775C390232E509E002AAFDE /* SliderControl.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -397,6 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				0773F71023216F6000EA62E1 /* AlertControllerTests.swift */,
+				0775C38E232E4F6E002AAFDE /* ActionButtonTests.swift */,
+				0775C392232E50A8002AAFDE /* SliderControlTests.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -472,6 +529,7 @@
 			children = (
 				0773F7942323F62300EA62E1 /* NavigationControllers */,
 				0773F75C23230F7C00EA62E1 /* Controllers */,
+				073F2833232D43F7003137D4 /* CustomViews */,
 				0773F72B23226F3C00EA62E1 /* Storyboards */,
 				0773F76E2323154900EA62E1 /* XIBs */,
 			);
@@ -492,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F7602323101E00EA62E1 /* Controllers */,
+				073F2836232D4427003137D4 /* CustomViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -695,6 +754,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F76C232310A000EA62E1 /* LocaticsMapViewModel.swift */,
+				0775C39B232E62E2002AAFDE /* AddLocaticViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -703,6 +763,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F7652323106200EA62E1 /* LocaticsMapViewModelTests.swift */,
+				0775C39D232E62ED002AAFDE /* AddLocaticViewModelTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -735,7 +796,8 @@
 		0773F76F2323155B00EA62E1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */,
+				073F2834232D4419003137D4 /* Controllers */,
+				073F2835232D441E003137D4 /* CustomViews */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1169,6 +1231,7 @@
 				0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
 				07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */,
+				073F283A232D4460003137D4 /* AddLocaticCardView.xib in Resources */,
 				0773F7852323193E00EA62E1 /* LocaticsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1261,12 +1324,14 @@
 				0773F73B23228AA500EA62E1 /* LocaticsCoordinator.swift in Sources */,
 				0773F7932323BC8600EA62E1 /* NavigationViewController.swift in Sources */,
 				0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */,
+				0775C391232E509E002AAFDE /* SliderControl.swift in Sources */,
 				07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */,
 				07FC7D88231C0BCA006CA6E0 /* OnboardingModuleFactory.swift in Sources */,
 				0773F7A6232439F300EA62E1 /* CoreLocation+Extensions.swift in Sources */,
 				0773F78B2323B62100EA62E1 /* CAGradientLayer+Extensions.swift in Sources */,
 				0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */,
 				0759E89B231BF86900AA987B /* App.swift in Sources */,
+				0775C395232E5584002AAFDE /* UIView+Extensions.swift in Sources */,
 				07FC7D82231C09C2006CA6E0 /* OnboardingCoordinator.swift in Sources */,
 				0773F7572322B8C600EA62E1 /* LocaticsMapModuleFactory.swift in Sources */,
 				07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */,
@@ -1284,6 +1349,7 @@
 				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
 				0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */,
 				0773F7962323F6A900EA62E1 /* UINavigationItem+Extensions.swift in Sources */,
+				073F2838232D4457003137D4 /* AddLocaticCardView.swift in Sources */,
 				070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */,
 				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
 				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
@@ -1295,9 +1361,11 @@
 				0773F7792323171C00EA62E1 /* LocaticsViewModel.swift in Sources */,
 				0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */,
 				0773F7892323B54F00EA62E1 /* UINavigationBar+Extensions.swift in Sources */,
+				0775C39C232E62E2002AAFDE /* AddLocaticViewModel.swift in Sources */,
 				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
 				0773F77E2323179000EA62E1 /* LocaticsModuleFactory.swift in Sources */,
 				0773F7772323170000EA62E1 /* LocaticsListViewController.swift in Sources */,
+				0775C38D232E4DBA002AAFDE /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1310,6 +1378,7 @@
 				0773F7532322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift in Sources */,
 				0773F7B0232558B700EA62E1 /* AppFileSystemTests.swift in Sources */,
 				0773F78D2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift in Sources */,
+				073F283C232D4479003137D4 /* AddLocaticCardViewTests.swift in Sources */,
 				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
 				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
 				0773F7872323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift in Sources */,
@@ -1324,6 +1393,7 @@
 				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,
 				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
 				0773F7A2232430EF00EA62E1 /* LocationManagerTests.swift in Sources */,
+				0775C39E232E62ED002AAFDE /* AddLocaticViewModelTests.swift in Sources */,
 				0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */,
 				070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */,
 				0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */,
@@ -1335,6 +1405,8 @@
 				0773F7632323103400EA62E1 /* LocaticsMapViewControllerTests.swift in Sources */,
 				0773F7662323106200EA62E1 /* LocaticsMapViewModelTests.swift in Sources */,
 				07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */,
+				0775C393232E50A8002AAFDE /* SliderControlTests.swift in Sources */,
+				0775C38F232E4F6E002AAFDE /* ActionButtonTests.swift in Sources */,
 				0773F7912323B86300EA62E1 /* UIImage+ExtensionsTests.swift in Sources */,
 				07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */,
 				0773F775232316F100EA62E1 /* LocaticsListViewControllerTests.swift in Sources */,
