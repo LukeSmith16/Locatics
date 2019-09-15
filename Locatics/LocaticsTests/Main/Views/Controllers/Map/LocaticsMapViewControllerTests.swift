@@ -129,6 +129,17 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertTrue(mockLocaticsMapViewModel.calledAddLocaticWasTapped)
     }
+
+    func test_showAddLocaticCardView_setsAddLocaticCardView() {
+        XCTAssertNil(sut.addLocaticCardView)
+
+        sut.showAddLocaticCardView()
+
+        XCTAssertNotNil(sut.addLocaticCardView)
+        XCTAssertEqual(sut.addLocaticCardView!.frame,
+                       CGRect(x: 0, y: 0, width: sut.view.bounds.width, height: 400))
+        XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
+    }
 }
 
 private extension LocaticsMapViewControllerTests {
@@ -140,6 +151,9 @@ private extension LocaticsMapViewControllerTests {
         var calledAddLocaticWasTapped = false
 
         weak var viewDelegate: LocaticsMapViewModelViewDelegate?
+        var addLocaticViewModel: AddLocaticViewModelInterface? {
+            return AddLocaticViewModel()
+        }
 
         func getMainTitle() -> String {
             calledGetMainTitle = true

@@ -27,4 +27,10 @@ class LocaticsMapModuleFactoryTests: XCTestCase {
 
         XCTAssertNotNil(locaticsMapModule.locaticsMapViewModel)
     }
+
+    func test_createLocaticsMapViewModel_addLocaticViewModelIsNotNil() {
+        let locaticsMapModule = sut.createLocaticsMapModule()
+
+        XCTAssertNotNil(locaticsMapModule.locaticsMapViewModel!.addLocaticViewModel)
+    }
 }

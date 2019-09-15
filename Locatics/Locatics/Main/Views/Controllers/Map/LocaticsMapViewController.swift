@@ -14,6 +14,7 @@ class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var addLocaticButton: UIButton!
 
     var navigationTitleView: NavigationTitleViewInterface?
+    var addLocaticCardView: AddLocaticCardView?
 
     var locaticsMapViewModel: LocaticsMapViewModelInterface? {
         didSet {
@@ -66,5 +67,14 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
                                                   latitudinalMeters: latMeters,
                                                   longitudinalMeters: lonMeters)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+
+    func showAddLocaticCardView() {
+        let addLocaticCardView = AddLocaticCardView(frame: CGRect(x: 0,
+                                                              y: 0,
+                                                              width: self.view.bounds.width,
+                                                              height: 400))
+        addLocaticCardView.addLocaticViewModel = locaticsMapViewModel?.addLocaticViewModel
+        self.addLocaticCardView = addLocaticCardView
     }
 }

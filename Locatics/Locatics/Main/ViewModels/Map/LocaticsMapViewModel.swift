@@ -10,6 +10,7 @@ import Foundation
 
 protocol LocaticsMapViewModelInterface: class {
     var viewDelegate: LocaticsMapViewModelViewDelegate? {get set}
+    var addLocaticViewModel: AddLocaticViewModelInterface? {get}
 
     func getMainTitle() -> String
     func getSubtitle() -> String
@@ -22,6 +23,7 @@ protocol LocaticsMapViewModelViewDelegate: class {
     func setNavigationTitle(_ title: String)
     func showAlert(title: String, message: String)
     func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double)
+    func showAddLocaticCardView()
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
@@ -32,6 +34,8 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
             locationManager?.locationDelegate = self
         }
     }
+
+    var addLocaticViewModel: AddLocaticViewModelInterface?
 
     func getMainTitle() -> String {
         guard let lastVisitedLocation = locationManager?.lastVisitedLocation else {
@@ -67,6 +71,7 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
         viewDelegate?.updateMapRegion(location: lastVisitedLocation.coordinate,
                                       latMeters: 50,
                                       lonMeters: 50)
+        viewDelegate?.showAddLocaticCardView()
     }
 }
 

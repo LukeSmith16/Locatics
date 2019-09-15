@@ -149,6 +149,12 @@ class LocaticsMapViewModelTests: XCTestCase {
 
         XCTAssertFalse(mockLocaticsViewModelViewObserver.calledUpdateMapRegion)
     }
+
+    func test_addLocaticWasTapped_callsShowAddLocaticCardView() {
+        sut.addLocaticWasTapped()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledAddLocaticCardView)
+    }
 }
 
 private extension LocaticsMapViewModelTests {
@@ -156,6 +162,8 @@ private extension LocaticsMapViewModelTests {
         var calledSetNavigationTitle = false
         var calledShowAlert = false
         var calledUpdateMapRegion = false
+        var calledShowAddLocaticCardView = false
+        var calledAddLocaticCardView = false
 
         var location: CLLocationCoordinate2D!
         var latMeter: Double!
@@ -175,6 +183,10 @@ private extension LocaticsMapViewModelTests {
             self.lonMeter = lonMeters
 
             calledUpdateMapRegion = true
+        }
+
+        func showAddLocaticCardView() {
+            calledAddLocaticCardView = true
         }
     }
 }
