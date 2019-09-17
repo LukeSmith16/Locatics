@@ -13,12 +13,18 @@ class AddLocaticCardViewTests: XCTestCase {
 
     var sut: AddLocaticCardView!
 
+    private var mockAddLocaticViewModel: MockAddLocaticViewModel!
+
     override func setUp() {
+        mockAddLocaticViewModel = MockAddLocaticViewModel()
+
         sut = AddLocaticCardView.fromNib()
+        sut.addLocaticViewModel = mockAddLocaticViewModel
     }
 
     override func tearDown() {
         sut = nil
+        mockAddLocaticViewModel = nil
         super.tearDown()
     }
 
@@ -28,6 +34,10 @@ class AddLocaticCardViewTests: XCTestCase {
 
     func test_locaticNameTextField_isNotNil() {
         XCTAssertNotNil(sut.locaticNameTextField)
+    }
+
+    func test_radiusLabel_isNotNil() {
+        XCTAssertNotNil(sut.radiusLabel)
     }
 
     func test_radiusSlider_isNotNil() {
@@ -61,5 +71,73 @@ class AddLocaticCardViewTests: XCTestCase {
     func test_topCornerRadius_isTwentyFive() {
         XCTAssertEqual(sut.layer.maskedCorners, [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         XCTAssertEqual(sut.layer.cornerRadius, 25.0)
+    }
+
+    func test_addLocaticTappedCalls_addLocaticWasTappedOnViewModel() {
+        sut.addLocaticTapped(UIButton())
+
+        XCTAssertTrue(mockAddLocaticViewModel.calledAddLocaticWasTapped)
+    }
+
+    func test_radiusSliderChangedCalls_radiusDidChangeOnViewModel() {
+        sut.radiusSliderChanged(UISlider())
+
+        XCTAssertTrue(mockAddLocaticViewModel.calledRadiusDidChange)
+    }
+
+    func test_radiusSliderChangedCalls_radiusDidChangeOnViewModelPassingSliderValue() {
+        sut.radiusSlider.value = 2.0
+
+        sut.radiusSliderChanged(UISlider())
+
+        XCTAssertEqual(mockAddLocaticViewModel.radiusDidChangeValue!, sut.radiusSlider.value)
+    }
+
+    func test_settingAddLocaticViewModel_setsViewDelegate() {
+        XCTAssertNotNil(sut.addLocaticViewModel)
+        XCTAssertNotNil(sut.addLocaticViewModel!.viewDelegate)
+    }
+
+    func test_changeRadiusText_setsRadiusTextToPassedInValue() {
+        sut.changeRadiusText("Changed value")
+
+        XCTAssertEqual(sut.radiusLabel.text, "Changed value")
+    }
+
+    func test_addLocaticTapped_passesValuesFromViewToViewModel() {
+        let locaticNameValue = "My Locatic"
+        let radiusValue: Float = 50.0
+
+        sut.locaticNameTextField.text = locaticNameValue
+        sut.radiusSlider.value = radiusValue
+
+        sut.addLocaticTapped(UIButton())
+
+        XCTAssertEqual(mockAddLocaticViewModel.locaticNameValue, locaticNameValue)
+        XCTAssertEqual(mockAddLocaticViewModel.radiusValue, radiusValue)
+    }
+}
+
+private extension AddLocaticCardViewTests {
+    class MockAddLocaticViewModel: AddLocaticViewModelInterface {
+
+        var calledAddLocaticWasTapped = false
+        var calledRadiusDidChange = false
+
+        weak var viewDelegate: AddLocaticViewModelViewDelegate?
+
+        var locaticNameValue: String?
+        var radiusValue: Float?
+        func addLocaticWasTapped(locaticName: String?, radius: Float) {
+            calledAddLocaticWasTapped = true
+            locaticNameValue = locaticName
+            radiusValue = radius
+        }
+
+        var radiusDidChangeValue: Float?
+        func radiusDidChange(_ newValue: Float) {
+            calledRadiusDidChange = true
+            radiusDidChangeValue = newValue
+        }
     }
 }

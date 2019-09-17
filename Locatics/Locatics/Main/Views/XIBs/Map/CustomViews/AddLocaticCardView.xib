@@ -38,6 +38,13 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-Oj-J1Y">
+                    <rect key="frame" x="347" y="90" width="47" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -45,6 +52,7 @@
             <connections>
                 <outlet property="addNewLocaticButton" destination="KPX-y5-pxE" id="35Z-jp-jTs"/>
                 <outlet property="locaticNameTextField" destination="nMp-BF-eii" id="qv7-Vi-hqI"/>
+                <outlet property="radiusLabel" destination="cSP-Oj-J1Y" id="Z7v-3d-GEI"/>
                 <outlet property="radiusSlider" destination="mML-eW-EEz" id="zuz-zO-ryH"/>
                 <outlet property="titleLabel" destination="yZa-KU-52d" id="zke-R6-3jw"/>
             </connections>

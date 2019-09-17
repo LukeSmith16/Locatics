@@ -11,11 +11,14 @@ import UIKit
 class AddLocaticCardView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locaticNameTextField: UITextField!
+    @IBOutlet weak var radiusLabel: UILabel!
+
     @IBOutlet var radiusSlider: UISlider!
     @IBOutlet var addNewLocaticButton: UIButton!
 
     var addLocaticViewModel: AddLocaticViewModelInterface? {
         didSet {
+            addLocaticViewModel?.viewDelegate = self
             awakeFromNib()
         }
     }
@@ -30,11 +33,12 @@ class AddLocaticCardView: UIView {
     }
 
     @objc func radiusSliderChanged(_ sender: Any) {
-
+        addLocaticViewModel?.radiusDidChange(radiusSlider.value)
     }
 
     @objc func addLocaticTapped(_ sender: Any) {
-
+        addLocaticViewModel?.addLocaticWasTapped(locaticName: locaticNameTextField.text,
+                                                 radius: radiusSlider.value)
     }
 }
 
@@ -61,5 +65,11 @@ private extension AddLocaticCardView {
     func setupCorners() {
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         self.layer.cornerRadius = 25.0
+    }
+}
+
+extension AddLocaticCardView: AddLocaticViewModelViewDelegate {
+    func changeRadiusText(_ newRadiusText: String) {
+        self.radiusLabel.text = newRadiusText
     }
 }
