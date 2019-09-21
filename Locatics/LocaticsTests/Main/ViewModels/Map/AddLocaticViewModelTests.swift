@@ -14,17 +14,21 @@ class AddLocaticViewModelTests: XCTestCase {
     var sut: AddLocaticViewModel!
 
     private var mockAddLocaticViewModelObserver: MockAddLocaticViewModelViewDelegate!
+    private var mockLocaticEntryViewModelObserver: MockLocaticEntryViewModelObserver!
 
     override func setUp() {
         mockAddLocaticViewModelObserver = MockAddLocaticViewModelViewDelegate()
+        mockLocaticEntryViewModelObserver = MockLocaticEntryViewModelObserver()
 
         sut = AddLocaticViewModel()
         sut.viewDelegate = mockAddLocaticViewModelObserver
+        sut.locaticEntryValidationDelegate = mockLocaticEntryViewModelObserver
     }
 
     override func tearDown() {
         sut = nil
         mockAddLocaticViewModelObserver = nil
+        mockLocaticEntryViewModelObserver = nil
         super.tearDown()
     }
 
@@ -84,6 +88,37 @@ class AddLocaticViewModelTests: XCTestCase {
     func test_validateLocaticRadius_doesNotThrowErrorWhenRadiusIsValid() {
         XCTAssertNoThrow(try sut.validateLocaticRadius(25.0))
     }
+
+    func test_isNewLocaticValuesValid_returnsFalseWhenInvalidName() {
+        let result = sut.isNewLocaticValuesValid(name: "", radius: 25.0)
+        XCTAssertFalse(result)
+    }
+
+    func test_isNewLocaticValuesValid_returnsFalseWhenInvalidRadius() {
+        let result = sut.isNewLocaticValuesValid(name: "Valid name", radius: 5.0)
+        XCTAssertFalse(result)
+    }
+
+    func test_isNewLocaticValuesValid_returnsTrueWhenValidValues() {
+        let result = sut.isNewLocaticValuesValid(name: "Valid", radius: 25.0)
+        XCTAssertTrue(result)
+    }
+
+    func test_isNewLocaticValuesValid_callsParentDelegateWhenNameErrorCatched() {
+        _ = sut.isNewLocaticValuesValid(name: "", radius: 25.0)
+
+        XCTAssertTrue(mockLocaticEntryViewModelObserver.calledValidationErrorOccured)
+        XCTAssertEqual(AddLocaticEntryValidation.noNameEntered.localizedDescription,
+                       mockLocaticEntryViewModelObserver.errorValue!)
+    }
+
+    func test_isNewLocaticValuesValid_callsParentDelegateWhenRadiusErrorCatched() {
+        _ = sut.isNewLocaticValuesValid(name: "Valid", radius: 5.0)
+
+        XCTAssertTrue(mockLocaticEntryViewModelObserver.calledValidationErrorOccured)
+        XCTAssertEqual(AddLocaticEntryValidation.radiusTooSmall.localizedDescription,
+                       mockLocaticEntryViewModelObserver.errorValue!)
+    }
 }
 
 private extension AddLocaticViewModelTests {
@@ -94,6 +129,16 @@ private extension AddLocaticViewModelTests {
         func changeRadiusText(_ newRadiusText: String) {
             calledChangeRadiusText = true
             changeRadiusTextValue = newRadiusText
+        }
+    }
+
+    class MockLocaticEntryViewModelObserver: LocaticEntryValidationDelegate {
+        var calledValidationErrorOccured = false
+
+        var errorValue: String?
+        func validationErrorOccured(_ error: String) {
+            calledValidationErrorOccured = true
+            errorValue = error
         }
     }
 }

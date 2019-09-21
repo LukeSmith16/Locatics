@@ -19,6 +19,10 @@ protocol AddLocaticViewModelViewDelegate: class {
     func changeRadiusText(_ newRadiusText: String)
 }
 
+protocol LocaticEntryValidationDelegate: class {
+    func validationErrorOccured(_ error: String)
+}
+
 enum AddLocaticEntryValidation: Error {
     case noNameEntered
     case radiusTooSmall
@@ -35,6 +39,7 @@ enum AddLocaticEntryValidation: Error {
 
 class AddLocaticViewModel: AddLocaticViewModelInterface {
     weak var viewDelegate: AddLocaticViewModelViewDelegate?
+    weak var locaticEntryValidationDelegate: LocaticEntryValidationDelegate?
 
     func radiusDidChange(_ newValue: Float) {
         let valueToInt = Int(newValue)
@@ -44,22 +49,23 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
 
     func addLocaticWasTapped(locaticName: String?, radius: Float) {
         guard isNewLocaticValuesValid(name: locaticName, radius: radius) else { return }
-        // TODO: Think about how DB layer is going to be setup?
+        
     }
 }
 
 extension AddLocaticViewModel {
-    // TODO: Add testing here.
     func isNewLocaticValuesValid(name: String?, radius: Float) -> Bool {
         do {
             try validateLocaticName(name)
             try validateLocaticRadius(radius)
 
             return true
-        } catch (let error as AddLocaticEntryValidation) {
-            // Communicate with parent view model delegate and pass this error to show alert
         } catch {
-            fatalError("Unknown error occurred")
+            guard let error = error as? AddLocaticEntryValidation else {
+                fatalError("Error thrown should be of type 'AddLocaticEntryValidation'")
+            }
+
+            locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
         }
 
         return false
