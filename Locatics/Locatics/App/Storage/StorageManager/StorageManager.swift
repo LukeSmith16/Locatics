@@ -28,8 +28,10 @@ protocol StorageManagerInterface: class {
 enum StorageManagerError: Error {
     case couldNotFindObject
     case badRequest
+}
 
-    var localizedDescription: String {
+extension StorageManagerError: LocalizedError {
+    var errorDescription: String? {
         switch self {
         case .couldNotFindObject:
             return "Could not find object matching ID."

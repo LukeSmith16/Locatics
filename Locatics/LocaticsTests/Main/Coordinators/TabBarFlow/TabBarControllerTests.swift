@@ -120,6 +120,15 @@ class TabBarControllerTests: XCTestCase {
         XCTAssertTrue(mockTabBarControllerClosures.calledOnLocaticsFlowSelect)
         XCTAssertNotNil(mockTabBarControllerClosures.calledController)
     }
+
+    func test_setupInitialTabSelected_fatalErrorWhenViewControllersIsNil() {
+        sut.viewControllers = nil
+
+        let expected = "Could not get initial NavController from main.storyboard"
+        expectFatalError(expectedMessage: expected) { [unowned self] in
+            self.sut.viewDidLoad()
+        }
+    }
 }
 
 private extension TabBarControllerTests {

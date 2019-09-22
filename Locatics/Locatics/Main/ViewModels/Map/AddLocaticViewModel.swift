@@ -26,8 +26,10 @@ protocol LocaticEntryValidationDelegate: class {
 enum AddLocaticEntryValidation: Error {
     case noNameEntered
     case radiusTooSmall
+}
 
-    var localizedDescription: String {
+extension AddLocaticEntryValidation: LocalizedError {
+    var errorDescription: String? {
         switch self {
         case .noNameEntered:
             return "Please give your Locatic a name."
@@ -49,7 +51,6 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
 
     func addLocaticWasTapped(locaticName: String?, radius: Float) {
         guard isNewLocaticValuesValid(name: locaticName, radius: radius) else { return }
-        
     }
 }
 
@@ -61,10 +62,6 @@ extension AddLocaticViewModel {
 
             return true
         } catch {
-            guard let error = error as? AddLocaticEntryValidation else {
-                fatalError("Error thrown should be of type 'AddLocaticEntryValidation'")
-            }
-
             locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
         }
 

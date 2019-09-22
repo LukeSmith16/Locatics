@@ -6,7 +6,6 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
-// swiftlint:disable line_length
 // swiftlint:disable identifier_name
 
 import UIKit
@@ -56,10 +55,7 @@ extension Font {
 
         switch type {
         case .installed(let fontName):
-            guard let font = UIFont(name: fontName.rawValue, size: CGFloat(size.value)) else {
-                fatalError("\(fontName.rawValue) font is not installed, make sure it is added in Info.plist and logged with Utility.logAllAvailableFonts()")
-            }
-
+            let font = UIFont(name: fontName.rawValue, size: CGFloat(size.value))!
             instanceFont = font
         }
         return instanceFont

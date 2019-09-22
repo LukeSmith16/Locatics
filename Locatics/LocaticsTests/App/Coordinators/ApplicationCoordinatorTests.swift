@@ -84,4 +84,28 @@ class ApplicationCoordinatorTests: XCTestCase {
 
         XCTAssertFalse(mockOnboardingCoordinator.startWasCalled)
     }
+
+    func test_startMainFlow_fatalErrorWhenRootTabBarControllerIsInvalid() {
+        sut = ApplicationCoordinator(window: window,
+                                     launchInstructor: .main,
+                                     coordinatorFactory: mockCoordinatorFactory,
+                                     rootModuleFactory: MockBadRootModuleFactory())
+
+        expectFatalError(expectedMessage: "RootTabBarController should be of type TabBarController") { [unowned self] in
+            self.sut!.start()
+        }
+    }
+}
+
+private extension ApplicationCoordinatorTests {
+    class MockTabBarController: TabBarControllerInterface {
+        var onMapFlowSelect: ((UINavigationController) -> Void)?
+        var onLocaticsFlowSelect: ((UINavigationController) -> Void)?
+    }
+
+    class MockBadRootModuleFactory: RootModuleFactory {
+        override func createTabBarController() -> TabBarControllerInterface {
+            return MockTabBarController()
+        }
+    }
 }

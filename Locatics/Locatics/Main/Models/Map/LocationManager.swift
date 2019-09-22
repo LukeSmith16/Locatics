@@ -13,8 +13,10 @@ import UserNotifications
 enum LocationError: Error {
     case locationNotFound
     case notAuthorised
+}
 
-    var localizedDescription: String {
+extension LocationError: LocalizedError {
+    var errorDescription: String? {
         switch self {
         case .locationNotFound:
             return "Your location could not be determined."

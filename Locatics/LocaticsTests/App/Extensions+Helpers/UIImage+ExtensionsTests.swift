@@ -17,4 +17,13 @@ class UIImageExtensionsTests: XCTestCase {
         XCTAssertTrue(gradientImage.resizingMode == .stretch)
         XCTAssertEqual(gradientImage.capInsets, UIEdgeInsets.zero)
     }
+
+    func test_imageFrom_gradientLayerThrowsFatalErrorWhenGradientSizeIsNil() {
+        let gradientLayer = CAGradientLayer.Theme.navigationBar(size: CGRect.zero)
+        let expected = "The UIGraphicsContext could not be retrieved, make sure the gradient layer has a size set"
+
+        expectFatalError(expectedMessage: expected) {
+            _ = UIImage.ImageFrom.gradientLayer(gradientLayer)
+        }
+    }
 }

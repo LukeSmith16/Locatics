@@ -16,7 +16,7 @@ extension UIImage {
             UIGraphicsBeginImageContext(gradientLayer.frame.size)
             guard let context = UIGraphicsGetCurrentContext() else {
                 /// This error could get triggered from the CAGradientLayer size being nil/empty
-                fatalError("The UIGraphicsContext could not be retrieved")
+                fatalError("The UIGraphicsContext could not be retrieved, make sure the gradient layer has a size set")
             }
 
             gradientLayer.render(in: context)

@@ -35,7 +35,7 @@ private extension TabBarController {
 
     func setupInitialTabSelected() {
         guard let initialNavController = viewControllers?.first as? UINavigationController else {
-            fatalError("Could not get initial NavController from main storyboard")
+            fatalError("Could not get initial NavController from main.storyboard")
         }
 
         onMapFlowSelect?(initialNavController)
