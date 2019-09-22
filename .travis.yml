@@ -2,6 +2,7 @@ os: osx
 osx_image: xcode11.0
 language: swift
 install:
+  - bundle install
   - ./install_swiftlint.sh
 
 script:
