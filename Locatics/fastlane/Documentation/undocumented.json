@@ -1,0 +1,2756 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 11,
+      "symbol": "AppInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 12,
+      "symbol": "AppInterface.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 15,
+      "symbol": "App",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 16,
+      "symbol": "App.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 17,
+      "symbol": "App.applicationCoordinator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 19,
+      "symbol": "App.init(window:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/App.swift",
+      "line": 23,
+      "symbol": "App.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/AppDelegate.swift",
+      "line": 24,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 11,
+      "symbol": "LaunchInstructor",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 12,
+      "symbol": "LaunchInstructor.main",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 12,
+      "symbol": "LaunchInstructor.onboarding",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 14,
+      "symbol": "LaunchInstructor.configure(userOnboarded:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 24,
+      "symbol": "CoordinatorInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 25,
+      "symbol": "CoordinatorInterface.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 28,
+      "symbol": "ApplicationCoordinator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 31,
+      "symbol": "ApplicationCoordinator.launchInstructor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 38,
+      "symbol": "ApplicationCoordinator.init(window:launchInstructor:coordinatorFactory:rootModuleFactory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/ApplicationCoordinator.swift",
+      "line": 48,
+      "symbol": "ApplicationCoordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 11,
+      "symbol": "CoordinatorFactoryInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 12,
+      "symbol": "CoordinatorFactoryInterface.createOnboardingFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 14,
+      "symbol": "CoordinatorFactoryInterface.createMainFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 15,
+      "symbol": "CoordinatorFactoryInterface.createMapFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 16,
+      "symbol": "CoordinatorFactoryInterface.createLocaticsFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 19,
+      "symbol": "CoordinatorFactory",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 20,
+      "symbol": "CoordinatorFactory.createOnboardingFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 26,
+      "symbol": "CoordinatorFactory.createMainFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 31,
+      "symbol": "CoordinatorFactory.createMapFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/CoordinatorFactory.swift",
+      "line": 38,
+      "symbol": "CoordinatorFactory.createLocaticsFlow(root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/RootModuleFactory.swift",
+      "line": 11,
+      "symbol": "RootModuleFactoryInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/RootModuleFactory.swift",
+      "line": 12,
+      "symbol": "RootModuleFactoryInterface.createRootNavigationController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/RootModuleFactory.swift",
+      "line": 13,
+      "symbol": "RootModuleFactoryInterface.createTabBarController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/RootModuleFactory.swift",
+      "line": 16,
+      "symbol": "RootModuleFactory",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/RootModuleFactory.swift",
+      "line": 17,
+      "symbol": "RootModuleFactory.createRootNavigationController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Coordinators/Factories/RootModuleFactory.swift",
+      "line": 24,
+      "symbol": "RootModuleFactory.createTabBarController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CAGradientLayer+Extensions.swift",
+      "line": 12,
+      "symbol": "CAGradientLayer.Theme",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CAGradientLayer+Extensions.swift",
+      "line": 13,
+      "symbol": "CAGradientLayer.Theme.navigationBar(size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreData+Extensions.swift",
+      "line": 12,
+      "symbol": "NSManagedObjectContext.saveOrRollback()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreData+Extensions.swift",
+      "line": 22,
+      "symbol": "NSManagedObjectContext.performChanges(block:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 11,
+      "symbol": "Coordinate",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 13,
+      "symbol": "LocationData",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 14,
+      "symbol": "LocationData.coordinate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 19,
+      "symbol": "LocationProviderInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 20,
+      "symbol": "LocationProviderInterface.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 21,
+      "symbol": "LocationProviderInterface.allowsBackgroundLocationUpdates",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 23,
+      "symbol": "LocationProviderInterface.requestLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 24,
+      "symbol": "LocationProviderInterface.startMonitoringVisits()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 29,
+      "symbol": "LocationProviderPermissionsInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 30,
+      "symbol": "LocationProviderPermissionsInterface.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 31,
+      "symbol": "LocationProviderPermissionsInterface.authorizationStatus()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 32,
+      "symbol": "LocationProviderPermissionsInterface.requestAlwaysAuthorization()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 37,
+      "symbol": "LocationGeocoderInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/CoreLocation+Extensions.swift",
+      "line": 38,
+      "symbol": "LocationGeocoderInterface.reverseGeocodeLocation(_:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/FatalErrorUtil.swift",
+      "line": 11,
+      "symbol": "fatalError(_:file:line:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/FatalErrorUtil.swift",
+      "line": 29,
+      "symbol": "FatalErrorUtil.fatalErrorClosure",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 13,
+      "symbol": "ColorTheme",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 14,
+      "symbol": "ColorTheme.Background",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 16,
+      "symbol": "ColorTheme.Interactable_Main",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 17,
+      "symbol": "ColorTheme.Interactable_Secondary",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 18,
+      "symbol": "ColorTheme.Title_Main",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 19,
+      "symbol": "ColorTheme.Title_Secondary",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIColor+Extensions.swift",
+      "line": 23,
+      "symbol": "UIColor.init(colorTheme:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 13,
+      "symbol": "Font",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 14,
+      "symbol": "Font.FontType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 15,
+      "symbol": "Font.FontType.installed(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 18,
+      "symbol": "Font.FontName",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 19,
+      "symbol": "Font.FontName.HelveticaRegular",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 22,
+      "symbol": "Font.FontSize",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 23,
+      "symbol": "Font.FontSize.standard(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 24,
+      "symbol": "Font.FontSize.custom(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 26,
+      "symbol": "Font.FontSize.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 36,
+      "symbol": "Font.StandardSize",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 37,
+      "symbol": "Font.StandardSize.h1",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 38,
+      "symbol": "Font.StandardSize.h2",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 39,
+      "symbol": "Font.StandardSize.h3",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 40,
+      "symbol": "Font.StandardSize.h4",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 43,
+      "symbol": "Font.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 44,
+      "symbol": "Font.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 46,
+      "symbol": "Font.init(_:size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 52,
+      "symbol": "Font",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIFont+Extensions.swift",
+      "line": 53,
+      "symbol": "Font.instance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIImage+Extensions.swift",
+      "line": 12,
+      "symbol": "UIImage.ImageFrom",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIImage+Extensions.swift",
+      "line": 13,
+      "symbol": "UIImage.ImageFrom.gradientLayer(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationBar+Extensions.swift",
+      "line": 12,
+      "symbol": "UINavigationBar.setupDefaultNavigationBarAppearance()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 11,
+      "symbol": "NavigationTitleViewInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 12,
+      "symbol": "NavigationTitleViewInterface.setNewTitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 13,
+      "symbol": "NavigationTitleViewInterface.setNewSubtitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 16,
+      "symbol": "NavigationTitleView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 21,
+      "symbol": "NavigationTitleView.init(mainTitleLabel:subtitleLabel:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 29,
+      "symbol": "NavigationTitleView.setNewTitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 33,
+      "symbol": "NavigationTitleView.setNewSubtitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UINavigationItem+Extensions.swift",
+      "line": 39,
+      "symbol": "UINavigationItem.setupTitleView(title:subtitle:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIStoryboard+Extensions.swift",
+      "line": 12,
+      "symbol": "UIStoryboard.Storyboard",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIStoryboard+Extensions.swift",
+      "line": 13,
+      "symbol": "UIStoryboard.Storyboard.onboarding",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIStoryboard+Extensions.swift",
+      "line": 14,
+      "symbol": "UIStoryboard.Storyboard.main",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Extensions+Helpers/UIView+Extensions.swift",
+      "line": 12,
+      "symbol": "UIView.fromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 11,
+      "symbol": "AppDirectories",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 12,
+      "symbol": "AppDirectories.documents",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 15,
+      "symbol": "AppDirectoryNames",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 16,
+      "symbol": "AppDirectoryNames.documentsDirectoryURL()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 17,
+      "symbol": "AppDirectoryNames.getURL(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 18,
+      "symbol": "AppDirectoryNames.buildFullPath(forFileName:inDirectory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 21,
+      "symbol": "AppDirectoryNames",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 22,
+      "symbol": "AppDirectoryNames.documentsDirectoryURL()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 26,
+      "symbol": "AppDirectoryNames.getURL(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 33,
+      "symbol": "AppDirectoryNames.buildFullPath(forFileName:inDirectory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 38,
+      "symbol": "AppFileSystemInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 39,
+      "symbol": "AppFileSystemInterface.writeFile(containing:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 40,
+      "symbol": "AppFileSystemInterface.contentsOfDirectory(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 41,
+      "symbol": "AppFileSystemInterface.deleteAllFiles(at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 44,
+      "symbol": "AppFileSystemInterface",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 45,
+      "symbol": "AppFileSystemInterface.writeFile(containing:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 55,
+      "symbol": "AppFileSystemInterface.contentsOfDirectory(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 68,
+      "symbol": "AppFileSystemInterface.deleteAllFiles(at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/AppFileSystem.swift",
+      "line": 84,
+      "symbol": "AppFileSystem",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/DateFormatterManager.swift",
+      "line": 11,
+      "symbol": "DateFormatterManager",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/DateFormatterManager.swift",
+      "line": 12,
+      "symbol": "DateFormatterManager.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Models/DateFormatterManager.swift",
+      "line": 23,
+      "symbol": "DateFormatterManager.hoursMinutes(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/DB_LocalItem.swift",
+      "line": 13,
+      "symbol": "DB_LocalItemMappingKey",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/DB_LocalItem.swift",
+      "line": 14,
+      "symbol": "DB_LocalItemMappingKey.identity",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/DB_LocalItem.swift",
+      "line": 18,
+      "symbol": "DB_LocalItem",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/DB_LocalItem.swift",
+      "line": 19,
+      "symbol": "DB_LocalItem.identity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/Locatic.swift",
+      "line": 11,
+      "symbol": "LocaticData",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/Locatic.swift",
+      "line": 12,
+      "symbol": "LocaticData.identity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/Entities/Locatic.swift",
+      "line": 16,
+      "symbol": "Locatic",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/CoreDataStack.swift",
+      "line": 11,
+      "symbol": "createApplicationPersistenceContainer(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 11,
+      "symbol": "StorageManagerInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 12,
+      "symbol": "StorageManagerInterface.createObject(entity:values:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 15,
+      "symbol": "StorageManagerInterface.fetchObjects(entity:predicate:sortDescriptors:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 19,
+      "symbol": "StorageManagerInterface.updateObject(entity:identity:updatedValues:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 23,
+      "symbol": "StorageManagerInterface.deleteObject(entity:identity:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 28,
+      "symbol": "StorageManagerError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 29,
+      "symbol": "StorageManagerError.couldNotFindObject",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 30,
+      "symbol": "StorageManagerError.badRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 33,
+      "symbol": "StorageManagerError",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 44,
+      "symbol": "StorageManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 48,
+      "symbol": "StorageManager.init(psc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 53,
+      "symbol": "StorageManager.createObject(entity:values:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 65,
+      "symbol": "StorageManager.fetchObjects(entity:predicate:sortDescriptors:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 83,
+      "symbol": "StorageManager.updateObject(entity:identity:updatedValues:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/Storage/StorageManager/StorageManager.swift",
+      "line": 98,
+      "symbol": "StorageManager.deleteObject(entity:identity:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 11,
+      "symbol": "ActionButtonStyle",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 12,
+      "symbol": "ActionButtonStyle.save",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 14,
+      "symbol": "ActionButtonStyle.textFont",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 21,
+      "symbol": "ActionButtonStyle.textColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 28,
+      "symbol": "ActionButtonStyle.backgroundColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 36,
+      "symbol": "ActionButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 37,
+      "symbol": "ActionButton.style",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 38,
+      "symbol": "ActionButton.actionTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 40,
+      "symbol": "ActionButton.init(actionStyle:actionTitle:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/ActionButton.swift",
+      "line": 47,
+      "symbol": "ActionButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/AlertController.swift",
+      "line": 11,
+      "symbol": "AlertController",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/AlertController.swift",
+      "line": 12,
+      "symbol": "AlertController.create(title:message:actionTitle:actionCallback:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 11,
+      "symbol": "SliderControlStyle",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 12,
+      "symbol": "SliderControlStyle.distance",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 14,
+      "symbol": "SliderControlStyle.minTrackColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 21,
+      "symbol": "SliderControlStyle.maxTackColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 29,
+      "symbol": "SliderControl",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 30,
+      "symbol": "SliderControl.style",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 32,
+      "symbol": "SliderControl.init(sliderStyle:minValue:maxValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/App/ViewComponents/SliderControl.swift",
+      "line": 40,
+      "symbol": "SliderControl.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/Factories/LocaticsModuleFactory.swift",
+      "line": 11,
+      "symbol": "LocaticsModuleFactoryInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/Factories/LocaticsModuleFactory.swift",
+      "line": 12,
+      "symbol": "LocaticsModuleFactoryInterface.createLocaticsListModule()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/Factories/LocaticsModuleFactory.swift",
+      "line": 15,
+      "symbol": "LocaticsModuleFactory",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/Factories/LocaticsModuleFactory.swift",
+      "line": 16,
+      "symbol": "LocaticsModuleFactory.createLocaticsListModule()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/LocaticsCoordinator.swift",
+      "line": 11,
+      "symbol": "LocaticsCoordinator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/LocaticsCoordinator.swift",
+      "line": 16,
+      "symbol": "LocaticsCoordinator.init(root:coordinatorFactory:moduleFactory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/LocaticsFlow/LocaticsCoordinator.swift",
+      "line": 24,
+      "symbol": "LocaticsCoordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/Factories/LocaticsMapModuleFactory.swift",
+      "line": 12,
+      "symbol": "LocaticsMapModuleFactoryInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/Factories/LocaticsMapModuleFactory.swift",
+      "line": 13,
+      "symbol": "LocaticsMapModuleFactoryInterface.createLocaticsMapModule()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/Factories/LocaticsMapModuleFactory.swift",
+      "line": 16,
+      "symbol": "LocaticsMapModuleFactory",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/Factories/LocaticsMapModuleFactory.swift",
+      "line": 17,
+      "symbol": "LocaticsMapModuleFactory.createLocaticsMapModule()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/LocaticsMapCoordinator.swift",
+      "line": 11,
+      "symbol": "LocaticsMapCoordinator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/LocaticsMapCoordinator.swift",
+      "line": 16,
+      "symbol": "LocaticsMapCoordinator.init(root:coordinatorFactory:moduleFactory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/MapFlow/LocaticsMapCoordinator.swift",
+      "line": 24,
+      "symbol": "LocaticsMapCoordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 11,
+      "symbol": "TabBarControllerInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 12,
+      "symbol": "TabBarControllerInterface.onMapFlowSelect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 13,
+      "symbol": "TabBarControllerInterface.onLocaticsFlowSelect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 16,
+      "symbol": "TabIndex",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 17,
+      "symbol": "TabIndex.locatics",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 17,
+      "symbol": "TabIndex.map",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 20,
+      "symbol": "TabBarController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 21,
+      "symbol": "TabBarController.onMapFlowSelect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 22,
+      "symbol": "TabBarController.onLocaticsFlowSelect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 24,
+      "symbol": "TabBarController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 45,
+      "symbol": "TabBarController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarController.swift",
+      "line": 46,
+      "symbol": "TabBarController.tabBarController(_:didSelect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarCoordinator.swift",
+      "line": 11,
+      "symbol": "TabBarCoordinator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarCoordinator.swift",
+      "line": 16,
+      "symbol": "TabBarCoordinator.init(tabBarController:coordinatorFactory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Coordinators/TabBarFlow/TabBarCoordinator.swift",
+      "line": 21,
+      "symbol": "TabBarCoordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 12,
+      "symbol": "VisitedLocationData",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 13,
+      "symbol": "VisitedLocationData.latitude",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 14,
+      "symbol": "VisitedLocationData.longitude",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 15,
+      "symbol": "VisitedLocationData.date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 16,
+      "symbol": "VisitedLocationData.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 19,
+      "symbol": "VisitedLocation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 21,
+      "symbol": "VisitedLocation.latitude",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 22,
+      "symbol": "VisitedLocation.longitude",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 23,
+      "symbol": "VisitedLocation.date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 24,
+      "symbol": "VisitedLocation.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 26,
+      "symbol": "VisitedLocation.coordinate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 30,
+      "symbol": "VisitedLocation.init(_:date:description:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/Location.swift",
+      "line": 37,
+      "symbol": "VisitedLocation.init(visit:description:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 13,
+      "symbol": "LocationError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 14,
+      "symbol": "LocationError.locationNotFound",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 15,
+      "symbol": "LocationError.notAuthorised",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 18,
+      "symbol": "LocationError",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 29,
+      "symbol": "LocationManagerInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 30,
+      "symbol": "LocationManagerInterface.locationDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 31,
+      "symbol": "LocationManagerInterface.lastVisitedLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 33,
+      "symbol": "LocationManagerInterface.findCurrentLocation(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 36,
+      "symbol": "LocationManagerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 37,
+      "symbol": "LocationManagerDelegate.locationPermissionsNotAuthorised()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 40,
+      "symbol": "LocationManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 42,
+      "symbol": "LocationManager.locationDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 48,
+      "symbol": "LocationManager.locationProvider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 49,
+      "symbol": "LocationManager.locationGeocoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 50,
+      "symbol": "LocationManager.locationStorage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 51,
+      "symbol": "LocationManager.locationPermissions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 53,
+      "symbol": "LocationManager.lastVisitedLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 57,
+      "symbol": "LocationManager.init(locationProvider:locationGeocoder:locationStorage:locationPermissions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 71,
+      "symbol": "LocationManager.findCurrentLocation(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 99,
+      "symbol": "LocationManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 100,
+      "symbol": "LocationManager.locationManager(_:didUpdateLocations:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 110,
+      "symbol": "LocationManager.locationManager(_:didVisit:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 122,
+      "symbol": "LocationManager.newVisitReceived(_:description:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 128,
+      "symbol": "LocationManager.locationManager(_:didFailWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 133,
+      "symbol": "LocationManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 134,
+      "symbol": "LocationManager.handleDidUpdateLocation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationManager.swift",
+      "line": 150,
+      "symbol": "LocationManager.reverseGeocodeLocation(_:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 12,
+      "symbol": "LocationStorageInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 13,
+      "symbol": "LocationStorageInterface.lastVisitedLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 14,
+      "symbol": "LocationStorageInterface.saveLocationOnDisk(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 17,
+      "symbol": "LocationStorage",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 19,
+      "symbol": "LocationStorage.lastVisitedLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 23,
+      "symbol": "LocationStorage.init(appFileSystem:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Models/Map/LocationStorage.swift",
+      "line": 28,
+      "symbol": "LocationStorage.saveLocationOnDisk(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Locatics/LocaticsViewModel.swift",
+      "line": 11,
+      "symbol": "LocaticsViewModelInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Locatics/LocaticsViewModel.swift",
+      "line": 13,
+      "symbol": "LocaticsViewModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 11,
+      "symbol": "AddLocaticViewModelInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 12,
+      "symbol": "AddLocaticViewModelInterface.viewDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 14,
+      "symbol": "AddLocaticViewModelInterface.radiusDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 15,
+      "symbol": "AddLocaticViewModelInterface.addLocaticWasTapped(locaticName:radius:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 18,
+      "symbol": "AddLocaticViewModelViewDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 19,
+      "symbol": "AddLocaticViewModelViewDelegate.changeRadiusText(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 22,
+      "symbol": "LocaticEntryValidationDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 23,
+      "symbol": "LocaticEntryValidationDelegate.validationErrorOccured(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 26,
+      "symbol": "AddLocaticEntryValidation",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 27,
+      "symbol": "AddLocaticEntryValidation.noNameEntered",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 28,
+      "symbol": "AddLocaticEntryValidation.radiusTooSmall",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 31,
+      "symbol": "AddLocaticEntryValidation",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 42,
+      "symbol": "AddLocaticViewModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 43,
+      "symbol": "AddLocaticViewModel.viewDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 44,
+      "symbol": "AddLocaticViewModel.locaticEntryValidationDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 46,
+      "symbol": "AddLocaticViewModel.radiusDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 52,
+      "symbol": "AddLocaticViewModel.addLocaticWasTapped(locaticName:radius:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 57,
+      "symbol": "AddLocaticViewModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 58,
+      "symbol": "AddLocaticViewModel.isNewLocaticValuesValid(name:radius:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 71,
+      "symbol": "AddLocaticViewModel.validateLocaticName(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/AddLocaticViewModel.swift",
+      "line": 77,
+      "symbol": "AddLocaticViewModel.validateLocaticRadius(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 11,
+      "symbol": "LocaticsMapViewModelInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 12,
+      "symbol": "LocaticsMapViewModelInterface.viewDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 13,
+      "symbol": "LocaticsMapViewModelInterface.addLocaticViewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 15,
+      "symbol": "LocaticsMapViewModelInterface.getMainTitle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 16,
+      "symbol": "LocaticsMapViewModelInterface.getSubtitle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 18,
+      "symbol": "LocaticsMapViewModelInterface.getUserRegion()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 19,
+      "symbol": "LocaticsMapViewModelInterface.addLocaticWasTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 22,
+      "symbol": "LocaticsMapViewModelViewDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 23,
+      "symbol": "LocaticsMapViewModelViewDelegate.setNavigationTitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 24,
+      "symbol": "LocaticsMapViewModelViewDelegate.showAlert(title:message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 25,
+      "symbol": "LocaticsMapViewModelViewDelegate.updateMapRegion(location:latMeters:lonMeters:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 26,
+      "symbol": "LocaticsMapViewModelViewDelegate.showAddLocaticCardView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 29,
+      "symbol": "LocaticsMapViewModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 30,
+      "symbol": "LocaticsMapViewModel.viewDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 32,
+      "symbol": "LocaticsMapViewModel.locationManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 38,
+      "symbol": "LocaticsMapViewModel.addLocaticViewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 40,
+      "symbol": "LocaticsMapViewModel.getMainTitle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 49,
+      "symbol": "LocaticsMapViewModel.getSubtitle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 58,
+      "symbol": "LocaticsMapViewModel.getUserRegion()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 69,
+      "symbol": "LocaticsMapViewModel.addLocaticWasTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 91,
+      "symbol": "LocaticsMapViewModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/ViewModels/Map/LocaticsMapViewModel.swift",
+      "line": 92,
+      "symbol": "LocaticsMapViewModel.locationPermissionsNotAuthorised()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Locatics/LocaticsListViewController.swift",
+      "line": 11,
+      "symbol": "LocaticsListViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 12,
+      "symbol": "LocaticsMapViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 13,
+      "symbol": "LocaticsMapViewController.mapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 14,
+      "symbol": "LocaticsMapViewController.addLocaticButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 16,
+      "symbol": "LocaticsMapViewController.navigationTitleView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 17,
+      "symbol": "LocaticsMapViewController.addLocaticCardView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 19,
+      "symbol": "LocaticsMapViewController.locaticsMapViewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 25,
+      "symbol": "LocaticsMapViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 31,
+      "symbol": "LocaticsMapViewController.addLocaticTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 54,
+      "symbol": "LocaticsMapViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 55,
+      "symbol": "LocaticsMapViewController.setNavigationTitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 61,
+      "symbol": "LocaticsMapViewController.showAlert(title:message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 65,
+      "symbol": "LocaticsMapViewController.updateMapRegion(location:latMeters:lonMeters:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/Controllers/Map/LocaticsMapViewController.swift",
+      "line": 72,
+      "symbol": "LocaticsMapViewController.showAddLocaticCardView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 11,
+      "symbol": "AddLocaticCardView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 12,
+      "symbol": "AddLocaticCardView.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 13,
+      "symbol": "AddLocaticCardView.locaticNameTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 14,
+      "symbol": "AddLocaticCardView.radiusLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 16,
+      "symbol": "AddLocaticCardView.radiusSlider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 17,
+      "symbol": "AddLocaticCardView.addNewLocaticButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 19,
+      "symbol": "AddLocaticCardView.addLocaticViewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 26,
+      "symbol": "AddLocaticCardView.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 35,
+      "symbol": "AddLocaticCardView.radiusSliderChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 39,
+      "symbol": "AddLocaticCardView.addLocaticTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 71,
+      "symbol": "AddLocaticCardView",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/CustomViews/AddLocaticCardView.swift",
+      "line": 72,
+      "symbol": "AddLocaticCardView.changeRadiusText(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/NavigationControllers/NavigationViewController.swift",
+      "line": 11,
+      "symbol": "NavigationViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Main/Views/NavigationControllers/NavigationViewController.swift",
+      "line": 12,
+      "symbol": "NavigationViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/Factories/OnboardingModuleFactory.swift",
+      "line": 11,
+      "symbol": "OnboardingModuleFactoryInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/Factories/OnboardingModuleFactory.swift",
+      "line": 12,
+      "symbol": "OnboardingModuleFactoryInterface.createOnboardingModule(delegate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/Factories/OnboardingModuleFactory.swift",
+      "line": 15,
+      "symbol": "OnboardingModuleFactory",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/Factories/OnboardingModuleFactory.swift",
+      "line": 16,
+      "symbol": "OnboardingModuleFactory.createOnboardingModule(delegate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 11,
+      "symbol": "OnboardingCoordinatorOutput",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 12,
+      "symbol": "OnboardingCoordinatorOutput.finishedOnboarding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 15,
+      "symbol": "OnboardingCoordinator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 16,
+      "symbol": "OnboardingCoordinator.finishedOnboarding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 21,
+      "symbol": "OnboardingCoordinator.init(root:factory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 26,
+      "symbol": "OnboardingCoordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 38,
+      "symbol": "OnboardingCoordinator",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 39,
+      "symbol": "OnboardingCoordinator.goToOnboardingFinished()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Coordinators/OnboardingFlow/OnboardingCoordinator.swift",
+      "line": 43,
+      "symbol": "OnboardingCoordinator.goToAppSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 12,
+      "symbol": "LocationPermissionsManagerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 13,
+      "symbol": "LocationPermissionsManagerDelegate.permissionsGranted()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 14,
+      "symbol": "LocationPermissionsManagerDelegate.permissionsDenied()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 17,
+      "symbol": "LocationPermissionsManagerInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 18,
+      "symbol": "LocationPermissionsManagerInterface.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 20,
+      "symbol": "LocationPermissionsManagerInterface.hasAuthorizedLocationPermissions()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 21,
+      "symbol": "LocationPermissionsManagerInterface.authorizationStatus()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 22,
+      "symbol": "LocationPermissionsManagerInterface.authorizeLocationPermissions()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 25,
+      "symbol": "LocationPermissionsManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 26,
+      "symbol": "LocationPermissionsManager.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 28,
+      "symbol": "LocationPermissionsManager.locationProviderPermissions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 30,
+      "symbol": "LocationPermissionsManager.init(locationProviderPermissions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 36,
+      "symbol": "LocationPermissionsManager.hasAuthorizedLocationPermissions()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 40,
+      "symbol": "LocationPermissionsManager.authorizationStatus()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 44,
+      "symbol": "LocationPermissionsManager.authorizeLocationPermissions()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 49,
+      "symbol": "LocationPermissionsManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/LocationPermissionsManager.swift",
+      "line": 50,
+      "symbol": "LocationPermissionsManager.locationManager(_:didChangeAuthorization:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/OnboardingManager.swift",
+      "line": 11,
+      "symbol": "OnboardingManager",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/OnboardingManager.swift",
+      "line": 15,
+      "symbol": "OnboardingManager.setOnboarding(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Models/OnboardingManager.swift",
+      "line": 19,
+      "symbol": "OnboardingManager.hasOnboarded()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 11,
+      "symbol": "OnboardingViewModelCoordinatorDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 12,
+      "symbol": "OnboardingViewModelCoordinatorDelegate.goToOnboardingFinished()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 13,
+      "symbol": "OnboardingViewModelCoordinatorDelegate.goToAppSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 16,
+      "symbol": "OnboardingViewModelViewDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 17,
+      "symbol": "OnboardingViewModelViewDelegate.locationPermissionsWereDenied()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 20,
+      "symbol": "OnboardingViewModelInterface",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 21,
+      "symbol": "OnboardingViewModelInterface.viewDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 23,
+      "symbol": "OnboardingViewModelInterface.handleFinishOnboarding()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 24,
+      "symbol": "OnboardingViewModelInterface.handlePermissionsTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 25,
+      "symbol": "OnboardingViewModelInterface.handleGoToAppSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 27,
+      "symbol": "OnboardingViewModelInterface.getInitialPageViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 29,
+      "symbol": "OnboardingViewModelInterface.pageViewControllerCount()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 30,
+      "symbol": "OnboardingViewModelInterface.getPageViewController(before:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 31,
+      "symbol": "OnboardingViewModelInterface.getPageViewController(after:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 34,
+      "symbol": "OnboardingStoryboardIdentifier",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 35,
+      "symbol": "OnboardingStoryboardIdentifier.onboardingWelcomePageViewController",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 36,
+      "symbol": "OnboardingStoryboardIdentifier.onboardingAboutPageViewController",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 37,
+      "symbol": "OnboardingStoryboardIdentifier.onboardingPermissionsPageViewController",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 38,
+      "symbol": "OnboardingStoryboardIdentifier.onboardingGetStartedPageViewController",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 41,
+      "symbol": "OnboardingViewModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 42,
+      "symbol": "OnboardingViewModel.coordinator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 43,
+      "symbol": "OnboardingViewModel.viewDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 45,
+      "symbol": "OnboardingViewModel.locationPermissionsManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 47,
+      "symbol": "OnboardingViewModel.pageViewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 56,
+      "symbol": "OnboardingViewModel.handleFinishOnboarding()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 66,
+      "symbol": "OnboardingViewModel.handlePermissionsTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 71,
+      "symbol": "OnboardingViewModel.handleGoToAppSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 75,
+      "symbol": "OnboardingViewModel.getInitialPageViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 79,
+      "symbol": "OnboardingViewModel.pageViewControllerCount()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 83,
+      "symbol": "OnboardingViewModel.getPageViewController(before:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 94,
+      "symbol": "OnboardingViewModel.getPageViewController(after:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 135,
+      "symbol": "OnboardingViewModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 136,
+      "symbol": "OnboardingViewModel.permissionsGranted()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/ViewModels/OnboardingViewModel.swift",
+      "line": 138,
+      "symbol": "OnboardingViewModel.permissionsDenied()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingPages/OnboardingAboutPageViewController.swift",
+      "line": 11,
+      "symbol": "OnboardingAboutPageViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingPages/OnboardingGetStartedPageViewController.swift",
+      "line": 11,
+      "symbol": "OnboardingGetStartedPageViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingPages/OnboardingPermissionsPageViewController.swift",
+      "line": 11,
+      "symbol": "OnboardingPermissionsPageViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingPages/OnboardingWelcomePageViewController.swift",
+      "line": 11,
+      "symbol": "OnboardingWelcomePageViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 11,
+      "symbol": "OnboardingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 12,
+      "symbol": "OnboardingViewController.onboardingViewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 18,
+      "symbol": "OnboardingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 24,
+      "symbol": "OnboardingViewController.doneTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 28,
+      "symbol": "OnboardingViewController.permissionsTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 45,
+      "symbol": "OnboardingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 46,
+      "symbol": "OnboardingViewController.presentationCount(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 50,
+      "symbol": "OnboardingViewController.pageViewController(_:viewControllerBefore:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 55,
+      "symbol": "OnboardingViewController.pageViewController(_:viewControllerAfter:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 63,
+      "symbol": "OnboardingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukesmith/Desktop/Locatics/Locatics/Locatics/Onboarding/Views/Controllers/OnboardingViewController.swift",
+      "line": 64,
+      "symbol": "OnboardingViewController.locationPermissionsWereDenied()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/lukesmith/Desktop/Locatics/Locatics"
+}

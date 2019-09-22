@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='LocaticsTests.xctest' tests='187' failures='0'>
+  <testsuite name='LocaticsTests.ActionButtonTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.ActionButtonTests' name='test_actionButton_withSaveValues' time='0.003'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.AddLocaticCardViewTests' tests='13' failures='0'>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_addLocaticTapped_passesValuesFromViewToViewModel' time='0.005'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_addLocaticTappedCalls_addLocaticWasTappedOnViewModel' time='0.002'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_addNewLocaticButton_isNotNil' time='0.005'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_changeRadiusText_setsRadiusTextToPassedInValue' time='0.001'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_locaticNameTextField_isNotNil' time='0.002'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_radiusLabel_isNotNil' time='0.002'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_radiusSlider_isNotNil' time='0.002'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_radiusSliderChangedCalls_radiusDidChangeOnViewModel' time='0.001'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_radiusSliderChangedCalls_radiusDidChangeOnViewModelPassingSliderValue' time='0.001'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_settingAddLocaticViewModel_setsViewDelegate' time='0.002'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_shadowRadius_isFour' time='0.001'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_titleLabel_isNotNil' time='0.001'/>
+    <testcase classname='LocaticsTests.AddLocaticCardViewTests' name='test_topCornerRadius_isTwentyFive' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.AddLocaticViewModelTests' tests='13' failures='0'>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_addLocaticEntryValidation_values' time='0.001'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_isNewLocaticValuesValid_callsParentDelegateWhenNameErrorCatched' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_isNewLocaticValuesValid_callsParentDelegateWhenRadiusErrorCatched' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_isNewLocaticValuesValid_returnsFalseWhenInvalidName' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_isNewLocaticValuesValid_returnsFalseWhenInvalidRadius' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_isNewLocaticValuesValid_returnsTrueWhenValidValues' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_radiusDidChangeCalls_viewDelegateChangeRadiusText' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_radiusDidChangePassesValueTo_viewDelegateChangeRadiusText' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_validateLocaticName_doesNotThrowErrorWhenNameIsValid' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_validateLocaticName_throwsErrorWhenNameIsEmpty' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_validateLocaticName_throwsErrorWhenNameIsNil' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_validateLocaticRadius_doesNotThrowErrorWhenRadiusIsValid' time='0.000'/>
+    <testcase classname='LocaticsTests.AddLocaticViewModelTests' name='test_validateLocaticRadius_throwsErrorWhenRadiusIsLessThanTen' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.AlertControllerTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.AlertControllerTests' name='test_createAlert_returnsAlertConfigured' time='0.002'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.AppFileSystemTests' tests='7' failures='0'>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_appDirectories_values' time='0.002'/>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_buildFullPath_returnsGetURLWithNameComponent' time='0.001'/>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_contentsOfDirectory_returnsEmptyArrayOfURLContentsIfNothingSaved' time='0.001'/>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_deleteAllFiles_deletesAllFilesInDirectory' time='0.002'/>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_documentsDirectoryURL_returnsDocumentDirectoryURL' time='0.001'/>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_getURL_returnsURLForDirectory' time='0.001'/>
+    <testcase classname='LocaticsTests.AppFileSystemTests' name='test_writeFile_writesDataToURL' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.AppTests' tests='4' failures='0'>
+    <testcase classname='LocaticsTests.AppTests' name='test_startApplicationCoordinatorGetsCalled_whenAppStarts' time='0.003'/>
+    <testcase classname='LocaticsTests.AppTests' name='test_startCallsMainAppCoordinatorWithConfig_forOnboardingFlow' time='0.004'/>
+    <testcase classname='LocaticsTests.AppTests' name='test_window_isNotNil' time='0.001'/>
+    <testcase classname='LocaticsTests.AppTests' name='test_window_usesInitWindow' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.ApplicationCoordinatorTests' tests='5' failures='0'>
+    <testcase classname='LocaticsTests.ApplicationCoordinatorTests' name='test_onboardingFlowGetsCalledWhenLaunchInstructor_isOnboarding' time='0.002'/>
+    <testcase classname='LocaticsTests.ApplicationCoordinatorTests' name='test_startMainFlow_fatalErrorWhenRootTabBarControllerIsInvalid' time='0.001'/>
+    <testcase classname='LocaticsTests.ApplicationCoordinatorTests' name='test_startMainFlowGetsCalledWhenLaunchInstructor_isMain' time='0.009'/>
+    <testcase classname='LocaticsTests.ApplicationCoordinatorTests' name='test_startOnboardingFlowFinished_startsMainFlow' time='0.004'/>
+    <testcase classname='LocaticsTests.ApplicationCoordinatorTests' name='test_windowRootControllerIsNotNil_afterStart' time='0.002'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.CAGradientLayerExtensionsTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.CAGradientLayerExtensionsTests' name='test_themeFor_navigationBar' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.CoordinatorFactoryTests' tests='4' failures='0'>
+    <testcase classname='LocaticsTests.CoordinatorFactoryTests' name='test_createLocaticsCoordinatorFlow_returnsLocaticsCoordinator' time='0.000'/>
+    <testcase classname='LocaticsTests.CoordinatorFactoryTests' name='test_createMainCoordinatorFlow_returnsTabBarCoordinator' time='0.002'/>
+    <testcase classname='LocaticsTests.CoordinatorFactoryTests' name='test_createMapCoordinatorFlow_returnsLocaticsMapCoordinator' time='0.000'/>
+    <testcase classname='LocaticsTests.CoordinatorFactoryTests' name='test_createOnboardingCoordinatorFlow_returnsOnboardingCoordinator' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.CoreDataStackTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.CoreDataStackTests' name='test_createApplicationPersistenceContainer_createsAndReturnsPC' time='0.023'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.DBLocalItemTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.DBLocalItemTests' name='test_DB_LocalItemMappingKey_values' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.DateFormatterManagerTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.DateFormatterManagerTests' name='test_hoursMinutes_returnsHoursMinutesDateFormatterFormattedString' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LaunchInstructorTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LaunchInstructorTests' name='test_launchInstructorFlowsToMain_whenOnboardingTrue' time='0.000'/>
+    <testcase classname='LocaticsTests.LaunchInstructorTests' name='test_launchInstructorFlowsToOnboarding_whenOnboardingFalse' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsCoordinatorTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsCoordinatorTests' name='test_start_addsLocaticsListModuleToRoot' time='0.001'/>
+    <testcase classname='LocaticsTests.LocaticsCoordinatorTests' name='test_start_callsCreateLocaticsListModule' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsListViewControllerTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsListViewControllerTests' name='testExample' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsListViewControllerTests' name='testPerformanceExample' time='0.376'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsMapCoordinatorTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsMapCoordinatorTests' name='test_start_addsMapModuleToRoot' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapCoordinatorTests' name='test_start_callsCreateMapModule' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsMapModuleFactoryTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsMapModuleFactoryTests' name='test_createLocaticsMapModule_locaticsViewModelIsNotNil' time='0.008'/>
+    <testcase classname='LocaticsTests.LocaticsMapModuleFactoryTests' name='test_createLocaticsMapViewModel_addLocaticViewModelIsNotNil' time='0.008'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsMapViewControllerTests' tests='13' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_addLocaticButton_isNotNil' time='0.043'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_addLocaticTapped_callsViewModelAddLocaticWasTapped' time='0.006'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_locaticsMapViewModelViewDelegate_isNotNil' time='0.005'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_mapView_isNotNil' time='0.009'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_mapViewDelegate_isNotNil' time='0.007'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_setNavigationTitle_callsSetTitleWithValue' time='0.005'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_setupMapView_callsGetUserRegion' time='0.007'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_setupMapView_setsMapToShowUserLocation' time='0.005'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_setupMapView_setsMapViewTintColorToInteractableSecondary' time='0.005'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel' time='0.006'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_showAddLocaticCardView_setsAddLocaticCardView' time='0.006'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_updateMapRegion_setsMapViewRegion' time='0.009'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewControllerTests' name='test_view_isNotNil' time='0.006'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsMapViewModelTests' tests='13' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_addLocaticWasTapped_callsShowAddLocaticCardView' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_addLocaticWasTapped_callsUpdateMapRegionWithValues' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_addLocaticWasTapped_doesNotCallUpdateMapRegionWhenLastVisitedLocationIsNil' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_getUserRegion_callsGetCurrentUserLocation' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_getUserRegion_callsViewDelegateShowAlertWhenError' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_getUserRegion_callsViewDelegateUpdateMapRegionWhenSuccess' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_locationManager_isNotNil' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_locationPermissionsNotAuthorised_callsShowAlert' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_mainTitle_returnsFetchingLocationIfVisitedLocationIsNil' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_mainTitle_returnsLastVisitedLocationTitle' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_setCurrentLocationName_callsViewDelegateIfErrorOccurs' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_subtitle_returnsJustNowIfLastVisitedLocationIsNil' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsMapViewModelTests' name='test_subtitle_returnsLastVisitedLocationArrivalDate' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsModuleFactoryTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsModuleFactoryTests' name='testExample' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsModuleFactoryTests' name='testPerformanceExample' time='0.252'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocaticsViewModelTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.LocaticsViewModelTests' name='testExample' time='0.000'/>
+    <testcase classname='LocaticsTests.LocaticsViewModelTests' name='testPerformanceExample' time='0.252'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocationManagerTests' tests='15' failures='0'>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_delegate_isNotNil' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_didUpdateLocations_callsCompletionBlockWithErrorWhenInvalid' time='0.003'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_didUpdateLocations_callsReverseGeocodeLocation' time='0.005'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_didUpdateLocations_failsWhenNoLocationsPassed' time='0.005'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_didVisit_callsReverseGeocodeLocation' time='0.005'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_findCurrentLocation_callsPermsNotAuthorisedDelegateIfNotAuthorised' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_findCurrentLocation_callsRequestLocation' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_handleDidUpdateLocation_failsWhenLocationIsInvalid' time='0.004'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_handleDidUpdateLocation_setsLastVisitedLocationAndCallsFindCurrentLocationCompletion' time='0.005'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_lastVisitedLocation_returnsLocationStorageLastVisitedLocation' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_locationError_values' time='0.001'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_locationProvider_allowsBackgroundLocationUpdates' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_locationProvider_callsStartMonitoringVisits' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_newVisitReceived_callsSaveLocationOnDisk' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationManagerTests' name='test_settingLocationDelegate_callsPermsNotAuthorisedIfNotAuthorised' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocationPermissionsManagerTests' tests='4' failures='0'>
+    <testcase classname='LocaticsTests.LocationPermissionsManagerTests' name='test_authorizeLocationPermissions_callsRequestAlwaysAuthorization' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationPermissionsManagerTests' name='test_didChangeAuthAlways_callsPermissionsGranted' time='0.003'/>
+    <testcase classname='LocaticsTests.LocationPermissionsManagerTests' name='test_didChangeAuthDenied_callsPermissionsDenied' time='0.003'/>
+    <testcase classname='LocaticsTests.LocationPermissionsManagerTests' name='test_locationManager_isNotNil' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocationTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.LocationTests' name='test_init_setsCorrectValues' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.LocationsStorageTests' tests='4' failures='0'>
+    <testcase classname='LocaticsTests.LocationsStorageTests' name='test_lastVisitedLocation_isNilByDefault' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationsStorageTests' name='test_saveLocationOnDisk_callsFileSystemDeleteAndWriteToFile' time='0.001'/>
+    <testcase classname='LocaticsTests.LocationsStorageTests' name='test_setupLastVisitedLocation_callsContentsOfDirectory' time='0.000'/>
+    <testcase classname='LocaticsTests.LocationsStorageTests' name='test_setupLastVisitedLocation_setsLastVisitedLocationWhenOneIsPersisted' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.OnboardingCoordinatorTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.OnboardingCoordinatorTests' name='test_goToOnboardingFinished_callsFinishedOnboarding' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingCoordinatorTests' name='test_start_addsOnboardingVCToStack' time='0.002'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.OnboardingManagerTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.OnboardingManagerTests' name='test_onboardingDefault_isFalse' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingManagerTests' name='test_onboardingDefault_isTrueWhenSet' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.OnboardingModuleFactoryTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.OnboardingModuleFactoryTests' name='test_createOnboardingModule_injectsViewModelIntoVC' time='0.003'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.OnboardingViewControllerTests' tests='10' failures='0'>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_doneTapped_callsHandleFinishOnboarding' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_pageVCBefore_callsViewModelAfterVC' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_pageVCBefore_callsViewModelBeforeVC' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_pageVCBefore_isViewModelAfterVC' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_pageVCBefore_isViewModelBeforeVC' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_pageViewController_isDataSource' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_pageViewController_isDelegate' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_permissionsTapped_callsHandlePermissionsTapped' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_view_isNotNil' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewControllerTests' name='test_viewControllerPages_isNotNil' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.OnboardingViewModelTests' tests='16' failures='0'>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_getInitialPageVC_isOnboardingWelcomePageVC' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_getPageVCAfterInvalidVC_isNil' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_getPageVCBeforeInvalidVC_isNil' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_getPageViewControllerAfter_returnsCorrectOrderForPageVCs' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_getPageViewControllerBefore_returnsCorrectOrderForPageVCs' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_handleAuthorizationError_callsHandlePermissionsTappedIfAuthStatusUndetermined' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_handleFinishOnboarding_setsOnboardingValueTrue' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_handleFinishOnboardingCalls_goToOnboardingFinished' time='0.002'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_handleFinishOnboardingWithoutAuthorizingPerms_callsPermDenied' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_handleGoToAppSettings_callsGoToAppSettings' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_handlePermissionsTapped_callsAuthorizeLocationPermissions' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_locationPermsManagerDelegate_isNilByDefault' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_locationsPermsManagerDelegate_isNotNilAfterHandlePermsTapped' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_onboardingStoryboardIdentifier_rawValues' time='0.000'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_pageViewControllerCount_isFour' time='0.001'/>
+    <testcase classname='LocaticsTests.OnboardingViewModelTests' name='test_permissionsDenied_callsViewDelegatePermissionsWereDenied' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.RootModuleFactoryTests' tests='3' failures='0'>
+    <testcase classname='LocaticsTests.RootModuleFactoryTests' name='test_createRootNavigationController_returnsEmptyNavigationController' time='0.001'/>
+    <testcase classname='LocaticsTests.RootModuleFactoryTests' name='test_createTabBarController_returnsTabBarControllerType' time='0.002'/>
+    <testcase classname='LocaticsTests.RootModuleFactoryTests' name='test_rootNavigationController_navBarisHidden' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.SliderControlTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.SliderControlTests' name='test_sliderControl_distanceValues' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.StorageManagerTests' tests='9' failures='0'>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_createObject_addsObjectToMoc' time='0.004'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_deleteObject_removesObjectFromMoc' time='0.003'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_deleteObject_returnsErrorWhenIdInvalid' time='0.002'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_fetchObjects_returnsCorrectAmount' time='0.003'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_fetchObjects_returnsCorrectAmountWithPredicate' time='0.003'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_fetchObjects_returnsObjectsWhenRequestValid' time='0.001'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_storageManagerError_localizedDescriptionValues' time='0.002'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_updateObject_completesWithErrorWhenPassedInvalidID' time='0.002'/>
+    <testcase classname='LocaticsTests.StorageManagerTests' name='test_updateObject_updatesAndReturnsObjectWithValidID' time='0.002'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.TabBarControllerTests' tests='10' failures='0'>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_delegate_isNotNil' time='0.003'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_didSelectViewController_callsMapClosureWithNavController' time='0.007'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_didSelectViewController_returnsIfNavControllerAlreadyExists' time='0.005'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_didSelectViewController_returnsIfVCIsNotNavController' time='0.003'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_initialTabSelected_isMapFlow' time='0.004'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_onLocaticsTabSelect_callsLocaticsClosureWithNavController' time='0.006'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_onMapTabSelect_callsMapClosureWithNavController' time='0.006'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_setupInitialTabSelected_fatalErrorWhenViewControllersIsNil' time='0.003'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_tabIndex_rawValues' time='0.002'/>
+    <testcase classname='LocaticsTests.TabBarControllerTests' name='test_viewControllerCount_isTwo' time='0.002'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.TabBarCoordinatorTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.TabBarCoordinatorTests' name='test_startLocaticsFlowClosure_startsRunLocaticsFlow' time='0.000'/>
+    <testcase classname='LocaticsTests.TabBarCoordinatorTests' name='test_startMapFlowClosure_startsRunMapFlow' time='0.007'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.UIColorExtensionsTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.UIColorExtensionsTests' name='test_colorConst_values' time='0.000'/>
+    <testcase classname='LocaticsTests.UIColorExtensionsTests' name='test_colorInit_returnsSameColorFromSuperInit' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.UIFontExtensionsTests' tests='5' failures='0'>
+    <testcase classname='LocaticsTests.UIFontExtensionsTests' name='test_installed_regularCustomSize' time='0.001'/>
+    <testcase classname='LocaticsTests.UIFontExtensionsTests' name='test_installed_regularH2' time='0.000'/>
+    <testcase classname='LocaticsTests.UIFontExtensionsTests' name='test_installed_regularH3' time='0.001'/>
+    <testcase classname='LocaticsTests.UIFontExtensionsTests' name='test_installed_regularH4' time='0.000'/>
+    <testcase classname='LocaticsTests.UIFontExtensionsTests' name='test_installedRegularH1' time='0.000'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.UIImageExtensionsTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.UIImageExtensionsTests' name='test_imageFrom_gradientLayer' time='0.001'/>
+    <testcase classname='LocaticsTests.UIImageExtensionsTests' name='test_imageFrom_gradientLayerThrowsFatalErrorWhenGradientSizeIsNil' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.UINavigationBarExtensionsTests' tests='1' failures='0'>
+    <testcase classname='LocaticsTests.UINavigationBarExtensionsTests' name='test_navigationBar_defaultAppearance' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.UINavigationItemExtensionsTests' tests='3' failures='0'>
+    <testcase classname='LocaticsTests.UINavigationItemExtensionsTests' name='test_navigationTitleView_setNewSubtitle' time='0.001'/>
+    <testcase classname='LocaticsTests.UINavigationItemExtensionsTests' name='test_navigationTitleView_setNewTitle' time='0.000'/>
+    <testcase classname='LocaticsTests.UINavigationItemExtensionsTests' name='test_setupTitleView_setsTitleViewWithTitleAndSubTitle' time='0.001'/>
+  </testsuite>
+  <testsuite name='LocaticsTests.UIStoryboardExtensionsTests' tests='2' failures='0'>
+    <testcase classname='LocaticsTests.UIStoryboardExtensionsTests' name='test_storyboardMain_returnsMainStoryboard' time='0.002'/>
+    <testcase classname='LocaticsTests.UIStoryboardExtensionsTests' name='test_storyboardOnboarding_returnsOnboardingStoryboard' time='0.000'/>
+  </testsuite>
+</testsuites>
