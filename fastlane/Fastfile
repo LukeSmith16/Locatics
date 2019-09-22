@@ -11,7 +11,7 @@ platform :ios do
   before_all do
     ensure_bundle_exec
     setup_travis
-    cocoapods
+#    cocoapods
     scan
   end
 
