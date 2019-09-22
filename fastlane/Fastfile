@@ -1,5 +1,5 @@
 fastlane_version "2.131.0"
-REQUIRED_XCODE_VERSION = "11.0"
+REQUIRED_XCODE_VERSION = "10.3"
 default_platform :ios
 
 ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
@@ -11,7 +11,7 @@ platform :ios do
   before_all do
     ensure_bundle_exec
     setup_travis
-#    cocoapods
+ #   cocoapods
     scan
   end
 
