@@ -114,7 +114,7 @@ private extension StorageManager {
     func fetchObject<Object: DB_LocalItem>(moc: NSManagedObjectContext,
                                            entity: Object.Type,
                                            identity: Int64) -> Object? {
-        let fetchRequest: NSFetchRequest<Object> = NSFetchRequest(entityName: Object.entity().name!)
+        let fetchRequest: NSFetchRequest<Object> = NSFetchRequest(entityName: Object.entity().name ?? "")
         fetchRequest.predicate = NSPredicate(format: "\(#keyPath(DB_LocalItem.identity)) == %ld", identity)
 
         let fetchObjectsMatchingID = try? moc.fetch(fetchRequest)
