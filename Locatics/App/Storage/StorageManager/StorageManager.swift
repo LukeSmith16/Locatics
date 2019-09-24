@@ -67,7 +67,7 @@ class StorageManager: StorageManagerInterface {
                                             sortDescriptors: [NSSortDescriptor]?,
                                             completion: @escaping (Result<[Object], StorageManagerError>) -> Void) {
         psc.performBackgroundTask { (context) in
-            let fetchRequest: NSFetchRequest<Object> = NSFetchRequest(entityName: Object.entity().name!)
+            let fetchRequest = Object.sortedFetchRequest
             fetchRequest.predicate = predicate
             fetchRequest.sortDescriptors = sortDescriptors
 
@@ -114,7 +114,7 @@ private extension StorageManager {
     func fetchObject<Object: DB_LocalItem>(moc: NSManagedObjectContext,
                                            entity: Object.Type,
                                            identity: Int64) -> Object? {
-        let fetchRequest: NSFetchRequest<Object> = NSFetchRequest(entityName: Object.entity().name ?? "")
+        let fetchRequest = Object.sortedFetchRequest
         fetchRequest.predicate = NSPredicate(format: "\(#keyPath(DB_LocalItem.identity)) == %ld", identity)
 
         let fetchObjectsMatchingID = try? moc.fetch(fetchRequest)

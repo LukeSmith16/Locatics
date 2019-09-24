@@ -12,6 +12,7 @@
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
 		07068482231AD19D0023EB27 /* .xcode-version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07068481231AD19D0023EB27 /* .xcode-version.txt */; };
 		07068485231B02A50023EB27 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07068484231B02A50023EB27 /* .swiftlint.yml */; };
+		0709D11C233A7A08001CD360 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0709D11B233A7A08001CD360 /* Managed.swift */; };
 		070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94102326EBD4008FDB87 /* DateFormatterManager.swift */; };
 		070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */; };
 		0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */; };
@@ -149,6 +150,7 @@
 		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07068481231AD19D0023EB27 /* .xcode-version.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version.txt"; sourceTree = "<group>"; };
 		07068484231B02A50023EB27 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		0709D11B233A7A08001CD360 /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		070F94102326EBD4008FDB87 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManagerTests.swift; sourceTree = "<group>"; };
 		0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructorTests.swift; sourceTree = "<group>"; };
@@ -375,6 +377,14 @@
 				0773F7472322A6E200EA62E1 /* TestHelpers */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		0709D11A233A79F5001CD360 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0709D11B233A7A08001CD360 /* Managed.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		0726E9EC231EDA6B0084770E /* OnboardingPages */ = {
@@ -967,6 +977,7 @@
 			children = (
 				0786F9ED23366E28009E00BC /* DB_LocalItem.swift */,
 				0786F9E723366822009E00BC /* Locatic.swift */,
+				0709D11A233A79F5001CD360 /* Utilities */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1450,6 +1461,7 @@
 				0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */,
 				0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */,
 				0773F78F2323B85500EA62E1 /* UIImage+Extensions.swift in Sources */,
+				0709D11C233A7A08001CD360 /* Managed.swift in Sources */,
 				0773F7A0232430E600EA62E1 /* LocationManager.swift in Sources */,
 				0786F9E823366822009E00BC /* Locatic.swift in Sources */,
 				0773F75E23230F9200EA62E1 /* LocaticsMapViewController.swift in Sources */,

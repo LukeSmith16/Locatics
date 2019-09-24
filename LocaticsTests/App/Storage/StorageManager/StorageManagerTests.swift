@@ -79,7 +79,7 @@ class StorageManagerTests: XCTestCase {
             switch result {
             case .success(let success):
                 XCTAssertEqual(success.count, 1)
-                XCTAssertEqual(success.first!, coreDataObject)
+                XCTAssertEqual(success.first!.identity, coreDataObject.identity)
             case .failure(let failure):
                 XCTFail("Should not fail - \(failure.localizedDescription)")
             }
