@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DB_LocalItem" representedClassName="DB_LocalItem" isAbstract="YES" syncable="YES">
-        <attribute name="identity" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identity" attributeType="Integer 64" usesScalarValueType="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="identity"/>
@@ -10,7 +10,7 @@
     </entity>
     <entity name="Locatic" representedClassName="Locatic" parentEntity="DB_LocalItem" syncable="YES"/>
     <elements>
-        <element name="DB_LocalItem" positionX="-45" positionY="9" width="128" height="60"/>
-        <element name="Locatic" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="DB_LocalItem" positionX="-45" positionY="9" width="128" height="58"/>
+        <element name="Locatic" positionX="-63" positionY="-18" width="128" height="43"/>
     </elements>
 </model>

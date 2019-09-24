@@ -18,3 +18,5 @@ enum DB_LocalItemMappingKey: String {
 class DB_LocalItem: NSManagedObject {
     @NSManaged public var identity: Int64
 }
+
+extension DB_LocalItem: Managed {}
