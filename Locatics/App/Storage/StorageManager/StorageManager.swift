@@ -12,6 +12,9 @@ protocol StorageManagerInterface: class {
     func createObject<Object: DB_LocalItem>(entity: Object.Type,
                                             values: [String: Any],
                                             completion: @escaping (Object) -> Void)
+    func fetchObject<Object: DB_LocalItem>(entity: Object.Type,
+                                           identity: Int64,
+                                           completion: @escaping (Object?) -> Void)
     func fetchObjects<Object: DB_LocalItem>(entity: Object.Type,
                                             predicate: NSPredicate?,
                                             sortDescriptors: [NSSortDescriptor]?,
@@ -60,6 +63,13 @@ class StorageManager: StorageManagerInterface {
 
             completion(newObject)
         }
+    }
+
+    func fetchObject<Object: DB_LocalItem>(entity: Object.Type,
+                                           identity: Int64,
+                                           completion: @escaping (Object?) -> Void) {
+        let fetchedObject = fetchObject(moc: moc, entity: entity, identity: identity)
+        completion(fetchedObject)
     }
 
     func fetchObjects<Object: DB_LocalItem>(entity: Object.Type,
