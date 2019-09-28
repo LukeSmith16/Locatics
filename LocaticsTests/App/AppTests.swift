@@ -63,22 +63,20 @@ class AppTests: XCTestCase {
         XCTAssertTrue(firstViewController is OnboardingViewController)
     }
 
-//    func test_startCallsMainAppCoordinatorWithConfigForMainFlow() {
-//        OnboardingManager.setOnboarding(true)
-//
-//        sut.start()
-//
-//        guard let rootController = sut.window.rootViewController,
-//            let rootNavController = rootController as? UINavigationController else {
-//                XCTFail("Could not extract root VC as UINavigationController type")
-//                return
-//        }
-//
-//        guard let firstViewController = rootNavController.viewControllers.first else {
-//            XCTFail("Could not extract root VC from root nav controller")
-//            return
-//        }
-//
-//        XCTAssertTrue(firstViewController is OnboardingViewController)
-//    }
+    func test_startCallsMainAppCoordinatorWithConfig_forMainFlow() {
+        OnboardingManager.setOnboarding(true)
+
+        sut.start()
+
+        guard let rootController = sut.window.rootViewController,
+            let rootTabController = rootController as? UITabBarController else {
+                XCTFail("Could not extract root VC as UINavigationController type")
+                return
+        }
+
+        guard rootTabController.viewControllers?.last is UINavigationController else {
+            XCTFail("Could not extract root VC from root nav controller")
+            return
+        }
+    }
 }
