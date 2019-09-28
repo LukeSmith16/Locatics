@@ -10,7 +10,6 @@ import XCTest
 
 @testable import Locatics
 class AlertControllerTests: XCTestCase {
-
     func test_createAlert_returnsAlertConfigured() {
         let alert = AlertController.create(title: "A Title", message: "A message")
 
@@ -19,5 +18,4 @@ class AlertControllerTests: XCTestCase {
         XCTAssertEqual(alert.actions.count, 1)
         XCTAssertEqual(alert.actions.first!.title, "Ok")
     }
-
 }

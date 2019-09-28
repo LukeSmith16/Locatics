@@ -9,7 +9,6 @@
 import UIKit
 
 @testable import Locatics
-
 class MockCoordinatorFactory: CoordinatorFactoryInterface {
 
     var calledCreateMapFlow = false

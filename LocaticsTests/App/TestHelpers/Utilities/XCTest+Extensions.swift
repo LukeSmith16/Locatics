@@ -9,7 +9,6 @@
 import XCTest
 
 @testable import Locatics
-
 extension XCTestCase {
     func expectFatalError(expectedMessage: String, testcase: @escaping () -> Void) {
 

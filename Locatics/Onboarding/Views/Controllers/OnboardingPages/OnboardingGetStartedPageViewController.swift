@@ -8,5 +8,4 @@
 
 import UIKit
 
-class OnboardingGetStartedPageViewController: UIViewController {
-}
+class OnboardingGetStartedPageViewController: UIViewController {}
