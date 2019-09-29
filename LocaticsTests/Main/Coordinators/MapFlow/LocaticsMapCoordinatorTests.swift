@@ -20,7 +20,7 @@ class LocaticsMapCoordinatorTests: XCTestCase {
         mockNavController = UINavigationController()
 
         sut = LocaticsMapCoordinator(root: mockNavController,
-                                     coordinatorFactory: CoordinatorFactory(),
+                                     coordinatorFactory: CoordinatorFactory(storageManager: MockStorageManager()),
                                      moduleFactory: mockFactory)
     }
 

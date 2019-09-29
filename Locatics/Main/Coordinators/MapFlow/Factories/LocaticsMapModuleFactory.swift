@@ -14,6 +14,14 @@ protocol LocaticsMapModuleFactoryInterface: class {
 }
 
 class LocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
+    private let storageManager: StorageManagerInterface
+    private let locaticStorage: LocaticStorageInterface
+
+    init(storageManager: StorageManagerInterface, locaticStorage: LocaticStorageInterface) {
+        self.storageManager = storageManager
+        self.locaticStorage = locaticStorage
+    }
+
     func createLocaticsMapModule() -> LocaticsMapViewController {
         let locaticsMapModule = LocaticsMapViewController()
         locaticsMapModule.locaticsMapViewModel = createLocaticsMapViewModel()

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable line_length
+
 protocol CoordinatorFactoryInterface: class {
     func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput
 
@@ -17,6 +19,13 @@ protocol CoordinatorFactoryInterface: class {
 }
 
 final class CoordinatorFactory: CoordinatorFactoryInterface {
+    private let storageManager: StorageManagerInterface
+    private lazy var locaticStorage = LocaticStorage(storageManager: storageManager)
+
+    init(storageManager: StorageManagerInterface) {
+        self.storageManager = storageManager
+    }
+
     func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput {
         let onboardingCoordinator = OnboardingCoordinator(root: root,
                                                           factory: OnboardingModuleFactory())
@@ -24,20 +33,22 @@ final class CoordinatorFactory: CoordinatorFactoryInterface {
     }
 
     func createMainFlow(root: TabBarControllerInterface) -> CoordinatorInterface {
-        let tabBarCoordinator = TabBarCoordinator(tabBarController: root, coordinatorFactory: CoordinatorFactory())
+        let tabBarCoordinator = TabBarCoordinator(tabBarController: root,
+                                                  coordinatorFactory: CoordinatorFactory(storageManager: storageManager))
         return tabBarCoordinator
     }
 
     func createMapFlow(root: UINavigationController) -> CoordinatorInterface {
         let mapCoordinator = LocaticsMapCoordinator(root: root,
-                                                    coordinatorFactory: CoordinatorFactory(),
-                                                    moduleFactory: LocaticsMapModuleFactory())
+                                                    coordinatorFactory: CoordinatorFactory(storageManager: storageManager),
+                                                    moduleFactory: LocaticsMapModuleFactory(storageManager: storageManager,
+                                                                                            locaticStorage: locaticStorage))
         return mapCoordinator
     }
 
     func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
         let locaticsCoordinator = LocaticsCoordinator(root: root,
-                                                      coordinatorFactory: CoordinatorFactory(),
+                                                      coordinatorFactory: CoordinatorFactory(storageManager: storageManager),
                                                       moduleFactory: LocaticsModuleFactory())
         return locaticsCoordinator
     }

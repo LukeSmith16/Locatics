@@ -14,7 +14,7 @@ class CoordinatorFactoryTests: XCTestCase {
     var sut: CoordinatorFactoryInterface!
 
     override func setUp() {
-        sut = CoordinatorFactory()
+        sut = CoordinatorFactory(storageManager: MockStorageManager())
     }
 
     override func tearDown() {

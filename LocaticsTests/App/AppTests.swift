@@ -38,6 +38,10 @@ class AppTests: XCTestCase {
         XCTAssertEqual(sut.window, window)
     }
 
+    func test_start_setsUpStorageManager() {
+        sut.start()
+    }
+
     func test_startApplicationCoordinatorGetsCalled_whenAppStarts() {
         sut.start()
 

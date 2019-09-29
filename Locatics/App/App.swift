@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable line_length
+
 protocol AppInterface {
     func start()
 }
@@ -28,10 +30,19 @@ class App: AppInterface {
 private extension App {
     func setupApplicationCoordinator() {
         let userHasOnboarded = OnboardingManager.hasOnboarded()
-        applicationCoordinator = ApplicationCoordinator(window: window,
-                                                        launchInstructor: .configure(userOnboarded: userHasOnboarded),
-                                                        coordinatorFactory: CoordinatorFactory(),
-                                                        rootModuleFactory: RootModuleFactory())
-        applicationCoordinator?.start()
+        setupStorageManager { [weak self] (storageManager) in
+            guard let `self` = self else { fatalError("'App' failed to start") }
+            self.applicationCoordinator = ApplicationCoordinator(window: self.window,
+                                                                 launchInstructor: .configure(userOnboarded: userHasOnboarded),
+                                                                 coordinatorFactory: CoordinatorFactory(storageManager: storageManager),
+                                                                 rootModuleFactory: RootModuleFactory())
+            self.applicationCoordinator?.start()
+        }
+    }
+
+    func setupStorageManager(completion: @escaping (StorageManagerInterface) -> Void) {
+        createApplicationPersistenceContainer { (container) in
+            completion(StorageManager(psc: container))
+        }
     }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable line_length
+
 class OnboardingViewController: UIPageViewController {
     var onboardingViewModel: OnboardingViewModelInterface? {
         didSet {
