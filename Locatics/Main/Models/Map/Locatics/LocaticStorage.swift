@@ -17,22 +17,18 @@ protocol LocaticPersistentStorageDelegate: class {
 protocol LocaticStorageInterface {
     var persistentStorageObserver: MulticastDelegate<LocaticPersistentStorageDelegate> {get set}
 
-    func fetchLocatics(completion: @escaping (Result<[LocaticData], StorageManagerError>) -> Void)
-    func fetchLocatic(withID: Int64, completion: @escaping (LocaticData?) -> Void)
+    func fetchLocatics(predicate: NSPredicate?,
+                       sortDescriptors: [NSSortDescriptor]?,
+                       completion: @escaping (Result<[LocaticData], StorageManagerError>) -> Void)
     func insertLocatic(name: String,
                        radius: Float,
                        longitude: Double,
-                       latitude: Double,
-                       completion: @escaping () -> Void)
-    func deleteLocatic(identity: Int64, completion: @escaping (StorageManagerError?) -> Void)
+                       latitude: Double)
+    func deleteLocatic(_ locatic: LocaticData, completion: @escaping (StorageManagerError?) -> Void)
 }
 
 class LocaticStorage: LocaticStorageInterface {
-
-    typealias LocaticID = Int64
-
     private let storageManager: StorageManagerInterface
-    private let cache = Cache<LocaticID, LocaticData>()
 
     var persistentStorageObserver = MulticastDelegate<LocaticPersistentStorageDelegate>()
 
@@ -40,35 +36,25 @@ class LocaticStorage: LocaticStorageInterface {
         self.storageManager = storageManager
     }
 
-    func fetchLocatics(completion: @escaping (Result<[LocaticData], StorageManagerError>) -> Void) {
+    func fetchLocatics(predicate: NSPredicate?,
+                       sortDescriptors: [NSSortDescriptor]?,
+                       completion: @escaping (Result<[LocaticData], StorageManagerError>) -> Void) {
         storageManager.fetchObjects(entity: Locatic.self,
-                                    predicate: nil,
-                                    sortDescriptors: nil) { [weak self] (result) in
-            switch result {
-            case .success(let success):
-                success.forEach({ self?.cache[$0.identity] = $0 })
-                completion(.success(success))
-            case .failure(let failure):
-                completion(.failure(failure))
-            }
-        }
-    }
-
-    func fetchLocatic(withID: LocaticID, completion: @escaping (LocaticData?) -> Void) {
-        if let cachedObject = cache[withID] {
-            return completion(cachedObject)
-        }
-
-        storageManager.fetchObject(entity: Locatic.self, identity: withID) { (fetchedLocatic) in
-            completion(fetchedLocatic)
+                                    predicate: predicate,
+                                    sortDescriptors: sortDescriptors) { (result) in
+                                        switch result {
+                                        case .success(let success):
+                                            completion(.success(success))
+                                        case .failure(let failure):
+                                            completion(.failure(failure))
+                                        }
         }
     }
 
     func insertLocatic(name: String,
                        radius: Float,
                        longitude: Double,
-                       latitude: Double,
-                       completion: @escaping () -> Void) {
+                       latitude: Double) {
         var values: [String: Any] = [:]
         values["name"] = name
         values["radius"] = radius
@@ -76,40 +62,36 @@ class LocaticStorage: LocaticStorageInterface {
         values["latitude"] = latitude
 
         storageManager.createObject(entity: Locatic.self, values: values) { [weak self] (newLocatic) in
-            completion()
             self?.handleInsertionOfLocatic(newLocatic)
         }
     }
 
-    func deleteLocatic(identity: Int64, completion: @escaping (StorageManagerError?) -> Void) {
-        storageManager.deleteObject(entity: Locatic.self, identity: identity) { [weak self] (error) in
+    func deleteLocatic(_ locatic: LocaticData, completion: @escaping (StorageManagerError?) -> Void) {
+        storageManager.deleteObject(entity: Locatic.self, identity: locatic.identity) { [weak self] (error) in
             guard error == nil else {
                 return completion(error)
             }
 
-            self?.cache.removeValue(forKey: identity)
+            self?.handleDeletionOfLocatic(locatic)
+            completion(nil)
         }
     }
 }
 
 private extension LocaticStorage {
     func handleInsertionOfLocatic(_ newLocatic: LocaticData) {
-        self.cache.insert(newLocatic, forKey: newLocatic.identity)
         self.persistentStorageObserver.invoke { (delegate) in
             delegate.locaticWasInserted(newLocatic)
         }
     }
 
     func handleUpdateOfLocatic(_ updatedLocatic: LocaticData) {
-        self.cache.removeValue(forKey: updatedLocatic.identity)
-        self.cache.insert(updatedLocatic, forKey: updatedLocatic.identity)
         self.persistentStorageObserver.invoke { (delegate) in
             delegate.locaticWasUpdated(updatedLocatic)
         }
     }
 
     func handleDeletionOfLocatic(_ deletedLocatic: LocaticData) {
-        self.cache.removeValue(forKey: deletedLocatic.identity)
         self.persistentStorageObserver.invoke { (delegate) in
             delegate.locaticWasDeleted(deletedLocatic)
         }
