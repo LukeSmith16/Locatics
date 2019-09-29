@@ -42,6 +42,14 @@ class StorageManagerTests: XCTestCase {
         XCTAssertEqual(moc.registeredObjects.first!, coreDataObject)
     }
 
+    func test_fetchObject_returnsObjectWhenRequestValid() {
+        let createdObject = createLocalItem()
+        sut.fetchObject(entity: DB_LocalItem.self, identity: createdObject.identity) { (object) in
+            XCTAssertNotNil(object)
+            XCTAssertEqual(object, createdObject)
+        }
+    }
+
     func test_fetchObjects_returnsObjectsWhenRequestValid() {
         sut.fetchObjects(entity: DB_LocalItem.self, predicate: nil, sortDescriptors: nil) { (result) in
             switch result {

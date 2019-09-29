@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable function_parameter_count
+
 protocol LocaticPersistentStorageDelegate: class {
     func locaticWasInserted(_ insertedLocatic: LocaticData)
     func locaticWasUpdated(_ updatedLocatic: LocaticData)
@@ -24,7 +26,14 @@ protocol LocaticStorageInterface {
                        radius: Float,
                        longitude: Double,
                        latitude: Double)
-    func deleteLocatic(_ locatic: LocaticData, completion: @escaping (StorageManagerError?) -> Void)
+    func updateLocatic(locatic: LocaticData,
+                       name: String,
+                       radius: Float,
+                       longitude: Double,
+                       latitude: Double,
+                       completion: @escaping (StorageManagerError?) -> Void)
+    func deleteLocatic(_ locatic: LocaticData,
+                       completion: @escaping (StorageManagerError?) -> Void)
 }
 
 class LocaticStorage: LocaticStorageInterface {
@@ -63,6 +72,31 @@ class LocaticStorage: LocaticStorageInterface {
 
         storageManager.createObject(entity: Locatic.self, values: values) { [weak self] (newLocatic) in
             self?.handleInsertionOfLocatic(newLocatic)
+        }
+    }
+
+    func updateLocatic(locatic: LocaticData,
+                       name: String,
+                       radius: Float,
+                       longitude: Double,
+                       latitude: Double,
+                       completion: @escaping (StorageManagerError?) -> Void) {
+        var changedValues: [String: Any] = [:]
+        changedValues["name"] = name
+        changedValues["radius"] = radius
+        changedValues["longitude"] = longitude
+        changedValues["latitude"] = latitude
+
+        storageManager.updateObject(entity: Locatic.self,
+                                    identity: locatic.identity,
+                                    updatedValues: changedValues) { [weak self] (result) in
+                                        switch result {
+                                        case .success(let success):
+                                            self?.handleUpdateOfLocatic(success)
+                                            completion(nil)
+                                        case .failure(let failure):
+                                            completion(failure)
+                                        }
         }
     }
 
