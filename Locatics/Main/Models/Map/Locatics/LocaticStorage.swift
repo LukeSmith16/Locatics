@@ -60,7 +60,7 @@ class LocaticStorage: LocaticStorageInterface {
         }
     }
 
-    // TODO: This COULD possible throw an error. Add logic for it.
+    // TODO: This COULD possibly throw an error. Add logic for it.
     func insertLocatic(name: String,
                        radius: Float,
                        longitude: Double,
