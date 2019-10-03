@@ -59,7 +59,13 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
     }
 
     func showAlert(title: String, message: String) {
+        let alertController = AlertController.create(title: "", message: "")
+        self.present(alertController, animated: true, completion: nil)
+    }
 
+    func zoomToUserLocation(latMeters: Double, lonMeters: Double) {
+        let userLocation = mapView.userLocation.coordinate
+        updateMapRegion(location: userLocation, latMeters: latMeters, lonMeters: lonMeters)
     }
 
     func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double) {
@@ -76,5 +82,14 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
                                                               height: 400))
         addLocaticCardView.addLocaticViewModel = locaticsMapViewModel?.addLocaticViewModel
         self.addLocaticCardView = addLocaticCardView
+    }
+
+    func getCenterMapCoordinate() -> Coordinate {
+        return mapView.centerCoordinate
+    }
+
+    func closeAddLocaticCardView() {
+        addLocaticCardView = nil
+        addLocaticCardView?.removeFromSuperview()
     }
 }

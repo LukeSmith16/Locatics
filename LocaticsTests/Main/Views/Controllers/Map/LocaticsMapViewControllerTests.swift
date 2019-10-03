@@ -130,6 +130,24 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertTrue(mockLocaticsMapViewModel.calledAddLocaticWasTapped)
     }
 
+    func test_zoomToUserLocation_updatesMapRegion() {
+        let oldRegion = MKCoordinateRegion(center:
+            CLLocationCoordinate2D(latitude: 10,
+                                   longitude: 5),
+                                           latitudinalMeters: 50,
+                                           longitudinalMeters: 50)
+        sut.mapView.setRegion(oldRegion, animated: true)
+
+        sut.zoomToUserLocation(latMeters: 0.0, lonMeters: 0.0)
+
+        let currentCenter = sut.mapView.centerCoordinate
+
+        XCTAssertNotEqual(currentCenter.latitude,
+                          oldRegion.center.latitude)
+        XCTAssertNotEqual(currentCenter.longitude,
+                          oldRegion.center.longitude)
+    }
+
     func test_showAddLocaticCardView_setsAddLocaticCardView() {
         XCTAssertNil(sut.addLocaticCardView)
 
@@ -139,6 +157,23 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.addLocaticCardView!.frame,
                        CGRect(x: 0, y: 0, width: sut.view.bounds.width, height: 400))
         XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
+    }
+
+    func test_getCenterMapCoordinate_returnsMapCenterCoordinate() {
+        let centerCoordinate = sut.getCenterMapCoordinate()
+
+        XCTAssertEqual(sut.mapView.centerCoordinate.latitude,
+                       centerCoordinate.latitude)
+        XCTAssertEqual(sut.mapView.centerCoordinate.longitude,
+                       centerCoordinate.longitude)
+    }
+
+    func test_closeAddLocaticView_removesAddLocaticCardViewFromSuperview() {
+        sut.showAddLocaticCardView()
+
+        sut.closeAddLocaticCardView()
+
+        XCTAssertNil(sut.addLocaticCardView)
     }
 }
 
