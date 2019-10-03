@@ -58,7 +58,7 @@ private extension LocaticsMapModuleFactory {
     }
 
     func createAddLocaticViewModel() -> AddLocaticViewModelInterface {
-        let addLocaticViewModel = AddLocaticViewModel()
+        let addLocaticViewModel = AddLocaticViewModel(locaticStorage: locaticStorage)
         return addLocaticViewModel
     }
 }

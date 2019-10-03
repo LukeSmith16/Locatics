@@ -23,6 +23,10 @@ protocol LocaticEntryValidationDelegate: class {
     func validationErrorOccured(_ error: String)
 }
 
+protocol LocaticPinLocationDelegate: class {
+    func getPinCurrentLocationCoordinate() -> Coordinate
+}
+
 enum AddLocaticEntryValidation: Error {
     case noNameEntered
     case radiusTooSmall
@@ -42,6 +46,13 @@ extension AddLocaticEntryValidation: LocalizedError {
 class AddLocaticViewModel: AddLocaticViewModelInterface {
     weak var viewDelegate: AddLocaticViewModelViewDelegate?
     weak var locaticEntryValidationDelegate: LocaticEntryValidationDelegate?
+    weak var locaticPinLocationDelegate: LocaticPinLocationDelegate?
+
+    private let locaticStorage: LocaticStorageInterface
+
+    init(locaticStorage: LocaticStorageInterface) {
+        self.locaticStorage = locaticStorage
+    }
 
     func radiusDidChange(_ newValue: Float) {
         let valueToInt = Int(newValue)
@@ -49,8 +60,21 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
         viewDelegate?.changeRadiusText(newRadiusText)
     }
 
-    func addLocaticWasTapped(locaticName: String?, radius: Float) {
-        guard isNewLocaticValuesValid(name: locaticName, radius: radius) else { return }
+    func addLocaticWasTapped(locaticName: String?,
+                             radius: Float) {
+        guard isNewLocaticValuesValid(name: locaticName, radius: radius),
+            let pinLocation = locaticPinLocationDelegate?.getPinCurrentLocationCoordinate() else { return }
+
+        locaticStorage.insertLocatic(name: locaticName!,
+                                     radius: radius,
+                                     longitude: pinLocation.longitude,
+                                     latitude: pinLocation.latitude) { [weak self] (error) in
+                                        if let error = error {
+                                            self?.locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
+                                        } else {
+                                            // Do animations, inform parent VM of locatic being added etc.
+                                        }
+        }
     }
 }
 
@@ -63,9 +87,9 @@ extension AddLocaticViewModel {
             return true
         } catch {
             locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
-        }
 
-        return false
+            return false
+        }
     }
 
     func validateLocaticName(_ name: String?) throws {

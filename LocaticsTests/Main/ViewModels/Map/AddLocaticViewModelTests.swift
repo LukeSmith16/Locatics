@@ -14,21 +14,29 @@ class AddLocaticViewModelTests: XCTestCase {
     var sut: AddLocaticViewModel!
 
     private var mockAddLocaticViewModelObserver: MockAddLocaticViewModelViewDelegate!
-    private var mockLocaticEntryViewModelObserver: MockLocaticEntryViewModelObserver!
+    private var mockLocaticEntryViewModelObserver: MockLocaticEntryValidationDelegate!
+    private var mockLocaticPinLocationObserver: MockLocaticPinLocationDelegate!
+
+    private var mockLocaticStorge: MockLocaticStorage!
 
     override func setUp() {
         mockAddLocaticViewModelObserver = MockAddLocaticViewModelViewDelegate()
-        mockLocaticEntryViewModelObserver = MockLocaticEntryViewModelObserver()
+        mockLocaticEntryViewModelObserver = MockLocaticEntryValidationDelegate()
+        mockLocaticStorge = MockLocaticStorage()
+        mockLocaticPinLocationObserver = MockLocaticPinLocationDelegate()
 
-        sut = AddLocaticViewModel()
+        sut = AddLocaticViewModel(locaticStorage: mockLocaticStorge)
         sut.viewDelegate = mockAddLocaticViewModelObserver
         sut.locaticEntryValidationDelegate = mockLocaticEntryViewModelObserver
+        sut.locaticPinLocationDelegate = mockLocaticPinLocationObserver
     }
 
     override func tearDown() {
         sut = nil
         mockAddLocaticViewModelObserver = nil
         mockLocaticEntryViewModelObserver = nil
+        mockLocaticStorge = nil
+        mockLocaticPinLocationObserver = nil
         super.tearDown()
     }
 
@@ -119,6 +127,48 @@ class AddLocaticViewModelTests: XCTestCase {
         XCTAssertEqual(AddLocaticEntryValidation.radiusTooSmall.localizedDescription,
                        mockLocaticEntryViewModelObserver.errorValue!)
     }
+
+    func test_addLocaticWasTapped_callsLocaticStorage() {
+        sut.addLocaticWasTapped(locaticName: "Locatic Name", radius: 15.0)
+
+        XCTAssertTrue(mockLocaticStorge.calledInsertLocatic)
+    }
+
+    func test_addLocaticWasTapped_callsGetPinCurrentLocationCoordinate() {
+        sut.addLocaticWasTapped(locaticName: "Locatic Name", radius: 15.0)
+
+        XCTAssertTrue(mockLocaticPinLocationObserver.calledGetPinCurrentLocationCoordinate)
+    }
+
+    func test_addLocaticWasTapped_callsLocaticStoragePassingValues() {
+        sut.addLocaticWasTapped(locaticName: "Locatic Name", radius: 15.0)
+
+        XCTAssertEqual(mockLocaticStorge.changedName!, "Locatic Name")
+        XCTAssertEqual(mockLocaticStorge.changedRadius!, 15.0)
+
+        XCTAssertEqual(mockLocaticStorge.changedLongitude!, 51.5)
+        XCTAssertEqual(mockLocaticStorge.changedLatitude!, 25.0)
+    }
+
+    func test_addLocaticWasTapped_callsValidationErrorIfFails() {
+        mockLocaticStorge.shouldFail = true
+        sut.addLocaticWasTapped(locaticName: "Name", radius: 15.0)
+
+        XCTAssertTrue(mockLocaticEntryViewModelObserver.calledValidationErrorOccured)
+        XCTAssertEqual(mockLocaticEntryViewModelObserver.errorValue!,
+                       "Could not find object matching ID.")
+    }
+
+    func test_isNewLocaticValuesValid_returnsFalseByDefault() {
+        XCTAssertFalse(sut.isNewLocaticValuesValid(name: "", radius: 10.0))
+    }
+
+    func test_addLocaticWasTapped_returnsWhenLocaticPinLocationDelegateIsNil() {
+        sut.locaticPinLocationDelegate = nil
+        sut.addLocaticWasTapped(locaticName: "Test", radius: 15.0)
+
+        XCTAssertFalse(mockLocaticStorge.calledInsertLocatic)
+    }
 }
 
 private extension AddLocaticViewModelTests {
@@ -132,13 +182,22 @@ private extension AddLocaticViewModelTests {
         }
     }
 
-    class MockLocaticEntryViewModelObserver: LocaticEntryValidationDelegate {
+    class MockLocaticEntryValidationDelegate: LocaticEntryValidationDelegate {
         var calledValidationErrorOccured = false
 
         var errorValue: String?
         func validationErrorOccured(_ error: String) {
             calledValidationErrorOccured = true
             errorValue = error
+        }
+    }
+
+    class MockLocaticPinLocationDelegate: LocaticPinLocationDelegate {
+        var calledGetPinCurrentLocationCoordinate = false
+
+        func getPinCurrentLocationCoordinate() -> Coordinate {
+            calledGetPinCurrentLocationCoordinate = true
+            return Coordinate(latitude: 25.0, longitude: 51.5)
         }
     }
 }
