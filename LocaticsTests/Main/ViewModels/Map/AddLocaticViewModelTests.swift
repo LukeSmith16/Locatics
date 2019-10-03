@@ -14,27 +14,27 @@ class AddLocaticViewModelTests: XCTestCase {
     var sut: AddLocaticViewModel!
 
     private var mockAddLocaticViewModelObserver: MockAddLocaticViewModelViewDelegate!
-    private var mockLocaticEntryViewModelObserver: MockLocaticEntryValidationDelegate!
+    private var mockLocaticEntryValidationObserver: MockLocaticEntryValidationDelegate!
     private var mockLocaticPinLocationObserver: MockLocaticPinLocationDelegate!
 
     private var mockLocaticStorge: MockLocaticStorage!
 
     override func setUp() {
         mockAddLocaticViewModelObserver = MockAddLocaticViewModelViewDelegate()
-        mockLocaticEntryViewModelObserver = MockLocaticEntryValidationDelegate()
+        mockLocaticEntryValidationObserver = MockLocaticEntryValidationDelegate()
         mockLocaticStorge = MockLocaticStorage()
         mockLocaticPinLocationObserver = MockLocaticPinLocationDelegate()
 
         sut = AddLocaticViewModel(locaticStorage: mockLocaticStorge)
         sut.viewDelegate = mockAddLocaticViewModelObserver
-        sut.locaticEntryValidationDelegate = mockLocaticEntryViewModelObserver
+        sut.locaticEntryValidationDelegate = mockLocaticEntryValidationObserver
         sut.locaticPinLocationDelegate = mockLocaticPinLocationObserver
     }
 
     override func tearDown() {
         sut = nil
         mockAddLocaticViewModelObserver = nil
-        mockLocaticEntryViewModelObserver = nil
+        mockLocaticEntryValidationObserver = nil
         mockLocaticStorge = nil
         mockLocaticPinLocationObserver = nil
         super.tearDown()
@@ -115,17 +115,17 @@ class AddLocaticViewModelTests: XCTestCase {
     func test_isNewLocaticValuesValid_callsParentDelegateWhenNameErrorCatched() {
         _ = sut.isNewLocaticValuesValid(name: "", radius: 25.0)
 
-        XCTAssertTrue(mockLocaticEntryViewModelObserver.calledValidationErrorOccured)
+        XCTAssertTrue(mockLocaticEntryValidationObserver.calledValidationErrorOccured)
         XCTAssertEqual(AddLocaticEntryValidation.noNameEntered.localizedDescription,
-                       mockLocaticEntryViewModelObserver.errorValue!)
+                       mockLocaticEntryValidationObserver.errorValue!)
     }
 
     func test_isNewLocaticValuesValid_callsParentDelegateWhenRadiusErrorCatched() {
         _ = sut.isNewLocaticValuesValid(name: "Valid", radius: 5.0)
 
-        XCTAssertTrue(mockLocaticEntryViewModelObserver.calledValidationErrorOccured)
+        XCTAssertTrue(mockLocaticEntryValidationObserver.calledValidationErrorOccured)
         XCTAssertEqual(AddLocaticEntryValidation.radiusTooSmall.localizedDescription,
-                       mockLocaticEntryViewModelObserver.errorValue!)
+                       mockLocaticEntryValidationObserver.errorValue!)
     }
 
     func test_addLocaticWasTapped_callsLocaticStorage() {
@@ -154,8 +154,8 @@ class AddLocaticViewModelTests: XCTestCase {
         mockLocaticStorge.shouldFail = true
         sut.addLocaticWasTapped(locaticName: "Name", radius: 15.0)
 
-        XCTAssertTrue(mockLocaticEntryViewModelObserver.calledValidationErrorOccured)
-        XCTAssertEqual(mockLocaticEntryViewModelObserver.errorValue!,
+        XCTAssertTrue(mockLocaticEntryValidationObserver.calledValidationErrorOccured)
+        XCTAssertEqual(mockLocaticEntryValidationObserver.errorValue!,
                        "Could not find object matching ID.")
     }
 
@@ -168,6 +168,11 @@ class AddLocaticViewModelTests: XCTestCase {
         sut.addLocaticWasTapped(locaticName: "Test", radius: 15.0)
 
         XCTAssertFalse(mockLocaticStorge.calledInsertLocatic)
+    }
+
+    func test_addLocaticWasTapped_callsLocaticWasSuccessfullyAddedIfValidationPasses() {
+        sut.addLocaticWasTapped(locaticName: "Valid name", radius: 15.0)
+        XCTAssertTrue(mockLocaticEntryValidationObserver.calledCloseAddLocaticCardView)
     }
 }
 
@@ -184,11 +189,16 @@ private extension AddLocaticViewModelTests {
 
     class MockLocaticEntryValidationDelegate: LocaticEntryValidationDelegate {
         var calledValidationErrorOccured = false
+        var calledCloseAddLocaticCardView = false
 
         var errorValue: String?
         func validationErrorOccured(_ error: String) {
             calledValidationErrorOccured = true
             errorValue = error
+        }
+
+        func closeAddLocaticCardView() {
+            calledCloseAddLocaticCardView = true
         }
     }
 

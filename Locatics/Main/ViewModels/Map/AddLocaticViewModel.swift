@@ -21,6 +21,7 @@ protocol AddLocaticViewModelViewDelegate: class {
 
 protocol LocaticEntryValidationDelegate: class {
     func validationErrorOccured(_ error: String)
+    func closeAddLocaticCardView()
 }
 
 protocol LocaticPinLocationDelegate: class {
@@ -72,7 +73,7 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
                                         if let error = error {
                                             self?.locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
                                         } else {
-                                            // Do animations, inform parent VM of locatic being added etc.
+                                            self?.locaticEntryValidationDelegate?.closeAddLocaticCardView()
                                         }
         }
     }
