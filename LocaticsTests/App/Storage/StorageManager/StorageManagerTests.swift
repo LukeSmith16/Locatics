@@ -166,11 +166,16 @@ private extension StorageManagerTests {
 
         let expect = expectation(description: "Wait for moc perform changes")
 
-        sut.createObject(entity: DB_LocalItem.self, values: values) { (object) in
-            coreDataObject = object
+        sut.createObject(entity: DB_LocalItem.self, values: values) { (result) in
+            switch result {
+            case .success(let success):
+                coreDataObject = success
 
-            XCTAssertEqual(moc.insertedObjects.count, 1)
-            expect.fulfill()
+                XCTAssertEqual(moc.insertedObjects.count, 1)
+                expect.fulfill()
+            case .failure(let failure):
+                XCTFail("Should not fail - \(failure.localizedDescription)")
+            }
         }
 
         wait(for: [expect], timeout: 3)

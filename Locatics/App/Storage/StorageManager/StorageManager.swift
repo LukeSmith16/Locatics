@@ -11,7 +11,7 @@ import CoreData
 protocol StorageManagerInterface: class {
     func createObject<Object: DB_LocalItem>(entity: Object.Type,
                                             values: [String: Any],
-                                            completion: @escaping (Object) -> Void)
+                                            completion: @escaping (Result<Object, StorageManagerError>) -> Void)
     func fetchObject<Object: DB_LocalItem>(entity: Object.Type,
                                            identity: Int64,
                                            completion: @escaping (Object?) -> Void)
@@ -55,13 +55,13 @@ class StorageManager: StorageManagerInterface {
 
     func createObject<Object: DB_LocalItem>(entity: Object.Type,
                                             values: [String: Any],
-                                            completion: @escaping (Object) -> Void) {
+                                            completion: @escaping (Result<Object, StorageManagerError>) -> Void) {
         moc.performChanges { [unowned self] in
             let newObject = entity.init(context: self.moc)
             newObject.identity = Int64(UUID().uuidString.hashValue)
             newObject.setValuesForKeys(values)
 
-            completion(newObject)
+            completion(.success(newObject))
         }
     }
 

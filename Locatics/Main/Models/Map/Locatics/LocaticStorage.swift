@@ -25,7 +25,8 @@ protocol LocaticStorageInterface {
     func insertLocatic(name: String,
                        radius: Float,
                        longitude: Double,
-                       latitude: Double)
+                       latitude: Double,
+                       completion: @escaping (StorageManagerError?) -> Void)
     func updateLocatic(locatic: LocaticData,
                        name: String,
                        radius: Float,
@@ -60,19 +61,25 @@ class LocaticStorage: LocaticStorageInterface {
         }
     }
 
-    // TODO: This COULD possibly throw an error. Add logic for it.
     func insertLocatic(name: String,
                        radius: Float,
                        longitude: Double,
-                       latitude: Double) {
+                       latitude: Double,
+                       completion: @escaping (StorageManagerError?) -> Void) {
         var values: [String: Any] = [:]
         values["name"] = name
         values["radius"] = radius
         values["longitude"] = longitude
         values["latitude"] = latitude
 
-        storageManager.createObject(entity: Locatic.self, values: values) { [weak self] (newLocatic) in
-            self?.handleInsertionOfLocatic(newLocatic)
+        storageManager.createObject(entity: Locatic.self, values: values) { [weak self] (result) in
+            switch result {
+            case .success(let success):
+                self?.handleInsertionOfLocatic(success)
+                completion(nil)
+            case .failure(let failure):
+                completion(failure)
+            }
         }
     }
 

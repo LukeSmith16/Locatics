@@ -40,7 +40,10 @@ class LocaticStorageTests: XCTestCase {
     }
 
     func test_insertLocatic_callsCreateObject() {
-        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0)
+        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0, completion: { (error) in
+            XCTAssertNil(error)
+        })
+
         XCTAssertTrue(mockStorageManager.calledCreateObject)
     }
 
@@ -51,8 +54,20 @@ class LocaticStorageTests: XCTestCase {
     }
 
     func test_insertLocatic_callsLocaticWasInserted() {
-        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0)
+        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0, completion: { (error) in
+            XCTAssertNil(error)
+        })
+
         XCTAssertTrue(mockLocaticPersistentStorageObserver.calledLocaticWasInserted)
+    }
+
+    func test_insertLocatic_completesWithError() {
+        mockStorageManager.shouldFail = true
+
+        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0) { (error) in
+            XCTAssertNotNil(error)
+            XCTAssertTrue(error! == .badRequest)
+        }
     }
 
     func test_updateLocatic_callsLocaticWasUpdated() {
