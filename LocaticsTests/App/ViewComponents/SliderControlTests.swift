@@ -11,8 +11,8 @@ import XCTest
 @testable import Locatics
 class SliderControlTests: XCTestCase {
     func test_sliderControl_distanceValues() {
-        let sut = SliderControl(sliderStyle: .distance, minValue: 0, maxValue: 10)
-        sut.awakeFromNib()
+        let sut = SliderControl()
+        sut.setup(sliderStyle: .distance, minValue: 0, maxValue: 10)
 
         XCTAssertTrue(sut.style == SliderControlStyle.distance)
         XCTAssertEqual(sut.minimumValue, 0)

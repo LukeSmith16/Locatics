@@ -27,25 +27,20 @@ enum SliderControlStyle {
 }
 
 class SliderControl: UISlider {
-    var style: SliderControlStyle!
+    var style: SliderControlStyle?
 
-    convenience init(sliderStyle: SliderControlStyle, minValue: Float, maxValue: Float) {
-        self.init()
-
+    func setup(sliderStyle: SliderControlStyle, minValue: Float, maxValue: Float) {
         self.style = sliderStyle
         self.minimumValue = minValue
         self.maximumValue = maxValue
-    }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
         setupColors()
     }
 }
 
 private extension SliderControl {
     func setupColors() {
-        self.minimumTrackTintColor = style.minTrackColor
-        self.maximumTrackTintColor = style.maxTackColor
+        self.minimumTrackTintColor = style?.minTrackColor
+        self.maximumTrackTintColor = style?.maxTackColor
     }
 }
