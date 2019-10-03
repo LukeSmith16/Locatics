@@ -12,9 +12,10 @@ import MapKit
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addLocaticButton: UIButton!
+    @IBOutlet weak var locationMarkerPin: UIImageView!
+    @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
 
     var navigationTitleView: NavigationTitleViewInterface?
-    var addLocaticCardView: AddLocaticCardView?
 
     var locaticsMapViewModel: LocaticsMapViewModelInterface? {
         didSet {
@@ -25,6 +26,7 @@ class LocaticsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationTitleView()
+        setupAddLocaticCardView()
         setupMapView()
     }
 
@@ -38,6 +40,10 @@ private extension LocaticsMapViewController {
         let mainTitle = locaticsMapViewModel?.getMainTitle()
         let subtitle = locaticsMapViewModel?.getSubtitle()
         self.navigationTitleView = navigationItem.setupTitleView(title: mainTitle, subtitle: subtitle)
+    }
+
+    func setupAddLocaticCardView() {
+        self.addLocaticCardView.addLocaticViewModel = locaticsMapViewModel?.addLocaticViewModel
     }
 
     func setupMapView() {
@@ -76,12 +82,11 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
     }
 
     func showAddLocaticCardView() {
-        let addLocaticCardView = AddLocaticCardView(frame: CGRect(x: 0,
-                                                              y: 0,
-                                                              width: self.view.bounds.width,
-                                                              height: 400))
-        addLocaticCardView.addLocaticViewModel = locaticsMapViewModel?.addLocaticViewModel
-        self.addLocaticCardView = addLocaticCardView
+        self.addLocaticCardView.isHidden = false
+    }
+
+    func showLocationMarkerPin() {
+        self.locationMarkerPin.isHidden = false
     }
 
     func getCenterMapCoordinate() -> Coordinate {
@@ -89,7 +94,10 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
     }
 
     func closeAddLocaticCardView() {
-        addLocaticCardView = nil
-        addLocaticCardView?.removeFromSuperview()
+        self.addLocaticCardView.isHidden = true
+    }
+
+    func hideTabBar(_ shouldHide: Bool) {
+        self.setTabBarHidden(shouldHide)
     }
 }

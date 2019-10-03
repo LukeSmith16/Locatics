@@ -42,6 +42,18 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.addLocaticButton)
     }
 
+    func test_locationMarkerPin_isNotNil() {
+        XCTAssertNotNil(sut.locationMarkerPin)
+    }
+
+    func test_addLocaticCardView_isNotNil() {
+        XCTAssertNotNil(sut.addLocaticCardView)
+    }
+
+    func test_locationMarkerPin_isHiddenByDefault() {
+        XCTAssertTrue(sut.locationMarkerPin.isHidden)
+    }
+
     func test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel() {
         XCTAssertTrue(mockLocaticsMapViewModel.calledGetMainTitle)
         XCTAssertTrue(mockLocaticsMapViewModel.calledGetSubtitle)
@@ -76,6 +88,10 @@ class LocaticsMapViewControllerTests: XCTestCase {
             XCTFail("Couldn't find a subtitle")
             return
         }
+    }
+
+    func test_setupAddLocaticCardView_setsAddLocaticViewModel() {
+        XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
     }
 
     func test_mapViewDelegate_isNotNil() {
@@ -148,15 +164,23 @@ class LocaticsMapViewControllerTests: XCTestCase {
                           oldRegion.center.longitude)
     }
 
-    func test_showAddLocaticCardView_setsAddLocaticCardView() {
-        XCTAssertNil(sut.addLocaticCardView)
-
+    func test_showAddLocaticCardView_showsCardView() {
         sut.showAddLocaticCardView()
 
-        XCTAssertNotNil(sut.addLocaticCardView)
-        XCTAssertEqual(sut.addLocaticCardView!.frame,
-                       CGRect(x: 0, y: 0, width: sut.view.bounds.width, height: 400))
-        XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
+        XCTAssertFalse(sut.addLocaticCardView.isHidden)
+    }
+
+    func test_showAddLocaticCardView_addsViewToHierarchy() {
+        sut.showAddLocaticCardView()
+        XCTAssertNotNil(sut.view.subviews.first(where: { (view) -> Bool in
+            return view is AddLocaticCardView
+        }))
+    }
+
+    func test_showLocationMarkerPin_addsMarkerPinToCenterOfMap() {
+        sut.showLocationMarkerPin()
+
+        XCTAssertFalse(sut.locationMarkerPin.isHidden)
     }
 
     func test_getCenterMapCoordinate_returnsMapCenterCoordinate() {
@@ -168,12 +192,19 @@ class LocaticsMapViewControllerTests: XCTestCase {
                        centerCoordinate.longitude)
     }
 
-    func test_closeAddLocaticView_removesAddLocaticCardViewFromSuperview() {
-        sut.showAddLocaticCardView()
-
+    func test_closeAddLocaticView_hidesAddLocaticCardView() {
         sut.closeAddLocaticCardView()
 
-        XCTAssertNil(sut.addLocaticCardView)
+        XCTAssertTrue(sut.addLocaticCardView.isHidden)
+    }
+
+    func test_hideTabBar_unhidesTabBarWhenFalse() {
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([sut], animated: true)
+
+        sut.hideTabBar(false)
+
+        XCTAssertFalse(sut.tabBarController!.tabBar.isHidden)
     }
 }
 
