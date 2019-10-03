@@ -135,6 +135,12 @@ class LocaticsMapViewModelTests: XCTestCase {
         XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter, 0.0)
     }
 
+    func test_addLocaticWasTapped_callsShowLocationMarkerPin() {
+        sut.addLocaticWasTapped()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowLocationMarkerPin)
+    }
+
     func test_validationErrorOccured_callsShowAlert() {
         sut.validationErrorOccured("Error in adding Locatic")
 
@@ -170,7 +176,6 @@ class LocaticsMapViewModelTests: XCTestCase {
 
 private extension LocaticsMapViewModelTests {
     class MockLocaticsMapViewModelViewDelegate: LocaticsMapViewModelViewDelegate {
-
         var calledSetNavigationTitle = false
         var calledShowAlert = false
         var calledUpdateMapRegion = false
@@ -179,6 +184,8 @@ private extension LocaticsMapViewModelTests {
         var calledCloseAddLocaticCardView = false
         var calledZoomToUserLocation = false
         var calledGetCenterMapCoordinate = false
+        var calledShowLocationMarkerPin = false
+        var calledHideTabBar = false
 
         var location: CLLocationCoordinate2D!
         var latMeter: Double!
@@ -191,8 +198,8 @@ private extension LocaticsMapViewModelTests {
         var passedTitle: String?
         var passedMessage: String?
         func showAlert(title: String, message: String) {
-            passedTitle = title
-            passedMessage = message
+            self.passedTitle = title
+            self.passedMessage = message
 
             calledShowAlert = true
         }
@@ -216,6 +223,10 @@ private extension LocaticsMapViewModelTests {
             calledAddLocaticCardView = true
         }
 
+        func showLocationMarkerPin() {
+            calledShowLocationMarkerPin = true
+        }
+
         func getCenterMapCoordinate() -> Coordinate {
             calledGetCenterMapCoordinate = true
             return Coordinate(latitude: 25.0, longitude: 20.0)
@@ -223,6 +234,10 @@ private extension LocaticsMapViewModelTests {
 
         func closeAddLocaticCardView() {
             calledCloseAddLocaticCardView = true
+        }
+
+        func hideTabBar(_ shouldHide: Bool) {
+            calledHideTabBar = true
         }
     }
 }

@@ -25,8 +25,10 @@ protocol LocaticsMapViewModelViewDelegate: class {
     func zoomToUserLocation(latMeters: Double, lonMeters: Double)
     func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double)
     func showAddLocaticCardView()
+    func showLocationMarkerPin()
     func getCenterMapCoordinate() -> Coordinate
     func closeAddLocaticCardView()
+    func hideTabBar(_ shouldHide: Bool)
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
@@ -73,6 +75,8 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
         viewDelegate?.zoomToUserLocation(latMeters: 0.0,
                                          lonMeters: 0.0)
         viewDelegate?.showAddLocaticCardView()
+        viewDelegate?.showLocationMarkerPin()
+        viewDelegate?.hideTabBar(true)
     }
 }
 
@@ -109,5 +113,6 @@ extension LocaticsMapViewModel: LocaticEntryValidationDelegate {
 
     func closeAddLocaticCardView() {
         viewDelegate?.closeAddLocaticCardView()
+        viewDelegate?.hideTabBar(false)
     }
 }
