@@ -49,21 +49,13 @@ class AddLocaticCardViewTests: XCTestCase {
 
         XCTAssertEqual(sut.radiusSlider.minimumValue, 0)
         XCTAssertEqual(sut.radiusSlider.maximumValue, 100)
-
-        XCTAssertTrue(sut.radiusSlider is SliderControl)
     }
 
     func test_addNewLocaticButton_isNotNil() {
         XCTAssertNotNil(sut.addNewLocaticButton)
 
         XCTAssertEqual(sut.addNewLocaticButton.allTargets.count, 1)
-
-        guard let addLocaticButton = sut.addNewLocaticButton as? ActionButton else {
-            XCTFail("AddLocaticButton should be of type ActionButton")
-            return
-        }
-
-        XCTAssertEqual(addLocaticButton.actionTitle, "Add new Locatic")
+        XCTAssertEqual(sut.addNewLocaticButton.actionTitle, "Add new Locatic")
     }
 
     func test_shadowRadius_isFour() {
