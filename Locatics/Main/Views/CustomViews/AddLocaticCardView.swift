@@ -9,18 +9,28 @@
 import UIKit
 
 class AddLocaticCardView: UIView {
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locaticNameTextField: UITextField!
     @IBOutlet weak var radiusLabel: UILabel!
 
-    @IBOutlet var radiusSlider: UISlider!
-    @IBOutlet var addNewLocaticButton: UIButton!
+    @IBOutlet var radiusSlider: SliderControl!
+    @IBOutlet var addNewLocaticButton: ActionButton!
 
     var addLocaticViewModel: AddLocaticViewModelInterface? {
         didSet {
             addLocaticViewModel?.viewDelegate = self
-            awakeFromNib()
         }
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
     }
 
     override func awakeFromNib() {
@@ -32,11 +42,11 @@ class AddLocaticCardView: UIView {
         setupCorners()
     }
 
-    @objc func radiusSliderChanged(_ sender: Any) {
+    @IBAction func radiusSliderChanged(_ sender: Any) {
         addLocaticViewModel?.radiusDidChange(radiusSlider.value)
     }
 
-    @objc func addLocaticTapped(_ sender: Any) {
+    @IBAction func addLocaticTapped(_ sender: Any) {
         addLocaticViewModel?.addLocaticWasTapped(locaticName: locaticNameTextField.text,
                                                  radius: radiusSlider.value)
     }
@@ -44,32 +54,35 @@ class AddLocaticCardView: UIView {
 
 private extension AddLocaticCardView {
     func setupRadiusSlider() {
-        let sliderControl = SliderControl(sliderStyle: .distance,
-                                          minValue: 0,
-                                          maxValue: 100)
-        sliderControl.addTarget(self, action: #selector(radiusSliderChanged(_:)), for: .valueChanged)
-        self.radiusSlider = sliderControl
+        radiusSlider.setup(sliderStyle: .distance, minValue: 0, maxValue: 100)
     }
 
     func setupAddNewLocaticButton() {
-        let actionButton = ActionButton(actionStyle: .save,
-                                        actionTitle: "Add new Locatic")
-        actionButton.addTarget(self, action: #selector(addLocaticTapped(_:)), for: .touchUpInside)
-        self.addNewLocaticButton = actionButton
+        addNewLocaticButton.setup(actionStyle: .save, actionTitle: "Add new Locatic")
     }
 
     func setupShadow() {
-        self.layer.shadowRadius = 4.0
+        self.contentView.layer.shadowRadius = 4.0
     }
 
     func setupCorners() {
-        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        self.layer.cornerRadius = 25.0
+        self.contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.contentView.layer.cornerRadius = 25.0
     }
 }
 
 extension AddLocaticCardView: AddLocaticViewModelViewDelegate {
     func changeRadiusText(_ newRadiusText: String) {
         self.radiusLabel.text = newRadiusText
+    }
+}
+
+extension AddLocaticCardView {
+    func commonInit() {
+        Bundle.main.loadNibNamed("AddLocaticCardView", owner: self, options: nil)
+
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(contentView)
     }
 }

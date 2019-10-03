@@ -18,8 +18,10 @@ class AddLocaticCardViewTests: XCTestCase {
     override func setUp() {
         mockAddLocaticViewModel = MockAddLocaticViewModel()
 
-        sut = AddLocaticCardView.fromNib()
+        sut = AddLocaticCardView()
         sut.addLocaticViewModel = mockAddLocaticViewModel
+        sut.commonInit()
+        sut.awakeFromNib()
     }
 
     override func tearDown() {
@@ -65,12 +67,12 @@ class AddLocaticCardViewTests: XCTestCase {
     }
 
     func test_shadowRadius_isFour() {
-        XCTAssertEqual(sut.layer.shadowRadius, 4.0)
+        XCTAssertEqual(sut.contentView.layer.shadowRadius, 4.0)
     }
 
     func test_topCornerRadius_isTwentyFive() {
-        XCTAssertEqual(sut.layer.maskedCorners, [.layerMinXMinYCorner, .layerMaxXMinYCorner])
-        XCTAssertEqual(sut.layer.cornerRadius, 25.0)
+        XCTAssertEqual(sut.contentView.layer.maskedCorners, [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+        XCTAssertEqual(sut.contentView.layer.cornerRadius, 25.0)
     }
 
     func test_addLocaticTappedCalls_addLocaticWasTappedOnViewModel() {
