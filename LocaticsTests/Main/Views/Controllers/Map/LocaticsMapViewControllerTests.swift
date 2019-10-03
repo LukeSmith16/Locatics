@@ -144,7 +144,6 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
 private extension LocaticsMapViewControllerTests {
     class MockLocaticsViewModel: LocaticsMapViewModelInterface {
-
         var calledGetMainTitle = false
         var calledGetSubtitle = false
         var calledGetUserRegion = false
@@ -152,7 +151,7 @@ private extension LocaticsMapViewControllerTests {
 
         weak var viewDelegate: LocaticsMapViewModelViewDelegate?
         var addLocaticViewModel: AddLocaticViewModelInterface? {
-            return AddLocaticViewModel()
+            return AddLocaticViewModel(locaticStorage: MockLocaticStorage())
         }
 
         func getMainTitle() -> String {

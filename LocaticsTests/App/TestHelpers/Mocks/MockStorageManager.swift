@@ -13,6 +13,7 @@ import CoreData
 @testable import Locatics
 
 class MockStorageManager: StorageManagerInterface {
+
     var calledCreateObject = false
     var calledFetchObject = false
     var calledFetchObjects = false
@@ -23,9 +24,13 @@ class MockStorageManager: StorageManagerInterface {
 
     func createObject<Object>(entity: Object.Type,
                               values: [String: Any],
-                              completion: @escaping (Object) -> Void) where Object: DB_LocalItem {
-        calledCreateObject = true
-        completion(Object())
+                              completion: @escaping (Result<Object, StorageManagerError>) -> Void) where Object: DB_LocalItem {
+        if shouldFail {
+            completion(.failure(.badRequest))
+        } else {
+            calledCreateObject = true
+            completion(.success(Object()))
+        }
     }
 
     func fetchObject<Object>(entity: Object.Type,
