@@ -32,10 +32,11 @@ class LocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
 
 private extension LocaticsMapModuleFactory {
     func createLocaticsMapViewModel() -> LocaticsMapViewModelInterface {
-        let locationManager = createLocationManager()
-        let addLocaticViewModel = createAddLocaticViewModel()
-
         let locaticsMapViewModel = LocaticsMapViewModel()
+
+        let locationManager = createLocationManager()
+        let addLocaticViewModel = createAddLocaticViewModel(withDelegate: locaticsMapViewModel)
+
         locaticsMapViewModel.locationManager = locationManager
         locaticsMapViewModel.addLocaticViewModel = addLocaticViewModel
 
@@ -57,8 +58,11 @@ private extension LocaticsMapModuleFactory {
         return locationStorage
     }
 
-    func createAddLocaticViewModel() -> AddLocaticViewModelInterface {
+    func createAddLocaticViewModel(withDelegate delegate: LocaticPinLocationDelegate &
+        LocaticEntryValidationDelegate) -> AddLocaticViewModelInterface {
         let addLocaticViewModel = AddLocaticViewModel(locaticStorage: locaticStorage)
+        addLocaticViewModel.locaticPinLocationDelegate = delegate
+        addLocaticViewModel.locaticEntryValidationDelegate = delegate
         return addLocaticViewModel
     }
 }
