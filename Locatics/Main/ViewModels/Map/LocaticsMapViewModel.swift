@@ -22,8 +22,11 @@ protocol LocaticsMapViewModelInterface: class {
 protocol LocaticsMapViewModelViewDelegate: class {
     func setNavigationTitle(_ title: String)
     func showAlert(title: String, message: String)
+    func zoomToUserLocation(latMeters: Double, lonMeters: Double)
     func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double)
     func showAddLocaticCardView()
+    func getCenterMapCoordinate() -> Coordinate
+    func closeAddLocaticCardView()
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
@@ -67,10 +70,8 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     }
 
     func addLocaticWasTapped() {
-        guard let lastVisitedLocation = locationManager?.lastVisitedLocation else { return }
-        viewDelegate?.updateMapRegion(location: lastVisitedLocation.coordinate,
-                                      latMeters: 50,
-                                      lonMeters: 50)
+        viewDelegate?.zoomToUserLocation(latMeters: 0.0,
+                                         lonMeters: 0.0)
         viewDelegate?.showAddLocaticCardView()
     }
 }
@@ -92,5 +93,21 @@ extension LocaticsMapViewModel: LocationManagerDelegate {
     func locationPermissionsNotAuthorised() {
         viewDelegate?.showAlert(title: "Permissions Not Authorised",
                                 message: "Please enable permissions by going to the apps settings")
+    }
+}
+
+extension LocaticsMapViewModel: LocaticPinLocationDelegate {
+    func getPinCurrentLocationCoordinate() -> Coordinate {
+        return viewDelegate!.getCenterMapCoordinate()
+    }
+}
+
+extension LocaticsMapViewModel: LocaticEntryValidationDelegate {
+    func validationErrorOccured(_ error: String) {
+        viewDelegate?.showAlert(title: "Error adding Locatic", message: error)
+    }
+
+    func closeAddLocaticCardView() {
+        viewDelegate?.closeAddLocaticCardView()
     }
 }

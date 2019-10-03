@@ -12,9 +12,10 @@ import CoreLocation
 @testable import Locatics
 class LocaticsMapViewModelTests: XCTestCase {
 
+    var sut: LocaticsMapViewModel!
+
     private var mockLocaticsViewModelViewObserver: MockLocaticsMapViewModelViewDelegate!
     private var mockLocationManager: MockLocationManager!
-    var sut: LocaticsMapViewModel!
 
     override func setUp() {
         mockLocationManager = MockLocationManager()
@@ -125,45 +126,59 @@ class LocaticsMapViewModelTests: XCTestCase {
         XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter, 10000)
     }
 
-    func test_addLocaticWasTapped_callsUpdateMapRegionWithValues() {
-        sut.addLocaticWasTapped()
-
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledUpdateMapRegion)
-
-        let lastVisitedLocation = mockLocationManager.lastVisitedLocation!
-        XCTAssertEqual(mockLocaticsViewModelViewObserver.location.latitude,
-                       lastVisitedLocation.latitude)
-        XCTAssertEqual(mockLocaticsViewModelViewObserver.location.longitude,
-                       lastVisitedLocation.longitude)
-
-        XCTAssertEqual(mockLocaticsViewModelViewObserver.latMeter,
-                       50)
-        XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter,
-                       50)
-    }
-
-    func test_addLocaticWasTapped_doesNotCallUpdateMapRegionWhenLastVisitedLocationIsNil() {
-        mockLocationManager.lastVisitedLocation = nil
-
-        sut.addLocaticWasTapped()
-
-        XCTAssertFalse(mockLocaticsViewModelViewObserver.calledUpdateMapRegion)
-    }
-
-    func test_addLocaticWasTapped_callsShowAddLocaticCardView() {
+    func test_addLocaticWasTapped_callsShowAddLocaticCardViewWithPassedValues() {
         sut.addLocaticWasTapped()
 
         XCTAssertTrue(mockLocaticsViewModelViewObserver.calledAddLocaticCardView)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.latMeter, 0.0)
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter, 0.0)
+    }
+
+    func test_validationErrorOccured_callsShowAlert() {
+        sut.validationErrorOccured("Error in adding Locatic")
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+    }
+
+    func test_validationErrorOccured_callsShowAlertWithPassedValues() {
+        sut.validationErrorOccured("Error in adding Locatic")
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!,
+                       "Error in adding Locatic")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!,
+                       "Error adding Locatic")
+    }
+
+    func test_closeAddLocaticCardView_callsCloseAddLocaticCardView() {
+        sut.closeAddLocaticCardView()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledCloseAddLocaticCardView)
+    }
+
+    func test_getPinCurrentLocationCoordinate_returnsVCMapViewCenterCoordinate() {
+        let pinLocationCoordinate = sut.getPinCurrentLocationCoordinate()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledGetCenterMapCoordinate)
+
+        XCTAssertEqual(pinLocationCoordinate.latitude,
+                       mockLocaticsViewModelViewObserver.getCenterMapCoordinate().latitude)
+        XCTAssertEqual(pinLocationCoordinate.longitude,
+                       mockLocaticsViewModelViewObserver.getCenterMapCoordinate().longitude)
     }
 }
 
 private extension LocaticsMapViewModelTests {
     class MockLocaticsMapViewModelViewDelegate: LocaticsMapViewModelViewDelegate {
+
         var calledSetNavigationTitle = false
         var calledShowAlert = false
         var calledUpdateMapRegion = false
         var calledShowAddLocaticCardView = false
         var calledAddLocaticCardView = false
+        var calledCloseAddLocaticCardView = false
+        var calledZoomToUserLocation = false
+        var calledGetCenterMapCoordinate = false
 
         var location: CLLocationCoordinate2D!
         var latMeter: Double!
@@ -173,8 +188,20 @@ private extension LocaticsMapViewModelTests {
             calledSetNavigationTitle = true
         }
 
+        var passedTitle: String?
+        var passedMessage: String?
         func showAlert(title: String, message: String) {
+            passedTitle = title
+            passedMessage = message
+
             calledShowAlert = true
+        }
+
+        func zoomToUserLocation(latMeters: Double, lonMeters: Double) {
+            self.latMeter = latMeters
+            self.lonMeter = lonMeters
+
+            calledZoomToUserLocation = true
         }
 
         func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double) {
@@ -187,6 +214,15 @@ private extension LocaticsMapViewModelTests {
 
         func showAddLocaticCardView() {
             calledAddLocaticCardView = true
+        }
+
+        func getCenterMapCoordinate() -> Coordinate {
+            calledGetCenterMapCoordinate = true
+            return Coordinate(latitude: 25.0, longitude: 20.0)
+        }
+
+        func closeAddLocaticCardView() {
+            calledCloseAddLocaticCardView = true
         }
     }
 }
