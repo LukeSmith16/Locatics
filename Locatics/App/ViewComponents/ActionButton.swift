@@ -37,15 +37,10 @@ class ActionButton: UIButton {
     var style: ActionButtonStyle!
     var actionTitle: String!
 
-    convenience init(actionStyle: ActionButtonStyle, actionTitle: String) {
-        self.init()
-
+    func setup(actionStyle: ActionButtonStyle, actionTitle: String) {
         self.style = actionStyle
         self.actionTitle = actionTitle
-    }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
         setupTitle()
         setupColors()
         setupLayers()

@@ -11,8 +11,8 @@ import XCTest
 @testable import Locatics
 class ActionButtonTests: XCTestCase {
     func test_actionButton_withSaveValues() {
-        let sut = ActionButton(actionStyle: .save, actionTitle: "Save title")
-        sut.awakeFromNib()
+        let sut = ActionButton()
+        sut.setup(actionStyle: .save, actionTitle: "Save title")
 
         XCTAssertTrue(sut.style == ActionButtonStyle.save)
         XCTAssertEqual(sut.actionTitle, "Save title")
