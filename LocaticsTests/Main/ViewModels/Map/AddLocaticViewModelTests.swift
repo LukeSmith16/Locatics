@@ -174,6 +174,13 @@ class AddLocaticViewModelTests: XCTestCase {
         sut.addLocaticWasTapped(locaticName: "Valid name", radius: 15.0)
         XCTAssertTrue(mockLocaticEntryValidationObserver.calledCloseAddLocaticCardView)
     }
+
+    func test_locaticPinLocationDelegate_updatePinRadius() {
+        sut.radiusDidChange(5)
+
+        XCTAssertTrue(mockLocaticPinLocationObserver.calledUpdatePinRadius)
+        XCTAssertEqual(mockLocaticPinLocationObserver.newRadius!, 5)
+    }
 }
 
 private extension AddLocaticViewModelTests {
@@ -204,10 +211,17 @@ private extension AddLocaticViewModelTests {
 
     class MockLocaticPinLocationDelegate: LocaticPinLocationDelegate {
         var calledGetPinCurrentLocationCoordinate = false
+        var calledUpdatePinRadius = false
 
         func getPinCurrentLocationCoordinate() -> Coordinate {
             calledGetPinCurrentLocationCoordinate = true
             return Coordinate(latitude: 25.0, longitude: 51.5)
+        }
+
+        var newRadius: Float?
+        func updatePinRadius(toRadius radius: Float) {
+            calledUpdatePinRadius = true
+            newRadius = radius
         }
     }
 }
