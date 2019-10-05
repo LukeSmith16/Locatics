@@ -12,6 +12,8 @@ import MapKit
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addLocaticButton: UIButton!
+
+    @IBOutlet weak var closeLocaticCardViewButton: UIButton!
     @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
 
     @IBOutlet weak var locationMarkerRadiusView: UIView!
@@ -38,6 +40,10 @@ class LocaticsMapViewController: UIViewController {
 
     @IBAction func addLocaticTapped(_ sender: Any) {
         locaticsMapViewModel?.addLocaticWasTapped()
+    }
+
+    @IBAction func closeLocaticCardViewTapped(_ sender: Any) {
+        locaticsMapViewModel?.closeLocaticCardViewWasTapped()
     }
 }
 
@@ -93,16 +99,11 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
 }
 
 extension LocaticsMapViewController: LocaticsMapAddLocaticViewModelViewDelegate {
-    func showAddLocaticCardView() {
-        self.addLocaticCardView.isHidden = false
-    }
-
-    func closeAddLocaticCardView() {
-        self.addLocaticCardView.isHidden = true
-    }
-
-    func showLocationMarkerPin() {
-        shouldHideLocationMarkerViews(false)
+    func shouldHideAddLocaticViews(_ shouldHide: Bool) {
+        self.locationMarkerPin.isHidden = shouldHide
+        self.locationMarkerRadiusView.isHidden = shouldHide
+        self.addLocaticCardView.isHidden = shouldHide
+        self.closeLocaticCardViewButton.isHidden = shouldHide
     }
 
     func getLocationPinCoordinate() -> Coordinate {
@@ -116,12 +117,5 @@ extension LocaticsMapViewController: LocaticsMapAddLocaticViewModelViewDelegate 
         locationMarkerRadiusWidthConstraint.constant = constant
 
         locationMarkerRadiusView.layoutIfNeeded()
-    }
-}
-
-private extension LocaticsMapViewController {
-    func shouldHideLocationMarkerViews(_ shouldHide: Bool) {
-        self.locationMarkerPin.isHidden = shouldHide
-        self.locationMarkerRadiusView.isHidden = shouldHide
     }
 }
