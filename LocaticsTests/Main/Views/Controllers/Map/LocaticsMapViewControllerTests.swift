@@ -54,6 +54,16 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.locationMarkerPin.isHidden)
     }
 
+    func test_locationMarkerRadiusHeightConstraint_constantIsZero() {
+        XCTAssertEqual(sut.locationMarkerRadiusHeightConstraint.constant,
+                       0)
+    }
+
+    func test_locationMarkerRadiusWidthConstraint_constantIsZero() {
+        XCTAssertEqual(sut.locationMarkerRadiusWidthConstraint.constant,
+                       0)
+    }
+
     func test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel() {
         XCTAssertTrue(mockLocaticsMapViewModel.calledGetMainTitle)
         XCTAssertTrue(mockLocaticsMapViewModel.calledGetSubtitle)
@@ -100,6 +110,10 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
     func test_locaticsMapViewModelViewDelegate_isNotNil() {
         XCTAssertNotNil(sut.locaticsMapViewModel?.viewDelegate)
+    }
+
+    func test_locaticsMapViewModelAddLocaticViewDelegate_isNotNil() {
+        XCTAssertNotNil(sut.locaticsMapViewModel?.addLocaticViewDelegate)
     }
 
     func test_setNavigationTitle_callsSetTitleWithValue() {
@@ -183,12 +197,16 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.locationMarkerPin.isHidden)
     }
 
-    func test_getCenterMapCoordinate_returnsMapCenterCoordinate() {
-        let centerCoordinate = sut.getCenterMapCoordinate()
+    func test_getLocationPinCoordinate_returnsPinCenterCoordinate() {
+        let centerCoordinate = sut.getLocationPinCoordinate()
 
-        XCTAssertEqual(sut.mapView.centerCoordinate.latitude,
+        let pinCenter = sut.locationMarkerPin.center
+        let pinLocationOnMapView = sut.mapView.convert(pinCenter,
+                                                       toCoordinateFrom: sut.mapView)
+
+        XCTAssertEqual(pinLocationOnMapView.latitude,
                        centerCoordinate.latitude)
-        XCTAssertEqual(sut.mapView.centerCoordinate.longitude,
+        XCTAssertEqual(pinLocationOnMapView.longitude,
                        centerCoordinate.longitude)
     }
 
@@ -206,6 +224,16 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertFalse(sut.tabBarController!.tabBar.isHidden)
     }
+
+    func test_updateLocationMarkerRadiusConstraint_updatesConstantToNewConstant() {
+        let newConstant: CGFloat = 20
+        sut.updateLocationMarkerRadiusConstraint(withNewConstant: newConstant)
+
+        XCTAssertEqual(sut.locationMarkerRadiusHeightConstraint.constant,
+                       newConstant)
+        XCTAssertEqual(sut.locationMarkerRadiusWidthConstraint.constant,
+                       newConstant)
+    }
 }
 
 private extension LocaticsMapViewControllerTests {
@@ -216,6 +244,8 @@ private extension LocaticsMapViewControllerTests {
         var calledAddLocaticWasTapped = false
 
         weak var viewDelegate: LocaticsMapViewModelViewDelegate?
+        weak var addLocaticViewDelegate: LocaticsMapAddLocaticViewModelViewDelegate?
+
         var addLocaticViewModel: AddLocaticViewModelInterface? {
             return AddLocaticViewModel(locaticStorage: MockLocaticStorage())
         }

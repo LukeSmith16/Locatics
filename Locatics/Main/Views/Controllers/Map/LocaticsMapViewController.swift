@@ -12,14 +12,20 @@ import MapKit
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addLocaticButton: UIButton!
-    @IBOutlet weak var locationMarkerPin: UIImageView!
     @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
+
+    @IBOutlet weak var locationMarkerRadiusView: UIView!
+    @IBOutlet weak var locationMarkerRadiusHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var locationMarkerRadiusWidthConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var locationMarkerPin: UIImageView!
 
     var navigationTitleView: NavigationTitleViewInterface?
 
     var locaticsMapViewModel: LocaticsMapViewModelInterface? {
         didSet {
             locaticsMapViewModel?.viewDelegate = self
+            locaticsMapViewModel?.addLocaticViewDelegate = self
         }
     }
 
@@ -81,23 +87,41 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
 
+    func hideTabBar(_ shouldHide: Bool) {
+        self.setTabBarHidden(shouldHide)
+    }
+}
+
+extension LocaticsMapViewController: LocaticsMapAddLocaticViewModelViewDelegate {
     func showAddLocaticCardView() {
         self.addLocaticCardView.isHidden = false
-    }
-
-    func showLocationMarkerPin() {
-        self.locationMarkerPin.isHidden = false
-    }
-
-    func getCenterMapCoordinate() -> Coordinate {
-        return mapView.centerCoordinate
     }
 
     func closeAddLocaticCardView() {
         self.addLocaticCardView.isHidden = true
     }
 
-    func hideTabBar(_ shouldHide: Bool) {
-        self.setTabBarHidden(shouldHide)
+    func showLocationMarkerPin() {
+        shouldHideLocationMarkerViews(false)
+    }
+
+    func getLocationPinCoordinate() -> Coordinate {
+        let pinLocation = mapView.convert(locationMarkerPin.center,
+                                          toCoordinateFrom: mapView)
+        return pinLocation
+    }
+
+    func updateLocationMarkerRadiusConstraint(withNewConstant constant: CGFloat) {
+        locationMarkerRadiusHeightConstraint.constant = constant
+        locationMarkerRadiusWidthConstraint.constant = constant
+
+        locationMarkerRadiusView.layoutIfNeeded()
+    }
+}
+
+private extension LocaticsMapViewController {
+    func shouldHideLocationMarkerViews(_ shouldHide: Bool) {
+        self.locationMarkerPin.isHidden = shouldHide
+        self.locationMarkerRadiusView.isHidden = shouldHide
     }
 }
