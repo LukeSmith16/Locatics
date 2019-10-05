@@ -7,6 +7,7 @@ target 'Locatics' do
 
   # Pods for Locatics
   pod 'SwiftLint'
+  pod 'IQKeyboardManagerSwift'
 
   target 'LocaticsTests' do
     inherit! :search_paths
