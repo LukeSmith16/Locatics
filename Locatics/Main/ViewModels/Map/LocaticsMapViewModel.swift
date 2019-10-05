@@ -20,13 +20,11 @@ protocol LocaticsMapViewModelInterface: class {
 
     func getUserRegion()
     func addLocaticWasTapped()
+    func closeLocaticCardViewWasTapped()
 }
 
 protocol LocaticsMapAddLocaticViewModelViewDelegate: class {
-    func showAddLocaticCardView()
-    func closeAddLocaticCardView()
-
-    func showLocationMarkerPin()
+    func shouldHideAddLocaticViews(_ shouldHide: Bool)
     func getLocationPinCoordinate() -> Coordinate
     func updateLocationMarkerRadiusConstraint(withNewConstant constant: CGFloat)
 }
@@ -40,6 +38,7 @@ protocol LocaticsMapViewModelViewDelegate: class {
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
+
     weak var viewDelegate: LocaticsMapViewModelViewDelegate?
     weak var addLocaticViewDelegate: LocaticsMapAddLocaticViewModelViewDelegate?
 
@@ -81,13 +80,15 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     }
 
     func addLocaticWasTapped() {
-        viewDelegate?.zoomToUserLocation(latMeters: 0.0,
-                                         lonMeters: 0.0)
+        viewDelegate?.zoomToUserLocation(latMeters: 200,
+                                         lonMeters: 200)
 
-        addLocaticViewDelegate?.showAddLocaticCardView()
-        addLocaticViewDelegate?.showLocationMarkerPin()
-
+        addLocaticViewDelegate?.shouldHideAddLocaticViews(false)
         viewDelegate?.hideTabBar(true)
+    }
+
+    func closeLocaticCardViewWasTapped() {
+        closeAddLocaticCardView()
     }
 }
 
@@ -127,7 +128,7 @@ extension LocaticsMapViewModel: LocaticEntryValidationDelegate {
     }
 
     func closeAddLocaticCardView() {
-        addLocaticViewDelegate?.closeAddLocaticCardView()
+        addLocaticViewDelegate?.shouldHideAddLocaticViews(true)
         viewDelegate?.hideTabBar(false)
     }
 }
