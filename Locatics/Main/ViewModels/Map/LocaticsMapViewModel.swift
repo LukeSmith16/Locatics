@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import CoreGraphics
 
 protocol LocaticsMapViewModelInterface: class {
     var viewDelegate: LocaticsMapViewModelViewDelegate? {get set}
+    var addLocaticViewDelegate: LocaticsMapAddLocaticViewModelViewDelegate? {get set}
+
     var addLocaticViewModel: AddLocaticViewModelInterface? {get}
 
     func getMainTitle() -> String
@@ -19,28 +22,34 @@ protocol LocaticsMapViewModelInterface: class {
     func addLocaticWasTapped()
 }
 
+protocol LocaticsMapAddLocaticViewModelViewDelegate: class {
+    func showAddLocaticCardView()
+    func closeAddLocaticCardView()
+
+    func showLocationMarkerPin()
+    func getLocationPinCoordinate() -> Coordinate
+    func updateLocationMarkerRadiusConstraint(withNewConstant constant: CGFloat)
+}
+
 protocol LocaticsMapViewModelViewDelegate: class {
     func setNavigationTitle(_ title: String)
     func showAlert(title: String, message: String)
     func zoomToUserLocation(latMeters: Double, lonMeters: Double)
     func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double)
-    func showAddLocaticCardView()
-    func showLocationMarkerPin()
-    func getCenterMapCoordinate() -> Coordinate
-    func closeAddLocaticCardView()
     func hideTabBar(_ shouldHide: Bool)
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     weak var viewDelegate: LocaticsMapViewModelViewDelegate?
+    weak var addLocaticViewDelegate: LocaticsMapAddLocaticViewModelViewDelegate?
+
+    var addLocaticViewModel: AddLocaticViewModelInterface?
 
     var locationManager: LocationManagerInterface? {
         didSet {
             locationManager?.locationDelegate = self
         }
     }
-
-    var addLocaticViewModel: AddLocaticViewModelInterface?
 
     func getMainTitle() -> String {
         guard let lastVisitedLocation = locationManager?.lastVisitedLocation else {
@@ -74,8 +83,10 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     func addLocaticWasTapped() {
         viewDelegate?.zoomToUserLocation(latMeters: 0.0,
                                          lonMeters: 0.0)
-        viewDelegate?.showAddLocaticCardView()
-        viewDelegate?.showLocationMarkerPin()
+
+        addLocaticViewDelegate?.showAddLocaticCardView()
+        addLocaticViewDelegate?.showLocationMarkerPin()
+
         viewDelegate?.hideTabBar(true)
     }
 }
@@ -102,7 +113,11 @@ extension LocaticsMapViewModel: LocationManagerDelegate {
 
 extension LocaticsMapViewModel: LocaticPinLocationDelegate {
     func getPinCurrentLocationCoordinate() -> Coordinate {
-        return viewDelegate!.getCenterMapCoordinate()
+        return addLocaticViewDelegate!.getLocationPinCoordinate()
+    }
+
+    func updatePinRadius(toRadius radius: Float) {
+        addLocaticViewDelegate?.updateLocationMarkerRadiusConstraint(withNewConstant: CGFloat(radius))
     }
 }
 
@@ -112,7 +127,7 @@ extension LocaticsMapViewModel: LocaticEntryValidationDelegate {
     }
 
     func closeAddLocaticCardView() {
-        viewDelegate?.closeAddLocaticCardView()
+        addLocaticViewDelegate?.closeAddLocaticCardView()
         viewDelegate?.hideTabBar(false)
     }
 }
