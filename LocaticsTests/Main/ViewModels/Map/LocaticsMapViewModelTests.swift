@@ -15,20 +15,24 @@ class LocaticsMapViewModelTests: XCTestCase {
     var sut: LocaticsMapViewModel!
 
     private var mockLocaticsViewModelViewObserver: MockLocaticsMapViewModelViewDelegate!
+    private var mockLocaticsViewModelAddLocaticViewObserver: MockLocaticsAddLocaticViewModelViewDelegate!
     private var mockLocationManager: MockLocationManager!
 
     override func setUp() {
-        mockLocationManager = MockLocationManager()
         mockLocaticsViewModelViewObserver = MockLocaticsMapViewModelViewDelegate()
+        mockLocaticsViewModelAddLocaticViewObserver = MockLocaticsAddLocaticViewModelViewDelegate()
+        mockLocationManager = MockLocationManager()
 
         sut = LocaticsMapViewModel()
         sut.viewDelegate = mockLocaticsViewModelViewObserver
+        sut.addLocaticViewDelegate = mockLocaticsViewModelAddLocaticViewObserver
         sut.locationManager = mockLocationManager
     }
 
     override func tearDown() {
-        mockLocationManager = nil
         mockLocaticsViewModelViewObserver = nil
+        mockLocaticsViewModelAddLocaticViewObserver = nil
+        mockLocationManager = nil
         sut = nil
         super.tearDown()
     }
@@ -129,7 +133,7 @@ class LocaticsMapViewModelTests: XCTestCase {
     func test_addLocaticWasTapped_callsShowAddLocaticCardViewWithPassedValues() {
         sut.addLocaticWasTapped()
 
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledAddLocaticCardView)
+        XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.calledAddLocaticCardView)
 
         XCTAssertEqual(mockLocaticsViewModelViewObserver.latMeter, 0.0)
         XCTAssertEqual(mockLocaticsViewModelViewObserver.lonMeter, 0.0)
@@ -138,7 +142,7 @@ class LocaticsMapViewModelTests: XCTestCase {
     func test_addLocaticWasTapped_callsShowLocationMarkerPin() {
         sut.addLocaticWasTapped()
 
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowLocationMarkerPin)
+        XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.calledShowLocationMarkerPin)
     }
 
     func test_validationErrorOccured_callsShowAlert() {
@@ -159,18 +163,29 @@ class LocaticsMapViewModelTests: XCTestCase {
     func test_closeAddLocaticCardView_callsCloseAddLocaticCardView() {
         sut.closeAddLocaticCardView()
 
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledCloseAddLocaticCardView)
+        XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.calledCloseAddLocaticCardView)
     }
 
     func test_getPinCurrentLocationCoordinate_returnsVCMapViewCenterCoordinate() {
         let pinLocationCoordinate = sut.getPinCurrentLocationCoordinate()
 
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledGetCenterMapCoordinate)
+        XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.calledGetLocationPinCoordinate)
 
         XCTAssertEqual(pinLocationCoordinate.latitude,
-                       mockLocaticsViewModelViewObserver.getCenterMapCoordinate().latitude)
+                       mockLocaticsViewModelAddLocaticViewObserver.getLocationPinCoordinate().latitude)
         XCTAssertEqual(pinLocationCoordinate.longitude,
-                       mockLocaticsViewModelViewObserver.getCenterMapCoordinate().longitude)
+                       mockLocaticsViewModelAddLocaticViewObserver.getLocationPinCoordinate().longitude)
+    }
+
+    func test_updateLocationMarkerRadiusConstraint_callsAddLocaticViewDelegateUpdateLocationPinRadius() {
+        sut.updatePinRadius(toRadius: 5)
+        XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.calledUpdateLocationMarkerRadiusConstraint)
+    }
+
+    func test_updateLocationMarkerRadiusConstraint_passesRadiusToAddLocaticViewDelegateUpdateLocationPinRadius() {
+        sut.updatePinRadius(toRadius: 5.0)
+        XCTAssertEqual(mockLocaticsViewModelAddLocaticViewObserver.newConstant!,
+                       5)
     }
 }
 
@@ -179,12 +194,7 @@ private extension LocaticsMapViewModelTests {
         var calledSetNavigationTitle = false
         var calledShowAlert = false
         var calledUpdateMapRegion = false
-        var calledShowAddLocaticCardView = false
-        var calledAddLocaticCardView = false
-        var calledCloseAddLocaticCardView = false
         var calledZoomToUserLocation = false
-        var calledGetCenterMapCoordinate = false
-        var calledShowLocationMarkerPin = false
         var calledHideTabBar = false
 
         var location: CLLocationCoordinate2D!
@@ -219,6 +229,20 @@ private extension LocaticsMapViewModelTests {
             calledUpdateMapRegion = true
         }
 
+        func hideTabBar(_ shouldHide: Bool) {
+            calledHideTabBar = true
+        }
+    }
+
+    class MockLocaticsAddLocaticViewModelViewDelegate: LocaticsMapAddLocaticViewModelViewDelegate {
+        var calledShowAddLocaticCardView = false
+        var calledAddLocaticCardView = false
+        var calledCloseAddLocaticCardView = false
+
+        var calledGetLocationPinCoordinate = false
+        var calledShowLocationMarkerPin = false
+        var calledUpdateLocationMarkerRadiusConstraint = false
+
         func showAddLocaticCardView() {
             calledAddLocaticCardView = true
         }
@@ -227,17 +251,19 @@ private extension LocaticsMapViewModelTests {
             calledShowLocationMarkerPin = true
         }
 
-        func getCenterMapCoordinate() -> Coordinate {
-            calledGetCenterMapCoordinate = true
+        func getLocationPinCoordinate() -> Coordinate {
+            calledGetLocationPinCoordinate = true
             return Coordinate(latitude: 25.0, longitude: 20.0)
+        }
+
+        var newConstant: CGFloat?
+        func updateLocationMarkerRadiusConstraint(withNewConstant constant: CGFloat) {
+            calledUpdateLocationMarkerRadiusConstraint = true
+            newConstant = constant
         }
 
         func closeAddLocaticCardView() {
             calledCloseAddLocaticCardView = true
-        }
-
-        func hideTabBar(_ shouldHide: Bool) {
-            calledHideTabBar = true
         }
     }
 }
