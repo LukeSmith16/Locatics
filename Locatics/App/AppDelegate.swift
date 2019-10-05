@@ -9,6 +9,7 @@
 // swiftlint:disable line_length
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         resetStateForUITesting()
+        setupIQKeyboardManager()
+
 
         self.window = UIWindow()
         self.app = App(window: window!)
@@ -35,5 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let bundleID = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: bundleID)
+    }
+
+    private func setupIQKeyboardManager() {
+        IQKeyboardManager.shared.enable = true
     }
 }
