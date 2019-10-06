@@ -24,23 +24,25 @@ class LocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
 
     func createLocaticsMapModule() -> LocaticsMapViewController {
         let locaticsMapModule = LocaticsMapViewController()
-        locaticsMapModule.locaticsMapViewModel = createLocaticsMapViewModel()
+        locaticsMapModule.locaticsMainViewModel = createLocaticsMainViewModel()
 
         return locaticsMapModule
     }
 }
 
 private extension LocaticsMapModuleFactory {
-    func createLocaticsMapViewModel() -> LocaticsMapViewModelInterface {
-        let locaticsMapViewModel = LocaticsMapViewModel()
+    func createLocaticsMainViewModel() -> LocaticsMainViewModelInterface {
+        let locaticsMainViewModel = LocaticsMainViewModel()
 
         let locationManager = createLocationManager()
-        let addLocaticViewModel = createAddLocaticViewModel(withDelegate: locaticsMapViewModel)
+        let addLocaticViewModel = createAddLocaticViewModel(withDelegate: locaticsMainViewModel)
+        let locaticsMapViewModel = createLocaticsMapViewModel(with: locaticsMainViewModel)
 
-        locaticsMapViewModel.locationManager = locationManager
-        locaticsMapViewModel.addLocaticViewModel = addLocaticViewModel
+        locaticsMainViewModel.locationManager = locationManager
+        locaticsMainViewModel.addLocaticViewModel = addLocaticViewModel
+        locaticsMainViewModel.locaticsMapViewModel = locaticsMapViewModel
 
-        return locaticsMapViewModel
+        return locaticsMainViewModel
     }
 
     func createLocationManager() -> LocationManagerInterface {
@@ -64,5 +66,12 @@ private extension LocaticsMapModuleFactory {
         addLocaticViewModel.locaticPinLocationDelegate = delegate
         addLocaticViewModel.locaticEntryValidationDelegate = delegate
         return addLocaticViewModel
+    }
+
+    func createLocaticsMapViewModel(with locaticsMainViewModel: LocaticsMainViewModel) -> LocaticsMapViewModelInterface {
+        let locaticsMapViewModel = LocaticsMapViewModel()
+        locaticsMapViewModel.locationPinCoordinateDelegate = locaticsMainViewModel
+
+        return locaticsMapViewModel
     }
 }
