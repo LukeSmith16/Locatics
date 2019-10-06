@@ -7,26 +7,31 @@
 //
 
 import XCTest
-import MapKit
 
 @testable import Locatics
 class LocaticsMapViewControllerTests: XCTestCase {
 
-    private var mockLocaticsMapViewModel: MockLocaticsViewModel!
     var sut: LocaticsMapViewController!
 
+    private var mockMapView: MockMapView!
+    private var mockLocaticsMainViewModel: MockLocaticsMainViewModel!
+
     override func setUp() {
-        mockLocaticsMapViewModel = MockLocaticsViewModel()
+        mockMapView = MockMapView(frame: CGRect.zero)
+        mockLocaticsMainViewModel = MockLocaticsMainViewModel()
 
         sut = LocaticsMapViewController()
-        sut.locaticsMapViewModel = mockLocaticsMapViewModel
+        sut.locaticsMainViewModel = mockLocaticsMainViewModel
 
         _ = sut.view
+
+        sut.mapView = mockMapView
     }
 
     override func tearDown() {
         sut = nil
-        mockLocaticsMapViewModel = nil
+        mockMapView = nil
+        mockLocaticsMainViewModel = nil
         super.tearDown()
     }
 
@@ -62,19 +67,15 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.closeLocaticCardViewButton.isHidden)
     }
 
-    func test_locationMarkerRadiusHeightConstraint_constantIsZero() {
-        XCTAssertEqual(sut.locationMarkerRadiusHeightConstraint.constant,
-                       0)
-    }
+    func test_viewDidAppear_callsGoToUserRegion() {
+        sut.viewDidAppear(true)
 
-    func test_locationMarkerRadiusWidthConstraint_constantIsZero() {
-        XCTAssertEqual(sut.locationMarkerRadiusWidthConstraint.constant,
-                       0)
+        XCTAssertTrue(mockMapView.calledGoToUserRegion)
     }
 
     func test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel() {
-        XCTAssertTrue(mockLocaticsMapViewModel.calledGetMainTitle)
-        XCTAssertTrue(mockLocaticsMapViewModel.calledGetSubtitle)
+        XCTAssertTrue(mockLocaticsMainViewModel.calledGetMainTitle)
+        XCTAssertTrue(mockLocaticsMainViewModel.calledGetSubtitle)
 
         guard let titleView = sut.navigationItem.titleView else {
             XCTFail("TitleView on navigation item is nil")
@@ -112,16 +113,12 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
     }
 
-    func test_mapViewDelegate_isNotNil() {
-        XCTAssertNotNil(sut.mapView.delegate)
+    func test_locaticsMainViewModelViewDelegate_isNotNil() {
+        XCTAssertNotNil(sut.locaticsMainViewModel?.viewDelegate)
     }
 
-    func test_locaticsMapViewModelViewDelegate_isNotNil() {
-        XCTAssertNotNil(sut.locaticsMapViewModel?.viewDelegate)
-    }
-
-    func test_locaticsMapViewModelAddLocaticViewDelegate_isNotNil() {
-        XCTAssertNotNil(sut.locaticsMapViewModel?.addLocaticViewDelegate)
+    func test_locaticsMainViewModelAddLocaticViewDelegate_isNotNil() {
+        XCTAssertNotNil(sut.locaticsMainViewModel?.addLocaticViewDelegate)
     }
 
     func test_setNavigationTitle_callsSetTitleWithValue() {
@@ -137,59 +134,16 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertEqual(mockNavigationTitleView.setNewSubTitleValue, "the subtitle")
     }
 
-    func test_setupMapView_setsMapToShowUserLocation() {
-        XCTAssertTrue(sut.mapView.showsUserLocation)
-    }
-
-    func test_setupMapView_callsGetUserRegion() {
-        XCTAssertTrue(mockLocaticsMapViewModel.calledGetUserRegion)
-    }
-
-    func test_updateMapRegion_setsMapViewRegion() {
-        let mockMapView = MockMapView(frame: CGRect.zero)
-        sut.mapView = mockMapView
-
-        let location = Coordinate(latitude: 25, longitude: 25)
-        sut.updateMapRegion(location: location, latMeters: 15, lonMeters: 15)
-
-        XCTAssertEqual(mockMapView.coordinateRegion.center.latitude, location.latitude)
-        XCTAssertEqual(mockMapView.coordinateRegion.center.longitude, location.longitude)
-
-        XCTAssertTrue(mockMapView.calledSetRegion)
-    }
-
-    func test_setupMapView_setsMapViewTintColorToInteractableSecondary() {
-        XCTAssertEqual(sut.mapView.tintColor, UIColor(colorTheme: .Interactable_Secondary))
-    }
-
     func test_addLocaticTapped_callsViewModelAddLocaticWasTapped() {
         sut.addLocaticTapped(UIButton())
 
-        XCTAssertTrue(mockLocaticsMapViewModel.calledAddLocaticWasTapped)
+        XCTAssertTrue(mockLocaticsMainViewModel.calledAddLocaticWasTapped)
     }
 
     func test_closeLocaticCardViewTapped_callsViewModelCloseLocaticWasTapped() {
         sut.closeLocaticCardViewTapped(UIButton())
 
-        XCTAssertTrue(mockLocaticsMapViewModel.calledCloseLocaticCardViewWasTapped)
-    }
-
-    func test_zoomToUserLocation_updatesMapRegion() {
-        let oldRegion = MKCoordinateRegion(center:
-            CLLocationCoordinate2D(latitude: 10,
-                                   longitude: 5),
-                                           latitudinalMeters: 50,
-                                           longitudinalMeters: 50)
-        sut.mapView.setRegion(oldRegion, animated: true)
-
-        sut.zoomToUserLocation(latMeters: 0.0, lonMeters: 0.0)
-
-        let currentCenter = sut.mapView.centerCoordinate
-
-        XCTAssertNotEqual(currentCenter.latitude,
-                          oldRegion.center.latitude)
-        XCTAssertNotEqual(currentCenter.longitude,
-                          oldRegion.center.longitude)
+        XCTAssertTrue(mockLocaticsMainViewModel.calledCloseLocaticCardViewWasTapped)
     }
 
     func test_shouldHideAddLocaticViewsTrue_hidesAddLocaticViews() {
@@ -197,7 +151,6 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertTrue(sut.locationMarkerPin.isHidden)
         XCTAssertTrue(sut.addLocaticCardView.isHidden)
-        XCTAssertTrue(sut.locationMarkerRadiusView.isHidden)
         XCTAssertTrue(sut.closeLocaticCardViewButton.isHidden)
     }
 
@@ -206,12 +159,11 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertFalse(sut.locationMarkerPin.isHidden)
         XCTAssertFalse(sut.addLocaticCardView.isHidden)
-        XCTAssertFalse(sut.locationMarkerRadiusView.isHidden)
         XCTAssertFalse(sut.closeLocaticCardViewButton.isHidden)
     }
 
     func test_getLocationPinCoordinate_returnsPinCenterCoordinate() {
-        let centerCoordinate = sut.getLocationPinCoordinate()
+        let centerCoordinate = sut.getPinCurrentLocationCoordinate()
 
         let pinCenter = sut.locationMarkerPin.center
         let pinLocationOnMapView = sut.mapView.convert(pinCenter,
@@ -231,31 +183,25 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertFalse(sut.tabBarController!.tabBar.isHidden)
     }
-
-    func test_updateLocationMarkerRadiusConstraint_updatesConstantToNewConstant() {
-        let newConstant: CGFloat = 20
-        sut.updateLocationMarkerRadiusConstraint(withNewConstant: newConstant)
-
-        XCTAssertEqual(sut.locationMarkerRadiusHeightConstraint.constant,
-                       newConstant)
-        XCTAssertEqual(sut.locationMarkerRadiusWidthConstraint.constant,
-                       newConstant)
-    }
 }
 
 private extension LocaticsMapViewControllerTests {
-    class MockLocaticsViewModel: LocaticsMapViewModelInterface {
+    class MockLocaticsMainViewModel: LocaticsMainViewModelInterface {
+
         var calledGetMainTitle = false
         var calledGetSubtitle = false
-        var calledGetUserRegion = false
         var calledAddLocaticWasTapped = false
         var calledCloseLocaticCardViewWasTapped = false
 
-        weak var viewDelegate: LocaticsMapViewModelViewDelegate?
-        weak var addLocaticViewDelegate: LocaticsMapAddLocaticViewModelViewDelegate?
+        weak var viewDelegate: LocaticsMainViewModelViewDelegate?
+        weak var addLocaticViewDelegate: LocaticsMainAddLocaticViewModelViewDelegate?
 
         var addLocaticViewModel: AddLocaticViewModelInterface? {
             return AddLocaticViewModel(locaticStorage: MockLocaticStorage())
+        }
+
+        var locaticsMapViewModel: LocaticsMapViewModelInterface? {
+            return LocaticsMapViewModel()
         }
 
         func getMainTitle() -> String {
@@ -266,10 +212,6 @@ private extension LocaticsMapViewControllerTests {
         func getSubtitle() -> String {
             calledGetSubtitle = true
             return "the subtitle"
-        }
-
-        func getUserRegion() {
-            calledGetUserRegion = true
         }
 
         func addLocaticWasTapped() {
@@ -299,14 +241,11 @@ private extension LocaticsMapViewControllerTests {
         }
     }
 
-    class MockMapView: MKMapView {
-        var calledSetRegion = false
+    class MockMapView: LocaticsMapView {
+        var calledGoToUserRegion = false
 
-        var coordinateRegion: MKCoordinateRegion!
-
-        override func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
-            self.calledSetRegion = true
-            self.coordinateRegion = region
+        override func goToUserRegion() {
+            calledGoToUserRegion = true
         }
     }
 }

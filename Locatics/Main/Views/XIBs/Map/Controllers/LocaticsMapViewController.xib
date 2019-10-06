@@ -15,9 +15,6 @@
                 <outlet property="addLocaticCardView" destination="WxM-gF-HBO" id="tDL-aB-tFl"/>
                 <outlet property="closeLocaticCardViewButton" destination="nB9-rw-RBH" id="7O1-d1-kOF"/>
                 <outlet property="locationMarkerPin" destination="Gox-bB-NcS" id="A58-Oh-Vut"/>
-                <outlet property="locationMarkerRadiusHeightConstraint" destination="cug-GU-5a5" id="f8C-7d-pdn"/>
-                <outlet property="locationMarkerRadiusView" destination="WZF-8t-bdb" id="YWE-m3-aDC"/>
-                <outlet property="locationMarkerRadiusWidthConstraint" destination="qpO-hb-Qa2" id="eyD-GF-m30"/>
                 <outlet property="mapView" destination="GVF-h5-ecx" id="Q4B-I4-AXt"/>
                 <outlet property="view" destination="Vqn-mQ-24B" id="yRx-V7-vQH"/>
             </connections>
@@ -27,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GVF-h5-ecx">
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GVF-h5-ecx" customClass="LocaticsMapView" customModule="Locatics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </mapView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMW-pO-DdO">
@@ -41,15 +38,6 @@
                         <action selector="addLocaticTapped:" destination="-1" eventType="touchUpInside" id="bt8-tG-jf3"/>
                     </connections>
                 </button>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZF-8t-bdb">
-                    <rect key="frame" x="207" y="291" width="0.0" height="0.0"/>
-                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="WZF-8t-bdb" secondAttribute="height" multiplier="1:1" id="TUu-iD-NIb"/>
-                        <constraint firstAttribute="height" id="cug-GU-5a5"/>
-                        <constraint firstAttribute="width" id="qpO-hb-Qa2"/>
-                    </constraints>
-                </view>
                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-bB-NcS">
                     <rect key="frame" x="187" y="272" width="40" height="38"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,9 +64,7 @@
             <constraints>
                 <constraint firstItem="tMs-kb-A3U" firstAttribute="bottom" secondItem="eMW-pO-DdO" secondAttribute="bottom" constant="20" id="1sd-cR-sPM"/>
                 <constraint firstItem="WxM-gF-HBO" firstAttribute="leading" secondItem="tMs-kb-A3U" secondAttribute="leading" id="2eq-oA-Cj9"/>
-                <constraint firstItem="WZF-8t-bdb" firstAttribute="centerY" secondItem="Vqn-mQ-24B" secondAttribute="centerY" multiplier="0.65" id="7UB-LW-ZBp"/>
                 <constraint firstAttribute="bottom" secondItem="WxM-gF-HBO" secondAttribute="bottom" id="D92-P7-x72"/>
-                <constraint firstItem="WZF-8t-bdb" firstAttribute="centerX" secondItem="Vqn-mQ-24B" secondAttribute="centerX" id="NwR-Vb-7vD"/>
                 <constraint firstItem="GVF-h5-ecx" firstAttribute="leading" secondItem="tMs-kb-A3U" secondAttribute="leading" id="Nxe-i3-5wb"/>
                 <constraint firstItem="tMs-kb-A3U" firstAttribute="bottom" secondItem="GVF-h5-ecx" secondAttribute="bottom" id="Pa0-VH-LjQ"/>
                 <constraint firstItem="Gox-bB-NcS" firstAttribute="centerX" secondItem="Vqn-mQ-24B" secondAttribute="centerX" id="PuH-J6-lsq"/>

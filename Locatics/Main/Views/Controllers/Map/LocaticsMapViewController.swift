@@ -7,27 +7,20 @@
 //
 
 import UIKit
-import MapKit
 
 class LocaticsMapViewController: UIViewController {
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: LocaticsMapView!
     @IBOutlet weak var addLocaticButton: UIButton!
-
     @IBOutlet weak var closeLocaticCardViewButton: UIButton!
     @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
-
-    @IBOutlet weak var locationMarkerRadiusView: UIView!
-    @IBOutlet weak var locationMarkerRadiusHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var locationMarkerRadiusWidthConstraint: NSLayoutConstraint!
-
     @IBOutlet weak var locationMarkerPin: UIImageView!
 
     var navigationTitleView: NavigationTitleViewInterface?
 
-    var locaticsMapViewModel: LocaticsMapViewModelInterface? {
+    var locaticsMainViewModel: LocaticsMainViewModelInterface? {
         didSet {
-            locaticsMapViewModel?.viewDelegate = self
-            locaticsMapViewModel?.addLocaticViewDelegate = self
+            locaticsMainViewModel?.viewDelegate = self
+            locaticsMainViewModel?.addLocaticViewDelegate = self
         }
     }
 
@@ -38,40 +31,43 @@ class LocaticsMapViewController: UIViewController {
         setupMapView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        goToUserRegion()
+    }
+
     @IBAction func addLocaticTapped(_ sender: Any) {
-        locaticsMapViewModel?.addLocaticWasTapped()
+        locaticsMainViewModel?.addLocaticWasTapped()
     }
 
     @IBAction func closeLocaticCardViewTapped(_ sender: Any) {
-        locaticsMapViewModel?.closeLocaticCardViewWasTapped()
+        locaticsMainViewModel?.closeLocaticCardViewWasTapped()
     }
 }
 
 private extension LocaticsMapViewController {
     func setupNavigationTitleView() {
-        let mainTitle = locaticsMapViewModel?.getMainTitle()
-        let subtitle = locaticsMapViewModel?.getSubtitle()
+        let mainTitle = locaticsMainViewModel?.getMainTitle()
+        let subtitle = locaticsMainViewModel?.getSubtitle()
         self.navigationTitleView = navigationItem.setupTitleView(title: mainTitle, subtitle: subtitle)
     }
 
     func setupAddLocaticCardView() {
-        self.addLocaticCardView.addLocaticViewModel = locaticsMapViewModel?.addLocaticViewModel
+        self.addLocaticCardView.addLocaticViewModel = locaticsMainViewModel?.addLocaticViewModel
     }
 
     func setupMapView() {
-        self.mapView.delegate = self
-        self.mapView.showsUserLocation = true
-        self.mapView.tintColor = UIColor(colorTheme: .Interactable_Secondary)
+        self.mapView.locaticsMapViewModel = locaticsMainViewModel?.locaticsMapViewModel
+    }
 
-        locaticsMapViewModel?.getUserRegion()
+    func goToUserRegion() {
+        self.mapView.goToUserRegion()
     }
 }
 
-extension LocaticsMapViewController: MKMapViewDelegate {}
-
-extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
+extension LocaticsMapViewController: LocaticsMainViewModelViewDelegate {
     func setNavigationTitle(_ title: String) {
-        let subtitle = locaticsMapViewModel?.getSubtitle()
+        let subtitle = locaticsMainViewModel?.getSubtitle()
         navigationTitleView?.setNewTitle(title)
         navigationTitleView?.setNewSubtitle(subtitle)
     }
@@ -81,41 +77,21 @@ extension LocaticsMapViewController: LocaticsMapViewModelViewDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
 
-    func zoomToUserLocation(latMeters: Double, lonMeters: Double) {
-        let userLocation = mapView.userLocation.coordinate
-        updateMapRegion(location: userLocation, latMeters: latMeters, lonMeters: lonMeters)
-    }
-
-    func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double) {
-        let coordinateRegion = MKCoordinateRegion(center: location,
-                                                  latitudinalMeters: latMeters,
-                                                  longitudinalMeters: lonMeters)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-
     func hideTabBar(_ shouldHide: Bool) {
         self.setTabBarHidden(shouldHide)
     }
 }
 
-extension LocaticsMapViewController: LocaticsMapAddLocaticViewModelViewDelegate {
+extension LocaticsMapViewController: LocaticsMainAddLocaticViewModelViewDelegate {
     func shouldHideAddLocaticViews(_ shouldHide: Bool) {
         self.locationMarkerPin.isHidden = shouldHide
-        self.locationMarkerRadiusView.isHidden = shouldHide
         self.addLocaticCardView.isHidden = shouldHide
         self.closeLocaticCardViewButton.isHidden = shouldHide
     }
 
-    func getLocationPinCoordinate() -> Coordinate {
+    func getPinCurrentLocationCoordinate() -> Coordinate {
         let pinLocation = mapView.convert(locationMarkerPin.center,
                                           toCoordinateFrom: mapView)
         return pinLocation
-    }
-
-    func updateLocationMarkerRadiusConstraint(withNewConstant constant: CGFloat) {
-        locationMarkerRadiusHeightConstraint.constant = constant
-        locationMarkerRadiusWidthConstraint.constant = constant
-
-        locationMarkerRadiusView.layoutIfNeeded()
     }
 }
