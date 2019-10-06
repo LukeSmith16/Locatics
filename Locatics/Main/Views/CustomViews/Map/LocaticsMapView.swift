@@ -18,6 +18,10 @@ class LocaticsMapView: MKMapView {
             setupMapView()
         }
     }
+
+    func goToUserRegion() {
+        locaticsMapViewModel?.goToUserRegion()
+    }
 }
 
 private extension LocaticsMapView {
@@ -25,8 +29,6 @@ private extension LocaticsMapView {
         self.delegate = self
         self.showsUserLocation = true
         self.tintColor = UIColor(colorTheme: .Interactable_Secondary)
-
-        locaticsMapViewModel?.goToUserRegion()
     }
 }
 

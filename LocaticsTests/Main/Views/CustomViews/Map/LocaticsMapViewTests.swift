@@ -50,7 +50,9 @@ class LocaticsMapViewTests: XCTestCase {
                        UIColor(colorTheme: .Interactable_Secondary))
     }
 
-    func test_setupMapView_callsGoToUserRegion() {
+    func test_goToUserRegion_callsGoToUserRegion() {
+        sut.goToUserRegion()
+
         XCTAssertTrue(mockLocaticsMapViewModel.calledGoToUserRegion)
     }
 
