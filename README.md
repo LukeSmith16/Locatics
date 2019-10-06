@@ -5,7 +5,7 @@
 'Location Analytics' - I would like to know where I’ve been and see detailed statistics on how long I’ve been there and how many times I’ve visited that place previously. 
 
 ## In Progress
-Hoping to get it done relatively soon!
+Still very much in progress!
 
 ### The end goal...
 <p align="center">
