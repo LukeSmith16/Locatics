@@ -168,6 +168,14 @@ class LocaticsMainViewModelTests: XCTestCase {
 
         XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.shouldHideValue!)
     }
+
+    func test_updatePinAnnotationRadius_callsMapViewModelPassingRadius() {
+        sut.updatePinAnnotationRadius(toRadius: 30)
+
+        XCTAssertTrue(mockLocaticsMapViewModel.calledUpdatePinAnnotationRadius)
+        XCTAssertEqual(mockLocaticsMapViewModel.updatePinRadiusPassedRadius!,
+                       30)
+    }
 }
 
 private extension LocaticsMainViewModelTests {
