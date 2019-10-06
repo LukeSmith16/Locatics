@@ -162,6 +162,12 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.closeLocaticCardViewButton.isHidden)
     }
 
+    func test_shouldHideAddLocaticViews_removeAddLocaticRadiusAnnotation() {
+        sut.shouldHideAddLocaticViews(true)
+
+        XCTAssertTrue(mockMapView.calledRemoveAddLocaticRadiusAnnotation)
+    }
+
     func test_getLocationPinCoordinate_returnsPinCenterCoordinate() {
         let centerCoordinate = sut.getPinCurrentLocationCoordinate()
 
@@ -243,9 +249,14 @@ private extension LocaticsMapViewControllerTests {
 
     class MockMapView: LocaticsMapView {
         var calledGoToUserRegion = false
+        var calledRemoveAddLocaticRadiusAnnotation = false
 
         override func goToUserRegion() {
             calledGoToUserRegion = true
+        }
+
+        override func removeAddLocaticRadiusAnnotation() {
+            calledRemoveAddLocaticRadiusAnnotation = true
         }
     }
 }

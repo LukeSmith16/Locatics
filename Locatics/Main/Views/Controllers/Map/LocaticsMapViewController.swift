@@ -87,6 +87,7 @@ extension LocaticsMapViewController: LocaticsMainAddLocaticViewModelViewDelegate
         self.locationMarkerPin.isHidden = shouldHide
         self.addLocaticCardView.isHidden = shouldHide
         self.closeLocaticCardViewButton.isHidden = shouldHide
+        mapView.removeAddLocaticRadiusAnnotation()
     }
 
     func getPinCurrentLocationCoordinate() -> Coordinate {

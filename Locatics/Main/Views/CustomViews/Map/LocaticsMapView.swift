@@ -22,6 +22,15 @@ class LocaticsMapView: MKMapView {
     func goToUserRegion() {
         locaticsMapViewModel?.goToUserRegion()
     }
+
+    func removeAddLocaticRadiusAnnotation() {
+        guard let addLocaticMapRadiusCircle = addLocaticMapRadiusCircle else {
+            return
+        }
+
+        removeOverlay(addLocaticMapRadiusCircle)
+        self.addLocaticMapRadiusCircle = nil
+    }
 }
 
 private extension LocaticsMapView {
@@ -47,7 +56,7 @@ extension LocaticsMapView: LocaticsMapViewModelViewDelegate, AddLocaticMapRadius
     }
 
     func updatePinAnnotationRadius(toRadius radius: Double) {
-        removeAddLocaticMapRadiusCircle()
+        removeAddLocaticRadiusAnnotation()
         self.addLocaticMapCircleRadius = radius
         setupAddLocaticMapRadiusCircle()
     }
@@ -63,22 +72,12 @@ extension LocaticsMapView: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         guard addLocaticMapRadiusCircle != nil else { return }
-        removeAddLocaticMapRadiusCircle()
+        removeAddLocaticRadiusAnnotation()
         setupAddLocaticMapRadiusCircle()
     }
 }
 
 private extension LocaticsMapView {
-    private func removeAddLocaticMapRadiusCircle() {
-        guard let addLocaticMapRadiusCircle = addLocaticMapRadiusCircle else {
-            return
-        }
-
-        removeOverlay(addLocaticMapRadiusCircle)
-
-        self.addLocaticMapRadiusCircle = nil
-    }
-
     private func setupAddLocaticMapRadiusCircle() {
         let locationPinCoordinate = locaticsMapViewModel!.getLocationPinCoordinate()
         self.addLocaticMapRadiusCircle = MKCircle(center: locationPinCoordinate, radius: addLocaticMapCircleRadius!)
