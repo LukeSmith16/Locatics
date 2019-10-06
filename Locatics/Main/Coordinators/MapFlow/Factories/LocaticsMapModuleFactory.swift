@@ -68,9 +68,9 @@ private extension LocaticsMapModuleFactory {
         return addLocaticViewModel
     }
 
-    func createLocaticsMapViewModel(with locaticsMainViewModel: LocaticsMainViewModel) -> LocaticsMapViewModelInterface {
+    func createLocaticsMapViewModel(with locaticsViewModel: LocaticsMainViewModel) -> LocaticsMapViewModelInterface {
         let locaticsMapViewModel = LocaticsMapViewModel()
-        locaticsMapViewModel.locationPinCoordinateDelegate = locaticsMainViewModel
+        locaticsMapViewModel.locationPinCoordinateDelegate = locaticsViewModel
 
         return locaticsMapViewModel
     }

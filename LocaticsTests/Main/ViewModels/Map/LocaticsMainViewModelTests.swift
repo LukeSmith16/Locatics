@@ -9,6 +9,9 @@
 import XCTest
 import CoreLocation
 
+// swiftlint:disable identifier_name
+// swiftlint:disable type_name
+
 @testable import Locatics
 class LocaticsMainViewModelTests: XCTestCase {
 

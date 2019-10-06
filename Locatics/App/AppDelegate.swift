@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         resetStateForUITesting()
         setupIQKeyboardManager()
 
-
         self.window = UIWindow()
         self.app = App(window: window!)
 

@@ -8,6 +8,9 @@
 
 import XCTest
 
+// swiftlint:disable type_name
+// swiftlint:disable identifier_name
+
 @testable import Locatics
 class LocaticsMapViewModelTests: XCTestCase {
 
