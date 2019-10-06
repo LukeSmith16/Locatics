@@ -39,9 +39,9 @@ class LocaticsMapViewModelTests: XCTestCase {
         XCTAssertTrue(mockLocaticsMapViewModelViewObserver.calledZoomToUserLocation)
 
         XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedLatMeters!,
-                       1000)
+                       2000)
         XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedLonMeters!,
-                       1000)
+                       2000)
     }
 
     func test_updatePinAnnotationRadius_callsUpdatePinAnnotationRadius() {

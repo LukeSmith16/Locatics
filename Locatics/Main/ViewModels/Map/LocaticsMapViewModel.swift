@@ -29,7 +29,7 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     weak var locationPinCoordinateDelegate: LocaticsMainLocationPinCoordinateDelegate?
 
     func goToUserRegion() {
-        viewDelegate?.zoomToUserLocation(latMeters: 1000, lonMeters: 1000)
+        viewDelegate?.zoomToUserLocation(latMeters: 2000, lonMeters: 2000)
     }
 
     func updatePinAnnotationRadius(toRadius radius: Double) {
