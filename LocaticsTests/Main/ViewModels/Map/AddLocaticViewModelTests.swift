@@ -218,8 +218,8 @@ private extension AddLocaticViewModelTests {
             return Coordinate(latitude: 25.0, longitude: 51.5)
         }
 
-        var newRadius: Float?
-        func updatePinRadius(toRadius radius: Float) {
+        var newRadius: Double?
+        func updatePinAnnotationRadius(toRadius radius: Double) {
             calledUpdatePinRadius = true
             newRadius = radius
         }

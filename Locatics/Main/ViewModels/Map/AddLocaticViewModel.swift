@@ -24,9 +24,8 @@ protocol LocaticEntryValidationDelegate: class {
     func closeAddLocaticCardView()
 }
 
-protocol LocaticPinLocationDelegate: class {
-    func getPinCurrentLocationCoordinate() -> Coordinate
-    func updatePinRadius(toRadius radius: Float)
+protocol LocaticPinLocationDelegate: LocaticsMainLocationPinCoordinateDelegate {
+    func updatePinAnnotationRadius(toRadius radius: Double)
 }
 
 enum AddLocaticEntryValidation: Error {
@@ -60,7 +59,7 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
         let valueToInt = Int(newValue)
         let newRadiusText = "Radius: \(valueToInt) meters"
         viewDelegate?.changeRadiusText(newRadiusText)
-        locaticPinLocationDelegate?.updatePinRadius(toRadius: newValue)
+        locaticPinLocationDelegate?.updatePinAnnotationRadius(toRadius: Double(newValue))
     }
 
     func addLocaticWasTapped(locaticName: String?,
