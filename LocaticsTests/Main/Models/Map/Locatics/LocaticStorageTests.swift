@@ -9,6 +9,8 @@
 import XCTest
 import CoreData
 
+//swiftlint:disable force_cast
+
 @testable import Locatics
 class LocaticStorageTests: XCTestCase {
 
@@ -54,11 +56,27 @@ class LocaticStorageTests: XCTestCase {
     }
 
     func test_insertLocatic_callsLocaticWasInserted() {
-        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0, completion: { (error) in
+        sut.insertLocatic(name: "myNewLocatic", radius: 14.5, longitude: 33, latitude: 51, completion: { (error) in
             XCTAssertNil(error)
         })
 
         XCTAssertTrue(mockLocaticPersistentStorageObserver.calledLocaticWasInserted)
+    }
+
+    func test_insertLocatic_passesCorrectValuesToStorageManager() {
+        sut.insertLocatic(name: "myNewLocatic", radius: 14.5, longitude: 33, latitude: 51, completion: { (error) in
+            XCTAssertNil(error)
+        })
+
+        let passedValues = mockStorageManager.passedCreateObjectValues
+        XCTAssertEqual(passedValues["name"] as! String,
+                       "myNewLocatic")
+        XCTAssertEqual(passedValues["radius"] as! Float,
+                       14.5)
+        XCTAssertEqual(passedValues["longitude"] as! Double,
+                       33)
+        XCTAssertEqual(passedValues["latitude"] as! Double,
+                       51)
     }
 
     func test_insertLocatic_completesWithError() {
@@ -76,13 +94,40 @@ class LocaticStorageTests: XCTestCase {
 
         let expect = expectation(description: "Wait for deletion")
 
-        sut.updateLocatic(locatic: mockLocatic, name: "", radius: 20.0, longitude: 20.0, latitude: 20.0) { (_) in
+        sut.updateLocatic(locatic: mockLocatic, name: "newName", radius: 60, longitude: 18, latitude: 20.0) { (_) in
             expect.fulfill()
         }
 
         wait(for: [expect], timeout: 2)
 
         XCTAssertTrue(mockLocaticPersistentStorageObserver.calledLocaticWasUpdated)
+    }
+
+    func test_updateLocatic_passesCorrectValuesToStorageManager() {
+        let mockLocatic = MockLocatic()
+        mockLocatic.identity = 50
+
+        let expect = expectation(description: "Wait for deletion")
+
+        sut.updateLocatic(locatic: mockLocatic,
+                          name: "myUpdatedLocatic",
+                          radius: 10,
+                          longitude: 99,
+                          latitude: 98) { (_) in
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 2)
+
+        let passedValues = mockStorageManager.passedUpdateObjectValues
+        XCTAssertEqual(passedValues["name"] as! String,
+                       "myUpdatedLocatic")
+        XCTAssertEqual(passedValues["radius"] as! Float,
+                       10)
+        XCTAssertEqual(passedValues["longitude"] as! Double,
+                       99)
+        XCTAssertEqual(passedValues["latitude"] as! Double,
+                       98)
     }
 
     func test_deleteLocatic_callsLocaticWasDeleted() {
@@ -134,6 +179,11 @@ class LocaticStorageTests: XCTestCase {
 private extension LocaticStorageTests {
     class MockLocatic: LocaticData {
         var identity: Int64 = 0
+
+        var name: String = "TestLocatic"
+        var radius: Float = 50 // Meters
+        var longitude: Double = 12.0
+        var latitude: Double = 10.0
     }
 
     class MockLocaticPersistentStorageDelegate: LocaticPersistentStorageDelegate {
