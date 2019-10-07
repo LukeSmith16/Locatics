@@ -73,7 +73,7 @@ extension LocaticsMapViewController: LocaticsMainViewModelViewDelegate {
     }
 
     func showAlert(title: String, message: String) {
-        let alertController = AlertController.create(title: "", message: "")
+        let alertController = AlertController.create(title: title, message: message)
         self.present(alertController, animated: true, completion: nil)
     }
 

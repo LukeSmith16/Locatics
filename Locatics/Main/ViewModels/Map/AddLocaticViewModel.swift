@@ -89,7 +89,6 @@ extension AddLocaticViewModel {
             return true
         } catch {
             locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
-
             return false
         }
     }
