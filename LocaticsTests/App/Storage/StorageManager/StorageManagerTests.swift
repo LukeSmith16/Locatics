@@ -36,15 +36,43 @@ class StorageManagerTests: XCTestCase {
 
     func test_createObject_addsObjectToMoc() {
         let moc = mockPC.viewContext
-        let coreDataObject = createLocalItem()
+        let coreDataObject = createLocatic()
 
         XCTAssertEqual(moc.registeredObjects.count, 1)
         XCTAssertEqual(moc.registeredObjects.first!, coreDataObject)
     }
 
+    func test_createObject_createsObjectWithPassedValues() {
+        let values: [String: Any] = ["name": "NewLocatic",
+                                     "radius": 10,
+                                     "longitude": 15,
+                                     "latitude": 33]
+
+        let expect = expectation(description: "Wait for create object to finish")
+        var expectedObject: Locatic?
+
+        sut.createObject(entity: Locatic.self, values: values) { (result) in
+            switch result {
+            case .success(let success):
+                expectedObject = success
+                expect.fulfill()
+            case .failure(let failure):
+                XCTFail("Should not fail with correct values passed - \(failure)")
+            }
+        }
+
+        wait(for: [expect], timeout: 3)
+
+        XCTAssertNotNil(expectedObject)
+        XCTAssertEqual(expectedObject!.name, "NewLocatic")
+        XCTAssertEqual(expectedObject!.radius, 10)
+        XCTAssertEqual(expectedObject!.longitude, 15)
+        XCTAssertEqual(expectedObject!.latitude, 33)
+    }
+
     func test_fetchObject_returnsObjectWhenRequestValid() {
-        let createdObject = createLocalItem()
-        sut.fetchObject(entity: DB_LocalItem.self, identity: createdObject.identity) { (object) in
+        let createdObject = createLocatic()
+        sut.fetchObject(entity: Locatic.self, identity: createdObject.identity) { (object) in
             XCTAssertNotNil(object)
             XCTAssertEqual(object, createdObject)
         }
@@ -62,11 +90,11 @@ class StorageManagerTests: XCTestCase {
     }
 
     func test_fetchObjects_returnsCorrectAmount() {
-        _ = createLocalItem()
-        _ = createLocalItem()
-        _ = createLocalItem()
+        _ = createLocatic()
+        _ = createLocatic()
+        _ = createLocatic()
 
-        sut.fetchObjects(entity: DB_LocalItem.self, predicate: nil, sortDescriptors: nil) { (result) in
+        sut.fetchObjects(entity: Locatic.self, predicate: nil, sortDescriptors: nil) { (result) in
             switch result {
             case .success(let success):
                 XCTAssertEqual(success.count, 3)
@@ -77,13 +105,13 @@ class StorageManagerTests: XCTestCase {
     }
 
     func test_fetchObjects_returnsCorrectAmountWithPredicate() {
-        let coreDataObject = createLocalItem()
-        _ = createLocalItem()
-        _ = createLocalItem()
+        let coreDataObject = createLocatic()
+        _ = createLocatic()
+        _ = createLocatic()
 
         let predicate = NSPredicate(format: "\(#keyPath(DB_LocalItem.identity)) == %ld", coreDataObject.identity)
 
-        sut.fetchObjects(entity: DB_LocalItem.self, predicate: predicate, sortDescriptors: nil) { (result) in
+        sut.fetchObjects(entity: Locatic.self, predicate: predicate, sortDescriptors: nil) { (result) in
             switch result {
             case .success(let success):
                 XCTAssertEqual(success.count, 1)
@@ -95,12 +123,13 @@ class StorageManagerTests: XCTestCase {
     }
 
     func test_updateObject_updatesAndReturnsObjectWithValidID() {
-        let coreDataObject = createLocalItem()
+        let coreDataObject = createLocatic(withValues: ["name": "MyNewName"])
 
-        sut.updateObject(entity: DB_LocalItem.self, identity: coreDataObject.identity, updatedValues: [:]) { (result) in
+        sut.updateObject(entity: Locatic.self, identity: coreDataObject.identity, updatedValues: [:]) { (result) in
             switch result {
             case .success(let success):
                 XCTAssertEqual(success, coreDataObject)
+                XCTAssertEqual(success.name, "MyNewName")
             case .failure(let failure):
                 XCTFail("Should be able to find object by it's identity - \(failure.localizedDescription)")
             }
@@ -108,9 +137,9 @@ class StorageManagerTests: XCTestCase {
     }
 
     func test_updateObject_completesWithErrorWhenPassedInvalidID() {
-        _ = createLocalItem()
+        _ = createLocatic()
 
-        sut.updateObject(entity: DB_LocalItem.self, identity: 0, updatedValues: [:]) { (result) in
+        sut.updateObject(entity: Locatic.self, identity: 0, updatedValues: [:]) { (result) in
             switch result {
             case .success(let success):
                 XCTFail("Should not be able to find object by ID - \(success)")
@@ -122,11 +151,11 @@ class StorageManagerTests: XCTestCase {
 
     func test_deleteObject_removesObjectFromMoc() {
         let moc = mockPC.viewContext
-        let coreDataObject = createLocalItem()
+        let coreDataObject = createLocatic()
 
         let expect = expectation(description: "Wait for moc perform changes")
 
-        sut.deleteObject(entity: DB_LocalItem.self, identity: coreDataObject.identity) { (error) in
+        sut.deleteObject(entity: Locatic.self, identity: coreDataObject.identity) { (error) in
             guard error == nil else {
                 XCTFail("Should be able to find object with valid ID - \(error!.localizedDescription)")
                 return
@@ -145,9 +174,9 @@ class StorageManagerTests: XCTestCase {
 
     func test_deleteObject_returnsErrorWhenIdInvalid() {
         let moc = mockPC.viewContext
-        _ = createLocalItem()
+        _ = createLocatic()
 
-        sut.deleteObject(entity: DB_LocalItem.self, identity: 0) { (error) in
+        sut.deleteObject(entity: Locatic.self, identity: 0) { (error) in
             guard let error = error else {
                 XCTFail("Should not continue if object ID is invalid")
                 return
@@ -160,13 +189,16 @@ class StorageManagerTests: XCTestCase {
 }
 
 private extension StorageManagerTests {
-    func createLocalItem(withValues values: [String: Any] = [:]) -> DB_LocalItem {
+    func createLocatic(withValues values: [String: Any] = ["name": "name",
+                                                           "radius": 0,
+                                                           "longitude": 0,
+                                                           "latitude": 0]) -> Locatic {
         let moc = mockPC.viewContext
-        var coreDataObject: DB_LocalItem?
+        var coreDataObject: Locatic?
 
         let expect = expectation(description: "Wait for moc perform changes")
 
-        sut.createObject(entity: DB_LocalItem.self, values: values) { (result) in
+        sut.createObject(entity: Locatic.self, values: values) { (result) in
             switch result {
             case .success(let success):
                 coreDataObject = success

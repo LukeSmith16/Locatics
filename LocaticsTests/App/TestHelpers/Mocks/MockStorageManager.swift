@@ -22,13 +22,16 @@ class MockStorageManager: StorageManagerInterface {
 
     var shouldFail = false
 
+    var passedCreateObjectValues: [String:Any] = [:]
     func createObject<Object>(entity: Object.Type,
                               values: [String: Any],
                               completion: @escaping (Result<Object, StorageManagerError>) -> Void) where Object: DB_LocalItem {
+        calledCreateObject = true
+        passedCreateObjectValues = values
+
         if shouldFail {
             completion(.failure(.badRequest))
         } else {
-            calledCreateObject = true
             completion(.success(Object()))
         }
     }
@@ -58,11 +61,13 @@ class MockStorageManager: StorageManagerInterface {
         }
     }
 
+    var passedUpdateObjectValues: [String: Any] = [:]
     func updateObject<Object>(entity: Object.Type,
                               identity: Int64,
                               updatedValues: [String: Any],
                               completion: @escaping (Result<Object, StorageManagerError>) -> Void) where Object: DB_LocalItem {
         calledUpdateObject = true
+        passedUpdateObjectValues = updatedValues
 
         if shouldFail {
             completion(.failure(.badRequest))
