@@ -10,7 +10,17 @@ import CoreData
 
 protocol LocaticData {
     var identity: Int64 {get}
+
+    var name: String {get}
+    var radius: Float {get}
+    var longitude: Double {get}
+    var latitude: Double {get}
 }
 
 @objc(Locatic)
-class Locatic: DB_LocalItem, LocaticData {}
+class Locatic: DB_LocalItem, LocaticData {
+    @NSManaged public var name: String
+    @NSManaged public var radius: Float
+    @NSManaged public var longitude: Double
+    @NSManaged public var latitude: Double
+}
