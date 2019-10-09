@@ -140,10 +140,28 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertTrue(mockLocaticsMainViewModel.calledAddLocaticWasTapped)
     }
 
+    func test_addLocaticTapped_callsClearValuesOnAddLocaticCardView() {
+        let mockAddLocaticCardView = MockAddLocaticCardView(frame: CGRect.zero)
+        sut.addLocaticCardView = mockAddLocaticCardView
+
+        sut.addLocaticTapped(UIButton())
+
+        XCTAssertTrue(mockAddLocaticCardView.calledClearValues)
+    }
+
     func test_closeLocaticCardViewTapped_callsViewModelCloseLocaticWasTapped() {
         sut.closeLocaticCardViewTapped(UIButton())
 
         XCTAssertTrue(mockLocaticsMainViewModel.calledCloseLocaticCardViewWasTapped)
+    }
+
+    func test_closeLocaticCardViewTapped_callsClearValuesOnAddLocaticCardView() {
+        let mockAddLocaticCardView = MockAddLocaticCardView(frame: CGRect.zero)
+        sut.addLocaticCardView = mockAddLocaticCardView
+
+        sut.closeLocaticCardViewTapped(UIButton())
+
+        XCTAssertTrue(mockAddLocaticCardView.calledClearValues)
     }
 
     func test_shouldHideAddLocaticViewsTrue_hidesAddLocaticViews() {
@@ -257,6 +275,15 @@ private extension LocaticsMapViewControllerTests {
 
         override func removeAddLocaticRadiusAnnotation() {
             calledRemoveAddLocaticRadiusAnnotation = true
+        }
+    }
+
+    class MockAddLocaticCardView: AddLocaticCardView {
+        var calledClearValues = false
+
+        override func clearValues() {
+            calledClearValues = true
+            super.clearValues()
         }
     }
 }

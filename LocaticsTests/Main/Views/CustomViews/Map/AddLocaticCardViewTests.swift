@@ -110,6 +110,14 @@ class AddLocaticCardViewTests: XCTestCase {
         XCTAssertEqual(mockAddLocaticViewModel.locaticNameValue, locaticNameValue)
         XCTAssertEqual(mockAddLocaticViewModel.radiusValue, radiusValue)
     }
+
+    func test_clearValues_resetsOutlets() {
+        sut.clearValues()
+
+        XCTAssertEqual(sut.locaticNameTextField.text, "")
+        XCTAssertEqual(sut.radiusLabel.text, "Radius")
+        XCTAssertEqual(sut.radiusSlider.value, 0.0)
+    }
 }
 
 private extension AddLocaticCardViewTests {

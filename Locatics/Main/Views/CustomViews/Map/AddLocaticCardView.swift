@@ -50,6 +50,12 @@ class AddLocaticCardView: UIView {
         addLocaticViewModel?.addLocaticWasTapped(locaticName: locaticNameTextField.text,
                                                  radius: radiusSlider.value)
     }
+
+    func clearValues() {
+        self.locaticNameTextField.text = nil
+        self.radiusLabel.text = "Radius"
+        self.radiusSlider.value = 0.0
+    }
 }
 
 private extension AddLocaticCardView {

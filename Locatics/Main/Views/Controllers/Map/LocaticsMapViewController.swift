@@ -38,10 +38,12 @@ class LocaticsMapViewController: UIViewController {
 
     @IBAction func addLocaticTapped(_ sender: Any) {
         locaticsMainViewModel?.addLocaticWasTapped()
+        addLocaticCardView.clearValues()
     }
 
     @IBAction func closeLocaticCardViewTapped(_ sender: Any) {
         locaticsMainViewModel?.closeLocaticCardViewWasTapped()
+        addLocaticCardView.clearValues()
     }
 }
 
