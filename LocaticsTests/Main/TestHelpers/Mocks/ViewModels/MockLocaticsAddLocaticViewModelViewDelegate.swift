@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable type_name
+
 @testable import Locatics
 class MockLocaticsAddLocaticViewModelViewDelegate: LocaticsMainAddLocaticViewModelViewDelegate {
     var calledShouldHideAddLocaticViews = false
