@@ -9,9 +9,6 @@
 import MapKit
 
 class LocaticsMapView: MKMapView {
-    var addLocaticMapRadiusCircle: MKCircle?
-    var addLocaticMapCircleRadius: Double?
-
     var locaticsMapViewModel: LocaticsMapViewModelInterface? {
         didSet {
             locaticsMapViewModel?.viewDelegate = self
@@ -19,9 +16,8 @@ class LocaticsMapView: MKMapView {
         }
     }
 
-    func goToUserRegion() {
-        locaticsMapViewModel?.goToUserRegion()
-    }
+    var addLocaticMapRadiusCircle: MKCircle?
+    var addLocaticMapCircleRadius: Double?
 
     func removeAddLocaticRadiusAnnotation() {
         guard let addLocaticMapRadiusCircle = addLocaticMapRadiusCircle else {
@@ -38,10 +34,12 @@ private extension LocaticsMapView {
         self.delegate = self
         self.showsUserLocation = true
         self.tintColor = UIColor(colorTheme: .Interactable_Secondary)
-        register(LocaticMarkerAnnotationView.self,
+
+        self.register(LocaticMarkerAnnotationView.self,
                  forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        register(LocaticClusterMarkerView.self,
+        self.register(LocaticClusterMarkerView.self,
                  forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+
         locaticsMapViewModel?.getAllLocatics()
     }
 }
@@ -71,11 +69,11 @@ extension LocaticsMapView: LocaticsMapViewModelViewDelegate, AddLocaticMapRadius
         pointAnnotation.coordinate = Coordinate(latitude: locatic.latitude,
                                                 longitude: locatic.longitude)
 
-        let pinAnnotationView = LocaticMarkerAnnotationView(annotation: pointAnnotation,
+        let locaticMarkerAnnotationView = LocaticMarkerAnnotationView(annotation: pointAnnotation,
                                                             reuseIdentifier: "LocaticMarkerAnnotationView")
-//        pinAnnotationView.image = UIImage(named: "addL") // MARK: - TODO
+        locaticMarkerAnnotationView.image = UIImage(named: "\(locatic.iconPath)")
 
-        addAnnotation(pinAnnotationView.annotation!)
+        addAnnotation(locaticMarkerAnnotationView.annotation!)
     }
 }
 
@@ -91,6 +89,10 @@ extension LocaticsMapView: MKMapViewDelegate {
         guard addLocaticMapRadiusCircle != nil else { return }
         removeAddLocaticRadiusAnnotation()
         setupAddLocaticMapRadiusCircle()
+    }
+
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        locaticsMapViewModel?.goToUserRegion(force: false)
     }
 }
 

@@ -50,12 +50,6 @@ class LocaticsMapViewTests: XCTestCase {
                        UIColor(colorTheme: .Interactable_Secondary))
     }
 
-    func test_goToUserRegion_callsGoToUserRegion() {
-        sut.goToUserRegion()
-
-        XCTAssertTrue(mockLocaticsMapViewModel.calledGoToUserRegion)
-    }
-
     func test_zoomToUserLocation_updatesMapRegion() {
         let oldRegion = MKCoordinateRegion(center:
             CLLocationCoordinate2D(latitude: 10,
@@ -96,6 +90,32 @@ class LocaticsMapViewTests: XCTestCase {
                        mockLocaticsMapViewModel.getLocationPinCoordinate().longitude)
     }
 
+    func test_addLocaticMapAnnotation_addsLocaticMarkerAnnotationView() {
+        let locatic = MockLocatic()
+        locatic.iconPath = "addLocaticButtonIcon"
+
+        sut.addLocaticMapAnnotation(locatic)
+
+        XCTAssertEqual(sut.annotations.count, 1)
+    }
+
+    func test_addLocaticMapAnnotation_addsLocaticMarkerAnnotationViewWithValues() {
+        let locatic = MockLocatic()
+        locatic.iconPath = "addLocaticButtonIcon"
+
+        sut.addLocaticMapAnnotation(locatic)
+
+        guard let pointAnnotation = sut.annotations.first as? MKPointAnnotation else {
+            XCTFail("Annotation should be of type 'MKPointAnnotation'")
+            return
+        }
+        
+        XCTAssertEqual(pointAnnotation.coordinate.latitude,
+                       locatic.latitude)
+        XCTAssertEqual(pointAnnotation.coordinate.longitude,
+                       locatic.longitude)
+    }
+
     func test_mapViewRegionDidChange_callsSetupAddLocaticMapRadiusCircleIfNotNil() {
         sut.updatePinAnnotationRadius(toRadius: 20)
 
@@ -116,5 +136,17 @@ class LocaticsMapViewTests: XCTestCase {
         sut.mapView(sut, regionDidChangeAnimated: true)
 
         XCTAssertNil(sut.addLocaticMapRadiusCircle)
+    }
+
+    func test_mapViewDidFinishRenderingMap_callsGoToUserRegion() {
+        sut.mapViewDidFinishRenderingMap(sut, fullyRendered: true)
+
+        XCTAssertTrue(mockLocaticsMapViewModel.calledGoToUserRegion)
+    }
+
+    func test_mapViewDidFinishRenderingMap_callsGoToUserRegionWithoutForce() {
+        sut.mapViewDidFinishRenderingMap(sut, fullyRendered: true)
+
+        XCTAssertFalse(mockLocaticsMapViewModel.passedGoToUserRegionForce!)
     }
 }
