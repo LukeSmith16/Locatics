@@ -15,7 +15,7 @@ protocol AddLocaticMapRadiusAnnotationViewDelegate: class {
 protocol LocaticsMapViewModelInterface: AddLocaticMapRadiusAnnotationViewDelegate {
     var viewDelegate: LocaticsMapViewModelViewDelegate? {get set}
 
-    func goToUserRegion()
+    func goToUserRegion(force: Bool)
     func getLocationPinCoordinate() -> Coordinate
     func getAllLocatics()
 }
@@ -29,22 +29,22 @@ protocol LocaticsMapViewModelViewDelegate: AddLocaticMapRadiusAnnotationViewDele
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     weak var viewDelegate: LocaticsMapViewModelViewDelegate?
     weak var locationPinCoordinateDelegate: LocaticsMainLocationPinCoordinateDelegate?
+    weak var locaticsMainMapViewModelViewDelegate: LocaticsMainMapViewModelViewDelegate?
 
-    private let locaticStorage: LocaticStorageInterface!
-    private var locatics: [LocaticData] = [] {
-        didSet {
-            for locatic in self.locatics {
-                self.viewDelegate?.addLocaticMapAnnotation(locatic)
-            }
-        }
-    }
+    let locaticStorage: LocaticStorageInterface!
+    var locatics: [LocaticData] = []
+
+    private var didLocateUser: Bool = false
 
     init(locaticStorage: LocaticStorageInterface) {
         self.locaticStorage = locaticStorage
+        locaticStorage.persistentStorageObserver.add(self)
     }
 
-    func goToUserRegion() {
+    func goToUserRegion(force: Bool = false) {
+        guard !didLocateUser || force else { return }
         viewDelegate?.zoomToUserLocation(latMeters: 750, lonMeters: 750)
+        didLocateUser = true
     }
 
     func updatePinAnnotationRadius(toRadius radius: Double) {
@@ -56,13 +56,39 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
     }
 
     func getAllLocatics() {
-        locaticStorage.fetchLocatics(predicate: nil, sortDescriptors: nil) { (result) in
+        locaticStorage.fetchLocatics(predicate: nil, sortDescriptors: nil) { [weak self] (result) in
+            guard let `self` = self else { return }
+
             switch result {
             case .success(let success):
                 self.locatics = success
             case .failure(let failure):
-                print(failure.localizedDescription)
+                self.locaticsMainMapViewModelViewDelegate?.showAlert(title: "Error fetching Locatics",
+                                                                     message: failure.localizedDescription)
             }
         }
+    }
+}
+
+private extension LocaticsMapViewModel {
+    func handleLocaticsUpdated() {
+        for locatic in locatics {
+            self.viewDelegate?.addLocaticMapAnnotation(locatic)
+        }
+    }
+}
+
+extension LocaticsMapViewModel: LocaticPersistentStorageDelegate {
+    func locaticWasInserted(_ insertedLocatic: LocaticData) {
+        locatics.append(insertedLocatic)
+        viewDelegate?.addLocaticMapAnnotation(insertedLocatic)
+    }
+
+    func locaticWasUpdated(_ updatedLocatic: LocaticData) {
+
+    }
+
+    func locaticWasDeleted(_ deletedLocatic: LocaticData) {
+
     }
 }
