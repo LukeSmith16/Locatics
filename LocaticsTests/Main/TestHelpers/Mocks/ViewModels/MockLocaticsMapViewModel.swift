@@ -19,8 +19,10 @@ class MockLocaticsMapViewModel: LocaticsMapViewModelInterface {
 
     var coordinate = Coordinate(latitude: 50, longitude: 25)
 
-    func goToUserRegion() {
+    var passedGoToUserRegionForce: Bool?
+    func goToUserRegion(force: Bool = false) {
         calledGoToUserRegion = true
+        passedGoToUserRegionForce = force
     }
 
     var updatePinAnnotationRadiusPassedValue: Double?
