@@ -144,6 +144,9 @@
 		07BC2C91234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C90234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift */; };
 		07BC2C93234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C92234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift */; };
 		07BC2C95234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C94234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift */; };
+		07BC2C97234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C96234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift */; };
+		07BC2C99234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C98234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift */; };
+		07BC2C9B234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C9A234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift */; };
 		07F49EB6233FC9F000F076E5 /* LocaticStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */; };
 		07F49EB9233FD06600F076E5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */; };
 		07F49EBB2340D3FA00F076E5 /* MockStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */; };
@@ -328,6 +331,9 @@
 		07BC2C90234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticPinLocationDelegate.swift; sourceTree = "<group>"; };
 		07BC2C92234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsAddLocaticViewModelViewDelegate.swift; sourceTree = "<group>"; };
 		07BC2C94234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMainViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C96234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticMarkerAnnotationViewTests.swift; sourceTree = "<group>"; };
+		07BC2C98234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticClusterMarkerViewTests.swift; sourceTree = "<group>"; };
+		07BC2C9A234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMainMapViewModelViewDelegate.swift; sourceTree = "<group>"; };
 		07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticStorage.swift; sourceTree = "<group>"; };
 		07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageManager.swift; sourceTree = "<group>"; };
@@ -1126,10 +1132,10 @@
 		079A444D234A2767000EA2EF /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				073F2837232D4457003137D4 /* AddLocaticCardView.swift */,
 				079A4451234A2799000EA2EF /* LocaticsMapView.swift */,
 				07BC2C43234EB99900D169E9 /* LocaticMarkerAnnotationView.swift */,
 				07BC2C45234EB9C100D169E9 /* LocaticClusterMarkerView.swift */,
-				073F2837232D4457003137D4 /* AddLocaticCardView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1144,8 +1150,10 @@
 		079A444F234A277C000EA2EF /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */,
 				073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */,
+				079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */,
+				07BC2C96234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift */,
+				07BC2C98234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1242,6 +1250,7 @@
 				07BC2C90234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift */,
 				07BC2C92234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift */,
 				07BC2C94234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift */,
+				07BC2C9A234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1803,6 +1812,7 @@
 			files = (
 				0773F77B2323172800EA62E1 /* LocaticsViewModelTests.swift in Sources */,
 				07BC2C89234FBB2D00D169E9 /* MockLocaticsMapViewModelViewDelegate.swift in Sources */,
+				07BC2C9B234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift in Sources */,
 				07BC2C7F234FBA7300D169E9 /* MockTabBarControllerClosure.swift in Sources */,
 				07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */,
 				074985332337A1BD00B054E2 /* DB_LocalItemTests.swift in Sources */,
@@ -1822,6 +1832,7 @@
 				07BC2C87234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift in Sources */,
 				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
 				07BC2C6B234FB8B600D169E9 /* MockLocaticsMainViewModel.swift in Sources */,
+				07BC2C99234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift in Sources */,
 				0773F7872323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift in Sources */,
 				0773F7B423257E0500EA62E1 /* LocationTests.swift in Sources */,
 				07BC2C85234FBAEF00D169E9 /* MockLocatic.swift in Sources */,
@@ -1882,6 +1893,7 @@
 				0759E895231BF0EF00AA987B /* UIColor+ExtensionsTests.swift in Sources */,
 				07BC2C7D234FBA4200D169E9 /* MockLocationManagerDelegate.swift in Sources */,
 				0759E899231BF86100AA987B /* AppTests.swift in Sources */,
+				07BC2C97234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift in Sources */,
 				07F49EBB2340D3FA00F076E5 /* MockStorageManager.swift in Sources */,
 				07BC2C5B234FB7BE00D169E9 /* MockLocationProviderPermissions.swift in Sources */,
 				07BC2C7B234FBA2300D169E9 /* MockLocationGeocoder.swift in Sources */,
