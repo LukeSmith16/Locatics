@@ -31,9 +31,12 @@ protocol LocaticsMainAddLocaticViewModelViewDelegate: LocaticsMainLocationPinCoo
     func shouldHideAddLocaticViews(_ shouldHide: Bool)
 }
 
-protocol LocaticsMainViewModelViewDelegate: class {
-    func setNavigationTitle(_ title: String)
+protocol LocaticsMainMapViewModelViewDelegate: class {
     func showAlert(title: String, message: String)
+}
+
+protocol LocaticsMainViewModelViewDelegate: LocaticsMainMapViewModelViewDelegate {
+    func setNavigationTitle(_ title: String)
     func hideTabBar(_ shouldHide: Bool)
 }
 
@@ -69,7 +72,7 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
     }
 
     func addLocaticWasTapped() {
-        locaticsMapViewModel?.goToUserRegion()
+        locaticsMapViewModel?.goToUserRegion(force: true)
         addLocaticViewDelegate?.shouldHideAddLocaticViews(false)
         viewDelegate?.hideTabBar(true)
     }
@@ -117,5 +120,11 @@ extension LocaticsMainViewModel: LocaticEntryValidationDelegate {
     func closeAddLocaticCardView() {
         addLocaticViewDelegate?.shouldHideAddLocaticViews(true)
         viewDelegate?.hideTabBar(false)
+    }
+}
+
+extension LocaticsMainViewModel: LocaticsMainMapViewModelViewDelegate {
+    func showAlert(title: String, message: String) {
+        viewDelegate?.showAlert(title: title, message: message)
     }
 }

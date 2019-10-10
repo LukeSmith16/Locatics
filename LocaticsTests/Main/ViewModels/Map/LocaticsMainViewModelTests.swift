@@ -124,6 +124,12 @@ class LocaticsMainViewModelTests: XCTestCase {
         XCTAssertTrue(mockLocaticsViewModelViewObserver.hideTabBarPassedValue!)
     }
 
+    func test_addLocaticWasTapped_callsGoToUserRegionForced() {
+        sut.addLocaticWasTapped()
+
+        XCTAssertTrue(mockLocaticsMapViewModel.passedGoToUserRegionForce!)
+    }
+
     func test_validationErrorOccured_callsShowAlert() {
         sut.validationErrorOccured("Error in adding Locatic")
 
@@ -174,5 +180,18 @@ class LocaticsMainViewModelTests: XCTestCase {
         XCTAssertTrue(mockLocaticsMapViewModel.calledUpdatePinAnnotationRadius)
         XCTAssertEqual(mockLocaticsMapViewModel.updatePinAnnotationRadiusPassedValue!,
                        30)
+    }
+
+    func test_showAlert_callsViewDelegateShowAlert() {
+        sut.showAlert(title: "", message: "")
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+    }
+
+    func test_showAlert_passesViewDelegateShowAlertValues() {
+        sut.showAlert(title: "MyTitle", message: "MyMessage")
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!, "MyTitle")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!, "MyMessage")
     }
 }
