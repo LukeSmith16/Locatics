@@ -10,12 +10,7 @@ import Foundation
 
 @testable import Locatics
 class MockMapView: LocaticsMapView {
-    var calledGoToUserRegion = false
     var calledRemoveAddLocaticRadiusAnnotation = false
-
-    override func goToUserRegion() {
-        calledGoToUserRegion = true
-    }
 
     override func removeAddLocaticRadiusAnnotation() {
         calledRemoveAddLocaticRadiusAnnotation = true
