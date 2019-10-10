@@ -31,11 +31,6 @@ class LocaticsMapViewController: UIViewController {
         setupMapView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        goToUserRegion()
-    }
-
     @IBAction func addLocaticTapped(_ sender: Any) {
         locaticsMainViewModel?.addLocaticWasTapped()
         addLocaticCardView.clearValues()
@@ -60,10 +55,6 @@ private extension LocaticsMapViewController {
 
     func setupMapView() {
         self.mapView.locaticsMapViewModel = locaticsMainViewModel?.locaticsMapViewModel
-    }
-
-    func goToUserRegion() {
-        self.mapView.goToUserRegion()
     }
 }
 

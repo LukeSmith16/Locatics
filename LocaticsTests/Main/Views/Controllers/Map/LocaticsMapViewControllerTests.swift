@@ -68,12 +68,6 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.closeLocaticCardViewButton.isHidden)
     }
 
-    func test_viewDidAppear_callsGoToUserRegion() {
-        sut.viewDidAppear(true)
-
-        XCTAssertTrue(mockMapView.calledGoToUserRegion)
-    }
-
     func test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel() {
         XCTAssertTrue(mockLocaticsMainViewModel.calledGetMainTitle)
         XCTAssertTrue(mockLocaticsMainViewModel.calledGetSubtitle)
