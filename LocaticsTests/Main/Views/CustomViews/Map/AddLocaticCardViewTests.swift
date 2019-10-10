@@ -87,6 +87,21 @@ class AddLocaticCardViewTests: XCTestCase {
         XCTAssertEqual(mockAddLocaticViewModel.radiusDidChangeValue!, sut.radiusSlider.value)
     }
 
+    func test_locaticIconButtonTapped_callsLocaticIconDidChange() {
+        sut.locaticIconButtonTapped(UIButton())
+
+        XCTAssert(mockAddLocaticViewModel.calledLocaticIconDidChange)
+    }
+
+    func test_locaticIconButtonTapped_passesButtonTag() {
+        let button = UIButton()
+        button.tag = 5
+
+        sut.locaticIconButtonTapped(button)
+
+        XCTAssertEqual(button.tag, mockAddLocaticViewModel.passedTagValue!)
+    }
+
     func test_settingAddLocaticViewModel_setsViewDelegate() {
         XCTAssertNotNil(sut.addLocaticViewModel)
         XCTAssertNotNil(sut.addLocaticViewModel!.viewDelegate)
