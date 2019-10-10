@@ -28,9 +28,13 @@ final class LocaticClusterMarkerView: MKAnnotationView {
 
 private extension LocaticClusterMarkerView {
     func configure(with annotation: MKAnnotation) {
-        guard let annotation = annotation as? MKClusterAnnotation else { return }
+        guard let annotation = annotation as? MKClusterAnnotation else {
+            return
+        }
+
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 40.0, height: 40.0))
         let count = annotation.memberAnnotations.count
+
         image = renderer.image { _ in
             UIColor.purple.setFill()
             UIBezierPath(ovalIn: CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)).fill()
