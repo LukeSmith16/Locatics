@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable type_name
+
 @testable import Locatics
 class MockLocaticsMainLocationPinCoordinateDelegate: LocaticsMainLocationPinCoordinateDelegate {
     var calledGetPinCurrentLocationCoordinate = false

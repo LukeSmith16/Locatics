@@ -109,7 +109,7 @@ class LocaticsMapViewTests: XCTestCase {
             XCTFail("Annotation should be of type 'MKPointAnnotation'")
             return
         }
-        
+
         XCTAssertEqual(pointAnnotation.coordinate.latitude,
                        locatic.latitude)
         XCTAssertEqual(pointAnnotation.coordinate.longitude,
