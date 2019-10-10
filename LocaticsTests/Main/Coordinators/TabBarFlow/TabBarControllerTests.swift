@@ -120,42 +120,4 @@ class TabBarControllerTests: XCTestCase {
         XCTAssertTrue(mockTabBarControllerClosures.calledOnLocaticsFlowSelect)
         XCTAssertNotNil(mockTabBarControllerClosures.calledController)
     }
-
-//    func test_setupInitialTabSelected_fatalErrorWhenViewControllersIsNil() {
-//        sut.viewControllers = nil
-//
-//        let expected = "Could not get initial NavController from main.storyboard"
-//        expectFatalError(expectedMessage: expected) { [weak self] in
-//            DispatchQueue.main.async {
-//                self?.sut.viewDidLoad()
-//            }
-//        }
-//    }
-}
-
-private extension TabBarControllerTests {
-    class MockTabBarControllerClosure {
-        var calledOnMapFlowSelect = false
-        var calledOnLocaticsFlowSelect = false
-
-        var calledController: UINavigationController?
-
-        func addMapSelectClosure(sut: TabBarController) {
-            sut.onMapFlowSelect = { [weak self] navController in
-                guard let `self` = self else { return }
-
-                self.calledOnMapFlowSelect = true
-                self.calledController = navController
-            }
-        }
-
-        func addLocaticsSelectClosure(sut: TabBarController) {
-            sut.onLocaticsFlowSelect = { [weak self] navController in
-                guard let `self` = self else { return }
-
-                self.calledOnLocaticsFlowSelect = true
-                self.calledController = navController
-            }
-        }
-    }
 }

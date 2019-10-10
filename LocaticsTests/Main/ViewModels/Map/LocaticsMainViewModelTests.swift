@@ -10,7 +10,6 @@ import XCTest
 import CoreLocation
 
 // swiftlint:disable identifier_name
-// swiftlint:disable type_name
 
 @testable import Locatics
 class LocaticsMainViewModelTests: XCTestCase {
@@ -173,72 +172,7 @@ class LocaticsMainViewModelTests: XCTestCase {
         sut.updatePinAnnotationRadius(toRadius: 30)
 
         XCTAssertTrue(mockLocaticsMapViewModel.calledUpdatePinAnnotationRadius)
-        XCTAssertEqual(mockLocaticsMapViewModel.updatePinRadiusPassedRadius!,
+        XCTAssertEqual(mockLocaticsMapViewModel.updatePinAnnotationRadiusPassedValue!,
                        30)
-    }
-}
-
-private extension LocaticsMainViewModelTests {
-    class MockLocaticsMainViewModelViewDelegate: LocaticsMainViewModelViewDelegate {
-        var calledSetNavigationTitle = false
-        var calledShowAlert = false
-        var calledHideTabBar = false
-
-        func setNavigationTitle(_ title: String) {
-            calledSetNavigationTitle = true
-        }
-
-        var passedTitle: String?
-        var passedMessage: String?
-        func showAlert(title: String, message: String) {
-            self.passedTitle = title
-            self.passedMessage = message
-
-            calledShowAlert = true
-        }
-
-        var hideTabBarPassedValue: Bool?
-        func hideTabBar(_ shouldHide: Bool) {
-            calledHideTabBar = true
-            hideTabBarPassedValue = shouldHide
-        }
-    }
-
-    class MockLocaticsAddLocaticViewModelViewDelegate: LocaticsMainAddLocaticViewModelViewDelegate {
-        var calledShouldHideAddLocaticViews = false
-        var calledGetLocationPinCoordinate = false
-
-        func getPinCurrentLocationCoordinate() -> Coordinate {
-            calledGetLocationPinCoordinate = true
-            return Coordinate(latitude: 25.0, longitude: 20.0)
-        }
-
-        var shouldHideValue: Bool?
-        func shouldHideAddLocaticViews(_ shouldHide: Bool) {
-            calledShouldHideAddLocaticViews = true
-            shouldHideValue = shouldHide
-        }
-    }
-
-    class MockLocaticsMapViewModel: LocaticsMapViewModelInterface {
-        var calledGoToUserRegion = false
-        var calledUpdatePinAnnotationRadius = false
-
-        weak var viewDelegate: LocaticsMapViewModelViewDelegate?
-        weak var addLocaticViewDelegate: AddLocaticMapRadiusAnnotationViewDelegate?
-
-        func goToUserRegion() {
-            calledGoToUserRegion = true
-        }
-
-        var updatePinRadiusPassedRadius: Double?
-        func updatePinAnnotationRadius(toRadius radius: Double) {
-            calledUpdatePinAnnotationRadius = true
-            updatePinRadiusPassedRadius = radius
-        }
-
-        func getLocationPinCoordinate() -> Coordinate {
-            return Coordinate(latitude: 20, longitude: 20)
-        }
     }
 }

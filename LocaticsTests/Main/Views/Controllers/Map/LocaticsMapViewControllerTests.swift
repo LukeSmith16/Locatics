@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreData
 
 @testable import Locatics
 class LocaticsMapViewControllerTests: XCTestCase {
@@ -206,84 +207,5 @@ class LocaticsMapViewControllerTests: XCTestCase {
         sut.hideTabBar(false)
 
         XCTAssertFalse(sut.tabBarController!.tabBar.isHidden)
-    }
-}
-
-private extension LocaticsMapViewControllerTests {
-    class MockLocaticsMainViewModel: LocaticsMainViewModelInterface {
-
-        var calledGetMainTitle = false
-        var calledGetSubtitle = false
-        var calledAddLocaticWasTapped = false
-        var calledCloseLocaticCardViewWasTapped = false
-
-        weak var viewDelegate: LocaticsMainViewModelViewDelegate?
-        weak var addLocaticViewDelegate: LocaticsMainAddLocaticViewModelViewDelegate?
-
-        var addLocaticViewModel: AddLocaticViewModelInterface? {
-            return AddLocaticViewModel(locaticStorage: MockLocaticStorage())
-        }
-
-        var locaticsMapViewModel: LocaticsMapViewModelInterface? {
-            return LocaticsMapViewModel()
-        }
-
-        func getMainTitle() -> String {
-            calledGetMainTitle = true
-            return "The main title"
-        }
-
-        func getSubtitle() -> String {
-            calledGetSubtitle = true
-            return "the subtitle"
-        }
-
-        func addLocaticWasTapped() {
-            calledAddLocaticWasTapped = true
-        }
-
-        func closeLocaticCardViewWasTapped() {
-            calledCloseLocaticCardViewWasTapped = true
-        }
-    }
-
-    class MockNavigationTitleView: NavigationTitleViewInterface {
-        var calledSetNewTitle = false
-        var calledSetNewSubtitle = false
-
-        var setNewTitleValue = ""
-        var setNewSubTitleValue = ""
-
-        func setNewTitle(_ title: String?) {
-            calledSetNewTitle = true
-            setNewTitleValue = title ?? ""
-        }
-
-        func setNewSubtitle(_ subtitle: String?) {
-            calledSetNewSubtitle = true
-            setNewSubTitleValue = subtitle ?? ""
-        }
-    }
-
-    class MockMapView: LocaticsMapView {
-        var calledGoToUserRegion = false
-        var calledRemoveAddLocaticRadiusAnnotation = false
-
-        override func goToUserRegion() {
-            calledGoToUserRegion = true
-        }
-
-        override func removeAddLocaticRadiusAnnotation() {
-            calledRemoveAddLocaticRadiusAnnotation = true
-        }
-    }
-
-    class MockAddLocaticCardView: AddLocaticCardView {
-        var calledClearValues = false
-
-        override func clearValues() {
-            calledClearValues = true
-            super.clearValues()
-        }
     }
 }

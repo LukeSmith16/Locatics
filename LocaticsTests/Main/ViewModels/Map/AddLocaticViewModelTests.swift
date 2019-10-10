@@ -59,6 +59,30 @@ class AddLocaticViewModelTests: XCTestCase {
         XCTAssertEqual(mockAddLocaticViewModelObserver.changeRadiusTextValue!, "Radius: 10 meters")
     }
 
+    func test_locaticIconDidChange_updatesLocaticIconPathWithTagZero() {
+        sut.locaticIconDidChange(0)
+
+        sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
+
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "addLocaticButtonIcon")
+    }
+
+    func test_locaticIconDidChange_updatesLocaticIconPathWithTagOne() {
+        sut.locaticIconDidChange(1)
+
+        sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
+
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "test")
+    }
+
+    func test_locaticIconDidChange_withInvalidTagUsesDefaultIconPath() {
+        sut.locaticIconDidChange(10)
+
+        sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
+
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "defaultPath")
+    }
+
     func test_validateLocaticName_throwsErrorWhenNameIsNil() {
         XCTAssertThrowsError(try sut.validateLocaticName(nil)) { error in
             guard let error = error as? AddLocaticEntryValidation else {
@@ -180,48 +204,5 @@ class AddLocaticViewModelTests: XCTestCase {
 
         XCTAssertTrue(mockLocaticPinLocationObserver.calledUpdatePinRadius)
         XCTAssertEqual(mockLocaticPinLocationObserver.newRadius!, 5)
-    }
-}
-
-private extension AddLocaticViewModelTests {
-    class MockAddLocaticViewModelViewDelegate: AddLocaticViewModelViewDelegate {
-        var calledChangeRadiusText = false
-
-        var changeRadiusTextValue: String?
-        func changeRadiusText(_ newRadiusText: String) {
-            calledChangeRadiusText = true
-            changeRadiusTextValue = newRadiusText
-        }
-    }
-
-    class MockLocaticEntryValidationDelegate: LocaticEntryValidationDelegate {
-        var calledValidationErrorOccured = false
-        var calledCloseAddLocaticCardView = false
-
-        var errorValue: String?
-        func validationErrorOccured(_ error: String) {
-            calledValidationErrorOccured = true
-            errorValue = error
-        }
-
-        func closeAddLocaticCardView() {
-            calledCloseAddLocaticCardView = true
-        }
-    }
-
-    class MockLocaticPinLocationDelegate: LocaticPinLocationDelegate {
-        var calledGetPinCurrentLocationCoordinate = false
-        var calledUpdatePinRadius = false
-
-        func getPinCurrentLocationCoordinate() -> Coordinate {
-            calledGetPinCurrentLocationCoordinate = true
-            return Coordinate(latitude: 25.0, longitude: 51.5)
-        }
-
-        var newRadius: Double?
-        func updatePinAnnotationRadius(toRadius radius: Double) {
-            calledUpdatePinRadius = true
-            newRadius = radius
-        }
     }
 }

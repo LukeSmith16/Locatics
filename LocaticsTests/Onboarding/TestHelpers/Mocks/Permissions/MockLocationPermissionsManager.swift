@@ -35,16 +35,3 @@ class MockLocationPermissionsManager: LocationPermissionsManagerInterface {
         return authorizePermsState
     }
 }
-
-class MockLocationPermissionsManagerDelegate: LocationPermissionsManagerDelegate {
-    var calledPermissionsGranted = false
-    var calledPermissionsDenied = false
-
-    func permissionsGranted() {
-        calledPermissionsGranted = true
-    }
-
-    func permissionsDenied() {
-        calledPermissionsDenied = true
-    }
-}

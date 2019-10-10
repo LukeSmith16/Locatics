@@ -101,6 +101,7 @@ class LocaticsMapViewTests: XCTestCase {
 
         let newRegionCoordinate = Coordinate(latitude: 15, longitude: 20)
         mockLocaticsMapViewModel.coordinate = newRegionCoordinate
+
         sut.mapView(sut, regionDidChangeAnimated: true)
 
         XCTAssertEqual(sut.addLocaticMapRadiusCircle!.coordinate.latitude,
@@ -115,32 +116,5 @@ class LocaticsMapViewTests: XCTestCase {
         sut.mapView(sut, regionDidChangeAnimated: true)
 
         XCTAssertNil(sut.addLocaticMapRadiusCircle)
-    }
-}
-
-private extension LocaticsMapViewTests {
-    class MockLocaticsMapViewModel: LocaticsMapViewModelInterface {
-        var calledGoToUserRegion = false
-        var calledUpdatePinAnnotationRadius = false
-        var calledGetLocationPinCoordinate = false
-
-        weak var viewDelegate: LocaticsMapViewModelViewDelegate?
-
-        var coordinate = Coordinate(latitude: 50, longitude: 25)
-
-        func goToUserRegion() {
-            calledGoToUserRegion = true
-        }
-
-        var updatePinAnnotationRadiusPassedValue: Double?
-        func updatePinAnnotationRadius(toRadius radius: Double) {
-            updatePinAnnotationRadiusPassedValue = radius
-            calledUpdatePinAnnotationRadius = true
-        }
-
-        func getLocationPinCoordinate() -> Coordinate {
-            calledGetLocationPinCoordinate = true
-            return coordinate
-        }
     }
 }

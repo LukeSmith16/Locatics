@@ -119,27 +119,3 @@ class AddLocaticCardViewTests: XCTestCase {
         XCTAssertEqual(sut.radiusSlider.value, 0.0)
     }
 }
-
-private extension AddLocaticCardViewTests {
-    class MockAddLocaticViewModel: AddLocaticViewModelInterface {
-
-        var calledAddLocaticWasTapped = false
-        var calledRadiusDidChange = false
-
-        weak var viewDelegate: AddLocaticViewModelViewDelegate?
-
-        var locaticNameValue: String?
-        var radiusValue: Float?
-        func addLocaticWasTapped(locaticName: String?, radius: Float) {
-            calledAddLocaticWasTapped = true
-            locaticNameValue = locaticName
-            radiusValue = radius
-        }
-
-        var radiusDidChangeValue: Float?
-        func radiusDidChange(_ newValue: Float) {
-            calledRadiusDidChange = true
-            radiusDidChangeValue = newValue
-        }
-    }
-}

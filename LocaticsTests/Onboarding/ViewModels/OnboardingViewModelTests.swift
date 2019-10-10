@@ -175,13 +175,3 @@ extension OnboardingViewModelTests: OnboardingViewModelCoordinatorDelegate {
         expectation?.fulfill()
     }
 }
-
-private extension OnboardingViewModelTests {
-    class MockOnboardingViewModelViewDelegate: OnboardingViewModelViewDelegate {
-        var calledLocationPermissionsWereDenied = false
-
-        func locationPermissionsWereDenied() {
-            calledLocationPermissionsWereDenied = true
-        }
-    }
-}

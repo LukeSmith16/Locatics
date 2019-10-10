@@ -65,30 +65,3 @@ class LocationsStorageTests: XCTestCase {
         XCTAssertEqual(sut.lastVisitedLocation!.longitude, visitedLocation.coordinate.longitude)
     }
 }
-
-private extension LocationsStorageTests {
-    class MockAppFileSystem: AppFileSystemInterface {
-        var calledDocumentsDirectoryURL = false
-        var calledDeleteAllFiles = false
-        var calledWriteFile = false
-        var calledContentsOfDirectory = false
-
-        func documentsDirectoryURL() -> URL {
-            calledDocumentsDirectoryURL = true
-            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        }
-
-        func deleteAllFiles(at path: AppDirectories) {
-            calledDeleteAllFiles = true
-        }
-
-        func writeFile<T>(containing: T, to url: URL) where T: Decodable, T: Encodable {
-            calledWriteFile = true
-        }
-
-        func contentsOfDirectory(_ url: URL) -> [URL] {
-            calledContentsOfDirectory = true
-            return []
-        }
-    }
-}

@@ -54,19 +54,3 @@ class LocationPermissionsManagerTests: XCTestCase {
         XCTAssertTrue(mockLocationProviderPermissions.calledRequestAlwaysAuthorization)
     }
 }
-
-private extension LocationPermissionsManagerTests {
-    class MockLocationProviderPermissions: LocationProviderPermissionsInterface {
-        var calledRequestAlwaysAuthorization = false
-
-        weak var delegate: CLLocationManagerDelegate?
-
-        static func authorizationStatus() -> CLAuthorizationStatus {
-            return .authorizedAlways
-        }
-
-        func requestAlwaysAuthorization() {
-            calledRequestAlwaysAuthorization = true
-        }
-    }
-}

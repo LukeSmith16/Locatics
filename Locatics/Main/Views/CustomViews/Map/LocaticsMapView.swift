@@ -38,6 +38,11 @@ private extension LocaticsMapView {
         self.delegate = self
         self.showsUserLocation = true
         self.tintColor = UIColor(colorTheme: .Interactable_Secondary)
+        register(LocaticMarkerAnnotationView.self,
+                 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        register(LocaticClusterMarkerView.self,
+                 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+        locaticsMapViewModel?.getAllLocatics()
     }
 }
 
@@ -59,6 +64,18 @@ extension LocaticsMapView: LocaticsMapViewModelViewDelegate, AddLocaticMapRadius
         removeAddLocaticRadiusAnnotation()
         self.addLocaticMapCircleRadius = radius
         setupAddLocaticMapRadiusCircle()
+    }
+
+    func addLocaticMapAnnotation(_ locatic: LocaticData) {
+        let pointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = Coordinate(latitude: locatic.latitude,
+                                                longitude: locatic.longitude)
+
+        let pinAnnotationView = LocaticMarkerAnnotationView(annotation: pointAnnotation,
+                                                            reuseIdentifier: "LocaticMarkerAnnotationView")
+//        pinAnnotationView.image = UIImage(named: "addL") // MARK: - TODO
+
+        addAnnotation(pinAnnotationView.annotation!)
     }
 }
 

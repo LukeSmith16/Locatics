@@ -8,7 +8,6 @@
 
 import XCTest
 
-// swiftlint:disable type_name
 // swiftlint:disable identifier_name
 
 @testable import Locatics
@@ -20,7 +19,7 @@ class LocaticsMapViewModelTests: XCTestCase {
     private var mockLocaticsMainLocationPinCoordinateObserver: MockLocaticsMainLocationPinCoordinateDelegate!
 
     override func setUp() {
-        sut = LocaticsMapViewModel()
+        sut = LocaticsMapViewModel(locaticStorage: MockLocaticStorage())
 
         mockLocaticsMapViewModelViewObserver = MockLocaticsMapViewModelViewDelegate()
         mockLocaticsMainLocationPinCoordinateObserver = MockLocaticsMainLocationPinCoordinateDelegate()
@@ -62,45 +61,5 @@ class LocaticsMapViewModelTests: XCTestCase {
 
         XCTAssertEqual(result.latitude, 10)
         XCTAssertEqual(result.longitude, 7)
-    }
-}
-
-private extension LocaticsMapViewModelTests {
-    class MockLocaticsMapViewModelViewDelegate: LocaticsMapViewModelViewDelegate {
-        var calledZoomToUserLocation = false
-        var calledUpdateMapRegion = false
-        var calledUpdatePinAnnotationRadius = false
-
-        var passedCoordinate: Coordinate?
-        var passedLatMeters: Double?
-        var passedLonMeters: Double?
-
-        func zoomToUserLocation(latMeters: Double, lonMeters: Double) {
-            calledZoomToUserLocation = true
-            passedLatMeters = latMeters
-            passedLonMeters = lonMeters
-        }
-
-        func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double) {
-            calledUpdateMapRegion = true
-            passedCoordinate = location
-            passedLatMeters = latMeters
-            passedLonMeters = lonMeters
-        }
-
-        var updatePinAnnotationRadiusPassedRadius: Double?
-        func updatePinAnnotationRadius(toRadius radius: Double) {
-            calledUpdatePinAnnotationRadius = true
-            updatePinAnnotationRadiusPassedRadius = radius
-        }
-    }
-
-    class MockLocaticsMainLocationPinCoordinateDelegate: LocaticsMainLocationPinCoordinateDelegate {
-        var calledGetPinCurrentLocationCoordinate = false
-
-        func getPinCurrentLocationCoordinate() -> Coordinate {
-            calledGetPinCurrentLocationCoordinate = true
-            return Coordinate(latitude: 10, longitude: 7)
-        }
     }
 }

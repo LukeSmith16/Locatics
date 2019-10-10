@@ -11,7 +11,6 @@ import Foundation
 // swiftlint:disable function_parameter_count
 
 @testable import Locatics
-
 class MockLocaticStorage: LocaticStorageInterface {
     var persistentStorageObserver = MulticastDelegate<LocaticPersistentStorageDelegate>()
 
@@ -37,10 +36,12 @@ class MockLocaticStorage: LocaticStorageInterface {
     var changedRadius: Float?
     var changedLongitude: Double?
     var changedLatitude: Double?
+    var changedIconPath: String?
     func insertLocatic(name: String,
                        radius: Float,
                        longitude: Double,
                        latitude: Double,
+                       iconPath: String,
                        completion: @escaping (StorageManagerError?) -> Void) {
         calledInsertLocatic = true
         if shouldFail {
@@ -53,6 +54,7 @@ class MockLocaticStorage: LocaticStorageInterface {
         changedRadius = radius
         changedLongitude = longitude
         changedLatitude = latitude
+        changedIconPath = iconPath
     }
 
     func updateLocatic(locatic: LocaticData,
@@ -60,6 +62,7 @@ class MockLocaticStorage: LocaticStorageInterface {
                        radius: Float,
                        longitude: Double,
                        latitude: Double,
+                       iconPath: String,
                        completion: @escaping (StorageManagerError?) -> Void) {
         calledUpdateLocatic = true
         if shouldFail {

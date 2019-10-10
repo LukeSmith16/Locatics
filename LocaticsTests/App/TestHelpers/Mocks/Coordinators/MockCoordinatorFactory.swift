@@ -46,25 +46,3 @@ class MockCoordinatorFactory: CoordinatorFactoryInterface {
                                    moduleFactory: LocaticsModuleFactory())
     }
 }
-
-class MockOnboardingCoordinator: CoordinatorInterface, OnboardingCoordinatorOutput {
-    var finishedOnboarding: (() -> Void)?
-
-    var startWasCalled = false
-
-    func start() {
-        startWasCalled = true
-    }
-
-    func triggerFinishOnboarding() {
-        finishedOnboarding?()
-    }
-}
-
-class MockMainCoordinator: CoordinatorInterface {
-    var startWasCalled = false
-
-    func start() {
-        startWasCalled = true
-    }
-}

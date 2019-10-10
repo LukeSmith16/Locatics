@@ -42,7 +42,12 @@ class LocaticStorageTests: XCTestCase {
     }
 
     func test_insertLocatic_callsCreateObject() {
-        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0, completion: { (error) in
+        sut.insertLocatic(name: "",
+                          radius: 0.0,
+                          longitude: 0.0,
+                          latitude: 0.0,
+                          iconPath: "TestPath",
+                          completion: { (error) in
             XCTAssertNil(error)
         })
 
@@ -56,7 +61,12 @@ class LocaticStorageTests: XCTestCase {
     }
 
     func test_insertLocatic_callsLocaticWasInserted() {
-        sut.insertLocatic(name: "myNewLocatic", radius: 14.5, longitude: 33, latitude: 51, completion: { (error) in
+        sut.insertLocatic(name: "myNewLocatic",
+                          radius: 14.5,
+                          longitude: 33,
+                          latitude: 51,
+                          iconPath: "test",
+                          completion: { (error) in
             XCTAssertNil(error)
         })
 
@@ -64,7 +74,12 @@ class LocaticStorageTests: XCTestCase {
     }
 
     func test_insertLocatic_passesCorrectValuesToStorageManager() {
-        sut.insertLocatic(name: "myNewLocatic", radius: 14.5, longitude: 33, latitude: 51, completion: { (error) in
+        sut.insertLocatic(name: "myNewLocatic",
+                          radius: 14.5,
+                          longitude: 33,
+                          latitude: 51,
+                          iconPath: "newIconPath",
+                          completion: { (error) in
             XCTAssertNil(error)
         })
 
@@ -77,12 +92,14 @@ class LocaticStorageTests: XCTestCase {
                        33)
         XCTAssertEqual(passedValues["latitude"] as! Double,
                        51)
+        XCTAssertEqual(passedValues["iconPath"] as! String,
+                       "newIconPath")
     }
 
     func test_insertLocatic_completesWithError() {
         mockStorageManager.shouldFail = true
 
-        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0) { (error) in
+        sut.insertLocatic(name: "", radius: 0.0, longitude: 0.0, latitude: 0.0, iconPath: "") { (error) in
             XCTAssertNotNil(error)
             XCTAssertTrue(error! == .badRequest)
         }
@@ -94,7 +111,12 @@ class LocaticStorageTests: XCTestCase {
 
         let expect = expectation(description: "Wait for deletion")
 
-        sut.updateLocatic(locatic: mockLocatic, name: "newName", radius: 60, longitude: 18, latitude: 20.0) { (_) in
+        sut.updateLocatic(locatic: mockLocatic,
+                          name: "newName",
+                          radius: 60,
+                          longitude: 18,
+                          latitude: 20.0,
+                          iconPath: "iconPath") { (_) in
             expect.fulfill()
         }
 
@@ -113,7 +135,8 @@ class LocaticStorageTests: XCTestCase {
                           name: "myUpdatedLocatic",
                           radius: 10,
                           longitude: 99,
-                          latitude: 98) { (_) in
+                          latitude: 98,
+                          iconPath: "iconPath") { (_) in
             expect.fulfill()
         }
 
@@ -161,7 +184,12 @@ class LocaticStorageTests: XCTestCase {
 
     func test_updateLocatic_handlesErrorCase() {
         mockStorageManager.shouldFail = true
-        sut.updateLocatic(locatic: MockLocatic(), name: "", radius: 20.0, longitude: 10.0, latitude: 0.0) { (error) in
+        sut.updateLocatic(locatic: MockLocatic(),
+                          name: "",
+                          radius: 20.0,
+                          longitude: 10.0,
+                          latitude: 0.0,
+                          iconPath: "test") { (error) in
             XCTAssertNotNil(error)
             XCTAssertTrue(error! == .badRequest)
         }
@@ -172,41 +200,6 @@ class LocaticStorageTests: XCTestCase {
         sut.deleteLocatic(MockLocatic()) { (error) in
             XCTAssertNotNil(error)
             XCTAssertTrue(error! == .badRequest)
-        }
-    }
-}
-
-private extension LocaticStorageTests {
-    class MockLocatic: LocaticData {
-        var identity: Int64 = 0
-
-        var name: String = "TestLocatic"
-        var radius: Float = 50 // Meters
-        var longitude: Double = 12.0
-        var latitude: Double = 10.0
-    }
-
-    class MockLocaticPersistentStorageDelegate: LocaticPersistentStorageDelegate {
-        var calledLocaticWasInserted = false
-        var calledLocaticWasUpdated = false
-        var calledLocaticWasDeleted = false
-
-        var insertedValue: LocaticData?
-        func locaticWasInserted(_ insertedLocatic: LocaticData) {
-            insertedValue = insertedLocatic
-            calledLocaticWasInserted = true
-        }
-
-        var updatedValue: LocaticData?
-        func locaticWasUpdated(_ updatedLocatic: LocaticData) {
-            updatedValue = updatedLocatic
-            calledLocaticWasUpdated = true
-        }
-
-        var deletedValue: LocaticData?
-        func locaticWasDeleted(_ deletedLocatic: LocaticData) {
-            deletedValue = deletedLocatic
-            calledLocaticWasDeleted = true
         }
     }
 }

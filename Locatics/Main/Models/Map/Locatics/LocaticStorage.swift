@@ -26,12 +26,14 @@ protocol LocaticStorageInterface {
                        radius: Float,
                        longitude: Double,
                        latitude: Double,
+                       iconPath: String,
                        completion: @escaping (StorageManagerError?) -> Void)
     func updateLocatic(locatic: LocaticData,
                        name: String,
                        radius: Float,
                        longitude: Double,
                        latitude: Double,
+                       iconPath: String,
                        completion: @escaping (StorageManagerError?) -> Void)
     func deleteLocatic(_ locatic: LocaticData,
                        completion: @escaping (StorageManagerError?) -> Void)
@@ -65,12 +67,14 @@ class LocaticStorage: LocaticStorageInterface {
                        radius: Float,
                        longitude: Double,
                        latitude: Double,
+                       iconPath: String,
                        completion: @escaping (StorageManagerError?) -> Void) {
         var values: [String: Any] = [:]
         values["name"] = name
         values["radius"] = radius
         values["longitude"] = longitude
         values["latitude"] = latitude
+        values["iconPath"] = iconPath
 
         storageManager.createObject(entity: Locatic.self, values: values) { [weak self] (result) in
             switch result {
@@ -88,12 +92,14 @@ class LocaticStorage: LocaticStorageInterface {
                        radius: Float,
                        longitude: Double,
                        latitude: Double,
+                       iconPath: String,
                        completion: @escaping (StorageManagerError?) -> Void) {
         var changedValues: [String: Any] = [:]
         changedValues["name"] = name
         changedValues["radius"] = radius
         changedValues["longitude"] = longitude
         changedValues["latitude"] = latitude
+        changedValues["iconPath"] = iconPath
 
         storageManager.updateObject(entity: Locatic.self,
                                     identity: locatic.identity,

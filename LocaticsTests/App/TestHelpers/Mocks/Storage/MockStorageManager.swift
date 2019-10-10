@@ -11,7 +11,6 @@ import CoreData
 // swiftlint:disable line_length
 
 @testable import Locatics
-
 class MockStorageManager: StorageManagerInterface {
 
     var calledCreateObject = false
@@ -22,7 +21,7 @@ class MockStorageManager: StorageManagerInterface {
 
     var shouldFail = false
 
-    var passedCreateObjectValues: [String:Any] = [:]
+    var passedCreateObjectValues: [String: Any] = [:]
     func createObject<Object>(entity: Object.Type,
                               values: [String: Any],
                               completion: @escaping (Result<Object, StorageManagerError>) -> Void) where Object: DB_LocalItem {

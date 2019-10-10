@@ -12,6 +12,7 @@ protocol AddLocaticViewModelInterface: class {
     var viewDelegate: AddLocaticViewModelViewDelegate? {get set}
 
     func radiusDidChange(_ newValue: Float)
+    func locaticIconDidChange(_ tag: Int)
     func addLocaticWasTapped(locaticName: String?, radius: Float)
 }
 
@@ -50,6 +51,7 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
     weak var locaticPinLocationDelegate: LocaticPinLocationDelegate?
 
     private let locaticStorage: LocaticStorageInterface
+    private var locaticIconPath: String = "defaultPath"
 
     init(locaticStorage: LocaticStorageInterface) {
         self.locaticStorage = locaticStorage
@@ -62,6 +64,17 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
         locaticPinLocationDelegate?.updatePinAnnotationRadius(toRadius: Double(newValue))
     }
 
+    func locaticIconDidChange(_ tag: Int) {
+        switch tag {
+        case 0:
+            self.locaticIconPath = "addLocaticButtonIcon"
+        case 1:
+            self.locaticIconPath = "test"
+        default:
+            break
+        }
+    }
+
     func addLocaticWasTapped(locaticName: String?,
                              radius: Float) {
         guard isNewLocaticValuesValid(name: locaticName, radius: radius),
@@ -70,9 +83,10 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
         locaticStorage.insertLocatic(name: locaticName!,
                                      radius: radius,
                                      longitude: pinLocation.longitude,
-                                     latitude: pinLocation.latitude) { [weak self] (error) in
-                                        if let error = error {
-                                            self?.locaticEntryValidationDelegate?.validationErrorOccured(error.localizedDescription)
+                                     latitude: pinLocation.latitude,
+                                     iconPath: locaticIconPath) { [weak self] (error) in
+                                        if let errorDesc = error?.localizedDescription {
+                                            self?.locaticEntryValidationDelegate?.validationErrorOccured(errorDesc)
                                         } else {
                                             self?.locaticEntryValidationDelegate?.closeAddLocaticCardView()
                                         }

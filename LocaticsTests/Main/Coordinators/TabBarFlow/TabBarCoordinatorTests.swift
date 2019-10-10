@@ -48,18 +48,3 @@ class TabBarCoordinatorTests: XCTestCase {
         XCTAssertTrue(mockCoordinatorFactory.calledCreateLocaticsFlow)
     }
 }
-
-private extension TabBarCoordinatorTests {
-    class MockTabBarController: TabBarControllerInterface {
-        var onMapFlowSelect: ((UINavigationController) -> Void)?
-        var onLocaticsFlowSelect: ((UINavigationController) -> Void)?
-
-        func triggerRunMapFlow() {
-            onMapFlowSelect?(UINavigationController())
-        }
-
-        func triggerRunLocaticsFlow() {
-            onLocaticsFlowSelect?(UINavigationController())
-        }
-    }
-}

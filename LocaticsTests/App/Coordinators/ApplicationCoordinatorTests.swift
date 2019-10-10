@@ -96,16 +96,3 @@ class ApplicationCoordinatorTests: XCTestCase {
         }
     }
 }
-
-private extension ApplicationCoordinatorTests {
-    class MockTabBarController: TabBarControllerInterface {
-        var onMapFlowSelect: ((UINavigationController) -> Void)?
-        var onLocaticsFlowSelect: ((UINavigationController) -> Void)?
-    }
-
-    class MockBadRootModuleFactory: RootModuleFactory {
-        override func createTabBarController() -> TabBarControllerInterface {
-            return MockTabBarController()
-        }
-    }
-}

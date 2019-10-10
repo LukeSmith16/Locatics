@@ -44,14 +44,3 @@ class LocaticsMapCoordinatorTests: XCTestCase {
         XCTAssertTrue(mockNavController.viewControllers.first is LocaticsMapViewController)
     }
 }
-
-private extension LocaticsMapCoordinatorTests {
-    class MockLocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
-        var calledCreateMapModule = false
-
-        func createLocaticsMapModule() -> LocaticsMapViewController {
-            calledCreateMapModule = true
-            return LocaticsMapViewController()
-        }
-    }
-}

@@ -17,6 +17,8 @@ class AddLocaticCardView: UIView {
     @IBOutlet var radiusSlider: SliderControl!
     @IBOutlet var addNewLocaticButton: ActionButton!
 
+    @IBOutlet var locaticIconButtons: [UIButton]!
+
     var addLocaticViewModel: AddLocaticViewModelInterface? {
         didSet {
             addLocaticViewModel?.viewDelegate = self
@@ -44,6 +46,10 @@ class AddLocaticCardView: UIView {
 
     @IBAction func radiusSliderChanged(_ sender: Any) {
         addLocaticViewModel?.radiusDidChange(radiusSlider.value)
+    }
+
+    @IBAction func locaticIconButtonTapped(_ sender: UIButton) {
+        addLocaticViewModel?.locaticIconDidChange(sender.tag)
     }
 
     @IBAction func addLocaticTapped(_ sender: Any) {
