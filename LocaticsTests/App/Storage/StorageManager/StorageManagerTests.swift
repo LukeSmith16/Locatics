@@ -124,20 +124,21 @@ class StorageManagerTests: XCTestCase {
         }
     }
 
-    // MARK: - TODO fix this test
-//    func test_updateObject_updatesAndReturnsObjectWithValidID() {
-//        let coreDataObject = createLocatic(withValues: ["name": "MyNewName"])
-//
-//        sut.updateObject(entity: Locatic.self, identity: coreDataObject.identity, updatedValues: [:]) { (result) in
-//            switch result {
-//            case .success(let success):
-//                XCTAssertEqual(success, coreDataObject)
-//                XCTAssertEqual(success.name, "MyNewName")
-//            case .failure(let failure):
-//                XCTFail("Should be able to find object by it's identity - \(failure.localizedDescription)")
-//            }
-//        }
-//    }
+    func test_updateObject_updatesAndReturnsObjectWithValidID() {
+        let coreDataObject = createLocatic()
+
+        sut.updateObject(entity: Locatic.self,
+                         identity: coreDataObject.identity,
+                         updatedValues: ["name": "MyNewName"]) { (result) in
+            switch result {
+            case .success(let success):
+                XCTAssertEqual(success, coreDataObject)
+                XCTAssertEqual(success.name, "MyNewName")
+            case .failure(let failure):
+                XCTFail("Should be able to find object by it's identity - \(failure.localizedDescription)")
+            }
+        }
+    }
 
     func test_updateObject_completesWithErrorWhenPassedInvalidID() {
         _ = createLocatic()
