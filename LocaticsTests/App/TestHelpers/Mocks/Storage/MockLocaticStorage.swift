@@ -28,7 +28,7 @@ class MockLocaticStorage: LocaticStorageInterface {
         if shouldFail {
             completion(.failure(.badRequest))
         } else {
-            completion(.success([]))
+            completion(.success([MockLocatic(), MockLocatic()]))
         }
     }
 

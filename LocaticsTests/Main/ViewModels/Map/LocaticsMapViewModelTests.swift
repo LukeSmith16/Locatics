@@ -112,6 +112,18 @@ class LocaticsMapViewModelTests: XCTestCase {
                        "Bad fetch request formed.")
     }
 
+    func test_handleDidFetchLocatics_setsLocaticsArray() {
+        sut.getAllLocatics()
+
+        XCTAssertEqual(sut.locatics.count, 2)
+    }
+
+    func test_handleDidFetchLocatics_callsAddLocaticMapAnnotationForEachLocatic() {
+        sut.getAllLocatics()
+
+        XCTAssertEqual(mockLocaticsMapViewModelViewObserver.calledAddLocaticMapAnnotationCount, 2)
+    }
+
     func test_locaticWasInserted_addsLocaticToLocaticsArray() {
         let mockLocatic = MockLocatic()
 
@@ -125,7 +137,8 @@ class LocaticsMapViewModelTests: XCTestCase {
 
         sut.locaticWasInserted(mockLocatic)
 
-        XCTAssertTrue(mockLocaticsMapViewModelViewObserver.calledAddLocaticMapAnnotation)
+        XCTAssertEqual(mockLocaticsMapViewModelViewObserver.calledAddLocaticMapAnnotationCount,
+                       1)
     }
 
     func test_locaticWasInserted_passesLocaticToAddLocaticMapAnnotation() {
@@ -135,5 +148,64 @@ class LocaticsMapViewModelTests: XCTestCase {
 
         XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedLocatic!.identity,
                        mockLocatic.identity)
+    }
+
+    func test_locaticWasUpdated_updatesLocaticInsideArray() {
+        let oldLocatic = MockLocatic()
+        sut.locatics.append(oldLocatic)
+
+        let newLocatic = MockLocatic()
+        newLocatic.name = "New Locatic"
+
+        sut.locaticWasUpdated(newLocatic)
+
+        let updatedLocatic = sut.locatics.first!
+
+        XCTAssertEqual(sut.locatics.count, 1)
+        XCTAssertEqual(updatedLocatic.name, newLocatic.name)
+    }
+
+    func test_locaticWasUpdated_callsRemoveLocaticMapAnnotationAndAddLocaticMapAnnotation() {
+        let oldLocatic = MockLocatic()
+        sut.locatics.append(oldLocatic)
+
+        let newLocatic = MockLocatic()
+        newLocatic.name = "New Locatic"
+
+        sut.locaticWasUpdated(newLocatic)
+
+        XCTAssertTrue(mockLocaticsMapViewModelViewObserver.calledRemoveLocaticMapAnnotation)
+        XCTAssertEqual(mockLocaticsMapViewModelViewObserver.calledAddLocaticMapAnnotationCount,
+                       1)
+    }
+
+    func test_locaticWasDeleted_removesLocaticFromArray() {
+        let locatic = MockLocatic()
+        sut.locatics.append(locatic)
+
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertEqual(sut.locatics.count, 0)
+    }
+
+    func test_locaticWasDeleted_callsRemoveLocaticAtCoordinate() {
+        let locatic = MockLocatic()
+        sut.locatics.append(locatic)
+
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertTrue(mockLocaticsMapViewModelViewObserver.calledRemoveLocaticMapAnnotation)
+    }
+
+    func test_locaticWasDeleted_passesCoordinateToRemoveLocaticAtCoordinate() {
+        let locatic = MockLocatic()
+        sut.locatics.append(locatic)
+
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedCoordinate!.latitude,
+                       locatic.latitude)
+        XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedCoordinate!.longitude,
+                       locatic.longitude)
     }
 }

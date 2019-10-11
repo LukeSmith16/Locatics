@@ -24,6 +24,7 @@ protocol LocaticsMapViewModelViewDelegate: AddLocaticMapRadiusAnnotationViewDele
     func zoomToUserLocation(latMeters: Double, lonMeters: Double)
     func updateMapRegion(location: Coordinate, latMeters: Double, lonMeters: Double)
     func addLocaticMapAnnotation(_ locatic: LocaticData)
+    func removeLocaticMapAnnotation(at coordinate: Coordinate)
 }
 
 class LocaticsMapViewModel: LocaticsMapViewModelInterface {
@@ -61,7 +62,7 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
 
             switch result {
             case .success(let success):
-                self.locatics = success
+                self.handleDidFetchLocatics(success)
             case .failure(let failure):
                 self.locaticsMainMapViewModelViewDelegate?.showAlert(title: "Error fetching Locatics",
                                                                      message: failure.localizedDescription)
@@ -71,7 +72,9 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
 }
 
 private extension LocaticsMapViewModel {
-    func handleLocaticsUpdated() {
+    func handleDidFetchLocatics(_ fetchedLocatics: [LocaticData]) {
+        self.locatics = fetchedLocatics
+
         for locatic in locatics {
             self.viewDelegate?.addLocaticMapAnnotation(locatic)
         }
@@ -85,10 +88,23 @@ extension LocaticsMapViewModel: LocaticPersistentStorageDelegate {
     }
 
     func locaticWasUpdated(_ updatedLocatic: LocaticData) {
+        let locaticToUpdateIndex = locatics.firstIndex(where: { $0.identity == updatedLocatic.identity })
+        if let updateIndex = locaticToUpdateIndex {
+            locaticWasDeleted(locatics[updateIndex])
 
+            locatics.insert(updatedLocatic, at: updateIndex)
+            viewDelegate?.addLocaticMapAnnotation(updatedLocatic)
+        }
     }
 
     func locaticWasDeleted(_ deletedLocatic: LocaticData) {
+        let locaticToRemoveIndex = locatics.firstIndex(where: { $0.identity == deletedLocatic.identity })
+        if let removalIndex = locaticToRemoveIndex {
+            locatics.remove(at: removalIndex)
 
+            let coordinate = Coordinate(latitude: deletedLocatic.latitude,
+                                        longitude: deletedLocatic.longitude)
+            viewDelegate?.removeLocaticMapAnnotation(at: coordinate)
+        }
     }
 }

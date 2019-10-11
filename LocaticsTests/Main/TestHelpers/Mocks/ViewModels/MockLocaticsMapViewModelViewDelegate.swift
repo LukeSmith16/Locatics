@@ -14,7 +14,8 @@ class MockLocaticsMapViewModelViewDelegate: LocaticsMapViewModelViewDelegate {
     var calledZoomToUserLocation = false
     var calledUpdateMapRegion = false
     var calledUpdatePinAnnotationRadius = false
-    var calledAddLocaticMapAnnotation = false
+    var calledAddLocaticMapAnnotationCount = 0
+    var calledRemoveLocaticMapAnnotation = false
 
     var passedCoordinate: Coordinate?
     var passedLatMeters: Double?
@@ -42,6 +43,11 @@ class MockLocaticsMapViewModelViewDelegate: LocaticsMapViewModelViewDelegate {
     var passedLocatic: LocaticData?
     func addLocaticMapAnnotation(_ locatic: LocaticData) {
         passedLocatic = locatic
-        calledAddLocaticMapAnnotation = true
+        calledAddLocaticMapAnnotationCount += 1
+    }
+
+    func removeLocaticMapAnnotation(at coordinate: Coordinate) {
+        passedCoordinate = coordinate
+        calledRemoveLocaticMapAnnotation = true
     }
 }
