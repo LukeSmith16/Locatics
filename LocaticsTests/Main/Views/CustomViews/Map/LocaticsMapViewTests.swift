@@ -116,6 +116,17 @@ class LocaticsMapViewTests: XCTestCase {
                        locatic.longitude)
     }
 
+    func test_removeLocaticMapAnnotation_removesAnnotationMatchingCoordinate() {
+        let locatic = MockLocatic()
+        sut.addLocaticMapAnnotation(locatic)
+
+        let coordinate = Coordinate(latitude: locatic.latitude,
+                                    longitude: locatic.longitude)
+        sut.removeLocaticMapAnnotation(at: coordinate)
+
+        XCTAssertEqual(sut.annotations.count, 0)
+    }
+
     func test_mapViewRegionDidChange_callsSetupAddLocaticMapRadiusCircleIfNotNil() {
         sut.updatePinAnnotationRadius(toRadius: 20)
 

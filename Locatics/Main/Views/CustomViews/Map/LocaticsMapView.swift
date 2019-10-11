@@ -75,6 +75,13 @@ extension LocaticsMapView: LocaticsMapViewModelViewDelegate, AddLocaticMapRadius
 
         addAnnotation(locaticMarkerAnnotationView.annotation!)
     }
+
+    func removeLocaticMapAnnotation(at coordinate: Coordinate) {
+        let annotationMatchingCoordinate = self.annotations.first(where: { $0.coordinate == coordinate })
+        if let annotationToRemove = annotationMatchingCoordinate {
+            self.removeAnnotation(annotationToRemove)
+        }
+    }
 }
 
 extension LocaticsMapView: MKMapViewDelegate {
