@@ -26,6 +26,7 @@ class LocaticsMapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTabItemImage()
         setupNavigationTitleView()
         setupAddLocaticCardView()
         setupMapView()
@@ -44,6 +45,13 @@ class LocaticsMapViewController: UIViewController {
 }
 
 private extension LocaticsMapViewController {
+    func setupTabItemImage() {
+        self.navigationController?.tabItem.setTabItemImage(UIImage(named: "mapTabBarIconNormal")!,
+                                                           for: .normal)
+        self.navigationController?.tabItem.setTabItemImage(UIImage(named: "mapTabBarIconSelected")!,
+                                                           for: .selected)
+    }
+
     func setupNavigationTitleView() {
         let mainTitle = locaticsMainViewModel?.getMainTitle()
         let subtitle = locaticsMainViewModel?.getSubtitle()

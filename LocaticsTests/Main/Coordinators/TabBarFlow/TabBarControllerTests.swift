@@ -17,7 +17,7 @@ class TabBarControllerTests: XCTestCase {
     override func setUp() {
         mockTabBarControllerClosures = MockTabBarControllerClosure()
 
-        sut = createTabBarController()
+        sut = createTabBarController(initialIndex: 0)
 
         _ = sut.view
     }
@@ -39,11 +39,22 @@ class TabBarControllerTests: XCTestCase {
 
     func test_viewControllerCount_isTwo() {
         XCTAssertNotNil(sut.viewControllers)
-        XCTAssertEqual(sut.viewControllers!.count, 2)
+        XCTAssertEqual(sut.viewControllers.count, 2)
+    }
+
+    func test_setupTabBar_configuresTabBar() {
+        XCTAssertTrue(sut.tabBar.lineAlignment == .top)
+        XCTAssertEqual(sut.tabBar.getLineColor(for: .selected),
+                       UIColor(colorTheme: .Interactable_Main))
+
+        XCTAssertEqual(sut.tabBar.getTabItemColor(for: .selected)!,
+                       UIColor(colorTheme: .Interactable_Main))
+        XCTAssertEqual(sut.tabBar.getTabItemColor(for: .normal)!,
+                       UIColor(colorTheme: .Interactable_Unselected))
     }
 
     func test_initialTabSelected_isMapFlow() {
-        sut = createTabBarController()
+        sut = createTabBarController(initialIndex: 0)
 
         mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
         mockTabBarControllerClosures.addLocaticsSelectClosure(sut: sut)
@@ -55,69 +66,12 @@ class TabBarControllerTests: XCTestCase {
 
         XCTAssertNotNil(mockTabBarControllerClosures.calledController)
     }
+}
 
-    func test_onMapTabSelect_callsMapClosureWithNavController() {
-        sut = createTabBarController()
-        sut.selectedIndex = 1
-
-        mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
-        _ = sut.view
-
-        sut.selectedIndex = 0
-
-        sut.tabBarController(sut, didSelect: UINavigationController())
-
-        XCTAssertTrue(mockTabBarControllerClosures.calledOnMapFlowSelect)
-        XCTAssertNotNil(mockTabBarControllerClosures.calledController)
-    }
-
-    func test_didSelectViewController_returnsIfNavControllerAlreadyExists() {
-        sut = createTabBarController()
-
-        mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
-
-        let navController = UINavigationController(rootViewController: UIViewController())
-        sut.tabBarController(sut, didSelect: navController)
-
-        XCTAssertNil(mockTabBarControllerClosures.calledController)
-    }
-
-    func test_didSelectViewController_returnsIfVCIsNotNavController() {
-        sut = createTabBarController()
-
-        mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
-
-        sut.tabBarController(sut, didSelect: UIViewController())
-
-        XCTAssertNil(mockTabBarControllerClosures.calledController)
-    }
-
-    func test_didSelectViewController_callsMapClosureWithNavController() {
-        sut = createTabBarController()
-        sut.selectedIndex = 1
-
-        mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
-
-        sut.selectedIndex = 0
-
-        sut.tabBarController(sut, didSelect: UINavigationController())
-
-        XCTAssertTrue(mockTabBarControllerClosures.calledOnMapFlowSelect)
-        XCTAssertNotNil(mockTabBarControllerClosures.calledController)
-    }
-
-    func test_onLocaticsTabSelect_callsLocaticsClosureWithNavController() {
-        sut = createTabBarController()
-        sut.selectedIndex = 0
-
-        mockTabBarControllerClosures.addLocaticsSelectClosure(sut: sut)
-        _ = sut.view
-
-        sut.selectedIndex = 1
-
-        sut.tabBarController(sut, didSelect: UINavigationController())
-
-        XCTAssertTrue(mockTabBarControllerClosures.calledOnLocaticsFlowSelect)
-        XCTAssertNotNil(mockTabBarControllerClosures.calledController)
+private extension TabBarControllerTests {
+    func createTabBarController(initialIndex: Int) -> TabBarController {
+        return TabBarController(viewControllers: [NavigationViewController(),
+                                                  NavigationViewController()],
+                                selectedIndex: initialIndex)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Material
 
 protocol TabBarControllerInterface: class {
     var onMapFlowSelect: ((UINavigationController) -> Void)? { get set }
@@ -17,13 +18,14 @@ enum TabIndex: Int {
     case map, locatics
 }
 
-final class TabBarController: UITabBarController, TabBarControllerInterface {
+final class TabBarController: TabsController, TabBarControllerInterface {
     var onMapFlowSelect: ((UINavigationController) -> Void)?
     var onLocaticsFlowSelect: ((UINavigationController) -> Void)?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func prepare() {
+        super.prepare()
         setupDelegate()
+        setupTabBar()
         setupInitialTabSelected()
     }
 }
@@ -33,25 +35,34 @@ private extension TabBarController {
         self.delegate = self
     }
 
+    func setupTabBar() {
+        tabBar.lineAlignment = .top
+        tabBar.setLineColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
+
+        tabBar.setTabItemsColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
+        tabBar.setTabItemsColor(UIColor(colorTheme: .Interactable_Unselected), for: .normal)
+    }
+
     func setupInitialTabSelected() {
-        guard let initialNavController = viewControllers?.first as? UINavigationController else {
-            fatalError("Could not get initial NavController from main.storyboard")
+        guard let initialNavController = viewControllers.first as? UINavigationController else {
+            fatalError("Could not get initial NavController")
         }
 
         onMapFlowSelect?(initialNavController)
     }
 }
 
-extension TabBarController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let navigationVC = viewController as? UINavigationController, navigationVC.viewControllers.isEmpty else {
-            return
-        }
+extension TabBarController: TabsControllerDelegate {}
 
-        if selectedIndex == TabIndex.map.rawValue {
-            onMapFlowSelect?(navigationVC)
-        } else if selectedIndex == TabIndex.locatics.rawValue {
-            onLocaticsFlowSelect?(navigationVC)
-        }
-    }
-}
+//func tabsController(tabsController: TabsController, didSelect viewController: UIViewController) {
+//    guard let navigationVC = viewController as? NavigationViewController,
+//        navigationVC.viewControllers.isEmpty else {
+//        return
+//    }
+//
+//    if selectedIndex == TabIndex.map.rawValue {
+//        onMapFlowSelect?(navigationVC)
+//    } else if selectedIndex == TabIndex.locatics.rawValue {
+//        onLocaticsFlowSelect?(navigationVC)
+//    }
+//}

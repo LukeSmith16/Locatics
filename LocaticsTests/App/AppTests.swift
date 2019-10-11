@@ -73,12 +73,12 @@ class AppTests: XCTestCase {
         sut.start()
 
         guard let rootController = sut.window.rootViewController,
-            let rootTabController = rootController as? UITabBarController else {
-                XCTFail("Could not extract root VC as UINavigationController type")
+            let rootTabController = rootController as? TabBarController else {
+                XCTFail("Could not extract root VC as TabBarController type")
                 return
         }
 
-        guard rootTabController.viewControllers?.last is UINavigationController else {
+        guard rootTabController.viewControllers.last is NavigationViewController else {
             XCTFail("Could not extract root VC from root nav controller")
             return
         }

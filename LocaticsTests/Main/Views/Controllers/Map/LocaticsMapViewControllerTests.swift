@@ -110,7 +110,7 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
     func test_setupAddLocaticButton_addsShadowToAddLocaticButton() {
         let addLocaticButtonLayer = sut.addLocaticButton.layer
-        
+
         XCTAssertEqual(addLocaticButtonLayer.shadowColor, UIColor.black.cgColor)
         XCTAssertEqual(addLocaticButtonLayer.shadowOpacity, 0.20)
         XCTAssertEqual(addLocaticButtonLayer.shadowOffset, CGSize(width: 0, height: 5))

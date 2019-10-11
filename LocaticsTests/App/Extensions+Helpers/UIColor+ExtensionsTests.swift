@@ -22,6 +22,9 @@ class UIColorExtensionsTests: XCTestCase {
         let interactable_secondary = ColorTheme.Interactable_Secondary
         XCTAssertEqual(interactable_secondary.rawValue, "interactable_secondary")
 
+        let interactable_unselected = ColorTheme.Interactable_Unselected
+        XCTAssertEqual(interactable_unselected.rawValue, "interactable_unselected")
+
         let title_main = ColorTheme.Title_Main
         XCTAssertEqual(title_main.rawValue, "title_main")
 

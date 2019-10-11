@@ -17,12 +17,15 @@ class ApplicationCoordinatorTests: XCTestCase {
     private var mockCoordinatorFactory: MockCoordinatorFactory!
     private var mockOnboardingCoordinator: MockOnboardingCoordinator!
     private var mockMainCoordinator: MockMainCoordinator!
+    private var mockRootModuleFactory: MockRootModuleFactory!
 
     override func setUp() {
         mockOnboardingCoordinator = MockOnboardingCoordinator()
         mockMainCoordinator = MockMainCoordinator()
         mockCoordinatorFactory = MockCoordinatorFactory(onboardingCoordinator: mockOnboardingCoordinator,
                                                         mainCoordinator: mockMainCoordinator)
+        mockRootModuleFactory = MockRootModuleFactory()
+
         window = UIWindow()
     }
 
@@ -32,6 +35,7 @@ class ApplicationCoordinatorTests: XCTestCase {
         mockCoordinatorFactory = nil
         mockOnboardingCoordinator = nil
         mockMainCoordinator = nil
+        mockRootModuleFactory = nil
         super.tearDown()
     }
 
@@ -67,8 +71,24 @@ class ApplicationCoordinatorTests: XCTestCase {
 
         mockOnboardingCoordinator.triggerFinishOnboarding()
 
-        XCTAssertTrue(window.rootViewController is UITabBarController)
+        XCTAssertTrue(window.rootViewController is TabBarController)
         XCTAssertTrue(mockMainCoordinator.startWasCalled)
+    }
+
+    func test_startMainFlow_passesTwoNavigationViewControllersToCreateTabBarController() {
+        sut = ApplicationCoordinator(window: window,
+                                     launchInstructor: .main,
+                                     coordinatorFactory: mockCoordinatorFactory,
+                                     rootModuleFactory: mockRootModuleFactory)
+        sut?.start()
+
+        XCTAssertTrue(mockRootModuleFactory.calledCreateTabBarController)
+
+        XCTAssertEqual(mockRootModuleFactory.passedCreateTabBarRootControllers!.count,
+                       2)
+
+        XCTAssertTrue(mockRootModuleFactory.passedCreateTabBarRootControllers!.first! is NavigationViewController)
+        XCTAssertTrue(mockRootModuleFactory.passedCreateTabBarRootControllers!.last! is NavigationViewController)
     }
 
     func test_startMainFlowGetsCalledWhenLaunchInstructor_isMain() {
@@ -79,20 +99,9 @@ class ApplicationCoordinatorTests: XCTestCase {
 
         sut?.start()
 
-        XCTAssertTrue(window.rootViewController is UITabBarController)
+        XCTAssertTrue(window.rootViewController is TabBarController)
         XCTAssertTrue(mockMainCoordinator.startWasCalled)
 
         XCTAssertFalse(mockOnboardingCoordinator.startWasCalled)
-    }
-
-    func test_startMainFlow_fatalErrorWhenRootTabBarControllerIsInvalid() {
-        sut = ApplicationCoordinator(window: window,
-                                     launchInstructor: .main,
-                                     coordinatorFactory: mockCoordinatorFactory,
-                                     rootModuleFactory: MockBadRootModuleFactory())
-
-        expectFatalError(expectedMessage: "RootTabBarController should be of type TabBarController") { [unowned self] in
-            self.sut!.start()
-        }
     }
 }

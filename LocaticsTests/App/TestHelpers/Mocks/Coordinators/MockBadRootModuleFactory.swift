@@ -6,11 +6,11 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 @testable import Locatics
 class MockBadRootModuleFactory: RootModuleFactory {
-    override func createTabBarController() -> TabBarControllerInterface {
+    override func createTabBarController(with rootControllers: [UINavigationController]) -> TabBarControllerInterface {
         return MockTabBarController()
     }
 }

@@ -31,11 +31,11 @@ class CoordinatorFactoryTests: XCTestCase {
     }
 
     func test_createMainCoordinatorFlow_returnsTabBarCoordinator() {
-        let tabControllerSB = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let tabBarController = tabControllerSB.instantiateInitialViewController() as? TabBarController
-        let tabController = tabBarController!
+        let tabBarController = TabBarController(viewControllers: [NavigationViewController(),
+                                                                  NavigationViewController()],
+                                                selectedIndex: 0)
 
-        let mainFlow = sut.createMainFlow(root: tabController)
+        let mainFlow = sut.createMainFlow(root: tabBarController)
 
         XCTAssertTrue(mainFlow is TabBarCoordinator)
     }

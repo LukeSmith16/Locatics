@@ -10,14 +10,8 @@ import XCTest
 
 @testable import Locatics
 class UIStoryboardExtensionsTests: XCTestCase {
-
     func test_storyboardOnboarding_returnsOnboardingStoryboard() {
         let onboardingStoryboard = UIStoryboard.Storyboard.onboarding
         XCTAssertTrue(onboardingStoryboard.instantiateInitialViewController() is OnboardingViewController)
-    }
-
-    func test_storyboardMain_returnsMainStoryboard() {
-        let mainStoryboard = UIStoryboard.Storyboard.main
-        XCTAssertTrue(mainStoryboard.instantiateInitialViewController() is TabBarController)
     }
 }

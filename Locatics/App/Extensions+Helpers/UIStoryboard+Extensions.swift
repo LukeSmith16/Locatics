@@ -11,6 +11,5 @@ import UIKit
 extension UIStoryboard {
     struct Storyboard {
         static let onboarding = UIStoryboard(name: "Onboarding", bundle: Bundle.main)
-        static let main = UIStoryboard(name: "Main", bundle: Bundle.main)
     }
 }

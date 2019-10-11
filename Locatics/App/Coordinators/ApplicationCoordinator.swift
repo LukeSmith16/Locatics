@@ -8,6 +8,8 @@
 
 import UIKit
 
+//swiftlint:disable line_length
+
 enum LaunchInstructor {
     case main, onboarding
 
@@ -70,7 +72,9 @@ private extension ApplicationCoordinator {
     }
 
     func startMainFlow() {
-        guard let rootTabBarController = rootModuleFactory.createTabBarController() as? TabBarController else {
+        let rootTabControllers = [NavigationViewController(), NavigationViewController()]
+
+        guard let rootTabBarController = rootModuleFactory.createTabBarController(with: rootTabControllers) as? TabBarController else {
             fatalError("RootTabBarController should be of type TabBarController")
         }
 

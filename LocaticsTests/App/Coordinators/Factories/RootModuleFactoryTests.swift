@@ -34,7 +34,8 @@ class RootModuleFactoryTests: XCTestCase {
     }
 
     func test_createTabBarController_returnsTabBarControllerType() {
-        let tabBarController = sut.createTabBarController()
+        let tabBarController = sut.createTabBarController(with: [NavigationViewController(),
+                                                                 NavigationViewController()])
 
         XCTAssertTrue(tabBarController is TabBarController)
 

@@ -10,7 +10,7 @@ import UIKit
 
 protocol RootModuleFactoryInterface {
     func createRootNavigationController() -> UINavigationController
-    func createTabBarController() -> TabBarControllerInterface
+    func createTabBarController(with rootControllers: [UINavigationController]) -> TabBarControllerInterface
 }
 
 class RootModuleFactory: RootModuleFactoryInterface {
@@ -21,12 +21,7 @@ class RootModuleFactory: RootModuleFactoryInterface {
         return rootNavigationController
     }
 
-    func createTabBarController() -> TabBarControllerInterface {
-        let mainStoryboard = UIStoryboard.Storyboard.main
-        guard let tabBarController = mainStoryboard.instantiateInitialViewController() as? TabBarController else {
-            fatalError("Could not get TabBarController from storyboard file")
-        }
-
-        return tabBarController
+    func createTabBarController(with rootControllers: [UINavigationController]) -> TabBarControllerInterface {
+        return TabBarController(viewControllers: rootControllers, selectedIndex: 0)
     }
 }
