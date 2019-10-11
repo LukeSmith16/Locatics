@@ -13,7 +13,6 @@ class MockLocaticVisit: LocaticVisitData {
     var identity: Int64 = 0
     var entryDate: Date = Date()
     var exitDate: Date?
-    
     var locatic: LocaticData {
         return MockLocatic()
     }

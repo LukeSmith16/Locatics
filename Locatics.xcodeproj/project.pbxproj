@@ -41,14 +41,12 @@
 		0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F721232170A600EA62E1 /* OnboardingUITests.swift */; };
 		0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72523226E2700EA62E1 /* TabBarController.swift */; };
 		0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */; };
-		0773F7312322745E00EA62E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F7302322745E00EA62E1 /* Main.storyboard */; };
 		0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */; };
 		0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */; };
 		0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */; };
 		0773F73B23228AA500EA62E1 /* LocaticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */; };
 		0773F73D2322A16A00EA62E1 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */; };
 		0773F73F2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */; };
-		0773F74A2322A72300EA62E1 /* MainUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7492322A72300EA62E1 /* MainUtilities.swift */; };
 		0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */; };
 		0773F74E2322A89A00EA62E1 /* MockLocationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F74D2322A89A00EA62E1 /* MockLocationPermissionsManager.swift */; };
 		0773F7532322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */; };
@@ -152,6 +150,8 @@
 		07BC2CA12351049100D169E9 /* MockLocaticVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA02351049100D169E9 /* MockLocaticVisit.swift */; };
 		07BC2CA32351055500D169E9 /* MockLocaticVisitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA22351055500D169E9 /* MockLocaticVisitStorage.swift */; };
 		07BC2CA52351181C00D169E9 /* LocaticVisitStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA42351181C00D169E9 /* LocaticVisitStorageTests.swift */; };
+		07BC2CA723513A9A00D169E9 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */; };
+		07BC2CAA235146CF00D169E9 /* MockRootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */; };
 		07F49EB6233FC9F000F076E5 /* LocaticStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */; };
 		07F49EB9233FD06600F076E5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */; };
 		07F49EBB2340D3FA00F076E5 /* MockStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */; };
@@ -233,14 +233,12 @@
 		0773F721232170A600EA62E1 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
 		0773F72523226E2700EA62E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
-		0773F7302322745E00EA62E1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorTests.swift; sourceTree = "<group>"; };
 		0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapCoordinator.swift; sourceTree = "<group>"; };
 		0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsCoordinator.swift; sourceTree = "<group>"; };
 		0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+ExtensionsTests.swift"; sourceTree = "<group>"; };
-		0773F7492322A72300EA62E1 /* MainUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUtilities.swift; sourceTree = "<group>"; };
 		0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinatorFactory.swift; sourceTree = "<group>"; };
 		0773F74D2322A89A00EA62E1 /* MockLocationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationPermissionsManager.swift; sourceTree = "<group>"; };
 		0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapCoordinatorTests.swift; sourceTree = "<group>"; };
@@ -344,6 +342,8 @@
 		07BC2CA02351049100D169E9 /* MockLocaticVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticVisit.swift; sourceTree = "<group>"; };
 		07BC2CA22351055500D169E9 /* MockLocaticVisitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticVisitStorage.swift; sourceTree = "<group>"; };
 		07BC2CA42351181C00D169E9 /* LocaticVisitStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticVisitStorageTests.swift; sourceTree = "<group>"; };
+		07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
+		07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRootModuleFactory.swift; sourceTree = "<group>"; };
 		07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticStorage.swift; sourceTree = "<group>"; };
 		07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageManager.swift; sourceTree = "<group>"; };
@@ -663,21 +663,12 @@
 			path = TabBarFlow;
 			sourceTree = "<group>";
 		};
-		0773F72B23226F3C00EA62E1 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				0773F7302322745E00EA62E1 /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		0773F72C23226F4700EA62E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				0773F7942323F62300EA62E1 /* NavigationControllers */,
 				0773F75C23230F7C00EA62E1 /* Controllers */,
 				073F2833232D43F7003137D4 /* CustomViews */,
-				0773F72B23226F3C00EA62E1 /* Storyboards */,
 				0773F76E2323154900EA62E1 /* XIBs */,
 			);
 			path = Views;
@@ -764,7 +755,6 @@
 		0773F7432322A6C000EA62E1 /* TestHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				0773F7462322A6DC00EA62E1 /* Utilities */,
 				0773F7402322A6A200EA62E1 /* Mocks */,
 			);
 			path = TestHelpers;
@@ -782,14 +772,6 @@
 		0773F7452322A6D600EA62E1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		0773F7462322A6DC00EA62E1 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				0773F7492322A72300EA62E1 /* MainUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -995,6 +977,7 @@
 			isa = PBXGroup;
 			children = (
 				0773F7922323BC8600EA62E1 /* NavigationViewController.swift */,
+				07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */,
 			);
 			path = NavigationControllers;
 			sourceTree = "<group>";
@@ -1207,6 +1190,7 @@
 				07BC2C50234FB68300D169E9 /* MockOnboardingCoordinator.swift */,
 				07BC2C52234FB69B00D169E9 /* MockMainCoordinator.swift */,
 				07BC2C55234FB75400D169E9 /* MockBadRootModuleFactory.swift */,
+				07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1646,10 +1630,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0773F7312322745E00EA62E1 /* Main.storyboard in Resources */,
 				0773F70523204A9B00EA62E1 /* Onboarding.storyboard in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
+				07BC2CA723513A9A00D169E9 /* NavigationViewController.xib in Resources */,
 				07986A4E23467FC600763F4A /* AddLocaticCardView.xib in Resources */,
 				0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */,
 				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
@@ -1901,6 +1885,7 @@
 				0786F9F32336AAE4009E00BC /* CoreDataStackTests.swift in Sources */,
 				07BC2C4D234FB62600D169E9 /* MockCLVisit.swift in Sources */,
 				07BC2C8D234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift in Sources */,
+				07BC2CAA235146CF00D169E9 /* MockRootModuleFactory.swift in Sources */,
 				0775C393232E50A8002AAFDE /* SliderControlTests.swift in Sources */,
 				0775C38F232E4F6E002AAFDE /* ActionButtonTests.swift in Sources */,
 				0773F7912323B86300EA62E1 /* UIImage+ExtensionsTests.swift in Sources */,
@@ -1919,7 +1904,6 @@
 				07BC2C7B234FBA2300D169E9 /* MockLocationGeocoder.swift in Sources */,
 				0773F7B22325666100EA62E1 /* LocationStorageTests.swift in Sources */,
 				07BC2C72234FB98D00D169E9 /* MockAddLocaticViewModel.swift in Sources */,
-				0773F74A2322A72300EA62E1 /* MainUtilities.swift in Sources */,
 				079A4458234A3428000EA2EF /* LocaticsMapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
