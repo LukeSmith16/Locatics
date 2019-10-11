@@ -21,17 +21,26 @@ class LocaticsMainViewModelTests: XCTestCase {
     private var mockLocaticsMapViewModel: MockLocaticsMapViewModel!
     private var mockLocationManager: MockLocationManager!
 
+    private var mockLocaticStorage: MockLocaticStorage!
+    private var mockLocaticVisitStorage: MockLocaticVisitStorage!
+
     override func setUp() {
         mockLocaticsViewModelViewObserver = MockLocaticsMainViewModelViewDelegate()
         mockLocaticsViewModelAddLocaticViewObserver = MockLocaticsAddLocaticViewModelViewDelegate()
         mockLocaticsMapViewModel = MockLocaticsMapViewModel()
         mockLocationManager = MockLocationManager()
 
+        mockLocaticStorage = MockLocaticStorage()
+        mockLocaticVisitStorage = MockLocaticVisitStorage()
+
         sut = LocaticsMainViewModel()
         sut.viewDelegate = mockLocaticsViewModelViewObserver
         sut.addLocaticViewDelegate = mockLocaticsViewModelAddLocaticViewObserver
         sut.locaticsMapViewModel = mockLocaticsMapViewModel
         sut.locationManager = mockLocationManager
+
+        sut.locaticStorage = mockLocaticStorage
+        sut.locaticVisitStorage = mockLocaticVisitStorage
     }
 
     override func tearDown() {
@@ -39,6 +48,8 @@ class LocaticsMainViewModelTests: XCTestCase {
         mockLocaticsViewModelAddLocaticViewObserver = nil
         mockLocaticsMapViewModel = nil
         mockLocationManager = nil
+        mockLocaticStorage = nil
+        mockLocaticVisitStorage = nil
         sut = nil
         super.tearDown()
     }
@@ -193,5 +204,158 @@ class LocaticsMainViewModelTests: XCTestCase {
 
         XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!, "MyTitle")
         XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!, "MyMessage")
+    }
+
+    func test_userDidEnterLocaticRegion_callsFetchLocaticsWithPredicateForRegionIdentifier() {
+        let locatic = MockLocatic()
+        sut.userDidEnterLocaticRegion(regionIdentifier: locatic.name)
+
+        XCTAssertTrue(mockLocaticStorage.calledFetchLocatics)
+        XCTAssertEqual(mockLocaticStorage.changedPredicate!.predicateFormat,
+                       "name == \"\(locatic.name)\"")
+    }
+
+    func test_userDidEnterLocaticRegion_onFailCallsShowAlert() {
+        mockLocaticStorage.shouldFail = true
+
+        let locatic = MockLocatic()
+        sut.userDidEnterLocaticRegion(regionIdentifier: locatic.name)
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!,
+                       "Error fetching Locatic")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!,
+                       "Bad fetch request formed.")
+    }
+
+    func test_userDidEnterLocaticRegion_callsInsertLocaticVisit() {
+        sut.userDidEnterLocaticRegion(regionIdentifier: "TestLocatic")
+
+        XCTAssertTrue(mockLocaticVisitStorage.calledInsertLocaticVisit)
+    }
+
+    func test_userDidEnterLocaticRegion_passesLocaticMatchingRegionIdentifier() {
+        sut.userDidEnterLocaticRegion(regionIdentifier: "TestLocatic")
+
+        XCTAssertEqual(mockLocaticVisitStorage.changedLocatic!.name,
+                       "TestLocatic")
+    }
+
+    func test_userDidEnterLocaticRegion_onFailShowsAlert() {
+        mockLocaticVisitStorage.shouldFail = true
+
+        sut.userDidEnterLocaticRegion(regionIdentifier: "TestLocatic")
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!,
+                       "Error entering Locatic region")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!,
+                       "Could not find object matching ID.")
+    }
+
+    func test_userDidLeaveLocaticRegion_callsFetchLocaticsWithPredicateForRegionIdentifier() {
+        let locatic = MockLocatic()
+        sut.userDidLeaveLocaticRegion(regionIdentifier: locatic.name)
+
+        XCTAssertTrue(mockLocaticStorage.calledFetchLocatics)
+        XCTAssertEqual(mockLocaticStorage.changedPredicate!.predicateFormat,
+                       "name == \"\(locatic.name)\"")
+    }
+
+    func test_userDidLeaveLocaticRegion_onFailCallsShowAlert() {
+        mockLocaticStorage.shouldFail = true
+
+        let locatic = MockLocatic()
+        sut.userDidLeaveLocaticRegion(regionIdentifier: locatic.name)
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!,
+                       "Error fetching Locatic")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!,
+                       "Bad fetch request formed.")
+    }
+
+    func test_userDidLeaveLocaticRegion_callsUpdateLocaticVisit() {
+        sut.userDidLeaveLocaticRegion(regionIdentifier: "TestLocatic")
+
+        XCTAssertTrue(mockLocaticVisitStorage.calledUpdateLocaticVisit)
+    }
+
+    func test_userDidLeaveLocaticRegion_passesLocaticMatchingRegionIdentifier() {
+        sut.userDidLeaveLocaticRegion(regionIdentifier: "TestLocatic")
+
+        XCTAssertEqual(mockLocaticVisitStorage.changedLocaticVisit!.locatic.name,
+                       "TestLocatic")
+        XCTAssertNotNil(mockLocaticVisitStorage.changedExitDate)
+    }
+
+    func test_userDidLeaveLocaticRegion_returnsIfLocaticHasNoLocaticVisits() {
+        let locatic = MockLocatic()
+        locatic.locaticVisits = nil
+
+        mockLocaticStorage.returnLocatics = [locatic]
+
+        sut.userDidLeaveLocaticRegion(regionIdentifier: locatic.name)
+
+        XCTAssertFalse(mockLocaticVisitStorage.calledUpdateLocaticVisit)
+    }
+
+    func test_userDidLeaveLocaticRegion_onFailShowsAlert() {
+        mockLocaticVisitStorage.shouldFail = true
+
+        let locatic = MockLocatic()
+        sut.userDidLeaveLocaticRegion(regionIdentifier: locatic.name)
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedTitle!,
+                       "Error leaving Locatic region")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedMessage!,
+                       "Could not find object matching ID.")
+    }
+
+    func test_locaticWasInserted_callsStartMonitoringRegion() {
+        let locatic = MockLocatic()
+        sut.locaticWasInserted(locatic)
+
+        XCTAssertTrue(mockLocationManager.calledStartMonitoringRegion)
+    }
+
+    func test_locaticWasInserted_passesInsertedLocaticToLocationManager() {
+        let locatic = MockLocatic()
+        locatic.identity = 50
+
+        sut.locaticWasInserted(locatic)
+
+        XCTAssertEqual(mockLocationManager.passedMonitoringRegionForLocatic!.identity,
+                       locatic.identity)
+    }
+
+    func test_locaticWasUpdated_callsStopMonitoringForRegionAndStartMonitoringForRegion() {
+        let locatic = MockLocatic()
+        sut.locaticWasUpdated(locatic)
+
+        XCTAssertTrue(mockLocationManager.calledStopMonitoringRegion)
+        XCTAssertTrue(mockLocationManager.calledStartMonitoringRegion)
+    }
+
+    func test_locaticWasDeleted_callsStopMonitoringForRegion() {
+        let locatic = MockLocatic()
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertTrue(mockLocationManager.calledStopMonitoringRegion)
+    }
+
+    func test_locaticWasDeleted_passesDeletedLocaticToLocationManager() {
+        let locatic = MockLocatic()
+        locatic.identity = 50
+
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertEqual(mockLocationManager.passedMonitoringRegionForLocatic!.identity,
+                       locatic.identity)
     }
 }

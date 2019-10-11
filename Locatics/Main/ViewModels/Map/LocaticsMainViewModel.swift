@@ -6,6 +6,8 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
+// swiftlint:disable line_length
+
 import Foundation
 import CoreGraphics
 
@@ -53,6 +55,14 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
         }
     }
 
+    var locaticStorage: LocaticStorageInterface? {
+        didSet {
+            locaticStorage?.persistentStorageObserver.add(self)
+        }
+    }
+
+    var locaticVisitStorage: LocaticVisitStorageInterface?
+
     func getMainTitle() -> String {
         guard let lastVisitedLocation = locationManager?.lastVisitedLocation else {
             setCurrentLocationName()
@@ -93,12 +103,80 @@ private extension LocaticsMainViewModel {
             }
         })
     }
+
+    func fetchLocaticMatchingName(_ locaticName: String,
+                                  completionHandler: @escaping (_ locatic: LocaticData?) -> Void) {
+        let matchingNamePredicate = NSPredicate(format: "%K == %@", #keyPath(Locatic.name), locaticName)
+        locaticStorage?.fetchLocatics(predicate: matchingNamePredicate,
+                                      sortDescriptors: nil,
+                                      completion: { [weak self] (completion) in
+                                        switch completion {
+                                        case .success(let success):
+                                            completionHandler(success.first)
+                                        case .failure(let failure):
+                                            self?.showAlert(title: "Error fetching Locatic",
+                                                            message: failure.localizedDescription)
+                                            completionHandler(nil)
+                                        }
+        })
+    }
 }
 
 extension LocaticsMainViewModel: LocationManagerDelegate {
     func locationPermissionsNotAuthorised() {
         viewDelegate?.showAlert(title: "Permissions Not Authorised",
                                 message: "Please enable permissions by going to the apps settings")
+    }
+
+    func userDidEnterLocaticRegion(regionIdentifier: String) {
+        fetchLocaticMatchingName(regionIdentifier) { [weak self] (locatic) in
+            guard let locatic = locatic else { return }
+
+            self?.locaticVisitStorage?.insertLocaticVisit(entryDate: Date(),
+                                                          locatic: locatic,
+                                                          completion: { (error) in
+                                                            if error != nil {
+                                                                self?.viewDelegate?.showAlert(title: "Error entering Locatic region",
+                                                                                              message: error!.localizedDescription)
+                                                            }
+            })
+        }
+    }
+
+    func userDidLeaveLocaticRegion(regionIdentifier: String) {
+        fetchLocaticMatchingName(regionIdentifier) { [weak self] (locatic) in
+            guard let locatic = locatic else { return }
+
+            guard let locaticVisits = locatic.locaticVisits?.array as? [LocaticVisitData],
+                  let recentLocaticVisit = locaticVisits.first(where: { $0.exitDate == nil }) else {
+                return
+            }
+
+            self?.locaticVisitStorage?.updateLocaticVisit(locaticVisit: recentLocaticVisit,
+                                                          exitDate: Date(),
+                                                          completion: { (error) in
+                                                            if error != nil {
+                                                                self?.viewDelegate?.showAlert(title: "Error leaving Locatic region",
+                                                                                              message: error!.localizedDescription)
+                                                            }
+            })
+        }
+    }
+}
+
+extension LocaticsMainViewModel: LocaticPersistentStorageDelegate {
+    func locaticWasInserted(_ insertedLocatic: LocaticData) {
+        locationManager?.startMonitoringRegion(for: insertedLocatic)
+    }
+
+    func locaticWasUpdated(_ updatedLocatic: LocaticData) {
+        // Locatic name will suffice for now as that will be constant (You can't change the name of a Locatic)
+        locationManager?.stopMonitoringRegion(for: updatedLocatic)
+        locationManager?.startMonitoringRegion(for: updatedLocatic)
+    }
+
+    func locaticWasDeleted(_ deletedLocatic: LocaticData) {
+        locationManager?.stopMonitoringRegion(for: deletedLocatic)
     }
 }
 

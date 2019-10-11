@@ -26,8 +26,13 @@ protocol LocationProviderInterface {
     var delegate: CLLocationManagerDelegate? {get set}
     var allowsBackgroundLocationUpdates: Bool {get set}
 
+    var monitoredRegions: Set<CLRegion> {get}
+
     func requestLocation()
     func startMonitoringVisits()
+
+    func startMonitoring(for region: CLRegion)
+    func stopMonitoring(for region: CLRegion)
 }
 
 extension CLLocationManager: LocationProviderInterface {}

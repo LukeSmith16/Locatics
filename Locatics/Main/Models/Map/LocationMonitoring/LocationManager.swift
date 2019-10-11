@@ -31,14 +31,19 @@ protocol LocationManagerInterface: class {
     var lastVisitedLocation: VisitedLocationData? { get }
 
     func findCurrentLocation(completion: @escaping (Result<VisitedLocationData, LocationError>) -> Void)
+
+    func startMonitoringRegion(for locatic: LocaticData)
+    func stopMonitoringRegion(for locatic: LocaticData)
 }
 
 protocol LocationManagerDelegate: class {
     func locationPermissionsNotAuthorised()
+
+    func userDidEnterLocaticRegion(regionIdentifier: String)
+    func userDidLeaveLocaticRegion(regionIdentifier: String)
 }
 
 class LocationManager: NSObject, LocationManagerInterface {
-
     weak var locationDelegate: LocationManagerDelegate? {
         didSet {
             setupLocationProvider()
@@ -76,6 +81,29 @@ class LocationManager: NSObject, LocationManagerInterface {
 
         findCurrentLocationCompletion = completion
         locationProvider.requestLocation()
+    }
+
+    func startMonitoringRegion(for locatic: LocaticData) {
+        let coordinate = Coordinate(latitude: locatic.latitude,
+                                    longitude: locatic.longitude)
+
+        let circularRegion = CLCircularRegion(center: coordinate,
+                                              radius: Double(locatic.radius),
+                                              identifier: locatic.name)
+        circularRegion.notifyOnEntry = true
+        circularRegion.notifyOnExit = true
+
+        locationProvider.startMonitoring(for: circularRegion)
+    }
+
+    func stopMonitoringRegion(for locatic: LocaticData) {
+        let regionMatchingLocatic = locationProvider.monitoredRegions.first { (region) -> Bool in
+            return region.identifier == locatic.name
+        }
+
+        if let stopMonitoringRegion = regionMatchingLocatic {
+            locationProvider.stopMonitoring(for: stopMonitoringRegion)
+        }
     }
 }
 
@@ -122,6 +150,16 @@ extension LocationManager: CLLocationManagerDelegate {
     func newVisitReceived(_ visit: CLVisit, description: String) {
         let newLocation = VisitedLocation(visit: visit, description: description)
         locationStorage.saveLocationOnDisk(newLocation)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        guard region is CLCircularRegion else { return }
+        locationDelegate?.userDidEnterLocaticRegion(regionIdentifier: region.identifier)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        guard region is CLCircularRegion else { return }
+        locationDelegate?.userDidLeaveLocaticRegion(regionIdentifier: region.identifier)
     }
 
     // TODO: Handle this... (was crashing at times for some reason)

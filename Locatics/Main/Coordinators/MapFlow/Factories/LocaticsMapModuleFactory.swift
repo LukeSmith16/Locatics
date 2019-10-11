@@ -16,10 +16,14 @@ protocol LocaticsMapModuleFactoryInterface: class {
 class LocaticsMapModuleFactory: LocaticsMapModuleFactoryInterface {
     private let storageManager: StorageManagerInterface
     private let locaticStorage: LocaticStorageInterface
+    private let locaticVisitStorage: LocaticVisitStorageInterface
 
-    init(storageManager: StorageManagerInterface, locaticStorage: LocaticStorageInterface) {
+    init(storageManager: StorageManagerInterface,
+         locaticStorage: LocaticStorageInterface,
+         locaticVisitStorage: LocaticVisitStorageInterface) {
         self.storageManager = storageManager
         self.locaticStorage = locaticStorage
+        self.locaticVisitStorage = locaticVisitStorage
     }
 
     func createLocaticsMapModule() -> LocaticsMapViewController {
@@ -41,6 +45,8 @@ private extension LocaticsMapModuleFactory {
         locaticsMainViewModel.locationManager = locationManager
         locaticsMainViewModel.addLocaticViewModel = addLocaticViewModel
         locaticsMainViewModel.locaticsMapViewModel = locaticsMapViewModel
+        locaticsMainViewModel.locaticStorage = locaticStorage
+        locaticsMainViewModel.locaticVisitStorage = locaticVisitStorage
 
         return locaticsMainViewModel
     }

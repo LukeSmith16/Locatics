@@ -15,7 +15,8 @@ class LocaticsMapModuleFactoryTests: XCTestCase {
 
     override func setUp() {
         sut = LocaticsMapModuleFactory(storageManager: MockStorageManager(),
-                                       locaticStorage: MockLocaticStorage())
+                                       locaticStorage: MockLocaticStorage(),
+                                       locaticVisitStorage: MockLocaticVisitStorage())
     }
 
     override func tearDown() {

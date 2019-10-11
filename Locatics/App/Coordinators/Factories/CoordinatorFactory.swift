@@ -21,6 +21,7 @@ protocol CoordinatorFactoryInterface: class {
 final class CoordinatorFactory: CoordinatorFactoryInterface {
     private let storageManager: StorageManagerInterface
     private lazy var locaticStorage = LocaticStorage(storageManager: storageManager)
+    private lazy var locaticVisitStorage = LocaticVisitStorage(storageManager: storageManager)
 
     init(storageManager: StorageManagerInterface) {
         self.storageManager = storageManager
@@ -42,7 +43,8 @@ final class CoordinatorFactory: CoordinatorFactoryInterface {
         let mapCoordinator = LocaticsMapCoordinator(root: root,
                                                     coordinatorFactory: CoordinatorFactory(storageManager: storageManager),
                                                     moduleFactory: LocaticsMapModuleFactory(storageManager: storageManager,
-                                                                                            locaticStorage: locaticStorage))
+                                                                                            locaticStorage: locaticStorage,
+                                                                                            locaticVisitStorage: locaticVisitStorage))
         return mapCoordinator
     }
 

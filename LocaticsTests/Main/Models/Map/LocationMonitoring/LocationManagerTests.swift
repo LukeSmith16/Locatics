@@ -125,6 +125,54 @@ class LocationManagerTests: XCTestCase {
         }
     }
 
+    func test_startMonitoringRegion_callsLocationProviderStartMonitoringRegion() {
+        sut.startMonitoringRegion(for: MockLocatic())
+
+        XCTAssertTrue(mockLocationProvider.calledStartMonitoringRegion)
+    }
+
+    func test_startMonitoringRegion_callsLocationProviderStartMonitoringRegionWithValues() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        XCTAssertEqual(mockLocationProvider.monitoredRegions.count, 1)
+
+        guard let circularRegion = mockLocationProvider.monitoredRegions.first as? CLCircularRegion else {
+            XCTFail("Region should be of type CLCircularRegion")
+            return
+        }
+
+        let locaticCoordinate = Coordinate(latitude: locatic.latitude,
+                                           longitude: locatic.longitude)
+        XCTAssertEqual(circularRegion.center, locaticCoordinate)
+        XCTAssertEqual(circularRegion.radius, Double(locatic.radius))
+        XCTAssertEqual(circularRegion.identifier, locatic.name)
+
+        XCTAssertTrue(circularRegion.notifyOnEntry)
+        XCTAssertTrue(circularRegion.notifyOnExit)
+    }
+
+    func test_stopMonitoringRegion_removesMonitoredRegionMatchingLocaticName() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        sut.stopMonitoringRegion(for: locatic)
+
+        XCTAssertEqual(mockLocationProvider.monitoredRegions.count, 0)
+    }
+
+    func test_stopMonitoringRegion_doesNotRemoveMonitoredRegionIfNotMatchingLocaticName() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        let differentLocatic = MockLocatic()
+        differentLocatic.name = "Different Locatic"
+
+        sut.stopMonitoringRegion(for: differentLocatic)
+
+        XCTAssertEqual(mockLocationProvider.monitoredRegions.count, 1)
+    }
+
     func test_settingLocationDelegate_callsPermsNotAuthorisedIfNotAuthorised() {
         mockLocationManagerObserver.calledLocationPermissionsNotAuthorised = false
         mockLocationPermissionsManager.authorizePermsState = .denied
@@ -156,6 +204,64 @@ class LocationManagerTests: XCTestCase {
         sut.locationManager(CLLocationManager(), didUpdateLocations: [])
 
         XCTAssertFalse(mockLocationGeocoder.calledReverseGeocodeLocation)
+    }
+
+    func test_locationManagerDidEnterRegion_callsDelegateUserDidEnterRegion() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        let locaticRegion = mockLocationProvider.monitoredRegions.first!
+        sut.locationManager(CLLocationManager(), didEnterRegion: locaticRegion)
+
+        XCTAssertTrue(mockLocationManagerObserver.calledUserDidEnterLocaticRegion)
+    }
+
+    func test_locationManagerDidEnterRegion_passesRegionIdentifierToUserDidEnterRegion() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        let locaticRegion = mockLocationProvider.monitoredRegions.first!
+        sut.locationManager(CLLocationManager(), didEnterRegion: locaticRegion)
+
+        XCTAssertEqual(mockLocationManagerObserver.passedRegionIdentifier!, locatic.name)
+    }
+
+    func test_locationManagerDidExitRegion_callsDelegateUserDidExitRegion() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        let locaticRegion = mockLocationProvider.monitoredRegions.first!
+        sut.locationManager(CLLocationManager(), didExitRegion: locaticRegion)
+
+        XCTAssertTrue(mockLocationManagerObserver.calledUserDidLeaveLocaticRegion)
+    }
+
+    func test_locationManagerDidExitRegion_passesRegionIdentifierToUserDidExitRegion() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        let locaticRegion = mockLocationProvider.monitoredRegions.first!
+        sut.locationManager(CLLocationManager(), didExitRegion: locaticRegion)
+
+        XCTAssertEqual(mockLocationManagerObserver.passedRegionIdentifier!, locatic.name)
+    }
+
+    func test_locationManagerDidEnterRegion_returnsIfNotCLCircularRegion() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        sut.locationManager(CLLocationManager(), didEnterRegion: CLRegion())
+
+        XCTAssertFalse(mockLocationManagerObserver.calledUserDidEnterLocaticRegion)
+    }
+
+    func test_locationManagerDidExitRegion_returnsIfNotCLCircularRegion() {
+        let locatic = MockLocatic()
+        sut.startMonitoringRegion(for: locatic)
+
+        sut.locationManager(CLLocationManager(), didExitRegion: CLRegion())
+
+        XCTAssertFalse(mockLocationManagerObserver.calledUserDidLeaveLocaticRegion)
     }
 
     func test_handleDidUpdateLocation_setsLastVisitedLocationAndCallsFindCurrentLocationCompletion() {
