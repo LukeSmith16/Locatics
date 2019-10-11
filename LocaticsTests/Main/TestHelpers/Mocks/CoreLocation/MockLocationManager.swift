@@ -11,11 +11,16 @@ import CoreLocation
 @testable import Locatics
 
 class MockLocationManager: LocationManagerInterface {
+
     var calledFindCurrentLocation = false
+    var calledStartMonitoringRegion = false
+    var calledStopMonitoringRegion = false
 
     var locationBlockLocationValue: VisitedLocationData?
     var locationBlockErrorValue: LocationError?
     var lastVisitedLocation: VisitedLocationData?
+
+    var passedMonitoringRegionForLocatic: LocaticData?
 
     weak var locationDelegate: LocationManagerDelegate?
 
@@ -34,5 +39,15 @@ class MockLocationManager: LocationManagerInterface {
         } else {
             completion(.failure(locationBlockErrorValue!))
         }
+    }
+
+    func startMonitoringRegion(for locatic: LocaticData) {
+        calledStartMonitoringRegion = true
+        passedMonitoringRegionForLocatic = locatic
+    }
+
+    func stopMonitoringRegion(for locatic: LocaticData) {
+        calledStopMonitoringRegion = true
+        passedMonitoringRegionForLocatic = locatic
     }
 }

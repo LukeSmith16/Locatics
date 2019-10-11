@@ -21,14 +21,22 @@ class MockLocaticStorage: LocaticStorageInterface {
 
     var shouldFail = false
 
+    var changedPredicate: NSPredicate?
+    var returnLocatics: [MockLocatic]?
     func fetchLocatics(predicate: NSPredicate?,
                        sortDescriptors: [NSSortDescriptor]?,
                        completion: @escaping (Result<[LocaticData], StorageManagerError>) -> Void) {
         calledFetchLocatics = true
+        changedPredicate = predicate
+
         if shouldFail {
             completion(.failure(.badRequest))
         } else {
-            completion(.success([MockLocatic(), MockLocatic()]))
+            if returnLocatics != nil {
+                completion(.success(returnLocatics!))
+            } else {
+                completion(.success([MockLocatic(), MockLocatic()]))
+            }
         }
     }
 

@@ -36,7 +36,8 @@ class MockCoordinatorFactory: CoordinatorFactoryInterface {
         return LocaticsMapCoordinator(root: root,
                                       coordinatorFactory: CoordinatorFactory(storageManager: MockStorageManager()),
                                       moduleFactory: LocaticsMapModuleFactory(storageManager: MockStorageManager(),
-                                                                              locaticStorage: MockLocaticStorage()))
+                                                                              locaticStorage: MockLocaticStorage(),
+                                                                              locaticVisitStorage: MockLocaticVisitStorage()))
     }
 
     func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
