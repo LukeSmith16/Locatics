@@ -8,7 +8,7 @@
 
 import CoreData
 
-protocol LocaticData {
+@objc protocol LocaticData {
     var identity: Int64 {get}
 
     var name: String {get}
@@ -16,6 +16,8 @@ protocol LocaticData {
     var longitude: Double {get}
     var latitude: Double {get}
     var iconPath: String {get}
+
+    var locaticVisits: NSOrderedSet? {get}
 }
 
 @objc(Locatic)
@@ -25,4 +27,6 @@ class Locatic: DB_LocalItem, LocaticData {
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
     @NSManaged public var iconPath: String
+
+    @NSManaged public var locaticVisits: NSOrderedSet?
 }
