@@ -108,6 +108,14 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
     }
 
+    func test_setupAddLocaticButton_addsShadowToAddLocaticButton() {
+        let addLocaticButtonLayer = sut.addLocaticButton.layer
+        
+        XCTAssertEqual(addLocaticButtonLayer.shadowColor, UIColor.black.cgColor)
+        XCTAssertEqual(addLocaticButtonLayer.shadowOpacity, 0.20)
+        XCTAssertEqual(addLocaticButtonLayer.shadowOffset, CGSize(width: 0, height: 5))
+    }
+
     func test_locaticsMainViewModelViewDelegate_isNotNil() {
         XCTAssertNotNil(sut.locaticsMainViewModel?.viewDelegate)
     }
