@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +54,6 @@
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gF-HBO" customClass="AddLocaticCardView" customModule="Locatics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="512" width="414" height="350"/>
-                    <color key="backgroundColor" name="interactable_main"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="350" id="oIF-Zg-cYj"/>
                     </constraints>
@@ -83,8 +81,5 @@
     <resources>
         <image name="addLocaticButtonIcon" width="64" height="64"/>
         <image name="exclamationmark.square.fill" catalog="system" width="64" height="56"/>
-        <namedColor name="interactable_main">
-            <color red="0.0" green="0.792156862745098" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

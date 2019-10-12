@@ -101,6 +101,11 @@
                         <constraint firstItem="yZa-KU-52d" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="ktI-4g-gqF"/>
                         <constraint firstItem="yZa-KU-52d" firstAttribute="top" secondItem="8Of-33-g0t" secondAttribute="top" constant="23" id="lzq-Hu-HA6"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,6 +117,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="2wa-yl-vZf"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="25"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="163.04347826086959" y="-285.9375"/>
         </view>
     </objects>
