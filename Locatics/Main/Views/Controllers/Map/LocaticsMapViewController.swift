@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Material
 
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: LocaticsMapView!
@@ -83,10 +84,6 @@ extension LocaticsMapViewController: LocaticsMainViewModelViewDelegate {
     func showAlert(title: String, message: String) {
         let alertController = AlertController.create(title: title, message: message)
         self.present(alertController, animated: true, completion: nil)
-    }
-
-    func hideTabBar(_ shouldHide: Bool) {
-        self.setTabBarHidden(shouldHide)
     }
 }
 

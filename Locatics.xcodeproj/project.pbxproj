@@ -99,9 +99,7 @@
 		0786F9F32336AAE4009E00BC /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9F22336AAE4009E00BC /* CoreDataStackTests.swift */; };
 		0786F9F62336ABDB009E00BC /* StorageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9F52336ABDB009E00BC /* StorageManagerTests.swift */; };
 		0786F9F92336AC77009E00BC /* InMemoryCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9F82336AC77009E00BC /* InMemoryCDStack.swift */; };
-		07986A4B2346765C00763F4A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07986A4A2346765C00763F4A /* UIViewController+Extensions.swift */; };
 		07986A4E23467FC600763F4A /* AddLocaticCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07986A4D23467FC600763F4A /* AddLocaticCardView.xib */; };
-		07986A502346924600763F4A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07986A4F2346924600763F4A /* UIViewController+Extensions.swift */; };
 		079A4452234A2799000EA2EF /* LocaticsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4451234A2799000EA2EF /* LocaticsMapView.swift */; };
 		079A4454234A27A5000EA2EF /* LocaticsMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */; };
 		079A4456234A286B000EA2EF /* LocaticsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */; };
@@ -291,9 +289,7 @@
 		0786F9F22336AAE4009E00BC /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
 		0786F9F52336ABDB009E00BC /* StorageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerTests.swift; sourceTree = "<group>"; };
 		0786F9F82336AC77009E00BC /* InMemoryCDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCDStack.swift; sourceTree = "<group>"; };
-		07986A4A2346765C00763F4A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		07986A4D23467FC600763F4A /* AddLocaticCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddLocaticCardView.xib; sourceTree = "<group>"; };
-		07986A4F2346924600763F4A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		079A4451234A2799000EA2EF /* LocaticsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapView.swift; sourceTree = "<group>"; };
 		079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewTests.swift; sourceTree = "<group>"; };
 		079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModel.swift; sourceTree = "<group>"; };
@@ -554,7 +550,6 @@
 				0773F78C2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift */,
 				0773F7902323B86300EA62E1 /* UIImage+ExtensionsTests.swift */,
 				0773F7972323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift */,
-				07986A4F2346924600763F4A /* UIViewController+Extensions.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -572,7 +567,6 @@
 				0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */,
 				0786F9EF2336A381009E00BC /* CoreData+Extensions.swift */,
 				074985362337A51700B054E2 /* FatalErrorUtil.swift */,
-				07986A4A2346765C00763F4A /* UIViewController+Extensions.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -1800,7 +1794,6 @@
 				07F49EB9233FD06600F076E5 /* MulticastDelegate.swift in Sources */,
 				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
 				07BC2C9D2350216400D169E9 /* LocaticVisit.swift in Sources */,
-				07986A4B2346765C00763F4A /* UIViewController+Extensions.swift in Sources */,
 				0773F77E2323179000EA62E1 /* LocaticsModuleFactory.swift in Sources */,
 				0773F7772323170000EA62E1 /* LocaticsListViewController.swift in Sources */,
 				0775C38D232E4DBA002AAFDE /* ActionButton.swift in Sources */,
@@ -1866,7 +1859,6 @@
 				0775C39E232E62ED002AAFDE /* AddLocaticViewModelTests.swift in Sources */,
 				07BC2CA52351181C00D169E9 /* LocaticVisitStorageTests.swift in Sources */,
 				0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */,
-				07986A502346924600763F4A /* UIViewController+Extensions.swift in Sources */,
 				07BC2C91234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift in Sources */,
 				070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */,
 				07BC2C5D234FB7F500D169E9 /* MockLocationPermissionsManagerDelegate.swift in Sources */,

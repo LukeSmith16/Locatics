@@ -39,7 +39,6 @@ protocol LocaticsMainMapViewModelViewDelegate: class {
 
 protocol LocaticsMainViewModelViewDelegate: LocaticsMainMapViewModelViewDelegate {
     func setNavigationTitle(_ title: String)
-    func hideTabBar(_ shouldHide: Bool)
 }
 
 class LocaticsMainViewModel: LocaticsMainViewModelInterface {
@@ -84,7 +83,6 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
     func addLocaticWasTapped() {
         locaticsMapViewModel?.goToUserRegion(force: true)
         addLocaticViewDelegate?.shouldHideAddLocaticViews(false)
-        viewDelegate?.hideTabBar(true)
     }
 
     func closeLocaticCardViewWasTapped() {
@@ -197,7 +195,6 @@ extension LocaticsMainViewModel: LocaticEntryValidationDelegate {
 
     func closeAddLocaticCardView() {
         addLocaticViewDelegate?.shouldHideAddLocaticViews(true)
-        viewDelegate?.hideTabBar(false)
     }
 }
 

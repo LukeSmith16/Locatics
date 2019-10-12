@@ -201,13 +201,4 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertEqual(pinLocationOnMapView.longitude,
                        centerCoordinate.longitude)
     }
-
-    func test_hideTabBar_unhidesTabBarWhenFalse() {
-        let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([sut], animated: true)
-
-        sut.hideTabBar(false)
-
-        XCTAssertFalse(sut.tabBarController!.tabBar.isHidden)
-    }
 }

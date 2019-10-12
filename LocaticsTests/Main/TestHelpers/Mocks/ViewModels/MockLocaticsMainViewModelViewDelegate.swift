@@ -12,7 +12,6 @@ import Foundation
 class MockLocaticsMainViewModelViewDelegate: LocaticsMainViewModelViewDelegate {
     var calledSetNavigationTitle = false
     var calledShowAlert = false
-    var calledHideTabBar = false
 
     func setNavigationTitle(_ title: String) {
         calledSetNavigationTitle = true
@@ -25,11 +24,5 @@ class MockLocaticsMainViewModelViewDelegate: LocaticsMainViewModelViewDelegate {
         self.passedMessage = message
 
         calledShowAlert = true
-    }
-
-    var hideTabBarPassedValue: Bool?
-    func hideTabBar(_ shouldHide: Bool) {
-        calledHideTabBar = true
-        hideTabBarPassedValue = shouldHide
     }
 }

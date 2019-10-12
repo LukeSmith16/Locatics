@@ -129,13 +129,6 @@ class LocaticsMainViewModelTests: XCTestCase {
         XCTAssertFalse(mockLocaticsViewModelAddLocaticViewObserver.shouldHideValue!)
     }
 
-    func test_addLocaticWasTapped_callsHideTabBarTrue() {
-        sut.addLocaticWasTapped()
-
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledHideTabBar)
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.hideTabBarPassedValue!)
-    }
-
     func test_addLocaticWasTapped_callsGoToUserRegionForced() {
         sut.addLocaticWasTapped()
 
@@ -172,12 +165,6 @@ class LocaticsMainViewModelTests: XCTestCase {
         sut.closeLocaticCardViewWasTapped()
 
         XCTAssertTrue(mockLocaticsViewModelAddLocaticViewObserver.shouldHideValue!)
-    }
-
-    func test_closeLocaticCardViewWasTapped_callsHideTabBar() {
-        sut.closeLocaticCardViewWasTapped()
-
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledHideTabBar)
     }
 
     func test_calledShouldHideAddLocaticViews_whenCloseAddLocaticCardView() {

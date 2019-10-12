@@ -39,32 +39,32 @@
                     </connections>
                 </button>
                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-bB-NcS">
-                    <rect key="frame" x="187" y="272" width="40" height="38"/>
+                    <rect key="frame" x="187" y="236.5" width="40" height="38"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="8iC-Ku-11l"/>
                         <constraint firstAttribute="width" constant="40" id="kaD-lM-GFf"/>
                     </constraints>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gF-HBO" customClass="AddLocaticCardView" customModule="Locatics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="496" width="414" height="400"/>
-                    <color key="backgroundColor" name="interactable_main"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="400" id="oIF-Zg-cYj"/>
-                    </constraints>
-                </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-rw-RBH">
-                    <rect key="frame" x="20" y="458" width="39" height="30"/>
+                    <rect key="frame" x="20" y="474" width="39" height="30"/>
                     <state key="normal" title="Close"/>
                     <connections>
                         <action selector="closeLocaticCardViewTapped:" destination="-1" eventType="touchUpInside" id="f83-A9-4Bj"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gF-HBO" customClass="AddLocaticCardView" customModule="Locatics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="512" width="414" height="350"/>
+                    <color key="backgroundColor" name="interactable_main"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="350" id="oIF-Zg-cYj"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="tMs-kb-A3U" firstAttribute="bottom" secondItem="WxM-gF-HBO" secondAttribute="bottom" id="1Cs-ga-imf"/>
                 <constraint firstItem="tMs-kb-A3U" firstAttribute="bottom" secondItem="eMW-pO-DdO" secondAttribute="bottom" constant="20" id="1sd-cR-sPM"/>
                 <constraint firstItem="WxM-gF-HBO" firstAttribute="leading" secondItem="tMs-kb-A3U" secondAttribute="leading" id="2eq-oA-Cj9"/>
-                <constraint firstAttribute="bottom" secondItem="WxM-gF-HBO" secondAttribute="bottom" id="D92-P7-x72"/>
                 <constraint firstItem="GVF-h5-ecx" firstAttribute="leading" secondItem="tMs-kb-A3U" secondAttribute="leading" id="Nxe-i3-5wb"/>
                 <constraint firstItem="tMs-kb-A3U" firstAttribute="bottom" secondItem="GVF-h5-ecx" secondAttribute="bottom" id="Pa0-VH-LjQ"/>
                 <constraint firstItem="Gox-bB-NcS" firstAttribute="centerX" secondItem="Vqn-mQ-24B" secondAttribute="centerX" id="PuH-J6-lsq"/>
@@ -72,7 +72,7 @@
                 <constraint firstItem="tMs-kb-A3U" firstAttribute="trailing" secondItem="GVF-h5-ecx" secondAttribute="trailing" id="Zlq-fX-MfL"/>
                 <constraint firstItem="nB9-rw-RBH" firstAttribute="leading" secondItem="tMs-kb-A3U" secondAttribute="leading" constant="20" id="gIf-ZK-hSn"/>
                 <constraint firstItem="GVF-h5-ecx" firstAttribute="top" secondItem="tMs-kb-A3U" secondAttribute="top" id="hHx-kw-3MV"/>
-                <constraint firstItem="Gox-bB-NcS" firstAttribute="centerY" secondItem="Vqn-mQ-24B" secondAttribute="centerY" multiplier="0.65" id="iw0-jL-UhN"/>
+                <constraint firstItem="Gox-bB-NcS" firstAttribute="centerY" secondItem="Vqn-mQ-24B" secondAttribute="centerY" multiplier="0.57" id="iw0-jL-UhN"/>
                 <constraint firstItem="WxM-gF-HBO" firstAttribute="top" secondItem="nB9-rw-RBH" secondAttribute="bottom" constant="8" id="l0a-xM-CPp"/>
                 <constraint firstItem="tMs-kb-A3U" firstAttribute="trailing" secondItem="eMW-pO-DdO" secondAttribute="trailing" constant="20" id="uaJ-na-k3J"/>
             </constraints>
