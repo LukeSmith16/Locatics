@@ -68,7 +68,7 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
             return "Fetching location..."
         }
 
-        return lastVisitedLocation.description
+        return (lastVisitedLocation.description).capitalized
     }
 
     func getSubtitle() -> String {
@@ -77,7 +77,7 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
         }
 
         let formattedArrivalDate = DateFormatterManager.hoursMinutes(from: lastVisitedLocation.date)
-        return "Since " + formattedArrivalDate
+        return ("Since " + formattedArrivalDate).uppercased()
     }
 
     func addLocaticWasTapped() {

@@ -22,7 +22,7 @@ class UIFontExtensionsTests: XCTestCase {
         let font = Font.init(.installed(.HelveticaRegular), size: .standard(.h2)).instance
 
         XCTAssertEqual(font.fontName, "Helvetica")
-        XCTAssertEqual(font.pointSize, 16.0)
+        XCTAssertEqual(font.pointSize, 14.0)
     }
 
     func test_installed_regularH3() {

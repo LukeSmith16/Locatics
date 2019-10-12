@@ -20,8 +20,10 @@ class CAGradientLayerExtensionsTests: XCTestCase {
         }
 
         XCTAssertEqual(gradient.bounds, sizeForBounds)
-        XCTAssertEqual(colors, [UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.yellow.cgColor])
+        XCTAssertEqual(colors, [UIColor(colorTheme: .Background).cgColor,
+                                UIColor(colorTheme: .Background).withAlphaComponent(0.75).cgColor,
+                                UIColor(colorTheme: .Background).withAlphaComponent(0.00).cgColor])
         XCTAssertEqual(gradient.startPoint, CGPoint(x: 0, y: 0))
-        XCTAssertEqual(gradient.endPoint, CGPoint(x: 1.0, y: 0.0))
+        XCTAssertEqual(gradient.endPoint, CGPoint(x: 0.0, y: 1.0))
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 
 extension UINavigationBar {
     func setupDefaultNavigationBarAppearance() {
+        self.shadowImage = UIImage()
+        self.isTranslucent = true
+
         let navigationBarBounds = self.bounds
         let gradientLayer = CAGradientLayer.Theme.navigationBar(size: navigationBarBounds)
         let gradientImage = UIImage.ImageFrom.gradientLayer(gradientLayer)

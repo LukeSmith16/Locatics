@@ -13,9 +13,11 @@ extension CAGradientLayer {
         static func navigationBar(size: CGRect) -> CAGradientLayer {
             let gradient = CAGradientLayer()
             gradient.bounds = size
-            gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.yellow.cgColor]
+            gradient.colors = [UIColor(colorTheme: .Background).cgColor,
+                               UIColor(colorTheme: .Background).withAlphaComponent(0.75).cgColor,
+                               UIColor(colorTheme: .Background).withAlphaComponent(0.00).cgColor]
             gradient.startPoint = CGPoint(x: 0, y: 0)
-            gradient.endPoint = CGPoint(x: 1.0, y: 0.0)
+            gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
 
             return gradient
         }

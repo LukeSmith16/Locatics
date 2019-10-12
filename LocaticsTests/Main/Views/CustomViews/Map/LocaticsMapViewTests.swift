@@ -91,6 +91,8 @@ class LocaticsMapViewTests: XCTestCase {
     }
 
     func test_addLocaticMapAnnotation_addsLocaticMarkerAnnotationView() {
+        sut.removeAnnotations(sut.annotations)
+
         let locatic = MockLocatic()
         locatic.iconPath = "addLocaticButtonIcon"
 
@@ -100,6 +102,8 @@ class LocaticsMapViewTests: XCTestCase {
     }
 
     func test_addLocaticMapAnnotation_addsLocaticMarkerAnnotationViewWithValues() {
+        sut.removeAnnotations(sut.annotations)
+
         let locatic = MockLocatic()
         locatic.iconPath = "addLocaticButtonIcon"
 
@@ -117,6 +121,8 @@ class LocaticsMapViewTests: XCTestCase {
     }
 
     func test_removeLocaticMapAnnotation_removesAnnotationMatchingCoordinate() {
+        sut.removeAnnotations(sut.annotations)
+
         let locatic = MockLocatic()
         sut.addLocaticMapAnnotation(locatic)
 

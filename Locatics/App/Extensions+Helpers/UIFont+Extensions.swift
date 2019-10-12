@@ -35,7 +35,7 @@ struct Font {
 
     enum StandardSize: Double {
         case h1 = 18.0
-        case h2 = 16.0
+        case h2 = 14.0
         case h3 = 12.0
         case h4 = 9.0
     }

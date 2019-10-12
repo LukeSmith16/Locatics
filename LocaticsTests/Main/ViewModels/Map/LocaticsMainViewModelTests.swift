@@ -63,7 +63,8 @@ class LocaticsMainViewModelTests: XCTestCase {
     func test_mainTitle_returnsLastVisitedLocationTitle() {
         let mainTitle = sut.getMainTitle()
 
-        XCTAssertEqual(mainTitle, mockLocationManager.lastVisitedLocation!.description)
+        XCTAssertEqual(mainTitle,
+                       (mockLocationManager.lastVisitedLocation!.description).capitalized)
     }
 
     func test_mainTitle_returnsFetchingLocationIfVisitedLocationIsNil() {
@@ -98,7 +99,7 @@ class LocaticsMainViewModelTests: XCTestCase {
         let arrivalDateFormatted = DateFormatterManager.hoursMinutes(from: arrivalDate)
         let subtitle = sut.getSubtitle()
 
-        XCTAssertEqual(subtitle, "Since " + arrivalDateFormatted)
+        XCTAssertEqual(subtitle, ("Since " + arrivalDateFormatted).uppercased())
     }
 
     func test_subtitle_returnsJustNowIfLastVisitedLocationIsNil() {

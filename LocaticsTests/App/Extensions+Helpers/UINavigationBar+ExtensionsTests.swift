@@ -14,6 +14,8 @@ class UINavigationBarExtensionsTests: XCTestCase {
         let sut = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         sut.setupDefaultNavigationBarAppearance()
 
+        XCTAssertTrue(sut.isTranslucent)
+        XCTAssertNotNil(sut.shadowImage)
         XCTAssertNotNil(sut.backgroundImage(for: .default))
     }
 }

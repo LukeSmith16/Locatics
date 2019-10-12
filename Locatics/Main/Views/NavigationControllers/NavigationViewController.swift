@@ -11,6 +11,13 @@ import UIKit
 class NavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.setupDefaultNavigationBarAppearance()
+        setupBackgroundView()
+        navigationBar.setupDefaultNavigationBarAppearance()
+    }
+}
+
+private extension NavigationViewController {
+    func setupBackgroundView() {
+        self.view.backgroundColor = .clear
     }
 }

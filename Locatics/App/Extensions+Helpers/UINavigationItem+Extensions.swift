@@ -42,6 +42,7 @@ extension UINavigationItem {
 
         let navigationTitleView = NavigationTitleView(mainTitleLabel: mainTitleLabel, subtitleLabel: subtitleLabel)
         navigationTitleView.distribution = .equalCentering
+        navigationTitleView.spacing = 5
         navigationTitleView.axis = .vertical
         navigationTitleView.alignment = .center
 
@@ -62,6 +63,7 @@ private extension UINavigationItem {
         let mainTitleLabel = UILabel()
         mainTitleLabel.text = title
         mainTitleLabel.textAlignment = .center
+        mainTitleLabel.textColor = UIColor(colorTheme: .Title_Main)
         mainTitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h1)).instance
         mainTitleLabel.sizeToFit()
 
@@ -71,8 +73,9 @@ private extension UINavigationItem {
     func createSubTitleLabel(subtitle: String?) -> UILabel {
         let subtitleLabel = UILabel()
         subtitleLabel.text = subtitle
-        subtitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h2)).instance
         subtitleLabel.textAlignment = .center
+        subtitleLabel.textColor = UIColor(colorTheme: .Title_Main)
+        subtitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h2)).instance
         subtitleLabel.sizeToFit()
 
         return subtitleLabel
