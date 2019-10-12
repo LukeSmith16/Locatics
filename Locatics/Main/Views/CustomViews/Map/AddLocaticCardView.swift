@@ -75,7 +75,7 @@ private extension AddLocaticCardView {
 
     func setupShadow() {
         self.contentView.layer.shadowColor = UIColor.black.cgColor
-        self.contentView.layer.shadowOpacity = 0.9
+        self.contentView.layer.shadowOpacity = 0.09
     }
 
     func setupCorners() {

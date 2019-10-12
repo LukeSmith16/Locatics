@@ -60,7 +60,7 @@ class AddLocaticCardViewTests: XCTestCase {
 
     func test_setupShadow_configuresShadow() {
         XCTAssertEqual(sut.contentView.layer.shadowColor, UIColor.black.cgColor)
-        XCTAssertEqual(sut.contentView.layer.shadowOpacity, 0.9)
+        XCTAssertEqual(sut.contentView.layer.shadowOpacity, 0.09)
     }
 
     func test_topCornerRadius_isTwentyFive() {
