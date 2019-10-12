@@ -45,4 +45,8 @@ class UIFontExtensionsTests: XCTestCase {
         XCTAssertEqual(font.fontName, "Helvetica")
         XCTAssertEqual(font.pointSize, 20.0)
     }
+
+    func test_helveticaBold_value() {
+        XCTAssertEqual(Font.FontName.HelveticaBold.rawValue, "Helvetica-Bold")
+    }
 }

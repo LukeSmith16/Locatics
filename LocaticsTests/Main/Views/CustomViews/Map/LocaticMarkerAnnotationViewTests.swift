@@ -18,7 +18,9 @@ class LocaticMarkerAnnotationViewTests: XCTestCase {
         let annotation = MKPointAnnotation()
         annotation.coordinate = MockLocation().coordinate
 
-        sut = LocaticMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        sut = LocaticMarkerAnnotationView(annotation: annotation,
+                                          reuseIdentifier: "LocaticMarkerAnnotationView",
+                                          image: UIImage(named: "addLocaticPinIcon"))
     }
 
     override func tearDown() {
@@ -26,9 +28,9 @@ class LocaticMarkerAnnotationViewTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_settingAnnotation_triggersConfigure() {
+    func test_init_triggersConfigure() {
         XCTAssertTrue(sut.collisionMode == .circle)
         XCTAssertEqual(sut.clusteringIdentifier, "LocaticMarkerAnnotationView")
+        XCTAssertNotNil(sut.image)
     }
-
 }

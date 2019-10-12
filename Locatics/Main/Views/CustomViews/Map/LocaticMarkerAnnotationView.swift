@@ -9,16 +9,16 @@
 import MapKit
 
 final class LocaticMarkerAnnotationView: MKPinAnnotationView {
-    override var annotation: MKAnnotation? {
-        willSet {
-            newValue.flatMap(configure(with:))
-        }
+    convenience init(annotation: MKPointAnnotation, reuseIdentifier: String, image: UIImage?) {
+        self.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        configure(with: annotation, image: image)
     }
 }
 
 private extension LocaticMarkerAnnotationView {
-    func configure(with annotation: MKAnnotation) {
+    func configure(with annotation: MKAnnotation, image: UIImage?) {
         self.collisionMode = .circle
+        self.image = image
         self.clusteringIdentifier = String(describing: LocaticMarkerAnnotationView.self)
     }
 }

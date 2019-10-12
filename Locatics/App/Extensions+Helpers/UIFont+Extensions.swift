@@ -17,6 +17,7 @@ struct Font {
 
     enum FontName: String {
         case HelveticaRegular = "Helvetica"
+        case HelveticaBold = "Helvetica-Bold"
     }
 
     enum FontSize {

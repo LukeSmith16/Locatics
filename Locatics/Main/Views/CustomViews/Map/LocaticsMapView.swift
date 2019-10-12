@@ -70,9 +70,8 @@ extension LocaticsMapView: LocaticsMapViewModelViewDelegate, AddLocaticMapRadius
                                                 longitude: locatic.longitude)
 
         let locaticMarkerAnnotationView = LocaticMarkerAnnotationView(annotation: pointAnnotation,
-                                                            reuseIdentifier: "LocaticMarkerAnnotationView")
-        locaticMarkerAnnotationView.image = UIImage(named: "\(locatic.iconPath)")
-
+                                                                      reuseIdentifier: "LocaticMarkerAnnotationView",
+                                                                      image: UIImage(named: "\(locatic.iconPath)"))
         addAnnotation(locaticMarkerAnnotationView.annotation!)
     }
 
