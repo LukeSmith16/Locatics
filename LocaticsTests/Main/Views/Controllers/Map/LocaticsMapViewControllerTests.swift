@@ -116,6 +116,15 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertEqual(addLocaticButtonLayer.shadowOffset, CGSize(width: 0, height: 5))
     }
 
+    func test_setupLocationMarkerPin_shadowIsConfigured() {
+        XCTAssertFalse(sut.locationMarkerPin.clipsToBounds)
+
+        let locationMarkerPinLayer = sut.locationMarkerPin.layer
+        XCTAssertEqual(locationMarkerPinLayer.shadowColor, UIColor.black.cgColor)
+        XCTAssertEqual(locationMarkerPinLayer.shadowOpacity, 0.15)
+        XCTAssertEqual(locationMarkerPinLayer.shadowOffset, CGSize(width: 0, height: 5))
+    }
+
     func test_locaticsMainViewModelViewDelegate_isNotNil() {
         XCTAssertNotNil(sut.locaticsMainViewModel?.viewDelegate)
     }

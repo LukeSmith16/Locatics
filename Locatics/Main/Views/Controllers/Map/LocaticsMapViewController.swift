@@ -32,6 +32,7 @@ class LocaticsMapViewController: UIViewController {
         setupAddLocaticCardView()
         setupMapView()
         setupAddLocaticButton()
+        setupLocationMarkerPin()
     }
 
     @IBAction func addLocaticTapped(_ sender: Any) {
@@ -71,6 +72,13 @@ private extension LocaticsMapViewController {
         self.addLocaticButton.layer.shadowColor = UIColor.black.cgColor
         self.addLocaticButton.layer.shadowOpacity = 0.20
         self.addLocaticButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+    }
+
+    func setupLocationMarkerPin() {
+        self.locationMarkerPin.clipsToBounds = false
+        self.locationMarkerPin.layer.shadowColor = UIColor.black.cgColor
+        self.locationMarkerPin.layer.shadowOpacity = 0.15
+        self.locationMarkerPin.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
 }
 

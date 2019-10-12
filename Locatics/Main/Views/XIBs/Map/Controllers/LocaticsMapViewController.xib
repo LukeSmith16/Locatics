@@ -37,12 +37,12 @@
                         <action selector="addLocaticTapped:" destination="-1" eventType="touchUpInside" id="bt8-tG-jf3"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-bB-NcS">
-                    <rect key="frame" x="187" y="236.5" width="40" height="38"/>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addLocaticPinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-bB-NcS">
+                    <rect key="frame" x="184.5" y="233" width="45" height="45"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="8iC-Ku-11l"/>
-                        <constraint firstAttribute="width" constant="40" id="kaD-lM-GFf"/>
+                        <constraint firstAttribute="height" constant="45" id="8iC-Ku-11l"/>
+                        <constraint firstAttribute="width" constant="45" id="kaD-lM-GFf"/>
                     </constraints>
                 </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-rw-RBH">
@@ -80,6 +80,6 @@
     </objects>
     <resources>
         <image name="addLocaticButtonIcon" width="64" height="64"/>
-        <image name="exclamationmark.square.fill" catalog="system" width="64" height="56"/>
+        <image name="addLocaticPinIcon" width="47" height="47"/>
     </resources>
 </document>

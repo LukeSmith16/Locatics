@@ -87,7 +87,7 @@ extension LocaticsMapView: LocaticsMapViewModelViewDelegate, AddLocaticMapRadius
 extension LocaticsMapView: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let circleView = MKCircleRenderer(overlay: overlay)
-        circleView.fillColor = UIColor.orange
+        circleView.fillColor = UIColor.orange.withAlphaComponent(0.3)
 
         return circleView
     }
