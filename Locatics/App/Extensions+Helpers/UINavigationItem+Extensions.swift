@@ -37,17 +37,8 @@ class NavigationTitleView: UIStackView, NavigationTitleViewInterface {
 
 extension UINavigationItem {
     func setupTitleView(title: String?, subtitle: String?) -> NavigationTitleViewInterface {
-        let mainTitleLabel = UILabel()
-        mainTitleLabel.text = title
-        mainTitleLabel.textAlignment = .center
-        mainTitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h1)).instance
-        mainTitleLabel.sizeToFit()
-
-        let subtitleLabel = UILabel()
-        subtitleLabel.text = subtitle
-        subtitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h2)).instance
-        subtitleLabel.textAlignment = .center
-        subtitleLabel.sizeToFit()
+        let mainTitleLabel = createMainTitleLabel(title: title)
+        let subtitleLabel = createSubTitleLabel(subtitle: subtitle)
 
         let navigationTitleView = NavigationTitleView(mainTitleLabel: mainTitleLabel, subtitleLabel: subtitleLabel)
         navigationTitleView.distribution = .equalCentering
@@ -63,5 +54,27 @@ extension UINavigationItem {
         self.titleView = navigationTitleView
 
         return navigationTitleView
+    }
+}
+
+private extension UINavigationItem {
+    func createMainTitleLabel(title: String?) -> UILabel {
+        let mainTitleLabel = UILabel()
+        mainTitleLabel.text = title
+        mainTitleLabel.textAlignment = .center
+        mainTitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h1)).instance
+        mainTitleLabel.sizeToFit()
+
+        return mainTitleLabel
+    }
+
+    func createSubTitleLabel(subtitle: String?) -> UILabel {
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = subtitle
+        subtitleLabel.font = Font.init(.installed(.HelveticaRegular), size: .standard(.h2)).instance
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.sizeToFit()
+
+        return subtitleLabel
     }
 }
