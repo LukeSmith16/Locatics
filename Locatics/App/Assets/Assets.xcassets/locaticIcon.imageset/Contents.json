@@ -3,6 +3,16 @@
     {
       "idiom" : "universal",
       "filename" : "Group 6 Copy.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Group 6 Copy-1.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {

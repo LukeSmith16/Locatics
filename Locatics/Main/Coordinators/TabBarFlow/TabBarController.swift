@@ -43,6 +43,9 @@ private extension TabBarController {
         tabBar.setLineColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
         tabBar.setTabItemsColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
         tabBar.setTabItemsColor(UIColor(colorTheme: .Interactable_Unselected), for: .normal)
+
+        tabBar.backgroundColor = UIColor(colorTheme: .Background)
+        tabBar.dividerColor = UIColor(colorTheme: .Background)
     }
 
     func setupGestures() {

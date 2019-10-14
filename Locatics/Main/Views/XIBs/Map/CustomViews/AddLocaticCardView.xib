@@ -125,7 +125,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="background"/>
                     <constraints>
                         <constraint firstItem="KPX-y5-pxE" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="5d9-tz-mKu"/>
                         <constraint firstItem="KPX-y5-pxE" firstAttribute="top" secondItem="LOX-co-X1Z" secondAttribute="bottom" constant="59" id="6hD-99-jB4"/>
@@ -144,7 +144,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="background"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8Of-33-g0t" secondAttribute="bottom" id="7Hi-FW-6sX"/>
                 <constraint firstItem="8Of-33-g0t" firstAttribute="leading" secondItem="2wa-yl-vZf" secondAttribute="leading" id="81v-ie-JaL"/>
@@ -166,11 +166,14 @@
         <image name="homeLocaticUnselectedIcon" width="49" height="48"/>
         <image name="locaticUnselectedIcon" width="49" height="48"/>
         <image name="workLocaticUnselectedIcon" width="49" height="48"/>
+        <namedColor name="background">
+            <color red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="title_main">
-            <color red="0.20784313725490197" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.92419495558375631" green="0.92419495558375631" blue="0.92419495558375631" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="title_secondary">
-            <color red="0.60784313725490191" green="0.59999999999999998" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.71758353975497857" green="0.71411695260640373" blue="0.7210501269035533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

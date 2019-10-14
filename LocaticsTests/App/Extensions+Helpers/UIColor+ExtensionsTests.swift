@@ -28,6 +28,9 @@ class UIColorExtensionsTests: XCTestCase {
         let title_main = ColorTheme.Title_Main
         XCTAssertEqual(title_main.rawValue, "title_main")
 
+        let title_action = ColorTheme.Title_Action
+        XCTAssertEqual(title_action.rawValue, "title_action")
+
         let title_secondary = ColorTheme.Title_Secondary
         XCTAssertEqual(title_secondary.rawValue, "title_secondary")
     }

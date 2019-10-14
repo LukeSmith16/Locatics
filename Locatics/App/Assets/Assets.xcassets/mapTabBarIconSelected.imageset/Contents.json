@@ -3,6 +3,16 @@
     {
       "idiom" : "universal",
       "filename" : "mapTabBarIcon.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "loc-map.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {

@@ -17,6 +17,7 @@ enum ColorTheme: String {
     case Interactable_Secondary = "interactable_secondary"
     case Interactable_Unselected = "interactable_unselected"
     case Title_Main = "title_main"
+    case Title_Action = "title_action"
     case Title_Secondary = "title_secondary"
 }
 

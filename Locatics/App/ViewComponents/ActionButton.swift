@@ -21,7 +21,7 @@ enum ActionButtonStyle {
     var textColor: UIColor {
         switch self {
         case .save:
-            return UIColor(colorTheme: .Background)
+            return UIColor(colorTheme: .Title_Action)
         }
     }
 

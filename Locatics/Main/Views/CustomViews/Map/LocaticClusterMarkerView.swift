@@ -38,7 +38,7 @@ private extension LocaticClusterMarkerView {
         image = renderer.image { _ in
             UIColor(colorTheme: .Interactable_Secondary).setFill()
             UIBezierPath(ovalIn: CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)).fill()
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor(colorTheme: .Background),
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor(colorTheme: .Title_Action),
                               NSAttributedString.Key.font: Font.init(.installed(.HelveticaBold), size: .standard(.h1)).instance]
             let text = "\(count)"
             let size = text.size(withAttributes: attributes)

@@ -3,6 +3,16 @@
     {
       "idiom" : "universal",
       "filename" : "addLocaticButtonIcon.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "addspot-action copy.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {
