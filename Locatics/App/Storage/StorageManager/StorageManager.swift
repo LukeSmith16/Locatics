@@ -60,7 +60,6 @@ class StorageManager: StorageManagerInterface {
             let newObject = entity.init(context: self.moc)
             newObject.identity = Int64(UUID().uuidString.hashValue)
             newObject.setValuesForKeys(values)
-
             completion(.success(newObject))
         }
     }
@@ -76,17 +75,15 @@ class StorageManager: StorageManagerInterface {
                                             predicate: NSPredicate?,
                                             sortDescriptors: [NSSortDescriptor]?,
                                             completion: @escaping (Result<[Object], StorageManagerError>) -> Void) {
-        psc.performBackgroundTask { (context) in
-            let fetchRequest = Object.sortedFetchRequest
-            fetchRequest.predicate = predicate
-            fetchRequest.sortDescriptors = sortDescriptors
+        let fetchRequest = Object.sortedFetchRequest
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors
 
-            do {
-                let fetchResults = try context.fetch(fetchRequest)
-                completion(.success(fetchResults))
-            } catch {
-                completion(.failure(.badRequest))
-            }
+        do {
+            let fetchResults = try moc.fetch(fetchRequest)
+            completion(.success(fetchResults))
+        } catch {
+            completion(.failure(.badRequest))
         }
     }
 
