@@ -26,6 +26,7 @@ final class TabBarController: TabsController, TabBarControllerInterface {
         super.prepare()
         setupDelegate()
         setupTabBar()
+        setupGestures()
         setupInitialTabSelected()
     }
 }
@@ -37,10 +38,15 @@ private extension TabBarController {
 
     func setupTabBar() {
         tabBar.lineAlignment = .top
-        tabBar.setLineColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
+        tabBar.tabBarStyle = .nonScrollable
 
+        tabBar.setLineColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
         tabBar.setTabItemsColor(UIColor(colorTheme: .Interactable_Main), for: .selected)
         tabBar.setTabItemsColor(UIColor(colorTheme: .Interactable_Unselected), for: .normal)
+    }
+
+    func setupGestures() {
+        self.isSwipeEnabled = false
     }
 
     func setupInitialTabSelected() {
