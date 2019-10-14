@@ -2,7 +2,7 @@ fastlane_version "2.133.0"
 REQUIRED_XCODE_VERSION = "11.0"
 default_platform :ios
 
-ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
+ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
 
 platform :ios do
   ################
