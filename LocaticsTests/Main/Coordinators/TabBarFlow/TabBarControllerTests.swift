@@ -44,13 +44,18 @@ class TabBarControllerTests: XCTestCase {
 
     func test_setupTabBar_configuresTabBar() {
         XCTAssertTrue(sut.tabBar.lineAlignment == .top)
+        XCTAssertTrue(sut.tabBar.tabBarStyle == .nonScrollable)
+        
         XCTAssertEqual(sut.tabBar.getLineColor(for: .selected),
                        UIColor(colorTheme: .Interactable_Main))
-
         XCTAssertEqual(sut.tabBar.getTabItemColor(for: .selected)!,
                        UIColor(colorTheme: .Interactable_Main))
         XCTAssertEqual(sut.tabBar.getTabItemColor(for: .normal)!,
                        UIColor(colorTheme: .Interactable_Unselected))
+    }
+
+    func test_setupGestures_disablesSwipe() {
+        XCTAssertFalse(sut.isSwipeEnabled)
     }
 
     func test_initialTabSelected_isMapFlow() {
