@@ -60,6 +60,14 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.addLocaticCardView)
     }
 
+    func test_locationMarkerPinYConstraint_isNotNil() {
+        XCTAssertNotNil(sut.locationMarkerPinYConstraint)
+    }
+
+    func test_addLocaticCardViewHeightConstraint_isNotNil() {
+        XCTAssertNotNil(sut.addLocaticCardViewHeightConstraint)
+    }
+
     func test_locationMarkerPin_isHiddenByDefault() {
         XCTAssertTrue(sut.locationMarkerPin.isHidden)
     }
@@ -209,5 +217,23 @@ class LocaticsMapViewControllerTests: XCTestCase {
                        centerCoordinate.latitude)
         XCTAssertEqual(pinLocationOnMapView.longitude,
                        centerCoordinate.longitude)
+    }
+
+    func test_shouldHideAddLocaticViews_toFalseUpdatesConstraintConstants() {
+        sut.shouldHideAddLocaticViews(false)
+
+        XCTAssertEqual(sut.addLocaticCardViewHeightConstraint.constant,
+                       400)
+        XCTAssertEqual(sut.locationMarkerPinYConstraint.constant,
+                       0)
+    }
+
+    func test_shouldHideAddLocaticViews_toTrueUpdatesConstraintConstants() {
+        sut.shouldHideAddLocaticViews(true)
+
+        XCTAssertEqual(sut.addLocaticCardViewHeightConstraint.constant,
+                       0)
+        XCTAssertEqual(sut.locationMarkerPinYConstraint.constant,
+                       -300)
     }
 }

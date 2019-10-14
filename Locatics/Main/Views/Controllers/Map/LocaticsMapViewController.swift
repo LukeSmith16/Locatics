@@ -7,14 +7,17 @@
 //
 
 import UIKit
-import Material
 
 class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var mapView: LocaticsMapView!
     @IBOutlet weak var addLocaticButton: UIButton!
     @IBOutlet weak var closeLocaticCardViewButton: UIButton!
-    @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
+
+    @IBOutlet weak var locationMarkerPinYConstraint: NSLayoutConstraint!
     @IBOutlet weak var locationMarkerPin: UIImageView!
+
+    @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
+    @IBOutlet weak var addLocaticCardViewHeightConstraint: NSLayoutConstraint!
 
     var navigationTitleView: NavigationTitleViewInterface?
 
@@ -97,9 +100,7 @@ extension LocaticsMapViewController: LocaticsMainViewModelViewDelegate {
 
 extension LocaticsMapViewController: LocaticsMainAddLocaticViewModelViewDelegate {
     func shouldHideAddLocaticViews(_ shouldHide: Bool) {
-        self.locationMarkerPin.isHidden = shouldHide
-        self.addLocaticCardView.isHidden = shouldHide
-        self.closeLocaticCardViewButton.isHidden = shouldHide
+        shouldHide ? animateAddLocaticCardViewHide() : animateAddLocaticCardViewShow()
         mapView.removeAddLocaticRadiusAnnotation()
     }
 
@@ -107,5 +108,43 @@ extension LocaticsMapViewController: LocaticsMainAddLocaticViewModelViewDelegate
         let pinLocation = mapView.convert(locationMarkerPin.center,
                                           toCoordinateFrom: mapView)
         return pinLocation
+    }
+}
+
+private extension LocaticsMapViewController {
+    func animateAddLocaticCardViewShow() {
+        self.addLocaticButton.isUserInteractionEnabled = false
+        self.locationMarkerPin.isHidden = false
+        self.addLocaticCardView.isHidden = false
+        self.closeLocaticCardViewButton.isHidden = false
+
+        self.addLocaticCardViewHeightConstraint.constant = 400
+        self.locationMarkerPinYConstraint.constant = 0
+
+        UIView.animate(withDuration: 0.9,
+                       delay: 0,
+                       usingSpringWithDamping: 5,
+                       initialSpringVelocity: 10,
+                       options: [.curveEaseInOut], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+
+    func animateAddLocaticCardViewHide() {
+        self.addLocaticCardViewHeightConstraint.constant = 0
+        self.locationMarkerPinYConstraint.constant = -300
+
+        UIView.animate(withDuration: 0.9,
+                       delay: 0,
+                       usingSpringWithDamping: 5,
+                       initialSpringVelocity: 10,
+                       options: [.curveEaseInOut], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: { (_) in
+            self.addLocaticButton.isUserInteractionEnabled = true
+            self.locationMarkerPin.isHidden = true
+            self.addLocaticCardView.isHidden = true
+            self.closeLocaticCardViewButton.isHidden = true
+        })
     }
 }
