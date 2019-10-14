@@ -51,7 +51,7 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
     weak var locaticPinLocationDelegate: LocaticPinLocationDelegate?
 
     private let locaticStorage: LocaticStorageInterface
-    private var locaticIconPath: String = "defaultPath"
+    private var locaticIconPath: String = ""
 
     init(locaticStorage: LocaticStorageInterface) {
         self.locaticStorage = locaticStorage
@@ -67,9 +67,13 @@ class AddLocaticViewModel: AddLocaticViewModelInterface {
     func locaticIconDidChange(_ tag: Int) {
         switch tag {
         case 0:
-            self.locaticIconPath = "addLocaticButtonIcon"
+            self.locaticIconPath = "locaticIcon"
         case 1:
-            self.locaticIconPath = "test"
+            self.locaticIconPath = "homeLocaticIcon"
+        case 2:
+            self.locaticIconPath = "activityLocaticIcon"
+        case 3:
+            self.locaticIconPath = "workLocaticIcon"
         default:
             break
         }

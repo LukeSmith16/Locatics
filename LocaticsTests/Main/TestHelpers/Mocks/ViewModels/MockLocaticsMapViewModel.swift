@@ -10,10 +10,12 @@ import Foundation
 
 @testable import Locatics
 class MockLocaticsMapViewModel: LocaticsMapViewModelInterface {
+
     var calledGoToUserRegion = false
     var calledUpdatePinAnnotationRadius = false
     var calledGetLocationPinCoordinate = false
     var calledGetAllLocatics = false
+    var calledGetLocaticIconForCoordinate = false
 
     weak var viewDelegate: LocaticsMapViewModelViewDelegate?
 
@@ -38,5 +40,9 @@ class MockLocaticsMapViewModel: LocaticsMapViewModelInterface {
 
     func getAllLocatics() {
         calledGetAllLocatics = true
+    }
+
+    func getLocaticIconForCoordinate(_ coordinate: Coordinate) -> String {
+        return "getLocaticIconForCoordinate"
     }
 }

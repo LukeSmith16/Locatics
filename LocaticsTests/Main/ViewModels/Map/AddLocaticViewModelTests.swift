@@ -64,7 +64,7 @@ class AddLocaticViewModelTests: XCTestCase {
 
         sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
 
-        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "addLocaticButtonIcon")
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "locaticIcon")
     }
 
     func test_locaticIconDidChange_updatesLocaticIconPathWithTagOne() {
@@ -72,7 +72,7 @@ class AddLocaticViewModelTests: XCTestCase {
 
         sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
 
-        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "test")
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "homeLocaticIcon")
     }
 
     func test_locaticIconDidChange_withInvalidTagUsesDefaultIconPath() {
@@ -80,7 +80,7 @@ class AddLocaticViewModelTests: XCTestCase {
 
         sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
 
-        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "defaultPath")
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "")
     }
 
     func test_validateLocaticName_throwsErrorWhenNameIsNil() {

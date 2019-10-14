@@ -17,6 +17,11 @@ class AddLocaticCardView: UIView {
     @IBOutlet var radiusSlider: SliderControl!
     @IBOutlet var addNewLocaticButton: ActionButton!
 
+    @IBOutlet weak var locaticIconButton: UIButton!
+    @IBOutlet weak var homeIconButton: UIButton!
+    @IBOutlet weak var activityIconButton: UIButton!
+    @IBOutlet weak var businessIconButton: UIButton!
+
     @IBOutlet var locaticIconButtons: [UIButton]!
 
     var addLocaticViewModel: AddLocaticViewModelInterface? {
@@ -37,6 +42,8 @@ class AddLocaticCardView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupButtons()
+
         setupRadiusSlider()
         setupAddNewLocaticButton()
 
@@ -50,6 +57,7 @@ class AddLocaticCardView: UIView {
 
     @IBAction func locaticIconButtonTapped(_ sender: UIButton) {
         addLocaticViewModel?.locaticIconDidChange(sender.tag)
+        setSelected(sender)
     }
 
     @IBAction func addLocaticTapped(_ sender: Any) {
@@ -61,16 +69,27 @@ class AddLocaticCardView: UIView {
         self.locaticNameTextField.text = nil
         self.radiusLabel.text = "Radius"
         self.radiusSlider.value = 0.0
+
+        locaticIconButtonTapped(locaticIconButton)
     }
 }
 
 private extension AddLocaticCardView {
+    func setupButtons() {
+        locaticIconButton.setImage(UIImage(named: "locaticSelectedIcon")!, for: .selected)
+        homeIconButton.setImage(UIImage(named: "homeLocaticSelectedIcon")!, for: .selected)
+        activityIconButton.setImage(UIImage(named: "activitySelectedIcon")!, for: .selected)
+        businessIconButton.setImage(UIImage(named: "workLocaticSelectedIcon")!, for: .selected)
+
+        locaticIconButtonTapped(locaticIconButton)
+    }
+
     func setupRadiusSlider() {
         radiusSlider.setup(sliderStyle: .distance, minValue: 0, maxValue: 100)
     }
 
     func setupAddNewLocaticButton() {
-        addNewLocaticButton.setup(actionStyle: .save, actionTitle: "Add new Locatic")
+        addNewLocaticButton.setup(actionStyle: .save, actionTitle: "ADD NEW LOCATIC")
     }
 
     func setupShadow() {
@@ -81,6 +100,14 @@ private extension AddLocaticCardView {
     func setupCorners() {
         self.contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         self.contentView.layer.cornerRadius = 25.0
+    }
+
+    func setSelected(_ button: UIButton) {
+        for locaticIconButton in locaticIconButtons {
+            locaticIconButton.isSelected = false
+        }
+
+        button.isSelected = true
     }
 }
 

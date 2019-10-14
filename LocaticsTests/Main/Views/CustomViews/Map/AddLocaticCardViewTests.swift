@@ -55,7 +55,34 @@ class AddLocaticCardViewTests: XCTestCase {
         XCTAssertNotNil(sut.addNewLocaticButton)
 
         XCTAssertEqual(sut.addNewLocaticButton.allTargets.count, 1)
-        XCTAssertEqual(sut.addNewLocaticButton.actionTitle, "Add new Locatic")
+        XCTAssertEqual(sut.addNewLocaticButton.actionTitle, "ADD NEW LOCATIC")
+    }
+
+    func test_locaticIconButton_isNotNil() {
+        XCTAssertNotNil(sut.locaticIconButton)
+    }
+
+    func test_homeIconButton_isNotNil() {
+        XCTAssertNotNil(sut.homeIconButton)
+    }
+
+    func test_activityIconButton_isNotNil() {
+        XCTAssertNotNil(sut.activityIconButton)
+    }
+
+    func test_businessIconButton_isNotNil() {
+        XCTAssertNotNil(sut.businessIconButton)
+    }
+
+    func test_setupButton_setsInitialButtonSelected() {
+        XCTAssertTrue(sut.locaticIconButton.isSelected)
+    }
+
+    func test_setupButtons_setsImagesForSelectedOnButtons() {
+        XCTAssertNotNil(sut.locaticIconButton.image(for: .selected))
+        XCTAssertNotNil(sut.homeIconButton.image(for: .selected))
+        XCTAssertNotNil(sut.activityIconButton.image(for: .selected))
+        XCTAssertNotNil(sut.businessIconButton.image(for: .selected))
     }
 
     func test_setupShadow_configuresShadow() {
@@ -72,6 +99,16 @@ class AddLocaticCardViewTests: XCTestCase {
         sut.addLocaticTapped(UIButton())
 
         XCTAssertTrue(mockAddLocaticViewModel.calledAddLocaticWasTapped)
+    }
+
+    func test_addLocaticTapped_setsButtonToSelected() {
+        let homeIconButton = sut.homeIconButton!
+
+        XCTAssertFalse(homeIconButton.isSelected)
+
+        sut.locaticIconButtonTapped(sut.homeIconButton!)
+
+        XCTAssertTrue(homeIconButton.isSelected)
     }
 
     func test_radiusSliderChangedCalls_radiusDidChangeOnViewModel() {

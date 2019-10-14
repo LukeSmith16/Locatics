@@ -33,6 +33,50 @@ class LocaticsMapViewTests: XCTestCase {
         XCTAssertNotNil(sut.delegate)
     }
 
+    func test_viewForAnnotation_returnsNilIfMKUserLocation() {
+        let mapViewAnnotation = sut.mapView(sut, viewFor: MKUserLocation())
+
+        XCTAssertNil(mapViewAnnotation)
+    }
+
+    func test_viewForAnnotation_returnsLocaticClusterAnnotation() {
+        let pointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = Coordinate(latitude: 53, longitude: 82)
+
+        let mapViewAnnotation = sut.mapView(sut, viewFor: MKClusterAnnotation(memberAnnotations: [pointAnnotation]))!
+
+        guard let locaticClusterMarkerView = mapViewAnnotation as? LocaticClusterMarkerView,
+            let clusterAnnotation = locaticClusterMarkerView.annotation as? MKClusterAnnotation else {
+            XCTFail("AnnotationView should be of type 'LocaticClusterMarkerView'")
+            return
+        }
+
+        XCTAssertEqual(clusterAnnotation.memberAnnotations.first!.coordinate,
+                       pointAnnotation.coordinate)
+    }
+
+    func test_viewForAnnotation_returnsLocaticMarkerAnnotation() {
+        let pointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = Coordinate(latitude: 53, longitude: 82)
+
+        let mapViewAnnotation = sut.mapView(sut, viewFor: pointAnnotation)!
+
+        guard let locaticAnnotationMarkerView = mapViewAnnotation as? LocaticMarkerAnnotationView else {
+            XCTFail("AnnotationView should be of type 'LocaticMarkerAnnotationView'")
+            return
+        }
+
+        XCTAssertNotNil(locaticAnnotationMarkerView.annotation)
+        XCTAssertEqual(locaticAnnotationMarkerView.annotation!.coordinate,
+                       pointAnnotation.coordinate)
+    }
+
+    func test_viewForAnnotation_returnsNilByDefault() {
+        let mapViewAnnotation = sut.mapView(sut, viewFor: MockAnnotation())
+
+        XCTAssertNil(mapViewAnnotation)
+    }
+    
     func test_addLocaticMapRadiusCircle_isNil() {
         XCTAssertNil(sut.addLocaticMapRadiusCircle)
     }

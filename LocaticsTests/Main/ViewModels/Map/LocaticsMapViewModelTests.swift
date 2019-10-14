@@ -57,9 +57,9 @@ class LocaticsMapViewModelTests: XCTestCase {
         XCTAssertTrue(mockLocaticsMapViewModelViewObserver.calledZoomToUserLocation)
 
         XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedLatMeters!,
-                       750)
+                       500)
         XCTAssertEqual(mockLocaticsMapViewModelViewObserver.passedLonMeters!,
-                       750)
+                       500)
     }
 
     func test_goToUserRegion_doesNotCallZoomToUserLocationIfDidLocateUser() {
@@ -122,6 +122,23 @@ class LocaticsMapViewModelTests: XCTestCase {
         sut.getAllLocatics()
 
         XCTAssertEqual(mockLocaticsMapViewModelViewObserver.calledAddLocaticMapAnnotationCount, 2)
+    }
+
+    func test_getLocaticIconForCoordinate_returnsLocaticIconIfLocaticsArrayIsEmpty() {
+        let coordinate = Coordinate(latitude: 0, longitude: 0)
+        let iconPath = sut.getLocaticIconForCoordinate(coordinate)
+
+        XCTAssertEqual(iconPath, "locaticIcon")
+    }
+
+    func test_getLocaticIconForCoordinate_returnsIconPathMatchingCoordinate() {
+        sut.getAllLocatics()
+
+        // MockLocatic values
+        let coordinate = Coordinate(latitude: 10.0, longitude: 12.0)
+        let iconPath = sut.getLocaticIconForCoordinate(coordinate)
+
+        XCTAssertEqual(iconPath, "testIconPath")
     }
 
     func test_locaticWasInserted_addsLocaticToLocaticsArray() {

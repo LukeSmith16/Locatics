@@ -8,8 +8,8 @@
 
 import MapKit
 
-final class LocaticMarkerAnnotationView: MKPinAnnotationView {
-    convenience init(annotation: MKPointAnnotation, reuseIdentifier: String, image: UIImage?) {
+final class LocaticMarkerAnnotationView: MKAnnotationView {
+    convenience init(annotation: MKAnnotation, reuseIdentifier: String, image: UIImage?) {
         self.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         configure(with: annotation, image: image)
     }
@@ -18,6 +18,7 @@ final class LocaticMarkerAnnotationView: MKPinAnnotationView {
 private extension LocaticMarkerAnnotationView {
     func configure(with annotation: MKAnnotation, image: UIImage?) {
         self.collisionMode = .circle
+        self.canShowCallout = true
         self.image = image
         self.clusteringIdentifier = String(describing: LocaticMarkerAnnotationView.self)
     }

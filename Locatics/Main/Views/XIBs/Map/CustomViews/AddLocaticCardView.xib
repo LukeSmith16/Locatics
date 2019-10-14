@@ -4,102 +4,138 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddLocaticCardView" customModule="Locatics" customModuleProvider="target">
             <connections>
+                <outlet property="activityIconButton" destination="gAn-P8-tuz" id="PF5-6U-GTn"/>
                 <outlet property="addNewLocaticButton" destination="KPX-y5-pxE" id="7Z2-aj-gNd"/>
+                <outlet property="businessIconButton" destination="CFd-C9-di0" id="m83-ok-MbO"/>
                 <outlet property="contentView" destination="5RJ-uX-VcV" id="SHJ-Wk-GKq"/>
+                <outlet property="homeIconButton" destination="gWW-bo-sl2" id="2ty-cM-P1i"/>
+                <outlet property="locaticIconButton" destination="Pam-vp-4Yy" id="04j-bk-xnd"/>
                 <outlet property="locaticNameTextField" destination="nMp-BF-eii" id="EAS-Uc-raW"/>
                 <outlet property="radiusLabel" destination="cSP-Oj-J1Y" id="j7D-x3-0fZ"/>
                 <outlet property="radiusSlider" destination="mML-eW-EEz" id="k6M-5a-jFR"/>
                 <outlet property="titleLabel" destination="yZa-KU-52d" id="mF6-Uv-ecV"/>
-                <outletCollection property="locaticIconButtons" destination="Pam-vp-4Yy" collectionClass="NSMutableArray" id="dUi-fc-yfv"/>
                 <outletCollection property="locaticIconButtons" destination="gWW-bo-sl2" collectionClass="NSMutableArray" id="JJP-Kw-2hc"/>
+                <outletCollection property="locaticIconButtons" destination="Pam-vp-4Yy" collectionClass="NSMutableArray" id="dUi-fc-yfv"/>
+                <outletCollection property="locaticIconButtons" destination="gAn-P8-tuz" collectionClass="NSMutableArray" id="87b-qk-hXf"/>
+                <outletCollection property="locaticIconButtons" destination="CFd-C9-di0" collectionClass="NSMutableArray" id="JrU-1c-OSU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="5RJ-uX-VcV">
-            <rect key="frame" x="0.0" y="0.0" width="423" height="350"/>
+            <rect key="frame" x="0.0" y="0.0" width="423" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Of-33-g0t">
-                    <rect key="frame" x="0.0" y="0.0" width="423" height="350"/>
+                    <rect key="frame" x="0.0" y="0.0" width="423" height="400"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-BF-eii">
-                            <rect key="frame" x="146.5" y="44" width="130" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="130" id="gHK-jX-cjr"/>
-                            </constraints>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mML-eW-EEz" customClass="SliderControl" customModule="Locatics" customModuleProvider="target">
-                            <rect key="frame" x="144.5" y="139" width="134" height="31"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="130" id="5cw-CP-TZg"/>
-                            </constraints>
-                            <connections>
-                                <action selector="radiusSliderChanged:" destination="-1" eventType="valueChanged" id="y3Y-t2-2yD"/>
-                            </connections>
-                        </slider>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-Oj-J1Y">
-                            <rect key="frame" x="188" y="98" width="47" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZa-KU-52d">
-                            <rect key="frame" x="197" y="23" width="29" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-co-X1Z">
+                            <rect key="frame" x="21" y="63" width="381" height="250"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give it a name..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-BF-eii">
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="21"/>
+                                    <color key="textColor" name="title_main"/>
+                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Amv-ZE-MLD">
+                                    <rect key="frame" x="0.0" y="42" width="381" height="60.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-Oj-J1Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                            <color key="textColor" name="title_secondary"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mML-eW-EEz" customClass="SliderControl" customModule="Locatics" customModuleProvider="target">
+                                            <rect key="frame" x="-2" y="30.5" width="385" height="31"/>
+                                            <connections>
+                                                <action selector="radiusSliderChanged:" destination="-1" eventType="valueChanged" id="y3Y-t2-2yD"/>
+                                            </connections>
+                                        </slider>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lB8-hK-y4u">
+                                    <rect key="frame" x="0.0" y="123.5" width="381" height="126.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a badge for your locatic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-pg-3ER">
+                                            <rect key="frame" x="0.0" y="0.0" width="215.5" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                            <color key="textColor" name="title_secondary"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="q30-i9-QS5">
+                                            <rect key="frame" x="0.0" y="30.5" width="381" height="96"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-vp-4Yy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="96"/>
+                                                    <state key="normal" image="locaticUnselectedIcon"/>
+                                                    <connections>
+                                                        <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="FxD-Mw-yAT"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-bo-sl2">
+                                                    <rect key="frame" x="45" y="0.0" width="98" height="96"/>
+                                                    <state key="normal" image="homeLocaticUnselectedIcon"/>
+                                                    <connections>
+                                                        <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="syZ-hL-tOa"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAn-P8-tuz">
+                                                    <rect key="frame" x="164" y="0.0" width="98" height="96"/>
+                                                    <state key="normal" image="activityUnselectedIcon"/>
+                                                    <connections>
+                                                        <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="6Wb-Qj-FHs"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFd-C9-di0">
+                                                    <rect key="frame" x="283" y="0.0" width="98" height="96"/>
+                                                    <state key="normal" image="workLocaticUnselectedIcon"/>
+                                                    <connections>
+                                                        <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="YcW-a8-Gf6"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Locatic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZa-KU-52d">
+                            <rect key="frame" x="21" y="21" width="381" height="21"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" name="title_main"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-y5-pxE" customClass="ActionButton" customModule="Locatics" customModuleProvider="target">
-                            <rect key="frame" x="171.5" y="189" width="80" height="30"/>
+                            <rect key="frame" x="84.5" y="372" width="254" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="XlK-hX-HNW"/>
-                                <constraint firstAttribute="width" constant="80" id="etr-5z-s8T"/>
+                                <constraint firstAttribute="height" constant="50" id="sWY-0C-MbE"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                             <state key="normal" title="Button"/>
                             <connections>
                                 <action selector="addLocaticTapped:" destination="-1" eventType="touchUpInside" id="ePn-rZ-O2b"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-vp-4Yy">
-                            <rect key="frame" x="179.5" y="239" width="64" height="64"/>
-                            <state key="normal" backgroundImage="addLocaticButtonIcon"/>
-                            <connections>
-                                <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="zqd-gz-gns"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-bo-sl2">
-                            <rect key="frame" x="179.5" y="311" width="64" height="64"/>
-                            <state key="normal" backgroundImage="addLocaticButtonIcon"/>
-                            <connections>
-                                <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="QQs-vY-d94"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="mML-eW-EEz" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="72w-XI-UVV"/>
-                        <constraint firstItem="nMp-BF-eii" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="9uI-K0-XGj"/>
-                        <constraint firstItem="KPX-y5-pxE" firstAttribute="top" secondItem="mML-eW-EEz" secondAttribute="bottom" constant="20" id="AhR-Zo-fvj"/>
-                        <constraint firstItem="KPX-y5-pxE" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="Fro-Zv-3Rz"/>
-                        <constraint firstItem="cSP-Oj-J1Y" firstAttribute="top" secondItem="nMp-BF-eii" secondAttribute="bottom" constant="20" id="Mek-cW-qEH"/>
-                        <constraint firstItem="nMp-BF-eii" firstAttribute="top" secondItem="yZa-KU-52d" secondAttribute="bottom" id="Qcs-Xn-86c"/>
-                        <constraint firstItem="gWW-bo-sl2" firstAttribute="top" secondItem="Pam-vp-4Yy" secondAttribute="bottom" constant="8" id="SHu-D5-D4d"/>
-                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="Wtu-bp-PZg"/>
-                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="top" secondItem="KPX-y5-pxE" secondAttribute="bottom" constant="20" id="csl-3X-5FP"/>
-                        <constraint firstItem="mML-eW-EEz" firstAttribute="top" secondItem="cSP-Oj-J1Y" secondAttribute="bottom" constant="20" id="dt5-aO-diq"/>
-                        <constraint firstItem="cSP-Oj-J1Y" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="fQr-IS-Hr6"/>
-                        <constraint firstItem="gWW-bo-sl2" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="jos-ad-OY9"/>
-                        <constraint firstItem="yZa-KU-52d" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="ktI-4g-gqF"/>
-                        <constraint firstItem="yZa-KU-52d" firstAttribute="top" secondItem="8Of-33-g0t" secondAttribute="top" constant="23" id="lzq-Hu-HA6"/>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="5d9-tz-mKu"/>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="top" secondItem="LOX-co-X1Z" secondAttribute="bottom" constant="59" id="6hD-99-jB4"/>
+                        <constraint firstItem="yZa-KU-52d" firstAttribute="leading" secondItem="8Of-33-g0t" secondAttribute="leading" constant="21" id="Cmq-Cq-Q7a"/>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="width" secondItem="8Of-33-g0t" secondAttribute="width" multiplier="0.6" id="Xz8-m5-fo4"/>
+                        <constraint firstItem="LOX-co-X1Z" firstAttribute="trailing" secondItem="yZa-KU-52d" secondAttribute="trailing" id="bni-VH-Ff1"/>
+                        <constraint firstItem="LOX-co-X1Z" firstAttribute="leading" secondItem="yZa-KU-52d" secondAttribute="leading" id="eiW-vc-drO"/>
+                        <constraint firstItem="yZa-KU-52d" firstAttribute="top" secondItem="8Of-33-g0t" secondAttribute="top" constant="21" id="vFw-S9-2CL"/>
+                        <constraint firstItem="LOX-co-X1Z" firstAttribute="top" secondItem="yZa-KU-52d" secondAttribute="bottom" constant="21" id="xd2-n1-9FV"/>
+                        <constraint firstAttribute="trailing" secondItem="yZa-KU-52d" secondAttribute="trailing" constant="21" id="z55-hW-ho7"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -110,10 +146,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="8Of-33-g0t" firstAttribute="leading" secondItem="2wa-yl-vZf" secondAttribute="leading" id="57l-QT-LTn"/>
-                <constraint firstItem="8Of-33-g0t" firstAttribute="trailing" secondItem="2wa-yl-vZf" secondAttribute="trailing" id="aoI-yg-BN1"/>
-                <constraint firstItem="8Of-33-g0t" firstAttribute="top" secondItem="5RJ-uX-VcV" secondAttribute="top" id="qMV-f8-l4m"/>
-                <constraint firstAttribute="bottom" secondItem="8Of-33-g0t" secondAttribute="bottom" id="vnd-lN-3V7"/>
+                <constraint firstAttribute="bottom" secondItem="8Of-33-g0t" secondAttribute="bottom" id="7Hi-FW-6sX"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="leading" secondItem="2wa-yl-vZf" secondAttribute="leading" id="81v-ie-JaL"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="top" secondItem="5RJ-uX-VcV" secondAttribute="top" id="fh6-U2-o8I"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="trailing" secondItem="2wa-yl-vZf" secondAttribute="trailing" id="sba-N0-uGp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="2wa-yl-vZf"/>
@@ -122,10 +158,19 @@
                     <integer key="value" value="25"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="163.04347826086959" y="-285.9375"/>
+            <point key="canvasLocation" x="163.04347826086959" y="-286.60714285714283"/>
         </view>
     </objects>
     <resources>
-        <image name="addLocaticButtonIcon" width="64" height="64"/>
+        <image name="activityUnselectedIcon" width="49" height="48"/>
+        <image name="homeLocaticUnselectedIcon" width="49" height="48"/>
+        <image name="locaticUnselectedIcon" width="49" height="48"/>
+        <image name="workLocaticUnselectedIcon" width="49" height="48"/>
+        <namedColor name="title_main">
+            <color red="0.20784313725490197" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="title_secondary">
+            <color red="0.60784313725490191" green="0.59999999999999998" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

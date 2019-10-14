@@ -18,6 +18,7 @@ protocol LocaticsMapViewModelInterface: AddLocaticMapRadiusAnnotationViewDelegat
     func goToUserRegion(force: Bool)
     func getLocationPinCoordinate() -> Coordinate
     func getAllLocatics()
+    func getLocaticIconForCoordinate(_ coordinate: Coordinate) -> String
 }
 
 protocol LocaticsMapViewModelViewDelegate: AddLocaticMapRadiusAnnotationViewDelegate {
@@ -44,7 +45,7 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
 
     func goToUserRegion(force: Bool = false) {
         guard !didLocateUser || force else { return }
-        viewDelegate?.zoomToUserLocation(latMeters: 750, lonMeters: 750)
+        viewDelegate?.zoomToUserLocation(latMeters: 500, lonMeters: 500)
         didLocateUser = true
     }
 
@@ -68,6 +69,14 @@ class LocaticsMapViewModel: LocaticsMapViewModelInterface {
                                                                      message: failure.localizedDescription)
             }
         }
+    }
+
+    func getLocaticIconForCoordinate(_ coordinate: Coordinate) -> String {
+        return locatics.first { (locatic) -> Bool in
+            let locaticCoordinate = Coordinate(latitude: locatic.latitude,
+                                               longitude: locatic.longitude)
+            return locaticCoordinate == coordinate
+        }?.iconPath ?? "locaticIcon"
     }
 }
 

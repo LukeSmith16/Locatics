@@ -6,6 +6,8 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
+// swiftlint:disable line_length
+
 import MapKit
 
 class LocaticsMapView: MKMapView {
@@ -36,9 +38,9 @@ private extension LocaticsMapView {
         self.tintColor = UIColor(colorTheme: .Interactable_Secondary)
 
         self.register(LocaticMarkerAnnotationView.self,
-                 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+                      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         self.register(LocaticClusterMarkerView.self,
-                 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+                      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
 
         locaticsMapViewModel?.getAllLocatics()
     }
@@ -100,12 +102,48 @@ extension LocaticsMapView: MKMapViewDelegate {
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
         locaticsMapViewModel?.goToUserRegion(force: false)
     }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !annotation.isMember(of: MKUserLocation.self) else { return nil }
+
+        if let clusterAnnotation = annotation as? MKClusterAnnotation {
+            return dequeueLocaticClusterMarkerView(annotation: clusterAnnotation)
+        } else if let pointAnnotation = annotation as? MKPointAnnotation {
+            return dequeueLocaticMarkerView(annotation: pointAnnotation)
+        }
+
+        return nil
+    }
 }
 
 private extension LocaticsMapView {
-    private func setupAddLocaticMapRadiusCircle() {
+    func setupAddLocaticMapRadiusCircle() {
         let locationPinCoordinate = locaticsMapViewModel!.getLocationPinCoordinate()
         self.addLocaticMapRadiusCircle = MKCircle(center: locationPinCoordinate, radius: addLocaticMapCircleRadius!)
         addOverlay(addLocaticMapRadiusCircle!)
+    }
+
+    func dequeueLocaticClusterMarkerView(annotation: MKClusterAnnotation) -> LocaticClusterMarkerView? {
+        let reuseId = MKMapViewDefaultClusterAnnotationViewReuseIdentifier
+        let pinView = dequeueReusableAnnotationView(withIdentifier: reuseId) as? LocaticClusterMarkerView
+        pinView!.annotation = annotation
+
+        return pinView
+    }
+
+    func dequeueLocaticMarkerView(annotation: MKPointAnnotation) -> LocaticMarkerAnnotationView? {
+        let reuseIdentifier = "LocaticMarkerAnnotationView"
+        var locaticMarkerAnnotationView = dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? LocaticMarkerAnnotationView
+
+        if let locaticMarkerAnnotationView = locaticMarkerAnnotationView {
+            locaticMarkerAnnotationView.annotation = annotation
+        } else {
+            let locaticIconForCoordinate = locaticsMapViewModel!.getLocaticIconForCoordinate(annotation.coordinate)
+            locaticMarkerAnnotationView = LocaticMarkerAnnotationView(annotation: annotation,
+                                                                      reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier,
+                                                                      image: UIImage(named: locaticIconForCoordinate))
+        }
+
+        return locaticMarkerAnnotationView
     }
 }
