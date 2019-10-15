@@ -16,13 +16,16 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
     private var mockMapView: MockMapView!
     private var mockLocaticsMainViewModel: MockLocaticsMainViewModel!
+    private var mockNavigationTitleView: MockNavigationTitleView!
 
     override func setUp() {
         mockMapView = MockMapView(frame: CGRect.zero)
         mockLocaticsMainViewModel = MockLocaticsMainViewModel()
+        mockNavigationTitleView = MockNavigationTitleView()
 
         sut = LocaticsMapViewController()
         sut.locaticsMainViewModel = mockLocaticsMainViewModel
+        sut.navigationTitleView = mockNavigationTitleView
 
         _ = sut.view
 
@@ -33,6 +36,7 @@ class LocaticsMapViewControllerTests: XCTestCase {
         sut = nil
         mockMapView = nil
         mockLocaticsMainViewModel = nil
+        mockNavigationTitleView = nil
         super.tearDown()
     }
 
@@ -76,42 +80,6 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.closeLocaticCardViewButton.isHidden)
     }
 
-    func test_setupNavigationTitle_setsMainTitleAndSubtitleFromViewModel() {
-        XCTAssertTrue(mockLocaticsMainViewModel.calledGetMainTitle)
-        XCTAssertTrue(mockLocaticsMainViewModel.calledGetSubtitle)
-
-        guard let titleView = sut.navigationItem.titleView else {
-            XCTFail("TitleView on navigation item is nil")
-            return
-        }
-
-        let mainTitleView = titleView.subviews.first { (view) -> Bool in
-            if let label = view as? UILabel {
-                return label.text == "The main title"
-            }
-
-            return false
-        }
-
-        guard mainTitleView != nil else {
-            XCTFail("Couldn't find a main title")
-            return
-        }
-
-        let subtitleView = sut.navigationItem.titleView!.subviews.first { (view) -> Bool in
-            if let label = view as? UILabel {
-                return label.text == "the subtitle"
-            }
-
-            return false
-        }
-
-        guard subtitleView != nil else {
-            XCTFail("Couldn't find a subtitle")
-            return
-        }
-    }
-
     func test_setupAddLocaticCardView_setsAddLocaticViewModel() {
         XCTAssertNotNil(sut.addLocaticCardView!.addLocaticViewModel)
     }
@@ -141,11 +109,11 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.locaticsMainViewModel?.addLocaticViewDelegate)
     }
 
-    func test_setNavigationTitle_callsSetTitleWithValue() {
+    func test_setNavigationTitleView_callsSetTitleAndSubtitleWithValues() {
         let mockNavigationTitleView = MockNavigationTitleView()
         sut.navigationTitleView = mockNavigationTitleView
 
-        sut.setNavigationTitle("Test")
+        sut.setNavigationTitleView(title: "Test", subtitle: "the subtitle")
 
         XCTAssertTrue(mockNavigationTitleView.calledSetNewTitle)
         XCTAssertTrue(mockNavigationTitleView.calledSetNewSubtitle)

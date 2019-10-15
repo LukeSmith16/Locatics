@@ -14,6 +14,7 @@ class MockLocationProvider: LocationProviderInterface {
 
     weak var delegate: CLLocationManagerDelegate?
     var allowsBackgroundLocationUpdates: Bool = false
+    var pausesLocationUpdatesAutomatically: Bool = false
 
     var calledRequestLocation = false
     var calledStartMonitoringVisits = false

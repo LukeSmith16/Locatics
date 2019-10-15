@@ -38,11 +38,16 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-co-X1Z">
                             <rect key="frame" x="21" y="63" width="381" height="250"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give it a name..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-BF-eii">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give it a name..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-BF-eii">
                                     <rect key="frame" x="0.0" y="0.0" width="381" height="21"/>
                                     <color key="textColor" name="title_main"/>
                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="dividerThickness">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </textField>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Amv-ZE-MLD">
                                     <rect key="frame" x="0.0" y="42" width="381" height="60.5"/>
@@ -170,10 +175,10 @@
             <color red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="title_main">
-            <color red="0.92419495558375631" green="0.92419495558375631" blue="0.92419495558375631" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="title_secondary">
-            <color red="0.71758353975497857" green="0.71411695260640373" blue="0.7210501269035533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

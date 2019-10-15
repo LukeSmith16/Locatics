@@ -10,11 +10,16 @@ import Foundation
 
 @testable import Locatics
 class MockLocaticsMainViewModelViewDelegate: LocaticsMainViewModelViewDelegate {
-    var calledSetNavigationTitle = false
+    var calledSetNavigationTitleView = false
     var calledShowAlert = false
 
-    func setNavigationTitle(_ title: String) {
-        calledSetNavigationTitle = true
+    var passedNavigationTitle: String?
+    var passedNavigationSubtitle: String?
+    func setNavigationTitleView(title: String, subtitle: String) {
+        passedNavigationTitle = title
+        passedNavigationSubtitle = subtitle
+
+        calledSetNavigationTitleView = true
     }
 
     var passedTitle: String?

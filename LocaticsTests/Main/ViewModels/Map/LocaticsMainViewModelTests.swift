@@ -60,55 +60,64 @@ class LocaticsMainViewModelTests: XCTestCase {
         XCTAssertNotNil(sut.locationManager!.locationDelegate)
     }
 
-    func test_mainTitle_returnsLastVisitedLocationTitle() {
-        let mainTitle = sut.getMainTitle()
-
-        XCTAssertEqual(mainTitle,
-                       (mockLocationManager.lastVisitedLocation!.description).capitalized)
-    }
-
-    func test_mainTitle_returnsFetchingLocationIfVisitedLocationIsNil() {
-        mockLocationManager.lastVisitedLocation = nil
+    func test_getRecentLocation_callsFindCurrentLocation() {
         mockLocationManager.locationBlockLocationValue = VisitedLocation(
         CLLocationCoordinate2D(latitude: 25.0, longitude: 30.0),
         date: Date(),
-        description: "Test title")
+        description: "test title")
 
-        let mainTitle = sut.getMainTitle()
+        sut.getRecentLocation()
 
-        XCTAssertEqual(mainTitle, "Fetching location...")
-        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledSetNavigationTitle)
+        XCTAssertTrue(mockLocationManager.calledFindCurrentLocation)
     }
 
-    func test_setCurrentLocationName_callsViewDelegateIfErrorOccurs() {
+    func test_getRecentLocation_callsSetNavigationTitleView() {
+        mockLocationManager.locationBlockLocationValue = VisitedLocation(
+        CLLocationCoordinate2D(latitude: 25.0, longitude: 30.0),
+        date: Date(),
+        description: "test title")
+
+        sut.getRecentLocation()
+
+        XCTAssertTrue(mockLocaticsViewModelViewObserver.calledSetNavigationTitleView)
+    }
+
+    func test_getRecentLocation_returnsCurrentLocationData() {
+        mockLocationManager.locationBlockLocationValue = VisitedLocation(
+        CLLocationCoordinate2D(latitude: 25.0, longitude: 30.0),
+        date: Date(),
+        description: "test title")
+
+        sut.getRecentLocation()
+
+        let passedNavigationSubtitle = mockLocaticsViewModelViewObserver.passedNavigationSubtitle!
+        let arrivalDateFormatted = DateFormatterManager.hoursMinutes(from: Date())
+
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedNavigationTitle!, "Test Title")
+        XCTAssertTrue(passedNavigationSubtitle == "SINCE " + arrivalDateFormatted.uppercased())
+    }
+
+    func test_getRecentLocation_callsViewDelegateIfErrorOccurs() {
         mockLocationManager.lastVisitedLocation = nil
         mockLocationManager.locationBlockErrorValue = .locationNotFound
 
-        _ = sut.getMainTitle()
+        sut.getRecentLocation()
 
         XCTAssertTrue(mockLocaticsViewModelViewObserver.calledShowAlert)
     }
 
-    func test_subtitle_returnsLastVisitedLocationArrivalDate() {
-        let arrivalDate = Date()
-        mockLocationManager.lastVisitedLocation = VisitedLocation(
-            CLLocationCoordinate2D(latitude: 25.0, longitude: 30.0),
-            date: arrivalDate,
-            description: "Test title")
+    func test_getRecentLocation_returnsJustNowForSubtitleIfLastVisitedLocationIsNil() {
+        mockLocationManager.locationBlockLocationValue = VisitedLocation(
+        CLLocationCoordinate2D(latitude: 25.0, longitude: 30.0),
+        date: Date(),
+        description: "test title")
 
-        let arrivalDateFormatted = DateFormatterManager.hoursMinutes(from: arrivalDate)
-        let subtitle = sut.getSubtitle()
-
-        XCTAssertEqual(subtitle, ("Since " + arrivalDateFormatted).uppercased())
-    }
-
-    func test_subtitle_returnsJustNowIfLastVisitedLocationIsNil() {
         mockLocationManager.lastVisitedLocation = nil
         mockLocationManager.locationBlockErrorValue = .locationNotFound
 
-        let subtitle = sut.getSubtitle()
+        sut.getRecentLocation()
 
-        XCTAssertEqual(subtitle, "Just now")
+        XCTAssertEqual(mockLocaticsViewModelViewObserver.passedNavigationSubtitle!, "JUST NOW")
     }
 
     func test_locationPermissionsNotAuthorised_callsShowAlert() {

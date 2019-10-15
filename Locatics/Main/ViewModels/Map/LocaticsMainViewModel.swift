@@ -18,8 +18,7 @@ protocol LocaticsMainViewModelInterface: class {
     var addLocaticViewModel: AddLocaticViewModelInterface? {get}
     var locaticsMapViewModel: LocaticsMapViewModelInterface? {get}
 
-    func getMainTitle() -> String
-    func getSubtitle() -> String
+    func getRecentLocation()
 
     func addLocaticWasTapped()
     func closeLocaticCardViewWasTapped()
@@ -38,7 +37,7 @@ protocol LocaticsMainMapViewModelViewDelegate: class {
 }
 
 protocol LocaticsMainViewModelViewDelegate: LocaticsMainMapViewModelViewDelegate {
-    func setNavigationTitle(_ title: String)
+    func setNavigationTitleView(title: String, subtitle: String)
 }
 
 class LocaticsMainViewModel: LocaticsMainViewModelInterface {
@@ -62,22 +61,8 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
 
     var locaticVisitStorage: LocaticVisitStorageInterface?
 
-    func getMainTitle() -> String {
-        guard let lastVisitedLocation = locationManager?.lastVisitedLocation else {
-            setCurrentLocationName()
-            return "Fetching location..."
-        }
-
-        return (lastVisitedLocation.description).capitalized
-    }
-
-    func getSubtitle() -> String {
-        guard let lastVisitedLocation = locationManager?.lastVisitedLocation else {
-            return "Just now"
-        }
-
-        let formattedArrivalDate = DateFormatterManager.hoursMinutes(from: lastVisitedLocation.date)
-        return ("Since " + formattedArrivalDate).uppercased()
+    func getRecentLocation() {
+        getRecentLocationData()
     }
 
     func addLocaticWasTapped() {
@@ -91,15 +76,29 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
 }
 
 private extension LocaticsMainViewModel {
-    func setCurrentLocationName() {
+    func getRecentLocationData() {
         locationManager?.findCurrentLocation(completion: { [unowned self] (result) in
             switch result {
             case .success(let success):
-                self.viewDelegate?.setNavigationTitle(success.description)
+                self.setNavigationTitleView(with: success)
             case .failure(let failure):
                 self.viewDelegate?.showAlert(title: "Error", message: failure.localizedDescription)
             }
         })
+    }
+
+    func setNavigationTitleView(with visitedLocation: VisitedLocationData) {
+        guard let lastLocation = locationManager?.lastVisitedLocation else {
+            viewDelegate?.setNavigationTitleView(title: visitedLocation.description.capitalized,
+                                                 subtitle: "JUST NOW")
+            return
+        }
+
+        let formattedArrivalDate = DateFormatterManager.hoursMinutes(from: lastLocation.date)
+        let arrivalTimeAtLocation =  ("Since " + formattedArrivalDate).uppercased()
+
+        viewDelegate?.setNavigationTitleView(title: visitedLocation.description.capitalized,
+                                             subtitle: arrivalTimeAtLocation)
     }
 
     func fetchLocaticMatchingName(_ locaticName: String,

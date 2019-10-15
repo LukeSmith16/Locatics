@@ -56,12 +56,20 @@ class LocationManagerTests: XCTestCase {
                        "You have not enabled loction permissions.")
     }
 
+    func test_lastVisitedLocation_isNilByDefault() {
+        XCTAssertNil(sut.lastVisitedLocation)
+    }
+
     func test_locationProvider_allowsBackgroundLocationUpdates() {
         XCTAssertTrue(sut.locationProvider.allowsBackgroundLocationUpdates)
     }
 
     func test_locationProvider_callsStartMonitoringVisits() {
         XCTAssertTrue(mockLocationProvider.calledStartMonitoringVisits)
+    }
+
+    func test_locationProvider_pausesLocationUpdatesAutomatically() {
+        XCTAssertTrue(sut.locationProvider.pausesLocationUpdatesAutomatically)
     }
 
     func test_findCurrentLocation_callsRequestLocation() {
@@ -182,16 +190,6 @@ class LocationManagerTests: XCTestCase {
         XCTAssertTrue(mockLocationManagerObserver.calledLocationPermissionsNotAuthorised)
     }
 
-    func test_lastVisitedLocation_returnsLocationStorageLastVisitedLocation() {
-        guard let sutVisitedLocation = sut.lastVisitedLocation as? VisitedLocation,
-            let mockLastVisitedLocation = mockLocationStorage.lastVisitedLocation as? VisitedLocation else {
-            XCTFail("Should be convertible to 'VisitedLocation'")
-            return
-        }
-
-        XCTAssertTrue(sutVisitedLocation === mockLastVisitedLocation)
-    }
-
     func test_didUpdateLocations_callsReverseGeocodeLocation() {
         let givenLocation = CLLocation(latitude: 10.0, longitude: 10.0)
 
@@ -284,21 +282,50 @@ class LocationManagerTests: XCTestCase {
                        mockLocation.coordinate.longitude)
     }
 
-    func test_handleDidUpdateLocation_failsWhenLocationIsInvalid() {
-        mockLocationGeocoder.shouldFail = true
+    func test_handleDidUpdateLocation_savesNewVisitedLocation() {
+        mockLocationStorage.lastVisitedLocation = VisitedLocation(
+            CLLocationCoordinate2D(latitude: 20.0, longitude: 20.0),
+            date: Date(),
+            description: "OldLocation")
 
-        sut.locationManager(CLLocationManager(), didUpdateLocations: [CLLocation()])
-        sut.handleDidUpdateLocation(CLLocation())
+        let coordinate = Coordinate(latitude: 50, longitude: 50)
+        sut.handleDidUpdateLocation(CLLocation(latitude: coordinate.latitude,
+                                               longitude: coordinate.longitude))
 
-        guard let visitedLocation = sut.lastVisitedLocation else {
-            XCTFail("LastVisitedLocation should not be nil")
-            return
+        XCTAssertTrue(mockLocationStorage.calledSaveLocationOnDisk)
+
+        XCTAssertEqual(sut.lastVisitedLocation!.coordinate, coordinate)
+        XCTAssertEqual(mockLocationStorage.lastVisitedLocation!.coordinate, coordinate)
+    }
+
+    func test_handleDidUpdateLocation_doesNotSaveNewVisitedLocation() {
+        let expect = expectation(description: "Wait for geocoder")
+
+        let coordinate = Coordinate(latitude: 20.0, longitude: 20.0)
+
+        var locationDescription: String?
+
+        sut.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude,
+                                              longitude: coordinate.longitude)) { (result) in
+                                                switch result {
+                                                case .success(let success):
+                                                    locationDescription = success
+                                                    expect.fulfill()
+                                                case .failure(let failure):
+                                                    XCTFail("Failure - \(failure.localizedDescription)")
+                                                }
         }
 
-        XCTAssertTrue(mockLocationGeocoder.calledReverseGeocodeLocation)
-        XCTAssertEqual(visitedLocation.coordinate.latitude,
-                       20.0)
-        XCTAssertEqual(visitedLocation.coordinate.longitude,
-                       20.0)
+        wait(for: [expect], timeout: 3)
+
+        mockLocationStorage.lastVisitedLocation = VisitedLocation(
+            coordinate,
+            date: Date(),
+            description: locationDescription!)
+
+        sut.handleDidUpdateLocation(CLLocation(latitude: coordinate.latitude,
+                                               longitude: coordinate.longitude))
+
+        XCTAssertFalse(mockLocationStorage.calledSaveLocationOnDisk)
     }
 }

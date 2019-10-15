@@ -68,7 +68,6 @@ class LocationManager: NSObject, LocationManagerInterface {
         self.locationStorage = locationStorage
         self.locationPermissions = locationPermissions
         self.findCurrentLocationCompletion = { (result) in }
-        self.lastVisitedLocation = locationStorage.lastVisitedLocation
 
         super.init()
     }
@@ -115,7 +114,9 @@ private extension LocationManager {
         }
 
         locationProvider.delegate = self
+        locationProvider.pausesLocationUpdatesAutomatically = true
         locationProvider.allowsBackgroundLocationUpdates = true
+
         locationProvider.startMonitoringVisits()
     }
 
@@ -134,7 +135,6 @@ extension LocationManager: CLLocationManagerDelegate {
         handleDidUpdateLocation(lastLocation)
     }
 
-    // TODO: Implement error handling (via delegate?)
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         let locationFromVisit = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
         reverseGeocodeLocation(locationFromVisit) { (result) in
@@ -161,11 +161,6 @@ extension LocationManager: CLLocationManagerDelegate {
         guard region is CLCircularRegion else { return }
         locationDelegate?.userDidLeaveLocaticRegion(regionIdentifier: region.identifier)
     }
-
-    // TODO: Handle this... (was crashing at times for some reason)
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
-    }
 }
 
 extension LocationManager {
@@ -177,7 +172,7 @@ extension LocationManager {
                                                       date: Date(),
                                                       description: success)
 
-                self.lastVisitedLocation = visitedLocation
+                self.shouldSaveNewVisitedLocation(visitedLocation)
                 self.findCurrentLocationCompletion(.success(visitedLocation))
             case .failure(let failure):
                 self.findCurrentLocationCompletion(.failure(failure))
@@ -194,5 +189,19 @@ extension LocationManager {
 
             completion(.success(description))
         }
+    }
+}
+
+private extension LocationManager {
+    func shouldSaveNewVisitedLocation(_ visitedLocation: VisitedLocation) {
+        guard let oldVisitedLocation = locationStorage.lastVisitedLocation,
+            oldVisitedLocation.description == visitedLocation.description else {
+                locationStorage.saveLocationOnDisk(visitedLocation)
+                self.lastVisitedLocation = visitedLocation
+
+                return
+        }
+
+        self.lastVisitedLocation = oldVisitedLocation
     }
 }

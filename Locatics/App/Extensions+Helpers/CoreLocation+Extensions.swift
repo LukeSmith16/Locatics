@@ -25,6 +25,7 @@ extension CLLocation: LocationData {}
 protocol LocationProviderInterface {
     var delegate: CLLocationManagerDelegate? {get set}
     var allowsBackgroundLocationUpdates: Bool {get set}
+    var pausesLocationUpdatesAutomatically: Bool {get set}
 
     var monitoredRegions: Set<CLRegion> {get}
 

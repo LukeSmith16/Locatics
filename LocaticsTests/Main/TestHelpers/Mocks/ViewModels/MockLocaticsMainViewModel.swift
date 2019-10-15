@@ -11,8 +11,7 @@ import Foundation
 @testable import Locatics
 class MockLocaticsMainViewModel: LocaticsMainViewModelInterface {
 
-    var calledGetMainTitle = false
-    var calledGetSubtitle = false
+    var calledGetRecentLocation = false
     var calledAddLocaticWasTapped = false
     var calledCloseLocaticCardViewWasTapped = false
 
@@ -27,14 +26,8 @@ class MockLocaticsMainViewModel: LocaticsMainViewModelInterface {
         return LocaticsMapViewModel(locaticStorage: MockLocaticStorage())
     }
 
-    func getMainTitle() -> String {
-        calledGetMainTitle = true
-        return "The main title"
-    }
-
-    func getSubtitle() -> String {
-        calledGetSubtitle = true
-        return "the subtitle"
+    func getRecentLocation() {
+        calledGetRecentLocation = true
     }
 
     func addLocaticWasTapped() {

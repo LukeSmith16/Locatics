@@ -58,9 +58,8 @@ private extension LocaticsMapViewController {
     }
 
     func setupNavigationTitleView() {
-        let mainTitle = locaticsMainViewModel?.getMainTitle()
-        let subtitle = locaticsMainViewModel?.getSubtitle()
-        self.navigationTitleView = navigationItem.setupTitleView(title: mainTitle, subtitle: subtitle)
+        locaticsMainViewModel?.getRecentLocation()
+        self.navigationTitleView = navigationItem.setupTitleView(title: "Fetching Location...", subtitle: nil)
     }
 
     func setupAddLocaticCardView() {
@@ -86,8 +85,7 @@ private extension LocaticsMapViewController {
 }
 
 extension LocaticsMapViewController: LocaticsMainViewModelViewDelegate {
-    func setNavigationTitle(_ title: String) {
-        let subtitle = locaticsMainViewModel?.getSubtitle()
+    func setNavigationTitleView(title: String, subtitle: String) {
         navigationTitleView?.setNewTitle(title)
         navigationTitleView?.setNewSubtitle(subtitle)
     }

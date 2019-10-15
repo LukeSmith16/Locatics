@@ -16,5 +16,6 @@ class MockLocationStorage: LocationStorageInterface {
 
     func saveLocationOnDisk(_ location: VisitedLocation) {
         calledSaveLocationOnDisk = true
+        lastVisitedLocation = location
     }
 }

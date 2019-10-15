@@ -151,6 +151,8 @@
 		07BC2CA723513A9A00D169E9 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */; };
 		07BC2CAA235146CF00D169E9 /* MockRootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */; };
 		07BC2CAC2353FA2500D169E9 /* MockAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CAB2353FA2500D169E9 /* MockAnnotation.swift */; };
+		07BC2CB02355363200D169E9 /* Brackleytrack.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CAF2355363200D169E9 /* Brackleytrack.gpx */; };
+		07BC2CB22355403500D169E9 /* AlltrailsRoute.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CB12355403400D169E9 /* AlltrailsRoute.gpx */; };
 		07F49EB6233FC9F000F076E5 /* LocaticStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */; };
 		07F49EB9233FD06600F076E5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */; };
 		07F49EBB2340D3FA00F076E5 /* MockStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */; };
@@ -342,6 +344,8 @@
 		07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
 		07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRootModuleFactory.swift; sourceTree = "<group>"; };
 		07BC2CAB2353FA2500D169E9 /* MockAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnnotation.swift; sourceTree = "<group>"; };
+		07BC2CAF2355363200D169E9 /* Brackleytrack.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brackleytrack.gpx; sourceTree = "<group>"; };
+		07BC2CB12355403400D169E9 /* AlltrailsRoute.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AlltrailsRoute.gpx; sourceTree = "<group>"; };
 		07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticStorage.swift; sourceTree = "<group>"; };
 		07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageManager.swift; sourceTree = "<group>"; };
@@ -448,6 +452,8 @@
 		07068471231AD03C0023EB27 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				07BC2CB12355403400D169E9 /* AlltrailsRoute.gpx */,
+				07BC2CAF2355363200D169E9 /* Brackleytrack.gpx */,
 				07068465231AD01C0023EB27 /* Assets.xcassets */,
 				0759E88B231BEA8100AA987B /* Colors.xcassets */,
 				0706846A231AD01C0023EB27 /* Info.plist */,
@@ -1627,9 +1633,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BC2CB02355363200D169E9 /* Brackleytrack.gpx in Resources */,
 				0773F70523204A9B00EA62E1 /* Onboarding.storyboard in Resources */,
 				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
 				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
+				07BC2CB22355403500D169E9 /* AlltrailsRoute.gpx in Resources */,
 				07BC2CA723513A9A00D169E9 /* NavigationViewController.xib in Resources */,
 				07986A4E23467FC600763F4A /* AddLocaticCardView.xib in Resources */,
 				0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */,
