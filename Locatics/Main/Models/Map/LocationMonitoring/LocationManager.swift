@@ -161,6 +161,8 @@ extension LocationManager: CLLocationManagerDelegate {
         guard region is CLCircularRegion else { return }
         locationDelegate?.userDidLeaveLocaticRegion(regionIdentifier: region.identifier)
     }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {}
 }
 
 extension LocationManager {
