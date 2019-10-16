@@ -6,8 +6,6 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
-// swiftlint:disable line_length
-
 import Foundation
 import CoreGraphics
 
@@ -59,8 +57,6 @@ class LocaticsMainViewModel: LocaticsMainViewModelInterface {
         }
     }
 
-    var locaticVisitStorage: LocaticVisitStorageInterface?
-
     func getRecentLocation() {
         getRecentLocationData()
     }
@@ -100,64 +96,12 @@ private extension LocaticsMainViewModel {
         viewDelegate?.setNavigationTitleView(title: visitedLocation.description.capitalized,
                                              subtitle: arrivalTimeAtLocation)
     }
-
-    func fetchLocaticMatchingName(_ locaticName: String,
-                                  completionHandler: @escaping (_ locatic: LocaticData?) -> Void) {
-        let matchingNamePredicate = NSPredicate(format: "%K == %@", #keyPath(Locatic.name), locaticName)
-        locaticStorage?.fetchLocatics(predicate: matchingNamePredicate,
-                                      sortDescriptors: nil,
-                                      completion: { [weak self] (completion) in
-                                        switch completion {
-                                        case .success(let success):
-                                            completionHandler(success.first)
-                                        case .failure(let failure):
-                                            self?.showAlert(title: "Error fetching Locatic",
-                                                            message: failure.localizedDescription)
-                                            completionHandler(nil)
-                                        }
-        })
-    }
 }
 
 extension LocaticsMainViewModel: LocationManagerDelegate {
     func locationPermissionsNotAuthorised() {
         viewDelegate?.showAlert(title: "Permissions Not Authorised",
                                 message: "Please enable permissions by going to the apps settings")
-    }
-
-    func userDidEnterLocaticRegion(regionIdentifier: String) {
-        fetchLocaticMatchingName(regionIdentifier) { [weak self] (locatic) in
-            guard let locatic = locatic else { return }
-
-            self?.locaticVisitStorage?.insertLocaticVisit(entryDate: Date(),
-                                                          locatic: locatic,
-                                                          completion: { (error) in
-                                                            if error != nil {
-                                                                self?.viewDelegate?.showAlert(title: "Error entering Locatic region",
-                                                                                              message: error!.localizedDescription)
-                                                            }
-            })
-        }
-    }
-
-    func userDidLeaveLocaticRegion(regionIdentifier: String) {
-        fetchLocaticMatchingName(regionIdentifier) { [weak self] (locatic) in
-            guard let locatic = locatic else { return }
-
-            guard let locaticVisits = locatic.locaticVisits?.array as? [LocaticVisitData],
-                  let recentLocaticVisit = locaticVisits.first(where: { $0.exitDate == nil }) else {
-                return
-            }
-
-            self?.locaticVisitStorage?.updateLocaticVisit(locaticVisit: recentLocaticVisit,
-                                                          exitDate: Date(),
-                                                          completion: { (error) in
-                                                            if error != nil {
-                                                                self?.viewDelegate?.showAlert(title: "Error leaving Locatic region",
-                                                                                              message: error!.localizedDescription)
-                                                            }
-            })
-        }
     }
 }
 

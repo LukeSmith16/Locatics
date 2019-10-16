@@ -12,13 +12,14 @@ import CoreLocation
 @testable import Locatics
 class LocationManagerTests: XCTestCase {
 
+    var sut: LocationManager!
+
     private var mockLocationManagerObserver: MockLocationManagerDelegate!
     private var mockLocationProvider: MockLocationProvider!
     private var mockLocationGeocoder: MockLocationGeocoder!
     private var mockLocationStorage: MockLocationStorage!
     private var mockLocationPermissionsManager: MockLocationPermissionsManager!
-
-    var sut: LocationManager!
+    private var mockLocationRegionManager: MockLocationRegionManager!
 
     override func setUp() {
         mockLocationManagerObserver = MockLocationManagerDelegate()
@@ -26,6 +27,7 @@ class LocationManagerTests: XCTestCase {
         mockLocationGeocoder = MockLocationGeocoder()
         mockLocationPermissionsManager = MockLocationPermissionsManager()
         mockLocationPermissionsManager.authorizePermsState = .authorizedAlways
+        mockLocationRegionManager = MockLocationRegionManager()
 
         mockLocationStorage = MockLocationStorage()
         mockLocationStorage.lastVisitedLocation = VisitedLocation(
@@ -36,7 +38,8 @@ class LocationManagerTests: XCTestCase {
         sut = LocationManager(locationProvider: mockLocationProvider,
                               locationGeocoder: mockLocationGeocoder,
                               locationStorage: mockLocationStorage,
-                              locationPermissions: mockLocationPermissionsManager)
+                              locationPermissions: mockLocationPermissionsManager,
+                              locationRegionManager: mockLocationRegionManager)
         sut.locationDelegate = mockLocationManagerObserver
     }
 
@@ -46,6 +49,7 @@ class LocationManagerTests: XCTestCase {
         mockLocationManagerObserver = nil
         mockLocationStorage = nil
         mockLocationPermissionsManager = nil
+        mockLocationRegionManager = nil
         super.tearDown()
     }
 
@@ -204,14 +208,14 @@ class LocationManagerTests: XCTestCase {
         XCTAssertFalse(mockLocationGeocoder.calledReverseGeocodeLocation)
     }
 
-    func test_locationManagerDidEnterRegion_callsDelegateUserDidEnterRegion() {
+    func test_locationManagerDidEnterRegion_callsLocationRegionManagerUserDidEnterRegion() {
         let locatic = MockLocatic()
         sut.startMonitoringRegion(for: locatic)
 
         let locaticRegion = mockLocationProvider.monitoredRegions.first!
         sut.locationManager(CLLocationManager(), didEnterRegion: locaticRegion)
 
-        XCTAssertTrue(mockLocationManagerObserver.calledUserDidEnterLocaticRegion)
+        XCTAssertTrue(mockLocationRegionManager.calledUserDidEnterLocaticRegion)
     }
 
     func test_locationManagerDidEnterRegion_passesRegionIdentifierToUserDidEnterRegion() {
@@ -221,17 +225,17 @@ class LocationManagerTests: XCTestCase {
         let locaticRegion = mockLocationProvider.monitoredRegions.first!
         sut.locationManager(CLLocationManager(), didEnterRegion: locaticRegion)
 
-        XCTAssertEqual(mockLocationManagerObserver.passedRegionIdentifier!, locatic.name)
+        XCTAssertEqual(mockLocationRegionManager.passedRegionIdentifier!, locatic.name)
     }
 
-    func test_locationManagerDidExitRegion_callsDelegateUserDidExitRegion() {
+    func test_locationManagerDidExitRegion_callsLocationRegionManagerUserDidExitRegion() {
         let locatic = MockLocatic()
         sut.startMonitoringRegion(for: locatic)
 
         let locaticRegion = mockLocationProvider.monitoredRegions.first!
         sut.locationManager(CLLocationManager(), didExitRegion: locaticRegion)
 
-        XCTAssertTrue(mockLocationManagerObserver.calledUserDidLeaveLocaticRegion)
+        XCTAssertTrue(mockLocationRegionManager.calledUserDidLeaveLocaticRegion)
     }
 
     func test_locationManagerDidExitRegion_passesRegionIdentifierToUserDidExitRegion() {
@@ -241,7 +245,7 @@ class LocationManagerTests: XCTestCase {
         let locaticRegion = mockLocationProvider.monitoredRegions.first!
         sut.locationManager(CLLocationManager(), didExitRegion: locaticRegion)
 
-        XCTAssertEqual(mockLocationManagerObserver.passedRegionIdentifier!, locatic.name)
+        XCTAssertEqual(mockLocationRegionManager.passedRegionIdentifier!, locatic.name)
     }
 
     func test_locationManagerDidEnterRegion_returnsIfNotCLCircularRegion() {

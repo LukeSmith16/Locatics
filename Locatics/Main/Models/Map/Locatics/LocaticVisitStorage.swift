@@ -12,11 +12,9 @@ import Foundation
 
 protocol LocaticVisitStorageInterface: class {
     func insertLocaticVisit(entryDate: Date,
-                            locatic: LocaticData,
-                            completion: @escaping (StorageManagerError?) -> Void)
+                            locatic: LocaticData)
     func updateLocaticVisit(locaticVisit: LocaticVisitData,
-                            exitDate: Date,
-                            completion: @escaping (StorageManagerError?) -> Void)
+                            exitDate: Date)
 }
 
 class LocaticVisitStorage: LocaticVisitStorageInterface {
@@ -27,8 +25,7 @@ class LocaticVisitStorage: LocaticVisitStorageInterface {
     }
 
     func insertLocaticVisit(entryDate: Date,
-                            locatic: LocaticData,
-                            completion: @escaping (StorageManagerError?) -> Void) {
+                            locatic: LocaticData) {
         guard let locaticObject = locatic as? Locatic else {
             fatalError("Locatic should be on concrete type 'Locatic'")
         }
@@ -37,31 +34,16 @@ class LocaticVisitStorage: LocaticVisitStorageInterface {
         values["entryDate"] = entryDate
         values["locatic"] = locaticObject
 
-        storageManager.createObject(entity: LocaticVisit.self, values: values) { (result) in
-            switch result {
-            case .success(_):
-                completion(nil)
-            case .failure(let failure):
-                completion(failure)
-            }
-        }
+        storageManager.createObject(entity: LocaticVisit.self, values: values) { (_) in}
     }
 
     func updateLocaticVisit(locaticVisit: LocaticVisitData,
-                            exitDate: Date,
-                            completion: @escaping (StorageManagerError?) -> Void) {
+                            exitDate: Date) {
         var changedValues: [String: Any] = [:]
         changedValues["exitDate"] = exitDate
 
         storageManager.updateObject(entity: LocaticVisit.self,
                                     identity: locaticVisit.identity,
-                                    updatedValues: changedValues) { (result) in
-                                        switch result {
-                                        case .success(_):
-                                            completion(nil)
-                                        case .failure(let failure):
-                                            completion(failure)
-                                        }
-        }
+                                    updatedValues: changedValues) { (_) in}
     }
 }

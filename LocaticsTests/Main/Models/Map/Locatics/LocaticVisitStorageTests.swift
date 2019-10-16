@@ -32,9 +32,7 @@ class LocaticVisitStorageTests: XCTestCase {
     func test_insertLocaticVisit_callsCreateObject() {
         let locatic = Locatic()
         sut.insertLocaticVisit(entryDate: Date(),
-                               locatic: locatic) { (error) in
-                                XCTAssertNil(error)
-        }
+                               locatic: locatic)
 
         XCTAssertTrue(self.mockStorageManager.calledCreateObject)
     }
@@ -43,41 +41,24 @@ class LocaticVisitStorageTests: XCTestCase {
         let locatic = Locatic()
         let date = Date()
         sut.insertLocaticVisit(entryDate: date,
-                               locatic: locatic) { (error) in
-                                XCTAssertNil(error)
-        }
+                               locatic: locatic)
 
         XCTAssertEqual(mockStorageManager.passedCreateObjectValues["entryDate"] as! Date,
                        date)
         XCTAssertNotNil(mockStorageManager.passedCreateObjectValues["locatic"])
     }
 
-    func test_insertLocaticVisit_completesWithError() {
-        mockStorageManager.shouldFail = true
-
-        let locatic = Locatic()
-        sut.insertLocaticVisit(entryDate: Date(),
-                               locatic: locatic) { (error) in
-                                XCTAssertNotNil(error)
-                                XCTAssertTrue(error! == .badRequest)
-        }
-    }
-
     func test_insertLocaticVisit_hasFatalErrorIfConcreteTypeIsNotLocatic() {
         expectFatalError(expectedMessage: "Locatic should be on concrete type 'Locatic'") {
             self.sut.insertLocaticVisit(entryDate: Date(),
-                                   locatic: MockLocatic()) { (_) in
-                                    return
-            }
+                                   locatic: MockLocatic())
         }
     }
 
     func test_updateLocaticVisit_callsUpdateObject() {
         let locaticVisit = MockLocaticVisit()
         sut.updateLocaticVisit(locaticVisit: locaticVisit,
-                               exitDate: Date()) { (error) in
-                                XCTAssertNil(error)
-        }
+                               exitDate: Date())
 
         XCTAssertTrue(mockStorageManager.calledUpdateObject)
     }
@@ -86,22 +67,9 @@ class LocaticVisitStorageTests: XCTestCase {
         let locaticVisit = MockLocaticVisit()
         let date = Date()
         sut.updateLocaticVisit(locaticVisit: locaticVisit,
-                               exitDate: date) { (error) in
-                                XCTAssertNil(error)
-        }
+                               exitDate: date)
 
         XCTAssertEqual(mockStorageManager.passedUpdateObjectValues["exitDate"] as! Date,
                        date)
-    }
-
-    func test_updateLocaticVisit_completesWithError() {
-        mockStorageManager.shouldFail = true
-
-        let locaticVisit = MockLocaticVisit()
-        sut.updateLocaticVisit(locaticVisit: locaticVisit,
-                               exitDate: Date()) { (error) in
-                                XCTAssertNotNil(error)
-                                XCTAssertTrue(error! == .badRequest)
-        }
     }
 }

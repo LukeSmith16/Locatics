@@ -19,15 +19,8 @@ class MockLocaticVisitStorage: LocaticVisitStorageInterface {
     var changedEntryDate: Date?
     var changedLocatic: LocaticData?
     func insertLocaticVisit(entryDate: Date,
-                            locatic: LocaticData,
-                            completion: @escaping (StorageManagerError?) -> Void) {
+                            locatic: LocaticData) {
         calledInsertLocaticVisit = true
-        if shouldFail {
-            completion(.couldNotFindObject)
-        } else {
-            completion(nil)
-        }
-
         changedEntryDate = entryDate
         changedLocatic = locatic
     }
@@ -35,15 +28,8 @@ class MockLocaticVisitStorage: LocaticVisitStorageInterface {
     var changedLocaticVisit: LocaticVisitData?
     var changedExitDate: Date?
     func updateLocaticVisit(locaticVisit: LocaticVisitData,
-                            exitDate: Date,
-                            completion: @escaping (StorageManagerError?) -> Void) {
+                            exitDate: Date) {
         calledUpdateLocaticVisit = true
-        if shouldFail {
-            completion(.couldNotFindObject)
-        } else {
-            completion(nil)
-        }
-
         changedLocaticVisit = locaticVisit
         changedExitDate = exitDate
     }

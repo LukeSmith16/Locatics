@@ -46,7 +46,6 @@ private extension LocaticsMapModuleFactory {
         locaticsMainViewModel.addLocaticViewModel = addLocaticViewModel
         locaticsMainViewModel.locaticsMapViewModel = locaticsMapViewModel
         locaticsMainViewModel.locaticStorage = locaticStorage
-        locaticsMainViewModel.locaticVisitStorage = locaticVisitStorage
 
         return locaticsMainViewModel
     }
@@ -56,7 +55,9 @@ private extension LocaticsMapModuleFactory {
         let locationManager = LocationManager(locationProvider: CLLocationManager(),
                                               locationGeocoder: CLGeocoder(),
                                               locationStorage: locationStorage,
-                                              locationPermissions: LocationPermissionsManager())
+                                              locationPermissions: LocationPermissionsManager(),
+                                              locationRegionManager: LocationRegionManager(locaticStorage: locaticStorage,
+                                                                                           locaticVisitStorage: locaticVisitStorage))
 
         return locationManager
     }

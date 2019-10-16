@@ -38,9 +38,6 @@ protocol LocationManagerInterface: class {
 
 protocol LocationManagerDelegate: class {
     func locationPermissionsNotAuthorised()
-
-    func userDidEnterLocaticRegion(regionIdentifier: String)
-    func userDidLeaveLocaticRegion(regionIdentifier: String)
 }
 
 class LocationManager: NSObject, LocationManagerInterface {
@@ -54,6 +51,7 @@ class LocationManager: NSObject, LocationManagerInterface {
     let locationGeocoder: LocationGeocoderInterface
     let locationStorage: LocationStorageInterface
     let locationPermissions: LocationPermissionsManagerInterface
+    let locationRegionManager: LocationRegionManagerInterface
 
     var lastVisitedLocation: VisitedLocationData?
 
@@ -62,11 +60,13 @@ class LocationManager: NSObject, LocationManagerInterface {
     init(locationProvider: LocationProviderInterface,
          locationGeocoder: LocationGeocoderInterface,
          locationStorage: LocationStorageInterface,
-         locationPermissions: LocationPermissionsManagerInterface) {
+         locationPermissions: LocationPermissionsManagerInterface,
+         locationRegionManager: LocationRegionManagerInterface) {
         self.locationProvider = locationProvider
         self.locationGeocoder = locationGeocoder
         self.locationStorage = locationStorage
         self.locationPermissions = locationPermissions
+        self.locationRegionManager = locationRegionManager
         self.findCurrentLocationCompletion = { (result) in }
 
         super.init()
@@ -154,12 +154,12 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         guard region is CLCircularRegion else { return }
-        locationDelegate?.userDidEnterLocaticRegion(regionIdentifier: region.identifier)
+        locationRegionManager.userDidEnterLocaticRegion(regionIdentifier: region.identifier)
     }
 
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         guard region is CLCircularRegion else { return }
-        locationDelegate?.userDidLeaveLocaticRegion(regionIdentifier: region.identifier)
+        locationRegionManager.userDidLeaveLocaticRegion(regionIdentifier: region.identifier)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {}
