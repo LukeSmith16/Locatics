@@ -88,7 +88,7 @@
         <image name="addLocaticButtonIcon" width="64" height="64"/>
         <image name="addLocaticPinIcon" width="47" height="47"/>
         <namedColor name="title_secondary">
-            <color red="0.71758353975497857" green="0.71411695260640373" blue="0.7210501269035533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.7839999794960022" green="0.7839999794960022" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

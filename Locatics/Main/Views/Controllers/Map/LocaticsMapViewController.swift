@@ -123,7 +123,7 @@ private extension LocaticsMapViewController {
                        delay: 0,
                        usingSpringWithDamping: 5,
                        initialSpringVelocity: 10,
-                       options: [.curveEaseInOut], animations: {
+                       options: [.curveEaseInOut], animations: { [unowned self] in
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -136,9 +136,9 @@ private extension LocaticsMapViewController {
                        delay: 0,
                        usingSpringWithDamping: 5,
                        initialSpringVelocity: 10,
-                       options: [.curveEaseInOut], animations: {
+                       options: [.curveEaseInOut], animations: { [unowned self] in
             self.view.layoutIfNeeded()
-        }, completion: { (_) in
+        }, completion: { [unowned self] (_) in
             self.addLocaticButton.isUserInteractionEnabled = true
             self.locationMarkerPin.isHidden = true
             self.addLocaticCardView.isHidden = true
