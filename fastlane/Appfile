@@ -1,0 +1,5 @@
+app_identifier "com.lukesmith.locatics"
+apple_id ENV["lukeedwardsmith97@gmail.com"]
+
+team_id "RCT493KH2G"
+itc_team_id "RCT493KH2G"

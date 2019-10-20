@@ -1,0 +1,107 @@
+fastlane_version "2.133.0"
+REQUIRED_XCODE_VERSION = "11.0"
+default_platform :ios
+
+ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
+
+platform :ios do
+  ################
+  # Before:
+  ################
+  before_all do
+    ensure_bundle_exec
+    setup_travis
+    scan
+  end
+
+  ################
+  # Lanes:
+  ################
+
+  lane :setup_dev do
+    cert(development: true)
+    sigh(development: true) 
+    cocoapods
+  end
+
+  lane :sync_signing_assets do |options|
+    sync_device_info
+    selectedType = options[:type]
+    match(type: selectedType)
+  end
+
+  lane :sync_device_info do
+    register_devices(
+      devices_file: "fastlane/Devicefile"
+    )
+  end
+
+  lane :lint do
+    swiftlint(
+      mode: :autocorrect,
+      config_file: ".swiftlint.yml",
+      output_file: "swiftlintOutput.txt",
+      ignore_exit_status: false
+    )
+  end
+
+  lane :document do
+    jazzy config: "./fastlane/jazzy.yaml"
+  end
+
+  ################
+  # Private Lanes:
+  ################
+
+  private_lane :send_slack do |options|
+    msg = options[:message] || ""
+    ver = options[:version] || ""
+    bld = options[:build] || ""
+    pay = options[:payload] || {}
+    suc = options[:success] != false
+
+    date = Time.new.to_s
+
+    if bld.empty?
+      slack(
+        message: msg,
+        payload: pay,
+        default_payloads: [],
+        success: suc,
+        slack_url: ENV["SLACK_URL"]
+      )
+    elsif pay.empty? && suc
+      slack(
+        payload: {"FASTLANE PRODUCTION - #{ver}(#{bld})" => date},
+        slack_url: slack_hook
+      )
+    else
+      slack(
+        message: msg,
+        payload: pay,
+        success: suc,
+        slack_url: slack_hook
+      )
+  end
+
+  ################
+  # Success/Error:
+  ################
+
+  after_all do
+    send_slack(
+      message: nil,
+      success: true,
+      payload: [:test_result, :git_branch]
+    )
+    clean_build_artifacts
+  end
+
+  error do |lane, exception, options|
+    send_slack(
+      message: exception.to_s,
+      success: false
+    )
+  end
+end
+end

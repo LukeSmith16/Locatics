@@ -1,0 +1,3 @@
+scheme("LocaticsTests")
+skip_build(true)
+open_report(true)

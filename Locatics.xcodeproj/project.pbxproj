@@ -1,0 +1,2250 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706845E231AD01B0023EB27 /* AppDelegate.swift */; };
+		07068466231AD01C0023EB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07068465231AD01C0023EB27 /* Assets.xcassets */; };
+		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
+		0709D11C233A7A08001CD360 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0709D11B233A7A08001CD360 /* Managed.swift */; };
+		070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94102326EBD4008FDB87 /* DateFormatterManager.swift */; };
+		070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */; };
+		07130C20235C6FDF008F0FDF /* ScreenDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */; };
+		07130C22235C70C8008F0FDF /* ScreenDesignableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07130C21235C70C8008F0FDF /* ScreenDesignableTests.swift */; };
+		0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */; };
+		0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E8231ED5530084770E /* RootModuleFactory.swift */; };
+		0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */; };
+		0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */; };
+		073F2838232D4457003137D4 /* AddLocaticCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073F2837232D4457003137D4 /* AddLocaticCardView.swift */; };
+		073F283C232D4479003137D4 /* AddLocaticCardViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */; };
+		074985332337A1BD00B054E2 /* DB_LocalItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074985322337A1BD00B054E2 /* DB_LocalItemTests.swift */; };
+		074985352337A1CA00B054E2 /* LocaticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074985342337A1CA00B054E2 /* LocaticTests.swift */; };
+		0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0759E88B231BEA8100AA987B /* Colors.xcassets */; };
+		0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */; };
+		0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E892231BED2400AA987B /* UIFont+Extensions.swift */; };
+		0759E895231BF0EF00AA987B /* UIColor+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E894231BF0EF00AA987B /* UIColor+ExtensionsTests.swift */; };
+		0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E896231BF14000AA987B /* UIColor+Extensions.swift */; };
+		0759E899231BF86100AA987B /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E898231BF86100AA987B /* AppTests.swift */; };
+		0759E89B231BF86900AA987B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E89A231BF86900AA987B /* App.swift */; };
+		0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */; };
+		0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */; };
+		0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */; };
+		0773F70523204A9B00EA62E1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0773F70423204A9B00EA62E1 /* Onboarding.storyboard */; };
+		0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */; };
+		0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */; };
+		0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70D23216EAD00EA62E1 /* AlertController.swift */; };
+		0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F71023216F6000EA62E1 /* AlertControllerTests.swift */; };
+		0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F721232170A600EA62E1 /* OnboardingUITests.swift */; };
+		0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72523226E2700EA62E1 /* TabBarController.swift */; };
+		0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */; };
+		0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */; };
+		0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */; };
+		0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */; };
+		0773F73B23228AA500EA62E1 /* LocaticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */; };
+		0773F73D2322A16A00EA62E1 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */; };
+		0773F73F2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */; };
+		0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */; };
+		0773F74E2322A89A00EA62E1 /* MockLocationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F74D2322A89A00EA62E1 /* MockLocationPermissionsManager.swift */; };
+		0773F7532322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */; };
+		0773F7572322B8C600EA62E1 /* LocaticsMapModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7562322B8C600EA62E1 /* LocaticsMapModuleFactory.swift */; };
+		0773F7592322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7582322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift */; };
+		0773F75E23230F9200EA62E1 /* LocaticsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F75D23230F9200EA62E1 /* LocaticsMapViewController.swift */; };
+		0773F7632323103400EA62E1 /* LocaticsMapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7622323103400EA62E1 /* LocaticsMapViewControllerTests.swift */; };
+		0773F7662323106200EA62E1 /* LocaticsMainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7652323106200EA62E1 /* LocaticsMainViewModelTests.swift */; };
+		0773F76D232310A000EA62E1 /* LocaticsMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F76C232310A000EA62E1 /* LocaticsMainViewModel.swift */; };
+		0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */; };
+		0773F775232316F100EA62E1 /* LocaticsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F774232316F100EA62E1 /* LocaticsListViewControllerTests.swift */; };
+		0773F7772323170000EA62E1 /* LocaticsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7762323170000EA62E1 /* LocaticsListViewController.swift */; };
+		0773F7792323171C00EA62E1 /* LocaticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7782323171C00EA62E1 /* LocaticsViewModel.swift */; };
+		0773F77B2323172800EA62E1 /* LocaticsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F77A2323172800EA62E1 /* LocaticsViewModelTests.swift */; };
+		0773F77E2323179000EA62E1 /* LocaticsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F77D2323179000EA62E1 /* LocaticsModuleFactory.swift */; };
+		0773F781232317A500EA62E1 /* LocaticsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F780232317A500EA62E1 /* LocaticsCoordinatorTests.swift */; };
+		0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F782232317B400EA62E1 /* LocaticsModuleFactoryTests.swift */; };
+		0773F7852323193E00EA62E1 /* LocaticsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0773F7842323193E00EA62E1 /* LocaticsListViewController.xib */; };
+		0773F7872323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7862323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift */; };
+		0773F7892323B54F00EA62E1 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7882323B54F00EA62E1 /* UINavigationBar+Extensions.swift */; };
+		0773F78B2323B62100EA62E1 /* CAGradientLayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F78A2323B62100EA62E1 /* CAGradientLayer+Extensions.swift */; };
+		0773F78D2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F78C2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift */; };
+		0773F78F2323B85500EA62E1 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F78E2323B85500EA62E1 /* UIImage+Extensions.swift */; };
+		0773F7912323B86300EA62E1 /* UIImage+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7902323B86300EA62E1 /* UIImage+ExtensionsTests.swift */; };
+		0773F7932323BC8600EA62E1 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7922323BC8600EA62E1 /* NavigationViewController.swift */; };
+		0773F7962323F6A900EA62E1 /* UINavigationItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7952323F6A900EA62E1 /* UINavigationItem+Extensions.swift */; };
+		0773F7982323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7972323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift */; };
+		0773F7A0232430E600EA62E1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F79F232430E600EA62E1 /* LocationManager.swift */; };
+		0773F7A2232430EF00EA62E1 /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7A1232430EF00EA62E1 /* LocationManagerTests.swift */; };
+		0773F7A42324388B00EA62E1 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7A32324388B00EA62E1 /* MockLocationManager.swift */; };
+		0773F7A6232439F300EA62E1 /* CoreLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */; };
+		0773F7A823253C8600EA62E1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7A723253C8600EA62E1 /* Location.swift */; };
+		0773F7AA232540CA00EA62E1 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7A9232540CA00EA62E1 /* LocationStorage.swift */; };
+		0773F7AD2325492B00EA62E1 /* AppFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7AC2325492B00EA62E1 /* AppFileSystem.swift */; };
+		0773F7B0232558B700EA62E1 /* AppFileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */; };
+		0773F7B22325666100EA62E1 /* LocationStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7B12325666100EA62E1 /* LocationStorageTests.swift */; };
+		0773F7B423257E0500EA62E1 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F7B323257E0500EA62E1 /* LocationTests.swift */; };
+		0775C38D232E4DBA002AAFDE /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C38C232E4DBA002AAFDE /* ActionButton.swift */; };
+		0775C38F232E4F6E002AAFDE /* ActionButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C38E232E4F6E002AAFDE /* ActionButtonTests.swift */; };
+		0775C391232E509E002AAFDE /* SliderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C390232E509E002AAFDE /* SliderControl.swift */; };
+		0775C393232E50A8002AAFDE /* SliderControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C392232E50A8002AAFDE /* SliderControlTests.swift */; };
+		0775C39C232E62E2002AAFDE /* AddLocaticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C39B232E62E2002AAFDE /* AddLocaticViewModel.swift */; };
+		0775C39E232E62ED002AAFDE /* AddLocaticViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775C39D232E62ED002AAFDE /* AddLocaticViewModelTests.swift */; };
+		0786F9E3233631B4009E00BC /* LocaticsDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9E1233631B4009E00BC /* LocaticsDatabase.xcdatamodeld */; };
+		0786F9E523363377009E00BC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9E423363377009E00BC /* CoreDataStack.swift */; };
+		0786F9E823366822009E00BC /* Locatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9E723366822009E00BC /* Locatic.swift */; };
+		0786F9EC23366850009E00BC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9EB23366850009E00BC /* StorageManager.swift */; };
+		0786F9EE23366E28009E00BC /* DB_LocalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9ED23366E28009E00BC /* DB_LocalItem.swift */; };
+		0786F9F02336A381009E00BC /* CoreData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9EF2336A381009E00BC /* CoreData+Extensions.swift */; };
+		0786F9F32336AAE4009E00BC /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9F22336AAE4009E00BC /* CoreDataStackTests.swift */; };
+		0786F9F62336ABDB009E00BC /* StorageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9F52336ABDB009E00BC /* StorageManagerTests.swift */; };
+		0786F9F92336AC77009E00BC /* InMemoryCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F9F82336AC77009E00BC /* InMemoryCDStack.swift */; };
+		07986A4E23467FC600763F4A /* AddLocaticCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07986A4D23467FC600763F4A /* AddLocaticCardView.xib */; };
+		079A4452234A2799000EA2EF /* LocaticsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4451234A2799000EA2EF /* LocaticsMapView.swift */; };
+		079A4454234A27A5000EA2EF /* LocaticsMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */; };
+		079A4456234A286B000EA2EF /* LocaticsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */; };
+		079A4458234A3428000EA2EF /* LocaticsMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4457234A3428000EA2EF /* LocaticsMapViewModelTests.swift */; };
+		07BC2C44234EB99900D169E9 /* LocaticMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C43234EB99900D169E9 /* LocaticMarkerAnnotationView.swift */; };
+		07BC2C46234EB9C100D169E9 /* LocaticClusterMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C45234EB9C100D169E9 /* LocaticClusterMarkerView.swift */; };
+		07BC2C48234FB5B400D169E9 /* MockLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C47234FB5B400D169E9 /* MockLocation.swift */; };
+		07BC2C4B234FB5FB00D169E9 /* MockLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C4A234FB5FB00D169E9 /* MockLocationProvider.swift */; };
+		07BC2C4D234FB62600D169E9 /* MockCLVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C4C234FB62600D169E9 /* MockCLVisit.swift */; };
+		07BC2C51234FB68300D169E9 /* MockOnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C50234FB68300D169E9 /* MockOnboardingCoordinator.swift */; };
+		07BC2C53234FB69B00D169E9 /* MockMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C52234FB69B00D169E9 /* MockMainCoordinator.swift */; };
+		07BC2C56234FB75400D169E9 /* MockBadRootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C55234FB75400D169E9 /* MockBadRootModuleFactory.swift */; };
+		07BC2C58234FB77A00D169E9 /* MockTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C57234FB77A00D169E9 /* MockTabBarController.swift */; };
+		07BC2C5B234FB7BE00D169E9 /* MockLocationProviderPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C5A234FB7BE00D169E9 /* MockLocationProviderPermissions.swift */; };
+		07BC2C5D234FB7F500D169E9 /* MockLocationPermissionsManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C5C234FB7F500D169E9 /* MockLocationPermissionsManagerDelegate.swift */; };
+		07BC2C61234FB83000D169E9 /* MockOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C60234FB83000D169E9 /* MockOnboardingViewModel.swift */; };
+		07BC2C64234FB86F00D169E9 /* MockAddLocaticCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C63234FB86F00D169E9 /* MockAddLocaticCardView.swift */; };
+		07BC2C66234FB88100D169E9 /* MockMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C65234FB88100D169E9 /* MockMapView.swift */; };
+		07BC2C68234FB89600D169E9 /* MockNavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C67234FB89600D169E9 /* MockNavigationTitleView.swift */; };
+		07BC2C6B234FB8B600D169E9 /* MockLocaticsMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C6A234FB8B600D169E9 /* MockLocaticsMainViewModel.swift */; };
+		07BC2C6D234FB90B00D169E9 /* MockOnboardingViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C6C234FB90B00D169E9 /* MockOnboardingViewModelViewDelegate.swift */; };
+		07BC2C70234FB96000D169E9 /* MockLocaticsMapModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C6F234FB96000D169E9 /* MockLocaticsMapModuleFactory.swift */; };
+		07BC2C72234FB98D00D169E9 /* MockAddLocaticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C71234FB98D00D169E9 /* MockAddLocaticViewModel.swift */; };
+		07BC2C74234FB9B500D169E9 /* MockLocaticsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C73234FB9B500D169E9 /* MockLocaticsMapViewModel.swift */; };
+		07BC2C77234FB9FE00D169E9 /* MockLocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C76234FB9FE00D169E9 /* MockLocationStorage.swift */; };
+		07BC2C79234FBA1200D169E9 /* MockCLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C78234FBA1200D169E9 /* MockCLPlacemark.swift */; };
+		07BC2C7B234FBA2300D169E9 /* MockLocationGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C7A234FBA2300D169E9 /* MockLocationGeocoder.swift */; };
+		07BC2C7D234FBA4200D169E9 /* MockLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C7C234FBA4200D169E9 /* MockLocationManagerDelegate.swift */; };
+		07BC2C7F234FBA7300D169E9 /* MockTabBarControllerClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C7E234FBA7300D169E9 /* MockTabBarControllerClosure.swift */; };
+		07BC2C81234FBA9C00D169E9 /* MockLocaticsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C80234FBA9C00D169E9 /* MockLocaticsModuleFactory.swift */; };
+		07BC2C83234FBABD00D169E9 /* MockAppFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C82234FBABD00D169E9 /* MockAppFileSystem.swift */; };
+		07BC2C85234FBAEF00D169E9 /* MockLocatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C84234FBAEF00D169E9 /* MockLocatic.swift */; };
+		07BC2C87234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C86234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift */; };
+		07BC2C89234FBB2D00D169E9 /* MockLocaticsMapViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C88234FBB2D00D169E9 /* MockLocaticsMapViewModelViewDelegate.swift */; };
+		07BC2C8B234FBB4400D169E9 /* MockLocaticsMainLocationPinCoordinateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C8A234FBB4400D169E9 /* MockLocaticsMainLocationPinCoordinateDelegate.swift */; };
+		07BC2C8D234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C8C234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift */; };
+		07BC2C8F234FBB7700D169E9 /* MockLocaticEntryValidationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C8E234FBB7700D169E9 /* MockLocaticEntryValidationDelegate.swift */; };
+		07BC2C91234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C90234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift */; };
+		07BC2C93234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C92234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift */; };
+		07BC2C95234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C94234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift */; };
+		07BC2C97234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C96234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift */; };
+		07BC2C99234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C98234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift */; };
+		07BC2C9B234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C9A234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift */; };
+		07BC2C9D2350216400D169E9 /* LocaticVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C9C2350216400D169E9 /* LocaticVisit.swift */; };
+		07BC2C9F2350300500D169E9 /* LocaticVisitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C9E2350300500D169E9 /* LocaticVisitStorage.swift */; };
+		07BC2CA12351049100D169E9 /* MockLocaticVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA02351049100D169E9 /* MockLocaticVisit.swift */; };
+		07BC2CA32351055500D169E9 /* MockLocaticVisitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA22351055500D169E9 /* MockLocaticVisitStorage.swift */; };
+		07BC2CA52351181C00D169E9 /* LocaticVisitStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA42351181C00D169E9 /* LocaticVisitStorageTests.swift */; };
+		07BC2CA723513A9A00D169E9 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */; };
+		07BC2CAA235146CF00D169E9 /* MockRootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */; };
+		07BC2CAC2353FA2500D169E9 /* MockAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CAB2353FA2500D169E9 /* MockAnnotation.swift */; };
+		07BC2CB02355363200D169E9 /* Brackleytrack.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CAF2355363200D169E9 /* Brackleytrack.gpx */; };
+		07BC2CB22355403500D169E9 /* AlltrailsRoute.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 07BC2CB12355403400D169E9 /* AlltrailsRoute.gpx */; };
+		07BC2CB42355B57400D169E9 /* LocationRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CB32355B57400D169E9 /* LocationRegionManager.swift */; };
+		07BC2CB62356A3F800D169E9 /* LocationRegionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CB52356A3F800D169E9 /* LocationRegionManagerTests.swift */; };
+		07BC2CB82356A58600D169E9 /* MockLocationRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2CB72356A58600D169E9 /* MockLocationRegionManager.swift */; };
+		07F49EB6233FC9F000F076E5 /* LocaticStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */; };
+		07F49EB9233FD06600F076E5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */; };
+		07F49EBB2340D3FA00F076E5 /* MockStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */; };
+		07F49EBD2340D4CE00F076E5 /* MockLocaticStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EBC2340D4CE00F076E5 /* MockLocaticStorage.swift */; };
+		07F49EC02340D69E00F076E5 /* LocaticStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F49EBF2340D69E00F076E5 /* LocaticStorageTests.swift */; };
+		07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */; };
+		07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */; };
+		07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */; };
+		07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D79231C0889006CA6E0 /* CoordinatorFactoryTests.swift */; };
+		07FC7D82231C09C2006CA6E0 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D81231C09C2006CA6E0 /* OnboardingCoordinator.swift */; };
+		07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D83231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift */; };
+		07FC7D88231C0BCA006CA6E0 /* OnboardingModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D87231C0BCA006CA6E0 /* OnboardingModuleFactory.swift */; };
+		07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D89231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift */; };
+		07FC7D92231C147F006CA6E0 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D91231C147F006CA6E0 /* OnboardingViewModelTests.swift */; };
+		07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D94231C1491006CA6E0 /* OnboardingViewControllerTests.swift */; };
+		07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D97231C14A5006CA6E0 /* OnboardingViewController.swift */; };
+		07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */; };
+		07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */; };
+		07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */; };
+		85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */; };
+		8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0706847B231AD0780023EB27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07068453231AD01B0023EB27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0706845A231AD01B0023EB27;
+			remoteInfo = Locatics;
+		};
+		0773F71B2321708C00EA62E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07068453231AD01B0023EB27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0706845A231AD01B0023EB27;
+			remoteInfo = Locatics;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0706845B231AD01B0023EB27 /* Locatics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locatics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0706845E231AD01B0023EB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07068465231AD01C0023EB27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07068468231AD01C0023EB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0706846A231AD01C0023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07068476231AD0780023EB27 /* LocaticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0706847A231AD0780023EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0709D11B233A7A08001CD360 /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
+		070F94102326EBD4008FDB87 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManagerTests.swift; sourceTree = "<group>"; };
+		07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDesignable.swift; sourceTree = "<group>"; };
+		07130C21235C70C8008F0FDF /* ScreenDesignableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDesignableTests.swift; sourceTree = "<group>"; };
+		0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructorTests.swift; sourceTree = "<group>"; };
+		0726E9E8231ED5530084770E /* RootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactory.swift; sourceTree = "<group>"; };
+		0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactoryTests.swift; sourceTree = "<group>"; };
+		0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomePageViewController.swift; sourceTree = "<group>"; };
+		073F2837232D4457003137D4 /* AddLocaticCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticCardView.swift; sourceTree = "<group>"; };
+		073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticCardViewTests.swift; sourceTree = "<group>"; };
+		074985322337A1BD00B054E2 /* DB_LocalItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_LocalItemTests.swift; sourceTree = "<group>"; };
+		074985342337A1CA00B054E2 /* LocaticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticTests.swift; sourceTree = "<group>"; };
+		0759E88B231BEA8100AA987B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0759E892231BED2400AA987B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		0759E894231BF0EF00AA987B /* UIColor+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0759E896231BF14000AA987B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		0759E898231BF86100AA987B /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		0759E89A231BF86900AA987B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAboutPageViewController.swift; sourceTree = "<group>"; };
+		0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsPageViewController.swift; sourceTree = "<group>"; };
+		0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGetStartedPageViewController.swift; sourceTree = "<group>"; };
+		0773F70423204A9B00EA62E1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManager.swift; sourceTree = "<group>"; };
+		0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManagerTests.swift; sourceTree = "<group>"; };
+		0773F70D23216EAD00EA62E1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		0773F71023216F6000EA62E1 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
+		0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0773F71A2321708C00EA62E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0773F721232170A600EA62E1 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
+		0773F72523226E2700EA62E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
+		0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorTests.swift; sourceTree = "<group>"; };
+		0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapCoordinator.swift; sourceTree = "<group>"; };
+		0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsCoordinator.swift; sourceTree = "<group>"; };
+		0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinatorFactory.swift; sourceTree = "<group>"; };
+		0773F74D2322A89A00EA62E1 /* MockLocationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationPermissionsManager.swift; sourceTree = "<group>"; };
+		0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapCoordinatorTests.swift; sourceTree = "<group>"; };
+		0773F7562322B8C600EA62E1 /* LocaticsMapModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapModuleFactory.swift; sourceTree = "<group>"; };
+		0773F7582322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapModuleFactoryTests.swift; sourceTree = "<group>"; };
+		0773F75D23230F9200EA62E1 /* LocaticsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewController.swift; sourceTree = "<group>"; };
+		0773F7622323103400EA62E1 /* LocaticsMapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewControllerTests.swift; sourceTree = "<group>"; };
+		0773F7652323106200EA62E1 /* LocaticsMainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMainViewModelTests.swift; sourceTree = "<group>"; };
+		0773F76C232310A000EA62E1 /* LocaticsMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMainViewModel.swift; sourceTree = "<group>"; };
+		0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocaticsMapViewController.xib; sourceTree = "<group>"; };
+		0773F774232316F100EA62E1 /* LocaticsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsListViewControllerTests.swift; sourceTree = "<group>"; };
+		0773F7762323170000EA62E1 /* LocaticsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsListViewController.swift; sourceTree = "<group>"; };
+		0773F7782323171C00EA62E1 /* LocaticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsViewModel.swift; sourceTree = "<group>"; };
+		0773F77A2323172800EA62E1 /* LocaticsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsViewModelTests.swift; sourceTree = "<group>"; };
+		0773F77D2323179000EA62E1 /* LocaticsModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsModuleFactory.swift; sourceTree = "<group>"; };
+		0773F780232317A500EA62E1 /* LocaticsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsCoordinatorTests.swift; sourceTree = "<group>"; };
+		0773F782232317B400EA62E1 /* LocaticsModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsModuleFactoryTests.swift; sourceTree = "<group>"; };
+		0773F7842323193E00EA62E1 /* LocaticsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocaticsListViewController.xib; sourceTree = "<group>"; };
+		0773F7862323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0773F7882323B54F00EA62E1 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
+		0773F78A2323B62100EA62E1 /* CAGradientLayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Extensions.swift"; sourceTree = "<group>"; };
+		0773F78C2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0773F78E2323B85500EA62E1 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		0773F7902323B86300EA62E1 /* UIImage+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0773F7922323BC8600EA62E1 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		0773F7952323F6A900EA62E1 /* UINavigationItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extensions.swift"; sourceTree = "<group>"; };
+		0773F7972323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0773F79F232430E600EA62E1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0773F7A1232430EF00EA62E1 /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
+		0773F7A32324388B00EA62E1 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
+		0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreLocation+Extensions.swift"; sourceTree = "<group>"; };
+		0773F7A723253C8600EA62E1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		0773F7A9232540CA00EA62E1 /* LocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
+		0773F7AC2325492B00EA62E1 /* AppFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileSystem.swift; sourceTree = "<group>"; };
+		0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileSystemTests.swift; sourceTree = "<group>"; };
+		0773F7B12325666100EA62E1 /* LocationStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorageTests.swift; sourceTree = "<group>"; };
+		0773F7B323257E0500EA62E1 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		0775C38C232E4DBA002AAFDE /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		0775C38E232E4F6E002AAFDE /* ActionButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonTests.swift; sourceTree = "<group>"; };
+		0775C390232E509E002AAFDE /* SliderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderControl.swift; sourceTree = "<group>"; };
+		0775C392232E50A8002AAFDE /* SliderControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderControlTests.swift; sourceTree = "<group>"; };
+		0775C39B232E62E2002AAFDE /* AddLocaticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticViewModel.swift; sourceTree = "<group>"; };
+		0775C39D232E62ED002AAFDE /* AddLocaticViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticViewModelTests.swift; sourceTree = "<group>"; };
+		0786F9E2233631B4009E00BC /* LocaticsDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocaticsDatabase.xcdatamodel; sourceTree = "<group>"; };
+		0786F9E423363377009E00BC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0786F9E723366822009E00BC /* Locatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locatic.swift; sourceTree = "<group>"; };
+		0786F9EB23366850009E00BC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		0786F9ED23366E28009E00BC /* DB_LocalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_LocalItem.swift; sourceTree = "<group>"; };
+		0786F9EF2336A381009E00BC /* CoreData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Extensions.swift"; sourceTree = "<group>"; };
+		0786F9F22336AAE4009E00BC /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
+		0786F9F52336ABDB009E00BC /* StorageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerTests.swift; sourceTree = "<group>"; };
+		0786F9F82336AC77009E00BC /* InMemoryCDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCDStack.swift; sourceTree = "<group>"; };
+		07986A4D23467FC600763F4A /* AddLocaticCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddLocaticCardView.xib; sourceTree = "<group>"; };
+		079A4451234A2799000EA2EF /* LocaticsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapView.swift; sourceTree = "<group>"; };
+		079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewTests.swift; sourceTree = "<group>"; };
+		079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModel.swift; sourceTree = "<group>"; };
+		079A4457234A3428000EA2EF /* LocaticsMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModelTests.swift; sourceTree = "<group>"; };
+		07BC2C43234EB99900D169E9 /* LocaticMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticMarkerAnnotationView.swift; sourceTree = "<group>"; };
+		07BC2C45234EB9C100D169E9 /* LocaticClusterMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticClusterMarkerView.swift; sourceTree = "<group>"; };
+		07BC2C47234FB5B400D169E9 /* MockLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocation.swift; sourceTree = "<group>"; };
+		07BC2C4A234FB5FB00D169E9 /* MockLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationProvider.swift; sourceTree = "<group>"; };
+		07BC2C4C234FB62600D169E9 /* MockCLVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLVisit.swift; sourceTree = "<group>"; };
+		07BC2C50234FB68300D169E9 /* MockOnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingCoordinator.swift; sourceTree = "<group>"; };
+		07BC2C52234FB69B00D169E9 /* MockMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainCoordinator.swift; sourceTree = "<group>"; };
+		07BC2C55234FB75400D169E9 /* MockBadRootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBadRootModuleFactory.swift; sourceTree = "<group>"; };
+		07BC2C57234FB77A00D169E9 /* MockTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabBarController.swift; sourceTree = "<group>"; };
+		07BC2C5A234FB7BE00D169E9 /* MockLocationProviderPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationProviderPermissions.swift; sourceTree = "<group>"; };
+		07BC2C5C234FB7F500D169E9 /* MockLocationPermissionsManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationPermissionsManagerDelegate.swift; sourceTree = "<group>"; };
+		07BC2C60234FB83000D169E9 /* MockOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingViewModel.swift; sourceTree = "<group>"; };
+		07BC2C63234FB86F00D169E9 /* MockAddLocaticCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddLocaticCardView.swift; sourceTree = "<group>"; };
+		07BC2C65234FB88100D169E9 /* MockMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapView.swift; sourceTree = "<group>"; };
+		07BC2C67234FB89600D169E9 /* MockNavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationTitleView.swift; sourceTree = "<group>"; };
+		07BC2C6A234FB8B600D169E9 /* MockLocaticsMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMainViewModel.swift; sourceTree = "<group>"; };
+		07BC2C6C234FB90B00D169E9 /* MockOnboardingViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C6F234FB96000D169E9 /* MockLocaticsMapModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMapModuleFactory.swift; sourceTree = "<group>"; };
+		07BC2C71234FB98D00D169E9 /* MockAddLocaticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddLocaticViewModel.swift; sourceTree = "<group>"; };
+		07BC2C73234FB9B500D169E9 /* MockLocaticsMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMapViewModel.swift; sourceTree = "<group>"; };
+		07BC2C76234FB9FE00D169E9 /* MockLocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationStorage.swift; sourceTree = "<group>"; };
+		07BC2C78234FBA1200D169E9 /* MockCLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLPlacemark.swift; sourceTree = "<group>"; };
+		07BC2C7A234FBA2300D169E9 /* MockLocationGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationGeocoder.swift; sourceTree = "<group>"; };
+		07BC2C7C234FBA4200D169E9 /* MockLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManagerDelegate.swift; sourceTree = "<group>"; };
+		07BC2C7E234FBA7300D169E9 /* MockTabBarControllerClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabBarControllerClosure.swift; sourceTree = "<group>"; };
+		07BC2C80234FBA9C00D169E9 /* MockLocaticsModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsModuleFactory.swift; sourceTree = "<group>"; };
+		07BC2C82234FBABD00D169E9 /* MockAppFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppFileSystem.swift; sourceTree = "<group>"; };
+		07BC2C84234FBAEF00D169E9 /* MockLocatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocatic.swift; sourceTree = "<group>"; };
+		07BC2C86234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticPersistentStorageDelegate.swift; sourceTree = "<group>"; };
+		07BC2C88234FBB2D00D169E9 /* MockLocaticsMapViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMapViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C8A234FBB4400D169E9 /* MockLocaticsMainLocationPinCoordinateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMainLocationPinCoordinateDelegate.swift; sourceTree = "<group>"; };
+		07BC2C8C234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddLocaticViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C8E234FBB7700D169E9 /* MockLocaticEntryValidationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticEntryValidationDelegate.swift; sourceTree = "<group>"; };
+		07BC2C90234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticPinLocationDelegate.swift; sourceTree = "<group>"; };
+		07BC2C92234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsAddLocaticViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C94234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMainViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C96234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticMarkerAnnotationViewTests.swift; sourceTree = "<group>"; };
+		07BC2C98234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticClusterMarkerViewTests.swift; sourceTree = "<group>"; };
+		07BC2C9A234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticsMainMapViewModelViewDelegate.swift; sourceTree = "<group>"; };
+		07BC2C9C2350216400D169E9 /* LocaticVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticVisit.swift; sourceTree = "<group>"; };
+		07BC2C9E2350300500D169E9 /* LocaticVisitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticVisitStorage.swift; sourceTree = "<group>"; };
+		07BC2CA02351049100D169E9 /* MockLocaticVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticVisit.swift; sourceTree = "<group>"; };
+		07BC2CA22351055500D169E9 /* MockLocaticVisitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticVisitStorage.swift; sourceTree = "<group>"; };
+		07BC2CA42351181C00D169E9 /* LocaticVisitStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticVisitStorageTests.swift; sourceTree = "<group>"; };
+		07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
+		07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRootModuleFactory.swift; sourceTree = "<group>"; };
+		07BC2CAB2353FA2500D169E9 /* MockAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnnotation.swift; sourceTree = "<group>"; };
+		07BC2CAF2355363200D169E9 /* Brackleytrack.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brackleytrack.gpx; sourceTree = "<group>"; };
+		07BC2CB12355403400D169E9 /* AlltrailsRoute.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AlltrailsRoute.gpx; sourceTree = "<group>"; };
+		07BC2CB32355B57400D169E9 /* LocationRegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRegionManager.swift; sourceTree = "<group>"; };
+		07BC2CB52356A3F800D169E9 /* LocationRegionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRegionManagerTests.swift; sourceTree = "<group>"; };
+		07BC2CB72356A58600D169E9 /* MockLocationRegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationRegionManager.swift; sourceTree = "<group>"; };
+		07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticStorage.swift; sourceTree = "<group>"; };
+		07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageManager.swift; sourceTree = "<group>"; };
+		07F49EBC2340D4CE00F076E5 /* MockLocaticStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocaticStorage.swift; sourceTree = "<group>"; };
+		07F49EBF2340D69E00F076E5 /* LocaticStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticStorageTests.swift; sourceTree = "<group>"; };
+		07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
+		07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		07FC7D79231C0889006CA6E0 /* CoordinatorFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryTests.swift; sourceTree = "<group>"; };
+		07FC7D81231C09C2006CA6E0 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		07FC7D83231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinatorTests.swift; sourceTree = "<group>"; };
+		07FC7D87231C0BCA006CA6E0 /* OnboardingModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModuleFactory.swift; sourceTree = "<group>"; };
+		07FC7D89231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModuleFactoryTests.swift; sourceTree = "<group>"; };
+		07FC7D91231C147F006CA6E0 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		07FC7D94231C1491006CA6E0 /* OnboardingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerTests.swift; sourceTree = "<group>"; };
+		07FC7D97231C14A5006CA6E0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManagerTests.swift; sourceTree = "<group>"; };
+		2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FDCAFA8D314EC1AED51C6B /* Pods-Locatics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.debug.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2F6E04830CD9866274D999 /* Pods-Locatics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.release.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.release.xcconfig"; sourceTree = "<group>"; };
+		E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.debug.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07068458231AD01B0023EB27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F4C0087BE8556BFB3FB4B89 /* Pods_Locatics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07068473231AD0780023EB27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85262CC33228D8051B951817 /* Pods_LocaticsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0773F7132321708C00EA62E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07068452231AD01B0023EB27 = {
+			isa = PBXGroup;
+			children = (
+				0706845D231AD01B0023EB27 /* Locatics */,
+				07068477231AD0780023EB27 /* LocaticsTests */,
+				0773F7172321708C00EA62E1 /* LocaticsUITests */,
+				0706845C231AD01B0023EB27 /* Products */,
+				77F34425DD14F7DB3B921D57 /* Pods */,
+				25255E8E94C985334A2BE030 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0706845C231AD01B0023EB27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0706845B231AD01B0023EB27 /* Locatics.app */,
+				07068476231AD0780023EB27 /* LocaticsTests.xctest */,
+				0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0706845D231AD01B0023EB27 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				07068470231AD0380023EB27 /* App */,
+				07FC7D7B231C0977006CA6E0 /* Onboarding */,
+				0773F72323226E0500EA62E1 /* Main */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		07068470231AD0380023EB27 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0706845E231AD01B0023EB27 /* AppDelegate.swift */,
+				0759E89A231BF86900AA987B /* App.swift */,
+				07068471231AD03C0023EB27 /* Assets */,
+				0759E886231BE08400AA987B /* Launch */,
+				0786F9E02336317B009E00BC /* Storage */,
+				07FC7D63231BFA8A006CA6E0 /* Coordinators */,
+				0773F7AB2325491100EA62E1 /* Models */,
+				0773F70C23216E9900EA62E1 /* ViewComponents */,
+				07F49EB7233FD04A00F076E5 /* Communicators */,
+				0759E88F231BECE500AA987B /* Extensions+Helpers */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		07068471231AD03C0023EB27 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2CB12355403400D169E9 /* AlltrailsRoute.gpx */,
+				07BC2CAF2355363200D169E9 /* Brackleytrack.gpx */,
+				07068465231AD01C0023EB27 /* Assets.xcassets */,
+				0759E88B231BEA8100AA987B /* Colors.xcassets */,
+				0706846A231AD01C0023EB27 /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		07068477231AD0780023EB27 /* LocaticsTests */ = {
+			isa = PBXGroup;
+			children = (
+				07068480231AD0830023EB27 /* App */,
+				07FC7D7E231C0996006CA6E0 /* Onboarding */,
+				0773F72723226E8E00EA62E1 /* Main */,
+				0706847A231AD0780023EB27 /* Info.plist */,
+			);
+			path = LocaticsTests;
+			sourceTree = "<group>";
+		};
+		07068480231AD0830023EB27 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0759E898231BF86100AA987B /* AppTests.swift */,
+				0786F9F12336AAC5009E00BC /* Storage */,
+				07FC7D67231BFAC5006CA6E0 /* Coordinators */,
+				0773F7AE232558A500EA62E1 /* Models */,
+				0773F70F23216F4F00EA62E1 /* ViewComponents */,
+				0759E88E231BECDC00AA987B /* Extensions+Helpers */,
+				0773F7472322A6E200EA62E1 /* TestHelpers */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0709D11A233A79F5001CD360 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0709D11B233A7A08001CD360 /* Managed.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0726E9EC231EDA6B0084770E /* OnboardingPages */ = {
+			isa = PBXGroup;
+			children = (
+				0726E9F1231EDACC0084770E /* OnboardingWelcomePageViewController.swift */,
+				0773F6F72320408600EA62E1 /* OnboardingAboutPageViewController.swift */,
+				0773F6F92320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift */,
+				0773F6FB2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift */,
+			);
+			path = OnboardingPages;
+			sourceTree = "<group>";
+		};
+		073F2833232D43F7003137D4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				079A444D234A2767000EA2EF /* Map */,
+				079A444E234A276E000EA2EF /* Locatics */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		073F2834232D4419003137D4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7712323156A00EA62E1 /* LocaticsMapViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		073F2836232D4427003137D4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				079A444F234A277C000EA2EF /* Map */,
+				079A4450234A277E000EA2EF /* Locatics */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		074985312337A1A300B054E2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				074985322337A1BD00B054E2 /* DB_LocalItemTests.swift */,
+				074985342337A1CA00B054E2 /* LocaticTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		0759E886231BE08400AA987B /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				07068467231AD01C0023EB27 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		0759E88E231BECDC00AA987B /* Extensions+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */,
+				0759E894231BF0EF00AA987B /* UIColor+ExtensionsTests.swift */,
+				0773F73E2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift */,
+				0773F7862323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift */,
+				0773F78C2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift */,
+				0773F7902323B86300EA62E1 /* UIImage+ExtensionsTests.swift */,
+				0773F7972323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift */,
+				07130C21235C70C8008F0FDF /* ScreenDesignableTests.swift */,
+			);
+			path = "Extensions+Helpers";
+			sourceTree = "<group>";
+		};
+		0759E88F231BECE500AA987B /* Extensions+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0759E892231BED2400AA987B /* UIFont+Extensions.swift */,
+				0759E896231BF14000AA987B /* UIColor+Extensions.swift */,
+				0773F73C2322A16A00EA62E1 /* UIStoryboard+Extensions.swift */,
+				0773F7882323B54F00EA62E1 /* UINavigationBar+Extensions.swift */,
+				0773F78A2323B62100EA62E1 /* CAGradientLayer+Extensions.swift */,
+				0773F78E2323B85500EA62E1 /* UIImage+Extensions.swift */,
+				0773F7952323F6A900EA62E1 /* UINavigationItem+Extensions.swift */,
+				0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */,
+				0786F9EF2336A381009E00BC /* CoreData+Extensions.swift */,
+				07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */,
+			);
+			path = "Extensions+Helpers";
+			sourceTree = "<group>";
+		};
+		0773F70323204A7D00EA62E1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0773F70423204A9B00EA62E1 /* Onboarding.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0773F70C23216E9900EA62E1 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0773F70D23216EAD00EA62E1 /* AlertController.swift */,
+				0775C38C232E4DBA002AAFDE /* ActionButton.swift */,
+				0775C390232E509E002AAFDE /* SliderControl.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		0773F70F23216F4F00EA62E1 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0773F71023216F6000EA62E1 /* AlertControllerTests.swift */,
+				0775C38E232E4F6E002AAFDE /* ActionButtonTests.swift */,
+				0775C392232E50A8002AAFDE /* SliderControlTests.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		0773F7172321708C00EA62E1 /* LocaticsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7202321709900EA62E1 /* Onboarding */,
+				0773F71A2321708C00EA62E1 /* Info.plist */,
+			);
+			path = LocaticsUITests;
+			sourceTree = "<group>";
+		};
+		0773F7202321709900EA62E1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0773F721232170A600EA62E1 /* OnboardingUITests.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0773F72323226E0500EA62E1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72D23226F4D00EA62E1 /* Coordinators */,
+				0773F799232430A600EA62E1 /* Models */,
+				0773F7672323107500EA62E1 /* ViewModels */,
+				0773F72C23226F4700EA62E1 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0773F72423226E0D00EA62E1 /* TabBarFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F73423227EFA00EA62E1 /* TabBarCoordinator.swift */,
+				0773F72523226E2700EA62E1 /* TabBarController.swift */,
+			);
+			path = TabBarFlow;
+			sourceTree = "<group>";
+		};
+		0773F72723226E8E00EA62E1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72F23226F5B00EA62E1 /* Coordinators */,
+				0773F79C232430B700EA62E1 /* Models */,
+				0773F7642323104500EA62E1 /* ViewModels */,
+				0773F72E23226F5800EA62E1 /* Views */,
+				0773F7432322A6C000EA62E1 /* TestHelpers */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0773F72823226E9400EA62E1 /* TabBarFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */,
+				0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */,
+			);
+			path = TabBarFlow;
+			sourceTree = "<group>";
+		};
+		0773F72C23226F4700EA62E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7942323F62300EA62E1 /* NavigationControllers */,
+				0773F75C23230F7C00EA62E1 /* Controllers */,
+				073F2833232D43F7003137D4 /* CustomViews */,
+				0773F76E2323154900EA62E1 /* XIBs */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0773F72D23226F4D00EA62E1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72423226E0D00EA62E1 /* TabBarFlow */,
+				0773F7362322898D00EA62E1 /* MapFlow */,
+				0773F7372322899500EA62E1 /* LocaticsFlow */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0773F72E23226F5800EA62E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7602323101E00EA62E1 /* Controllers */,
+				073F2836232D4427003137D4 /* CustomViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0773F72F23226F5B00EA62E1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0773F72823226E9400EA62E1 /* TabBarFlow */,
+				0773F7502322B7F000EA62E1 /* MapFlow */,
+				0773F7512322B7F500EA62E1 /* LocaticsFlow */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0773F7362322898D00EA62E1 /* MapFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F738232289B300EA62E1 /* LocaticsMapCoordinator.swift */,
+				0773F7552322B8AA00EA62E1 /* Factories */,
+			);
+			path = MapFlow;
+			sourceTree = "<group>";
+		};
+		0773F7372322899500EA62E1 /* LocaticsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F73A23228AA500EA62E1 /* LocaticsCoordinator.swift */,
+				0773F77C2323176A00EA62E1 /* Factories */,
+			);
+			path = LocaticsFlow;
+			sourceTree = "<group>";
+		};
+		0773F7402322A6A200EA62E1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C6E234FB94A00D169E9 /* Coordinators */,
+				07BC2C54234FB73500D169E9 /* TabBarFlow */,
+				07BC2C49234FB5CE00D169E9 /* CoreLocation */,
+				07BC2C75234FB9F100D169E9 /* Storage */,
+				07BC2C69234FB8AB00D169E9 /* ViewModels */,
+				07BC2C62234FB86400D169E9 /* Views */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		0773F7412322A6AD00EA62E1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C59234FB7B100D169E9 /* Permissions */,
+				07BC2C5F234FB82300D169E9 /* ViewModels */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		0773F7422322A6B400EA62E1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C4F234FB66A00D169E9 /* Coordinators */,
+				07BC2C4E234FB63700D169E9 /* Storage */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		0773F7432322A6C000EA62E1 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7402322A6A200EA62E1 /* Mocks */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		0773F7442322A6C500EA62E1 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7452322A6D600EA62E1 /* Utilities */,
+				0773F7412322A6AD00EA62E1 /* Mocks */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		0773F7452322A6D600EA62E1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0773F7472322A6E200EA62E1 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7422322A6B400EA62E1 /* Mocks */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		0773F7502322B7F000EA62E1 /* MapFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7522322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift */,
+				0773F7542322B89300EA62E1 /* Factories */,
+			);
+			path = MapFlow;
+			sourceTree = "<group>";
+		};
+		0773F7512322B7F500EA62E1 /* LocaticsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0773F780232317A500EA62E1 /* LocaticsCoordinatorTests.swift */,
+				0773F77F2323179800EA62E1 /* Factories */,
+			);
+			path = LocaticsFlow;
+			sourceTree = "<group>";
+		};
+		0773F7542322B89300EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7582322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F7552322B8AA00EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7562322B8C600EA62E1 /* LocaticsMapModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F75A23230F6600EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F75D23230F9200EA62E1 /* LocaticsMapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F75B23230F6B00EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7762323170000EA62E1 /* LocaticsListViewController.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F75C23230F7C00EA62E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F75A23230F6600EA62E1 /* Map */,
+				0773F75B23230F6B00EA62E1 /* Locatics */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0773F7602323101E00EA62E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7612323102800EA62E1 /* Map */,
+				0773F773232316D800EA62E1 /* Locatics */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0773F7612323102800EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7622323103400EA62E1 /* LocaticsMapViewControllerTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F7642323104500EA62E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7692323108000EA62E1 /* Map */,
+				0773F76A2323108800EA62E1 /* Locatics */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0773F7672323107500EA62E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7682323107E00EA62E1 /* Map */,
+				0773F76B2323109200EA62E1 /* Locatics */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0773F7682323107E00EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F76C232310A000EA62E1 /* LocaticsMainViewModel.swift */,
+				079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */,
+				0775C39B232E62E2002AAFDE /* AddLocaticViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F7692323108000EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7652323106200EA62E1 /* LocaticsMainViewModelTests.swift */,
+				079A4457234A3428000EA2EF /* LocaticsMapViewModelTests.swift */,
+				0775C39D232E62ED002AAFDE /* AddLocaticViewModelTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F76A2323108800EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F77A2323172800EA62E1 /* LocaticsViewModelTests.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F76B2323109200EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7782323171C00EA62E1 /* LocaticsViewModel.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F76E2323154900EA62E1 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				0773F76F2323155B00EA62E1 /* Map */,
+				0773F7702323155E00EA62E1 /* Locatics */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		0773F76F2323155B00EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				073F2834232D4419003137D4 /* Controllers */,
+				07986A4C23467FBD00763F4A /* CustomViews */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F7702323155E00EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7842323193E00EA62E1 /* LocaticsListViewController.xib */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F773232316D800EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				0773F774232316F100EA62E1 /* LocaticsListViewControllerTests.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F77C2323176A00EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F77D2323179000EA62E1 /* LocaticsModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F77F2323179800EA62E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0773F782232317B400EA62E1 /* LocaticsModuleFactoryTests.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0773F7942323F62300EA62E1 /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7922323BC8600EA62E1 /* NavigationViewController.swift */,
+				07BC2CA623513A9A00D169E9 /* NavigationViewController.xib */,
+			);
+			path = NavigationControllers;
+			sourceTree = "<group>";
+		};
+		0773F799232430A600EA62E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0773F79B232430B000EA62E1 /* Map */,
+				0773F79A232430AF00EA62E1 /* Locatics */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0773F79A232430AF00EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F79B232430B000EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				07F49EB2233FC98100F076E5 /* LocationMonitoring */,
+				07F49EB4233FC9DF00F076E5 /* Locatics */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F79C232430B700EA62E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0773F79D232430C600EA62E1 /* Map */,
+				0773F79E232430C800EA62E1 /* Locatics */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0773F79D232430C600EA62E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				07F49EB3233FC99D00F076E5 /* LocationMonitoring */,
+				07F49EBE2340D68C00F076E5 /* Locatics */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0773F79E232430C800EA62E1 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		0773F7AB2325491100EA62E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7AC2325492B00EA62E1 /* AppFileSystem.swift */,
+				070F94102326EBD4008FDB87 /* DateFormatterManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0773F7AE232558A500EA62E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7AF232558B700EA62E1 /* AppFileSystemTests.swift */,
+				070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0786F9E02336317B009E00BC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9EA23366831009E00BC /* Models */,
+				0786F9E923366825009E00BC /* StorageManager */,
+				0786F9E623366807009E00BC /* Entities */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		0786F9E623366807009E00BC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9ED23366E28009E00BC /* DB_LocalItem.swift */,
+				0786F9E723366822009E00BC /* Locatic.swift */,
+				07BC2C9C2350216400D169E9 /* LocaticVisit.swift */,
+				0709D11A233A79F5001CD360 /* Utilities */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		0786F9E923366825009E00BC /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9EB23366850009E00BC /* StorageManager.swift */,
+				0786F9E423363377009E00BC /* CoreDataStack.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		0786F9EA23366831009E00BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9E1233631B4009E00BC /* LocaticsDatabase.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0786F9F12336AAC5009E00BC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9F42336ABA7009E00BC /* StorageManager */,
+				074985312337A1A300B054E2 /* Entities */,
+				0786F9F72336AC69009E00BC /* TestHelpers */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		0786F9F42336ABA7009E00BC /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9F52336ABDB009E00BC /* StorageManagerTests.swift */,
+				0786F9F22336AAE4009E00BC /* CoreDataStackTests.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		0786F9F72336AC69009E00BC /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0786F9F82336AC77009E00BC /* InMemoryCDStack.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		07986A4C23467FBD00763F4A /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				07986A4D23467FC600763F4A /* AddLocaticCardView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		079A444D234A2767000EA2EF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				073F2837232D4457003137D4 /* AddLocaticCardView.swift */,
+				079A4451234A2799000EA2EF /* LocaticsMapView.swift */,
+				07BC2C43234EB99900D169E9 /* LocaticMarkerAnnotationView.swift */,
+				07BC2C45234EB9C100D169E9 /* LocaticClusterMarkerView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		079A444E234A276E000EA2EF /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		079A444F234A277C000EA2EF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */,
+				079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */,
+				07BC2C96234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift */,
+				07BC2C98234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		079A4450234A277E000EA2EF /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		07BC2C49234FB5CE00D169E9 /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7A32324388B00EA62E1 /* MockLocationManager.swift */,
+				07BC2C47234FB5B400D169E9 /* MockLocation.swift */,
+				07BC2C4A234FB5FB00D169E9 /* MockLocationProvider.swift */,
+				07BC2C4C234FB62600D169E9 /* MockCLVisit.swift */,
+				07BC2C78234FBA1200D169E9 /* MockCLPlacemark.swift */,
+				07BC2C7A234FBA2300D169E9 /* MockLocationGeocoder.swift */,
+				07BC2C7C234FBA4200D169E9 /* MockLocationManagerDelegate.swift */,
+				07BC2CB72356A58600D169E9 /* MockLocationRegionManager.swift */,
+			);
+			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		07BC2C4E234FB63700D169E9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				07F49EBA2340D3FA00F076E5 /* MockStorageManager.swift */,
+				07F49EBC2340D4CE00F076E5 /* MockLocaticStorage.swift */,
+				07BC2CA22351055500D169E9 /* MockLocaticVisitStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		07BC2C4F234FB66A00D169E9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0773F74B2322A77B00EA62E1 /* MockCoordinatorFactory.swift */,
+				07BC2C50234FB68300D169E9 /* MockOnboardingCoordinator.swift */,
+				07BC2C52234FB69B00D169E9 /* MockMainCoordinator.swift */,
+				07BC2C55234FB75400D169E9 /* MockBadRootModuleFactory.swift */,
+				07BC2CA9235146CF00D169E9 /* MockRootModuleFactory.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		07BC2C54234FB73500D169E9 /* TabBarFlow */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C57234FB77A00D169E9 /* MockTabBarController.swift */,
+				07BC2C7E234FBA7300D169E9 /* MockTabBarControllerClosure.swift */,
+			);
+			path = TabBarFlow;
+			sourceTree = "<group>";
+		};
+		07BC2C59234FB7B100D169E9 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				0773F74D2322A89A00EA62E1 /* MockLocationPermissionsManager.swift */,
+				07BC2C5C234FB7F500D169E9 /* MockLocationPermissionsManagerDelegate.swift */,
+				07BC2C5A234FB7BE00D169E9 /* MockLocationProviderPermissions.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		07BC2C5F234FB82300D169E9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C60234FB83000D169E9 /* MockOnboardingViewModel.swift */,
+				07BC2C6C234FB90B00D169E9 /* MockOnboardingViewModelViewDelegate.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		07BC2C62234FB86400D169E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C63234FB86F00D169E9 /* MockAddLocaticCardView.swift */,
+				07BC2C65234FB88100D169E9 /* MockMapView.swift */,
+				07BC2C67234FB89600D169E9 /* MockNavigationTitleView.swift */,
+				07BC2CAB2353FA2500D169E9 /* MockAnnotation.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07BC2C69234FB8AB00D169E9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C6A234FB8B600D169E9 /* MockLocaticsMainViewModel.swift */,
+				07BC2C71234FB98D00D169E9 /* MockAddLocaticViewModel.swift */,
+				07BC2C73234FB9B500D169E9 /* MockLocaticsMapViewModel.swift */,
+				07BC2C88234FBB2D00D169E9 /* MockLocaticsMapViewModelViewDelegate.swift */,
+				07BC2C8A234FBB4400D169E9 /* MockLocaticsMainLocationPinCoordinateDelegate.swift */,
+				07BC2C8C234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift */,
+				07BC2C8E234FBB7700D169E9 /* MockLocaticEntryValidationDelegate.swift */,
+				07BC2C90234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift */,
+				07BC2C92234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift */,
+				07BC2C94234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift */,
+				07BC2C9A234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		07BC2C6E234FB94A00D169E9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C6F234FB96000D169E9 /* MockLocaticsMapModuleFactory.swift */,
+				07BC2C80234FBA9C00D169E9 /* MockLocaticsModuleFactory.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		07BC2C75234FB9F100D169E9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				07BC2C76234FB9FE00D169E9 /* MockLocationStorage.swift */,
+				07BC2C82234FBABD00D169E9 /* MockAppFileSystem.swift */,
+				07BC2C84234FBAEF00D169E9 /* MockLocatic.swift */,
+				07BC2C86234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift */,
+				07BC2CA02351049100D169E9 /* MockLocaticVisit.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		07F49EB2233FC98100F076E5 /* LocationMonitoring */ = {
+			isa = PBXGroup;
+			children = (
+				0773F79F232430E600EA62E1 /* LocationManager.swift */,
+				07BC2CB32355B57400D169E9 /* LocationRegionManager.swift */,
+				0773F7A9232540CA00EA62E1 /* LocationStorage.swift */,
+				0773F7A723253C8600EA62E1 /* Location.swift */,
+			);
+			path = LocationMonitoring;
+			sourceTree = "<group>";
+		};
+		07F49EB3233FC99D00F076E5 /* LocationMonitoring */ = {
+			isa = PBXGroup;
+			children = (
+				0773F7A1232430EF00EA62E1 /* LocationManagerTests.swift */,
+				07BC2CB52356A3F800D169E9 /* LocationRegionManagerTests.swift */,
+				0773F7B12325666100EA62E1 /* LocationStorageTests.swift */,
+				0773F7B323257E0500EA62E1 /* LocationTests.swift */,
+			);
+			path = LocationMonitoring;
+			sourceTree = "<group>";
+		};
+		07F49EB4233FC9DF00F076E5 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				07F49EB5233FC9F000F076E5 /* LocaticStorage.swift */,
+				07BC2C9E2350300500D169E9 /* LocaticVisitStorage.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		07F49EB7233FD04A00F076E5 /* Communicators */ = {
+			isa = PBXGroup;
+			children = (
+				07F49EB8233FD06600F076E5 /* MulticastDelegate.swift */,
+			);
+			path = Communicators;
+			sourceTree = "<group>";
+		};
+		07F49EBE2340D68C00F076E5 /* Locatics */ = {
+			isa = PBXGroup;
+			children = (
+				07F49EBF2340D69E00F076E5 /* LocaticStorageTests.swift */,
+				07BC2CA42351181C00D169E9 /* LocaticVisitStorageTests.swift */,
+			);
+			path = Locatics;
+			sourceTree = "<group>";
+		};
+		07FC7D63231BFA8A006CA6E0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D65231BFAA9006CA6E0 /* ApplicationCoordinator.swift */,
+				07FC7D71231C0828006CA6E0 /* Factories */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		07FC7D67231BFAC5006CA6E0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D68231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift */,
+				0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */,
+				07FC7D72231C082E006CA6E0 /* Factories */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		07FC7D71231C0828006CA6E0 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D75231C086B006CA6E0 /* CoordinatorFactory.swift */,
+				0726E9E8231ED5530084770E /* RootModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		07FC7D72231C082E006CA6E0 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D79231C0889006CA6E0 /* CoordinatorFactoryTests.swift */,
+				0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		07FC7D7B231C0977006CA6E0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D7C231C0980006CA6E0 /* Coordinators */,
+				07FC7D8F231C0C8D006CA6E0 /* Models */,
+				07FC7D8D231C0C75006CA6E0 /* ViewModels */,
+				07FC7D8E231C0C78006CA6E0 /* Views */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		07FC7D7C231C0980006CA6E0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D7D231C0991006CA6E0 /* OnboardingFlow */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		07FC7D7D231C0991006CA6E0 /* OnboardingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D81231C09C2006CA6E0 /* OnboardingCoordinator.swift */,
+				07FC7D86231C0BAA006CA6E0 /* Factories */,
+			);
+			path = OnboardingFlow;
+			sourceTree = "<group>";
+		};
+		07FC7D7E231C0996006CA6E0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D80231C09A7006CA6E0 /* Coordinators */,
+				07FC7D90231C0C90006CA6E0 /* Models */,
+				07FC7D8B231C0C6B006CA6E0 /* ViewModels */,
+				07FC7D8C231C0C6E006CA6E0 /* Views */,
+				0773F7442322A6C500EA62E1 /* TestHelpers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		07FC7D7F231C0998006CA6E0 /* OnboardingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D83231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift */,
+				07FC7D85231C0BA3006CA6E0 /* Factories */,
+			);
+			path = OnboardingFlow;
+			sourceTree = "<group>";
+		};
+		07FC7D80231C09A7006CA6E0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D7F231C0998006CA6E0 /* OnboardingFlow */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		07FC7D85231C0BA3006CA6E0 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D89231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		07FC7D86231C0BAA006CA6E0 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D87231C0BCA006CA6E0 /* OnboardingModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		07FC7D8B231C0C6B006CA6E0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D91231C147F006CA6E0 /* OnboardingViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		07FC7D8C231C0C6E006CA6E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D93231C1485006CA6E0 /* Controllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07FC7D8D231C0C75006CA6E0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		07FC7D8E231C0C78006CA6E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D96231C149C006CA6E0 /* Controllers */,
+				0773F70323204A7D00EA62E1 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07FC7D8F231C0C8D006CA6E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */,
+				0773F708232130BD00EA62E1 /* LocationPermissionsManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07FC7D90231C0C90006CA6E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */,
+				0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07FC7D93231C1485006CA6E0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D94231C1491006CA6E0 /* OnboardingViewControllerTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		07FC7D96231C149C006CA6E0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07FC7D97231C14A5006CA6E0 /* OnboardingViewController.swift */,
+				0726E9EC231EDA6B0084770E /* OnboardingPages */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25255E8E94C985334A2BE030 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D7D0B0CC1A266AFAE1241EC /* Pods_Locatics.framework */,
+				2C036A49C03E9B9ACD457366 /* Pods_LocaticsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77F34425DD14F7DB3B921D57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5FDCAFA8D314EC1AED51C6B /* Pods-Locatics.debug.xcconfig */,
+				DB2F6E04830CD9866274D999 /* Pods-Locatics.release.xcconfig */,
+				E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */,
+				32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0706845A231AD01B0023EB27 /* Locatics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0706846D231AD01C0023EB27 /* Build configuration list for PBXNativeTarget "Locatics" */;
+			buildPhases = (
+				D877DB0B467BB96A18E6D9B1 /* [CP] Check Pods Manifest.lock */,
+				07068457231AD01B0023EB27 /* Sources */,
+				07068458231AD01B0023EB27 /* Frameworks */,
+				07068459231AD01B0023EB27 /* Resources */,
+				07068483231B01E00023EB27 /* ShellScript */,
+				63AB7CB7B5318EBEA4914157 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Locatics;
+			productName = Locatics;
+			productReference = 0706845B231AD01B0023EB27 /* Locatics.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07068475231AD0780023EB27 /* LocaticsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0706847D231AD0780023EB27 /* Build configuration list for PBXNativeTarget "LocaticsTests" */;
+			buildPhases = (
+				373C6A628EE1F93E61A7D002 /* [CP] Check Pods Manifest.lock */,
+				07068472231AD0780023EB27 /* Sources */,
+				07068473231AD0780023EB27 /* Frameworks */,
+				07068474231AD0780023EB27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0706847C231AD0780023EB27 /* PBXTargetDependency */,
+			);
+			name = LocaticsTests;
+			productName = LocaticsTests;
+			productReference = 07068476231AD0780023EB27 /* LocaticsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0773F7152321708C00EA62E1 /* LocaticsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0773F71D2321708C00EA62E1 /* Build configuration list for PBXNativeTarget "LocaticsUITests" */;
+			buildPhases = (
+				0773F7122321708C00EA62E1 /* Sources */,
+				0773F7132321708C00EA62E1 /* Frameworks */,
+				0773F7142321708C00EA62E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0773F71C2321708C00EA62E1 /* PBXTargetDependency */,
+			);
+			name = LocaticsUITests;
+			productName = LocaticsUITests;
+			productReference = 0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07068453231AD01B0023EB27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Luke Smith";
+				TargetAttributes = {
+					0706845A231AD01B0023EB27 = {
+						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					07068475231AD0780023EB27 = {
+						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
+						TestTargetID = 0706845A231AD01B0023EB27;
+					};
+					0773F7152321708C00EA62E1 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 0706845A231AD01B0023EB27;
+					};
+				};
+			};
+			buildConfigurationList = 07068456231AD01B0023EB27 /* Build configuration list for PBXProject "Locatics" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07068452231AD01B0023EB27;
+			productRefGroup = 0706845C231AD01B0023EB27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0706845A231AD01B0023EB27 /* Locatics */,
+				07068475231AD0780023EB27 /* LocaticsTests */,
+				0773F7152321708C00EA62E1 /* LocaticsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07068459231AD01B0023EB27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07BC2CB02355363200D169E9 /* Brackleytrack.gpx in Resources */,
+				0773F70523204A9B00EA62E1 /* Onboarding.storyboard in Resources */,
+				07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */,
+				0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */,
+				07BC2CB22355403500D169E9 /* AlltrailsRoute.gpx in Resources */,
+				07BC2CA723513A9A00D169E9 /* NavigationViewController.xib in Resources */,
+				07986A4E23467FC600763F4A /* AddLocaticCardView.xib in Resources */,
+				0773F7722323156A00EA62E1 /* LocaticsMapViewController.xib in Resources */,
+				07068466231AD01C0023EB27 /* Assets.xcassets in Resources */,
+				0773F7852323193E00EA62E1 /* LocaticsListViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07068474231AD0780023EB27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0773F7142321708C00EA62E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07068483231B01E00023EB27 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		373C6A628EE1F93E61A7D002 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocaticsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63AB7CB7B5318EBEA4914157 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Locatics/Pods-Locatics-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Locatics/Pods-Locatics-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Locatics/Pods-Locatics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D877DB0B467BB96A18E6D9B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Locatics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07068457231AD01B0023EB27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0773F73B23228AA500EA62E1 /* LocaticsCoordinator.swift in Sources */,
+				0786F9F02336A381009E00BC /* CoreData+Extensions.swift in Sources */,
+				0773F7932323BC8600EA62E1 /* NavigationViewController.swift in Sources */,
+				0773F6FA2320408F00EA62E1 /* OnboardingPermissionsPageViewController.swift in Sources */,
+				0775C391232E509E002AAFDE /* SliderControl.swift in Sources */,
+				07FC7D66231BFAA9006CA6E0 /* ApplicationCoordinator.swift in Sources */,
+				07FC7D88231C0BCA006CA6E0 /* OnboardingModuleFactory.swift in Sources */,
+				0773F7A6232439F300EA62E1 /* CoreLocation+Extensions.swift in Sources */,
+				0773F78B2323B62100EA62E1 /* CAGradientLayer+Extensions.swift in Sources */,
+				0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */,
+				0759E89B231BF86900AA987B /* App.swift in Sources */,
+				079A4452234A2799000EA2EF /* LocaticsMapView.swift in Sources */,
+				0786F9EE23366E28009E00BC /* DB_LocalItem.swift in Sources */,
+				07BC2C9F2350300500D169E9 /* LocaticVisitStorage.swift in Sources */,
+				0786F9E523363377009E00BC /* CoreDataStack.swift in Sources */,
+				07FC7D82231C09C2006CA6E0 /* OnboardingCoordinator.swift in Sources */,
+				0773F7572322B8C600EA62E1 /* LocaticsMapModuleFactory.swift in Sources */,
+				07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */,
+				0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */,
+				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
+				079A4456234A286B000EA2EF /* LocaticsMapViewModel.swift in Sources */,
+				0786F9EC23366850009E00BC /* StorageManager.swift in Sources */,
+				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
+				0773F7A823253C8600EA62E1 /* Location.swift in Sources */,
+				0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */,
+				0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */,
+				0773F78F2323B85500EA62E1 /* UIImage+Extensions.swift in Sources */,
+				07F49EB6233FC9F000F076E5 /* LocaticStorage.swift in Sources */,
+				0709D11C233A7A08001CD360 /* Managed.swift in Sources */,
+				07BC2CB42355B57400D169E9 /* LocationRegionManager.swift in Sources */,
+				07130C20235C6FDF008F0FDF /* ScreenDesignable.swift in Sources */,
+				0773F7A0232430E600EA62E1 /* LocationManager.swift in Sources */,
+				0786F9E823366822009E00BC /* Locatic.swift in Sources */,
+				0773F75E23230F9200EA62E1 /* LocaticsMapViewController.swift in Sources */,
+				0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */,
+				0773F73D2322A16A00EA62E1 /* UIStoryboard+Extensions.swift in Sources */,
+				07FC7D76231C086B006CA6E0 /* CoordinatorFactory.swift in Sources */,
+				0786F9E3233631B4009E00BC /* LocaticsDatabase.xcdatamodeld in Sources */,
+				0773F739232289B300EA62E1 /* LocaticsMapCoordinator.swift in Sources */,
+				0773F7962323F6A900EA62E1 /* UINavigationItem+Extensions.swift in Sources */,
+				073F2838232D4457003137D4 /* AddLocaticCardView.swift in Sources */,
+				070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */,
+				0759E897231BF14000AA987B /* UIColor+Extensions.swift in Sources */,
+				0773F6FC2320409800EA62E1 /* OnboardingGetStartedPageViewController.swift in Sources */,
+				0773F7AA232540CA00EA62E1 /* LocationStorage.swift in Sources */,
+				07FC7D98231C14A5006CA6E0 /* OnboardingViewController.swift in Sources */,
+				0773F7AD2325492B00EA62E1 /* AppFileSystem.swift in Sources */,
+				0773F709232130BD00EA62E1 /* LocationPermissionsManager.swift in Sources */,
+				0773F76D232310A000EA62E1 /* LocaticsMainViewModel.swift in Sources */,
+				0773F7792323171C00EA62E1 /* LocaticsViewModel.swift in Sources */,
+				07BC2C46234EB9C100D169E9 /* LocaticClusterMarkerView.swift in Sources */,
+				07BC2C44234EB99900D169E9 /* LocaticMarkerAnnotationView.swift in Sources */,
+				0773F73523227EFA00EA62E1 /* TabBarCoordinator.swift in Sources */,
+				0773F7892323B54F00EA62E1 /* UINavigationBar+Extensions.swift in Sources */,
+				0775C39C232E62E2002AAFDE /* AddLocaticViewModel.swift in Sources */,
+				07F49EB9233FD06600F076E5 /* MulticastDelegate.swift in Sources */,
+				0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */,
+				07BC2C9D2350216400D169E9 /* LocaticVisit.swift in Sources */,
+				0773F77E2323179000EA62E1 /* LocaticsModuleFactory.swift in Sources */,
+				0773F7772323170000EA62E1 /* LocaticsListViewController.swift in Sources */,
+				0775C38D232E4DBA002AAFDE /* ActionButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07068472231AD0780023EB27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0773F77B2323172800EA62E1 /* LocaticsViewModelTests.swift in Sources */,
+				07BC2C89234FBB2D00D169E9 /* MockLocaticsMapViewModelViewDelegate.swift in Sources */,
+				07BC2C9B234FC85E00D169E9 /* MockLocaticsMainMapViewModelViewDelegate.swift in Sources */,
+				07BC2C7F234FBA7300D169E9 /* MockTabBarControllerClosure.swift in Sources */,
+				07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */,
+				074985332337A1BD00B054E2 /* DB_LocalItemTests.swift in Sources */,
+				07BC2C4B234FB5FB00D169E9 /* MockLocationProvider.swift in Sources */,
+				079A4454234A27A5000EA2EF /* LocaticsMapViewTests.swift in Sources */,
+				07F49EBD2340D4CE00F076E5 /* MockLocaticStorage.swift in Sources */,
+				07BC2C68234FB89600D169E9 /* MockNavigationTitleView.swift in Sources */,
+				0773F7532322B80F00EA62E1 /* LocaticsMapCoordinatorTests.swift in Sources */,
+				0786F9F62336ABDB009E00BC /* StorageManagerTests.swift in Sources */,
+				07BC2C70234FB96000D169E9 /* MockLocaticsMapModuleFactory.swift in Sources */,
+				0773F7B0232558B700EA62E1 /* AppFileSystemTests.swift in Sources */,
+				0773F78D2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift in Sources */,
+				073F283C232D4479003137D4 /* AddLocaticCardViewTests.swift in Sources */,
+				07BC2C77234FB9FE00D169E9 /* MockLocationStorage.swift in Sources */,
+				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
+				07BC2C87234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift in Sources */,
+				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,
+				07BC2CAC2353FA2500D169E9 /* MockAnnotation.swift in Sources */,
+				07BC2C6B234FB8B600D169E9 /* MockLocaticsMainViewModel.swift in Sources */,
+				07BC2C99234FBFA300D169E9 /* LocaticClusterMarkerViewTests.swift in Sources */,
+				0773F7872323B53800EA62E1 /* UINavigationBar+ExtensionsTests.swift in Sources */,
+				0773F7B423257E0500EA62E1 /* LocationTests.swift in Sources */,
+				07BC2C85234FBAEF00D169E9 /* MockLocatic.swift in Sources */,
+				07BC2C48234FB5B400D169E9 /* MockLocation.swift in Sources */,
+				07BC2CA32351055500D169E9 /* MockLocaticVisitStorage.swift in Sources */,
+				07BC2C61234FB83000D169E9 /* MockOnboardingViewModel.swift in Sources */,
+				07FC7D95231C1491006CA6E0 /* OnboardingViewControllerTests.swift in Sources */,
+				07FC7D8A231C0BD9006CA6E0 /* OnboardingModuleFactoryTests.swift in Sources */,
+				0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */,
+				0773F7592322B8D400EA62E1 /* LocaticsMapModuleFactoryTests.swift in Sources */,
+				0773F7A42324388B00EA62E1 /* MockLocationManager.swift in Sources */,
+				07BC2CA12351049100D169E9 /* MockLocaticVisit.swift in Sources */,
+				07BC2C8F234FBB7700D169E9 /* MockLocaticEntryValidationDelegate.swift in Sources */,
+				0773F73F2322A22100EA62E1 /* UIStoryboard+ExtensionsTests.swift in Sources */,
+				0773F7982323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift in Sources */,
+				07BC2C66234FB88100D169E9 /* MockMapView.swift in Sources */,
+				07BC2C6D234FB90B00D169E9 /* MockOnboardingViewModelViewDelegate.swift in Sources */,
+				07F49EC02340D69E00F076E5 /* LocaticStorageTests.swift in Sources */,
+				07BC2C74234FB9B500D169E9 /* MockLocaticsMapViewModel.swift in Sources */,
+				0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */,
+				07BC2C8B234FBB4400D169E9 /* MockLocaticsMainLocationPinCoordinateDelegate.swift in Sources */,
+				07BC2CB62356A3F800D169E9 /* LocationRegionManagerTests.swift in Sources */,
+				0786F9F92336AC77009E00BC /* InMemoryCDStack.swift in Sources */,
+				07BC2C95234FBBF800D169E9 /* MockLocaticsMainViewModelViewDelegate.swift in Sources */,
+				07BC2C81234FBA9C00D169E9 /* MockLocaticsModuleFactory.swift in Sources */,
+				0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */,
+				07BC2C83234FBABD00D169E9 /* MockAppFileSystem.swift in Sources */,
+				0773F7A2232430EF00EA62E1 /* LocationManagerTests.swift in Sources */,
+				07BC2C51234FB68300D169E9 /* MockOnboardingCoordinator.swift in Sources */,
+				07BC2C93234FBBD100D169E9 /* MockLocaticsAddLocaticViewModelViewDelegate.swift in Sources */,
+				0775C39E232E62ED002AAFDE /* AddLocaticViewModelTests.swift in Sources */,
+				07BC2CA52351181C00D169E9 /* LocaticVisitStorageTests.swift in Sources */,
+				0773F783232317B400EA62E1 /* LocaticsModuleFactoryTests.swift in Sources */,
+				07BC2C91234FBB8800D169E9 /* MockLocaticPinLocationDelegate.swift in Sources */,
+				070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */,
+				07BC2C5D234FB7F500D169E9 /* MockLocationPermissionsManagerDelegate.swift in Sources */,
+				07BC2CB82356A58600D169E9 /* MockLocationRegionManager.swift in Sources */,
+				0773F74C2322A77B00EA62E1 /* MockCoordinatorFactory.swift in Sources */,
+				074985352337A1CA00B054E2 /* LocaticTests.swift in Sources */,
+				0773F781232317A500EA62E1 /* LocaticsCoordinatorTests.swift in Sources */,
+				07BC2C58234FB77A00D169E9 /* MockTabBarController.swift in Sources */,
+				07BC2C79234FBA1200D169E9 /* MockCLPlacemark.swift in Sources */,
+				0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */,
+				0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */,
+				0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */,
+				07FC7D92231C147F006CA6E0 /* OnboardingViewModelTests.swift in Sources */,
+				0773F7632323103400EA62E1 /* LocaticsMapViewControllerTests.swift in Sources */,
+				0773F7662323106200EA62E1 /* LocaticsMainViewModelTests.swift in Sources */,
+				07FC7D84231C09CE006CA6E0 /* OnboardingCoordinatorTests.swift in Sources */,
+				0786F9F32336AAE4009E00BC /* CoreDataStackTests.swift in Sources */,
+				07BC2C4D234FB62600D169E9 /* MockCLVisit.swift in Sources */,
+				07BC2C8D234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift in Sources */,
+				07BC2CAA235146CF00D169E9 /* MockRootModuleFactory.swift in Sources */,
+				07130C22235C70C8008F0FDF /* ScreenDesignableTests.swift in Sources */,
+				0775C393232E50A8002AAFDE /* SliderControlTests.swift in Sources */,
+				0775C38F232E4F6E002AAFDE /* ActionButtonTests.swift in Sources */,
+				0773F7912323B86300EA62E1 /* UIImage+ExtensionsTests.swift in Sources */,
+				07FC7D69231BFAD2006CA6E0 /* ApplicationCoordinatorTests.swift in Sources */,
+				0773F775232316F100EA62E1 /* LocaticsListViewControllerTests.swift in Sources */,
+				07BC2C53234FB69B00D169E9 /* MockMainCoordinator.swift in Sources */,
+				07BC2C56234FB75400D169E9 /* MockBadRootModuleFactory.swift in Sources */,
+				0773F74E2322A89A00EA62E1 /* MockLocationPermissionsManager.swift in Sources */,
+				07BC2C64234FB86F00D169E9 /* MockAddLocaticCardView.swift in Sources */,
+				0759E895231BF0EF00AA987B /* UIColor+ExtensionsTests.swift in Sources */,
+				07BC2C7D234FBA4200D169E9 /* MockLocationManagerDelegate.swift in Sources */,
+				0759E899231BF86100AA987B /* AppTests.swift in Sources */,
+				07BC2C97234FBF9700D169E9 /* LocaticMarkerAnnotationViewTests.swift in Sources */,
+				07F49EBB2340D3FA00F076E5 /* MockStorageManager.swift in Sources */,
+				07BC2C5B234FB7BE00D169E9 /* MockLocationProviderPermissions.swift in Sources */,
+				07BC2C7B234FBA2300D169E9 /* MockLocationGeocoder.swift in Sources */,
+				0773F7B22325666100EA62E1 /* LocationStorageTests.swift in Sources */,
+				07BC2C72234FB98D00D169E9 /* MockAddLocaticViewModel.swift in Sources */,
+				079A4458234A3428000EA2EF /* LocaticsMapViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0773F7122321708C00EA62E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0706847C231AD0780023EB27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0706845A231AD01B0023EB27 /* Locatics */;
+			targetProxy = 0706847B231AD0780023EB27 /* PBXContainerItemProxy */;
+		};
+		0773F71C2321708C00EA62E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0706845A231AD01B0023EB27 /* Locatics */;
+			targetProxy = 0773F71B2321708C00EA62E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07068467231AD01C0023EB27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07068468231AD01C0023EB27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0706846B231AD01C0023EB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0706846C231AD01C0023EB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0706846E231AD01C0023EB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5FDCAFA8D314EC1AED51C6B /* Pods-Locatics.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = "$(SRCROOT)/Locatics/App/Assets/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukesmith.locatics;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0706846F231AD01C0023EB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB2F6E04830CD9866274D999 /* Pods-Locatics.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = "$(SRCROOT)/Locatics/App/Assets/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukesmith.locatics;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0706847E231AD0780023EB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E147F27140D9FA32E50E9BC5 /* Pods-LocaticsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = LocaticsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Locatics.app/Locatics";
+			};
+			name = Debug;
+		};
+		0706847F231AD0780023EB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32BD33C0AADD8AF756A3069B /* Pods-LocaticsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = LocaticsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Locatics.app/Locatics";
+			};
+			name = Release;
+		};
+		0773F71E2321708C00EA62E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = LocaticsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Locatics;
+			};
+			name = Debug;
+		};
+		0773F71F2321708C00EA62E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2EX7QTE483;
+				INFOPLIST_FILE = LocaticsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Locatics;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07068456231AD01B0023EB27 /* Build configuration list for PBXProject "Locatics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0706846B231AD01C0023EB27 /* Debug */,
+				0706846C231AD01C0023EB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0706846D231AD01C0023EB27 /* Build configuration list for PBXNativeTarget "Locatics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0706846E231AD01C0023EB27 /* Debug */,
+				0706846F231AD01C0023EB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0706847D231AD0780023EB27 /* Build configuration list for PBXNativeTarget "LocaticsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0706847E231AD0780023EB27 /* Debug */,
+				0706847F231AD0780023EB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0773F71D2321708C00EA62E1 /* Build configuration list for PBXNativeTarget "LocaticsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0773F71E2321708C00EA62E1 /* Debug */,
+				0773F71F2321708C00EA62E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0786F9E1233631B4009E00BC /* LocaticsDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0786F9E2233631B4009E00BC /* LocaticsDatabase.xcdatamodel */,
+			);
+			currentVersion = 0786F9E2233631B4009E00BC /* LocaticsDatabase.xcdatamodel */;
+			path = LocaticsDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 07068453231AD01B0023EB27 /* Project object */;
+}

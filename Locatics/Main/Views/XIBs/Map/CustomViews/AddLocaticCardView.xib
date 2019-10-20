@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddLocaticCardView" customModule="Locatics" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIconButton" destination="gAn-P8-tuz" id="PF5-6U-GTn"/>
+                <outlet property="addNewLocaticButton" destination="KPX-y5-pxE" id="7Z2-aj-gNd"/>
+                <outlet property="businessIconButton" destination="CFd-C9-di0" id="m83-ok-MbO"/>
+                <outlet property="contentView" destination="5RJ-uX-VcV" id="SHJ-Wk-GKq"/>
+                <outlet property="homeIconButton" destination="gWW-bo-sl2" id="2ty-cM-P1i"/>
+                <outlet property="locaticIconButton" destination="Pam-vp-4Yy" id="04j-bk-xnd"/>
+                <outlet property="locaticNameTextField" destination="nMp-BF-eii" id="EAS-Uc-raW"/>
+                <outlet property="radiusLabel" destination="cSP-Oj-J1Y" id="j7D-x3-0fZ"/>
+                <outlet property="radiusSlider" destination="mML-eW-EEz" id="k6M-5a-jFR"/>
+                <outlet property="titleLabel" destination="yZa-KU-52d" id="mF6-Uv-ecV"/>
+                <outletCollection property="locaticIconButtons" destination="Pam-vp-4Yy" collectionClass="NSMutableArray" id="dUi-fc-yfv"/>
+                <outletCollection property="locaticIconButtons" destination="gWW-bo-sl2" collectionClass="NSMutableArray" id="JJP-Kw-2hc"/>
+                <outletCollection property="locaticIconButtons" destination="gAn-P8-tuz" collectionClass="NSMutableArray" id="87b-qk-hXf"/>
+                <outletCollection property="locaticIconButtons" destination="CFd-C9-di0" collectionClass="NSMutableArray" id="JrU-1c-OSU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5RJ-uX-VcV">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="316"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Of-33-g0t">
+                    <rect key="frame" x="0.0" y="0.0" width="433" height="316"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give it a name..." minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-BF-eii">
+                            <rect key="frame" x="21" y="48.5" width="391" height="21"/>
+                            <color key="textColor" name="title_main"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" textContentType="name"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="dividerThickness">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-Oj-J1Y">
+                            <rect key="frame" x="21" y="82.5" width="50" height="18.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                            <color key="textColor" name="title_secondary"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mML-eW-EEz" customClass="SliderControl" customModule="Locatics" customModuleProvider="target">
+                            <rect key="frame" x="19" y="111" width="395" height="31"/>
+                            <connections>
+                                <action selector="radiusSliderChanged:" destination="-1" eventType="valueChanged" id="y3Y-t2-2yD"/>
+                            </connections>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a badge for your locatic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-pg-3ER">
+                            <rect key="frame" x="21" y="157.5" width="215.5" height="18.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                            <color key="textColor" name="title_secondary"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-vp-4Yy">
+                            <rect key="frame" x="240" y="181" width="52" height="50.5"/>
+                            <state key="normal" image="locaticUnselectedIcon"/>
+                            <connections>
+                                <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="FxD-Mw-yAT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-bo-sl2">
+                            <rect key="frame" x="21" y="181" width="52" height="50.5"/>
+                            <state key="normal" image="homeLocaticUnselectedIcon"/>
+                            <connections>
+                                <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="syZ-hL-tOa"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAn-P8-tuz">
+                            <rect key="frame" x="94" y="181" width="52" height="50.5"/>
+                            <state key="normal" image="activityUnselectedIcon"/>
+                            <connections>
+                                <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="6Wb-Qj-FHs"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFd-C9-di0">
+                            <rect key="frame" x="167" y="181" width="52" height="50.5"/>
+                            <state key="normal" image="workLocaticUnselectedIcon"/>
+                            <connections>
+                                <action selector="locaticIconButtonTapped:" destination="-1" eventType="touchUpInside" id="YcW-a8-Gf6"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Locatic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yZa-KU-52d">
+                            <rect key="frame" x="166.5" y="15" width="100.5" height="21"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" name="title_main"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-y5-pxE" customClass="ActionButton" customModule="Locatics" customModuleProvider="target">
+                            <rect key="frame" x="86.5" y="260.5" width="260" height="39.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="addLocaticTapped:" destination="-1" eventType="touchUpInside" id="ePn-rZ-O2b"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="background"/>
+                    <constraints>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="centerY" secondItem="8Of-33-g0t" secondAttribute="centerY" multiplier="1.775" id="0C5-BC-5i7"/>
+                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="leading" secondItem="CFd-C9-di0" secondAttribute="trailing" constant="21" id="2Lx-SM-Rmx"/>
+                        <constraint firstItem="gAn-P8-tuz" firstAttribute="height" secondItem="gWW-bo-sl2" secondAttribute="height" id="2ZP-H4-aiB"/>
+                        <constraint firstItem="yZa-KU-52d" firstAttribute="centerY" secondItem="nMp-BF-eii" secondAttribute="centerY" multiplier="0.43" id="4iz-CO-1YY"/>
+                        <constraint firstItem="gWW-bo-sl2" firstAttribute="top" secondItem="sIi-pg-3ER" secondAttribute="bottom" constant="5" id="74D-4t-xYw"/>
+                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="height" secondItem="8Of-33-g0t" secondAttribute="height" multiplier="0.16" id="7IT-yt-X0a"/>
+                        <constraint firstItem="yZa-KU-52d" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="90b-Kn-IA5"/>
+                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="height" secondItem="gWW-bo-sl2" secondAttribute="height" id="Bs3-dM-qOT"/>
+                        <constraint firstItem="cSP-Oj-J1Y" firstAttribute="centerY" secondItem="nMp-BF-eii" secondAttribute="centerY" multiplier="1.56" id="EWs-Rl-uvO"/>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="height" secondItem="8Of-33-g0t" secondAttribute="height" multiplier="0.125" id="EaC-ik-aO7"/>
+                        <constraint firstItem="gWW-bo-sl2" firstAttribute="leading" secondItem="sIi-pg-3ER" secondAttribute="leading" id="GKY-tD-sgI"/>
+                        <constraint firstItem="gAn-P8-tuz" firstAttribute="width" secondItem="gWW-bo-sl2" secondAttribute="width" id="Jap-Ca-zBT"/>
+                        <constraint firstItem="CFd-C9-di0" firstAttribute="leading" secondItem="gAn-P8-tuz" secondAttribute="trailing" constant="21" id="M4P-oX-GhD"/>
+                        <constraint firstItem="sIi-pg-3ER" firstAttribute="leading" secondItem="nMp-BF-eii" secondAttribute="leading" id="Nkc-0M-1H9"/>
+                        <constraint firstItem="CFd-C9-di0" firstAttribute="height" secondItem="gWW-bo-sl2" secondAttribute="height" id="QfJ-G5-Hk4"/>
+                        <constraint firstItem="sIi-pg-3ER" firstAttribute="centerY" secondItem="mML-eW-EEz" secondAttribute="centerY" multiplier="1.325" id="Tst-hN-VQp"/>
+                        <constraint firstItem="mML-eW-EEz" firstAttribute="top" secondItem="cSP-Oj-J1Y" secondAttribute="bottom" constant="10" id="W4X-j4-WaU"/>
+                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="width" secondItem="8Of-33-g0t" secondAttribute="width" multiplier="0.12" id="Wee-pi-THn"/>
+                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="top" secondItem="gWW-bo-sl2" secondAttribute="top" id="XPl-Z1-IVu"/>
+                        <constraint firstItem="CFd-C9-di0" firstAttribute="width" secondItem="gWW-bo-sl2" secondAttribute="width" id="Y6B-yA-gbg"/>
+                        <constraint firstItem="CFd-C9-di0" firstAttribute="top" secondItem="gWW-bo-sl2" secondAttribute="top" id="YXv-wn-yi5"/>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="width" secondItem="8Of-33-g0t" secondAttribute="width" multiplier="0.6" id="byg-zH-NXd"/>
+                        <constraint firstAttribute="trailing" secondItem="nMp-BF-eii" secondAttribute="trailing" constant="21" id="dcD-9t-A2P"/>
+                        <constraint firstItem="cSP-Oj-J1Y" firstAttribute="leading" secondItem="nMp-BF-eii" secondAttribute="leading" id="fee-TI-sRC"/>
+                        <constraint firstItem="gAn-P8-tuz" firstAttribute="top" secondItem="gWW-bo-sl2" secondAttribute="top" id="hQ4-hR-OHL"/>
+                        <constraint firstItem="KPX-y5-pxE" firstAttribute="centerX" secondItem="8Of-33-g0t" secondAttribute="centerX" id="iRI-wA-A6q"/>
+                        <constraint firstItem="mML-eW-EEz" firstAttribute="leading" secondItem="nMp-BF-eii" secondAttribute="leading" id="nli-j2-oii"/>
+                        <constraint firstItem="Pam-vp-4Yy" firstAttribute="width" secondItem="gWW-bo-sl2" secondAttribute="width" id="pkr-hH-Xih"/>
+                        <constraint firstItem="nMp-BF-eii" firstAttribute="leading" secondItem="8Of-33-g0t" secondAttribute="leading" constant="21" id="q3d-xs-IlR"/>
+                        <constraint firstItem="mML-eW-EEz" firstAttribute="trailing" secondItem="nMp-BF-eii" secondAttribute="trailing" id="szX-IG-HU7"/>
+                        <constraint firstItem="gAn-P8-tuz" firstAttribute="leading" secondItem="gWW-bo-sl2" secondAttribute="trailing" constant="21" id="vNF-pK-Mik"/>
+                        <constraint firstItem="yZa-KU-52d" firstAttribute="centerY" secondItem="8Of-33-g0t" secondAttribute="centerY" multiplier="0.16" id="z0S-Hg-ard"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8Of-33-g0t" secondAttribute="bottom" id="FFL-zI-o1K"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="top" secondItem="5RJ-uX-VcV" secondAttribute="top" id="feU-69-lIM"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="trailing" secondItem="2wa-yl-vZf" secondAttribute="trailing" id="mYl-Rl-NLr"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="leading" secondItem="2wa-yl-vZf" secondAttribute="leading" id="t6B-qN-d3F"/>
+                <constraint firstItem="8Of-33-g0t" firstAttribute="centerY" secondItem="5RJ-uX-VcV" secondAttribute="centerY" id="ySA-gc-uJS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="2wa-yl-vZf"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="25"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="219.56521739130437" y="-269.86607142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="activityUnselectedIcon" width="49" height="48"/>
+        <image name="homeLocaticUnselectedIcon" width="49" height="48"/>
+        <image name="locaticUnselectedIcon" width="49" height="48"/>
+        <image name="workLocaticUnselectedIcon" width="49" height="48"/>
+        <namedColor name="background">
+            <color red="0.15700000524520874" green="0.15700000524520874" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="title_main">
+            <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="title_secondary">
+            <color red="0.7839999794960022" green="0.7839999794960022" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
