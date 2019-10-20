@@ -6,8 +6,6 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
-// swiftlint:disable empty_enum_arguments
-
 import Foundation
 
 protocol LocaticVisitStorageInterface: class {

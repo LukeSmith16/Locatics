@@ -23,8 +23,6 @@
 		073F283C232D4479003137D4 /* AddLocaticCardViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */; };
 		074985332337A1BD00B054E2 /* DB_LocalItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074985322337A1BD00B054E2 /* DB_LocalItemTests.swift */; };
 		074985352337A1CA00B054E2 /* LocaticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074985342337A1CA00B054E2 /* LocaticTests.swift */; };
-		074985372337A51700B054E2 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074985362337A51700B054E2 /* FatalErrorUtil.swift */; };
-		074985392337A58200B054E2 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074985382337A58200B054E2 /* XCTest+Extensions.swift */; };
 		0759E88C231BEA8100AA987B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0759E88B231BEA8100AA987B /* Colors.xcassets */; };
 		0759E891231BED0600AA987B /* UIFont+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */; };
 		0759E893231BED2400AA987B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0759E892231BED2400AA987B /* UIFont+Extensions.swift */; };
@@ -219,8 +217,6 @@
 		073F283B232D4479003137D4 /* AddLocaticCardViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocaticCardViewTests.swift; sourceTree = "<group>"; };
 		074985322337A1BD00B054E2 /* DB_LocalItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_LocalItemTests.swift; sourceTree = "<group>"; };
 		074985342337A1CA00B054E2 /* LocaticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticTests.swift; sourceTree = "<group>"; };
-		074985362337A51700B054E2 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
-		074985382337A58200B054E2 /* XCTest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extensions.swift"; sourceTree = "<group>"; };
 		0759E88B231BEA8100AA987B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0759E890231BED0600AA987B /* UIFont+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		0759E892231BED2400AA987B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -586,7 +582,6 @@
 				0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */,
 				0786F9EF2336A381009E00BC /* CoreData+Extensions.swift */,
 				07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */,
-				074985362337A51700B054E2 /* FatalErrorUtil.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -793,18 +788,9 @@
 		0773F7472322A6E200EA62E1 /* TestHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				0773F7482322A6E600EA62E1 /* Utilities */,
 				0773F7422322A6B400EA62E1 /* Mocks */,
 			);
 			path = TestHelpers;
-			sourceTree = "<group>";
-		};
-		0773F7482322A6E600EA62E1 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				074985382337A58200B054E2 /* XCTest+Extensions.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		0773F7502322B7F000EA62E1 /* MapFlow */ = {
@@ -1784,7 +1770,6 @@
 				0773F6F82320408600EA62E1 /* OnboardingAboutPageViewController.swift in Sources */,
 				0726E9F2231EDACC0084770E /* OnboardingWelcomePageViewController.swift in Sources */,
 				079A4456234A286B000EA2EF /* LocaticsMapViewModel.swift in Sources */,
-				074985372337A51700B054E2 /* FatalErrorUtil.swift in Sources */,
 				0786F9EC23366850009E00BC /* StorageManager.swift in Sources */,
 				07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */,
 				0773F7A823253C8600EA62E1 /* Location.swift in Sources */,
@@ -1849,7 +1834,6 @@
 				0773F78D2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift in Sources */,
 				073F283C232D4479003137D4 /* AddLocaticCardViewTests.swift in Sources */,
 				07BC2C77234FB9FE00D169E9 /* MockLocationStorage.swift in Sources */,
-				074985392337A58200B054E2 /* XCTest+Extensions.swift in Sources */,
 				07FC7D7A231C0889006CA6E0 /* CoordinatorFactoryTests.swift in Sources */,
 				07BC2C87234FBB0300D169E9 /* MockLocaticPersistentStorageDelegate.swift in Sources */,
 				0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */,

@@ -48,13 +48,6 @@ class LocaticVisitStorageTests: XCTestCase {
         XCTAssertNotNil(mockStorageManager.passedCreateObjectValues["locatic"])
     }
 
-    func test_insertLocaticVisit_hasFatalErrorIfConcreteTypeIsNotLocatic() {
-        expectFatalError(expectedMessage: "Locatic should be on concrete type 'Locatic'") {
-            self.sut.insertLocaticVisit(entryDate: Date(),
-                                   locatic: MockLocatic())
-        }
-    }
-
     func test_updateLocaticVisit_callsUpdateObject() {
         let locaticVisit = MockLocaticVisit()
         sut.updateLocaticVisit(locaticVisit: locaticVisit,

@@ -26,12 +26,6 @@ class LocaticClusterMarkerViewTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_initWithCoder_throwsFatalError() {
-        expectFatalError(expectedMessage: "init(coder:) has not been implemented") {
-            self.sut = LocaticClusterMarkerView.init(coder: NSCoder())
-        }
-    }
-
     func test_displayPriority_isRequired() {
         XCTAssertTrue(sut.displayPriority == .required)
     }
