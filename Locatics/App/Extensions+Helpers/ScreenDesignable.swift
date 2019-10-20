@@ -15,7 +15,7 @@ struct ScreenDesignable {
     }()
 
     static let alertHeight: CGFloat = {
-        let screenHeight = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
         return screenHeight / 2.2
     }()
 }

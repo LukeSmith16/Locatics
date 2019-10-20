@@ -17,6 +17,6 @@ class ScreenDesignableTests: XCTestCase {
 
     func test_alertHeight_isCalculatedFromScreenHeight() {
         XCTAssertEqual(ScreenDesignable.alertHeight,
-                       UIScreen.main.bounds.width / 2.2)
+                       UIScreen.main.bounds.height / 2.2)
     }
 }
