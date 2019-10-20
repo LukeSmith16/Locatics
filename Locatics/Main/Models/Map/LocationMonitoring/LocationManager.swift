@@ -8,8 +8,6 @@
 
 import CoreLocation
 
-import UserNotifications
-
 enum LocationError: Error {
     case locationNotFound
     case notAuthorised

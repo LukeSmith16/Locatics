@@ -14,6 +14,7 @@ protocol CoordinatorFactoryInterface: class {
     func createOnboardingFlow(root: UINavigationController) -> CoordinatorInterface & OnboardingCoordinatorOutput
 
     func createMainFlow(root: TabBarControllerInterface) -> CoordinatorInterface
+
     func createMapFlow(root: UINavigationController) -> CoordinatorInterface
     func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface
 }

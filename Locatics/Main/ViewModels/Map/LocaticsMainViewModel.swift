@@ -110,8 +110,8 @@ extension LocaticsMainViewModel: LocaticPersistentStorageDelegate {
         locationManager?.startMonitoringRegion(for: insertedLocatic)
     }
 
+    /// Locatic name will suffice for now as that will be constant (You can't change the name of a Locatic)
     func locaticWasUpdated(_ updatedLocatic: LocaticData) {
-        // Locatic name will suffice for now as that will be constant (You can't change the name of a Locatic)
         locationManager?.stopMonitoringRegion(for: updatedLocatic)
         locationManager?.startMonitoringRegion(for: updatedLocatic)
     }

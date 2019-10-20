@@ -20,7 +20,8 @@ class TabBarCoordinatorTests: XCTestCase {
         mockTabBarController = MockTabBarController()
         mockCoordinatorFactory = MockCoordinatorFactory()
 
-        sut = TabBarCoordinator(tabBarController: mockTabBarController, coordinatorFactory: mockCoordinatorFactory)
+        sut = TabBarCoordinator(tabBarController: mockTabBarController,
+                                coordinatorFactory: mockCoordinatorFactory)
     }
 
     override func tearDown() {
