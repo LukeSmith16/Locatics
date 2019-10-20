@@ -61,6 +61,17 @@
                BlueprintName = "LocaticsTests"
                ReferencedContainer = "container:Locatics.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "LocaticClusterMarkerViewTests/test_initWithCoder_throwsFatalError()">
+               </Test>
+               <Test
+                  Identifier = "LocaticVisitStorageTests/test_insertLocaticVisit_hasFatalErrorIfConcreteTypeIsNotLocatic()">
+               </Test>
+               <Test
+                  Identifier = "UIImageExtensionsTests/test_imageFrom_gradientLayerThrowsFatalErrorWhenGradientSizeIsNil()">
+               </Test>
+            </SkippedTests>
             <LocationScenarioReference
                identifier = "London, England"
                referenceType = "1">
