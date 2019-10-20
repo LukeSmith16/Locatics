@@ -17,6 +17,7 @@ class LocaticsMapViewController: UIViewController {
     @IBOutlet weak var locationMarkerPin: UIImageView!
 
     @IBOutlet weak var addLocaticCardView: AddLocaticCardView!
+    @IBOutlet weak var addLocaticCardViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var addLocaticCardViewHeightConstraint: NSLayoutConstraint!
 
     var navigationTitleView: NavigationTitleViewInterface?
@@ -116,13 +117,15 @@ private extension LocaticsMapViewController {
         self.addLocaticCardView.isHidden = false
         self.closeLocaticCardViewButton.isHidden = false
 
-        self.addLocaticCardViewHeightConstraint.constant = 400
+        self.addLocaticCardViewHeightConstraint.constant = UIScreen.main.bounds.height/2.2
+        self.addLocaticCardViewBottomConstraint.constant = 0
+
         self.locationMarkerPinYConstraint.constant = 0
 
         UIView.animate(withDuration: 0.9,
                        delay: 0,
                        usingSpringWithDamping: 5,
-                       initialSpringVelocity: 10,
+                       initialSpringVelocity: 9,
                        options: [.curveEaseInOut], animations: { [unowned self] in
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -130,12 +133,14 @@ private extension LocaticsMapViewController {
 
     func animateAddLocaticCardViewHide() {
         self.addLocaticCardViewHeightConstraint.constant = 0
+        self.addLocaticCardViewBottomConstraint.constant = -50
+
         self.locationMarkerPinYConstraint.constant = -300
 
         UIView.animate(withDuration: 0.9,
                        delay: 0,
                        usingSpringWithDamping: 5,
-                       initialSpringVelocity: 10,
+                       initialSpringVelocity: 9,
                        options: [.curveEaseInOut], animations: { [unowned self] in
             self.view.layoutIfNeeded()
         }, completion: { [unowned self] (_) in
