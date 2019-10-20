@@ -122,7 +122,7 @@ private extension LocaticsMapViewController {
 
         self.locationMarkerPinYConstraint.constant = 0
 
-        UIView.animate(withDuration: 0.9,
+        UIView.animate(withDuration: 1,
                        delay: 0,
                        usingSpringWithDamping: 5,
                        initialSpringVelocity: 9,
@@ -137,10 +137,10 @@ private extension LocaticsMapViewController {
 
         self.locationMarkerPinYConstraint.constant = -300
 
-        UIView.animate(withDuration: 0.9,
+        UIView.animate(withDuration: 1,
                        delay: 0,
-                       usingSpringWithDamping: 5,
-                       initialSpringVelocity: 9,
+                       usingSpringWithDamping: 4,
+                       initialSpringVelocity: 7,
                        options: [.curveEaseInOut], animations: { [unowned self] in
             self.view.layoutIfNeeded()
         }, completion: { [unowned self] (_) in
