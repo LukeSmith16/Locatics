@@ -61,6 +61,6 @@ private extension ActionButton {
     }
 
     func setupLayers() {
-        self.layer.cornerRadius = 25.0
+        self.layer.cornerRadius = (UIScreen.main.bounds.width/18.5).rounded(.down)
     }
 }
