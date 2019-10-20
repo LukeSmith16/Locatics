@@ -68,6 +68,10 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.locationMarkerPinYConstraint)
     }
 
+    func test_addLocaticCardViewBottomConstraint_isNotNil() {
+        XCTAssertNotNil(sut.addLocaticCardViewBottomConstraint)
+    }
+
     func test_addLocaticCardViewHeightConstraint_isNotNil() {
         XCTAssertNotNil(sut.addLocaticCardViewHeightConstraint)
     }
@@ -191,7 +195,9 @@ class LocaticsMapViewControllerTests: XCTestCase {
         sut.shouldHideAddLocaticViews(false)
 
         XCTAssertEqual(sut.addLocaticCardViewHeightConstraint.constant,
-                       400)
+                       ScreenDesignable.alertHeight)
+        XCTAssertEqual(sut.addLocaticCardViewBottomConstraint.constant,
+                       0)
         XCTAssertEqual(sut.locationMarkerPinYConstraint.constant,
                        0)
     }
@@ -201,6 +207,8 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
         XCTAssertEqual(sut.addLocaticCardViewHeightConstraint.constant,
                        0)
+        XCTAssertEqual(sut.addLocaticCardViewBottomConstraint.constant,
+                       -50)
         XCTAssertEqual(sut.locationMarkerPinYConstraint.constant,
                        -300)
     }

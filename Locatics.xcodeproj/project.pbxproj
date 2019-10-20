@@ -13,6 +13,8 @@
 		0709D11C233A7A08001CD360 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0709D11B233A7A08001CD360 /* Managed.swift */; };
 		070F94112326EBD4008FDB87 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94102326EBD4008FDB87 /* DateFormatterManager.swift */; };
 		070F94132326EBE0008FDB87 /* DateFormatterManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */; };
+		07130C20235C6FDF008F0FDF /* ScreenDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */; };
+		07130C22235C70C8008F0FDF /* ScreenDesignableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07130C21235C70C8008F0FDF /* ScreenDesignableTests.swift */; };
 		0726E9E7231ED50D0084770E /* LaunchInstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */; };
 		0726E9E9231ED5530084770E /* RootModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9E8231ED5530084770E /* RootModuleFactory.swift */; };
 		0726E9EB231ED6220084770E /* RootModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */; };
@@ -207,6 +209,8 @@
 		0709D11B233A7A08001CD360 /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		070F94102326EBD4008FDB87 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		070F94122326EBE0008FDB87 /* DateFormatterManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManagerTests.swift; sourceTree = "<group>"; };
+		07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDesignable.swift; sourceTree = "<group>"; };
+		07130C21235C70C8008F0FDF /* ScreenDesignableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDesignableTests.swift; sourceTree = "<group>"; };
 		0726E9E6231ED50D0084770E /* LaunchInstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructorTests.swift; sourceTree = "<group>"; };
 		0726E9E8231ED5530084770E /* RootModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactory.swift; sourceTree = "<group>"; };
 		0726E9EA231ED6220084770E /* RootModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleFactoryTests.swift; sourceTree = "<group>"; };
@@ -564,6 +568,7 @@
 				0773F78C2323B63400EA62E1 /* CAGradientLayer+ExtensionsTests.swift */,
 				0773F7902323B86300EA62E1 /* UIImage+ExtensionsTests.swift */,
 				0773F7972323F6B800EA62E1 /* UINavigationItem+ExtensionsTests.swift */,
+				07130C21235C70C8008F0FDF /* ScreenDesignableTests.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				0773F7952323F6A900EA62E1 /* UINavigationItem+Extensions.swift */,
 				0773F7A5232439F300EA62E1 /* CoreLocation+Extensions.swift */,
 				0786F9EF2336A381009E00BC /* CoreData+Extensions.swift */,
+				07130C1F235C6FDF008F0FDF /* ScreenDesignable.swift */,
 				074985362337A51700B054E2 /* FatalErrorUtil.swift */,
 			);
 			path = "Extensions+Helpers";
@@ -1788,6 +1794,7 @@
 				07F49EB6233FC9F000F076E5 /* LocaticStorage.swift in Sources */,
 				0709D11C233A7A08001CD360 /* Managed.swift in Sources */,
 				07BC2CB42355B57400D169E9 /* LocationRegionManager.swift in Sources */,
+				07130C20235C6FDF008F0FDF /* ScreenDesignable.swift in Sources */,
 				0773F7A0232430E600EA62E1 /* LocationManager.swift in Sources */,
 				0786F9E823366822009E00BC /* Locatic.swift in Sources */,
 				0773F75E23230F9200EA62E1 /* LocaticsMapViewController.swift in Sources */,
@@ -1902,6 +1909,7 @@
 				07BC2C4D234FB62600D169E9 /* MockCLVisit.swift in Sources */,
 				07BC2C8D234FBB6100D169E9 /* MockAddLocaticViewModelViewDelegate.swift in Sources */,
 				07BC2CAA235146CF00D169E9 /* MockRootModuleFactory.swift in Sources */,
+				07130C22235C70C8008F0FDF /* ScreenDesignableTests.swift in Sources */,
 				0775C393232E50A8002AAFDE /* SliderControlTests.swift in Sources */,
 				0775C38F232E4F6E002AAFDE /* ActionButtonTests.swift in Sources */,
 				0773F7912323B86300EA62E1 /* UIImage+ExtensionsTests.swift in Sources */,

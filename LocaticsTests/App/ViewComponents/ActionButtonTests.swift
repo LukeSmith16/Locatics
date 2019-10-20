@@ -17,7 +17,7 @@ class ActionButtonTests: XCTestCase {
         XCTAssertTrue(sut.style == ActionButtonStyle.save)
         XCTAssertEqual(sut.actionTitle, "Save title")
         XCTAssertEqual(sut.backgroundColor, UIColor(colorTheme: .Interactable_Main))
-        XCTAssertEqual(sut.layer.cornerRadius, 25.0)
+        XCTAssertEqual(sut.layer.cornerRadius, ScreenDesignable.cornerRadius)
 
         XCTAssertEqual(sut.title(for: .normal), sut.actionTitle)
         XCTAssertEqual(sut.titleColor(for: .normal), sut.style.textColor)

@@ -117,7 +117,7 @@ private extension LocaticsMapViewController {
         self.addLocaticCardView.isHidden = false
         self.closeLocaticCardViewButton.isHidden = false
 
-        self.addLocaticCardViewHeightConstraint.constant = UIScreen.main.bounds.height/2.2
+        self.addLocaticCardViewHeightConstraint.constant = ScreenDesignable.alertHeight
         self.addLocaticCardViewBottomConstraint.constant = 0
 
         self.locationMarkerPinYConstraint.constant = 0
@@ -126,8 +126,8 @@ private extension LocaticsMapViewController {
                        delay: 0,
                        usingSpringWithDamping: 5,
                        initialSpringVelocity: 9,
-                       options: [.curveEaseInOut], animations: { [unowned self] in
-            self.view.layoutIfNeeded()
+                       options: [.curveEaseInOut], animations: { [weak self] in
+            self?.view.layoutIfNeeded()
         }, completion: nil)
     }
 
@@ -141,13 +141,13 @@ private extension LocaticsMapViewController {
                        delay: 0,
                        usingSpringWithDamping: 4,
                        initialSpringVelocity: 7,
-                       options: [.curveEaseInOut], animations: { [unowned self] in
-            self.view.layoutIfNeeded()
-        }, completion: { [unowned self] (_) in
-            self.addLocaticButton.isUserInteractionEnabled = true
-            self.locationMarkerPin.isHidden = true
-            self.addLocaticCardView.isHidden = true
-            self.closeLocaticCardViewButton.isHidden = true
+                       options: [.curveEaseInOut], animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        }, completion: { [weak self] (_) in
+            self?.addLocaticButton.isUserInteractionEnabled = true
+            self?.locationMarkerPin.isHidden = true
+            self?.addLocaticCardView.isHidden = true
+            self?.closeLocaticCardViewButton.isHidden = true
         })
     }
 }
