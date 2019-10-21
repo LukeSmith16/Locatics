@@ -13,8 +13,13 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     var sut: LocaticsListViewController!
 
+    private var mockLocaticsViewModel: MockLocaticsViewModel!
+
     override func setUp() {
         sut = LocaticsListViewController()
+        mockLocaticsViewModel = MockLocaticsViewModel()
+
+        sut.locaticsViewModel = mockLocaticsViewModel
 
         _ = UINavigationController(rootViewController: sut)
         _ = sut.view
@@ -22,6 +27,7 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     override func tearDown() {
         sut = nil
+        mockLocaticsViewModel = nil
         super.tearDown()
     }
 
@@ -40,5 +46,9 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     func test_navigationTitleView_isNotNil() {
         XCTAssertNotNil(sut.navigationTitleView)
+    }
+
+    func test_locaticsViewModelDidSet_setsViewDelegate() {
+        XCTAssertNotNil(mockLocaticsViewModel.viewDelegate)
     }
 }

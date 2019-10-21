@@ -11,8 +11,14 @@ import UIKit
 class LocaticsListViewController: UIViewController {
 
     @IBOutlet weak var locaticsListCollectionView: LocaticsListCollectionView!
-    
+
     var navigationTitleView: NavigationTitleViewInterface?
+
+    var locaticsViewModel: LocaticsViewModelInterface? {
+        didSet {
+            locaticsViewModel?.viewDelegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,4 +39,8 @@ private extension LocaticsListViewController {
         self.navigationTitleView = navigationItem.setupTitleView(title: "My Locatics",
                                                                  subtitle: nil)
     }
+}
+
+extension LocaticsListViewController: LocaticsViewModelViewDelegate {
+
 }

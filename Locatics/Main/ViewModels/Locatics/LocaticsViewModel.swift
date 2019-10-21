@@ -8,6 +8,14 @@
 
 import Foundation
 
-protocol LocaticsViewModelInterface {}
+protocol LocaticsViewModelInterface {
+    var viewDelegate: LocaticsViewModelViewDelegate? {get set}
+}
 
-class LocaticsViewModel: LocaticsViewModelInterface {}
+protocol LocaticsViewModelViewDelegate: class {
+
+}
+
+class LocaticsViewModel: LocaticsViewModelInterface {
+    weak var viewDelegate: LocaticsViewModelViewDelegate?
+}

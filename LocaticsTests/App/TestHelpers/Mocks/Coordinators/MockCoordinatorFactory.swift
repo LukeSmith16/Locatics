@@ -44,6 +44,7 @@ class MockCoordinatorFactory: CoordinatorFactoryInterface {
         calledCreateLocaticsFlow = true
         return LocaticsCoordinator(root: root,
                                    coordinatorFactory: CoordinatorFactory(storageManager: MockStorageManager()),
-                                   moduleFactory: LocaticsModuleFactory())
+                                   moduleFactory: LocaticsModuleFactory(storageManager: MockStorageManager(),
+                                                                        locaticStorage: MockLocaticStorage()))
     }
 }
