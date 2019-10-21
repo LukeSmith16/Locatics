@@ -24,18 +24,13 @@ final class TabBarController: TabsController, TabBarControllerInterface {
 
     override func prepare() {
         super.prepare()
-        setupDelegate()
         setupTabBar()
         setupGestures()
-        setupInitialTabSelected()
+        setupTabs()
     }
 }
 
 private extension TabBarController {
-    func setupDelegate() {
-        self.delegate = self
-    }
-
     func setupTabBar() {
         tabBar.lineAlignment = .top
         tabBar.tabBarStyle = .nonScrollable
@@ -52,26 +47,13 @@ private extension TabBarController {
         self.isSwipeEnabled = false
     }
 
-    func setupInitialTabSelected() {
-        guard let initialNavController = viewControllers.first as? UINavigationController else {
-            fatalError("Could not get initial NavController")
+    func setupTabs() {
+        guard let mapNavController = viewControllers.first as? NavigationViewController,
+            let locaticsNavController = viewControllers.last as? NavigationViewController else {
+                fatalError("Could not get NavControllers")
         }
 
-        onMapFlowSelect?(initialNavController)
+        onMapFlowSelect?(mapNavController)
+        onLocaticsFlowSelect?(locaticsNavController)
     }
 }
-
-extension TabBarController: TabsControllerDelegate {}
-
-//func tabsController(tabsController: TabsController, didSelect viewController: UIViewController) {
-//    guard let navigationVC = viewController as? NavigationViewController,
-//        navigationVC.viewControllers.isEmpty else {
-//        return
-//    }
-//
-//    if selectedIndex == TabIndex.map.rawValue {
-//        onMapFlowSelect?(navigationVC)
-//    } else if selectedIndex == TabIndex.locatics.rawValue {
-//        onLocaticsFlowSelect?(navigationVC)
-//    }
-//}
