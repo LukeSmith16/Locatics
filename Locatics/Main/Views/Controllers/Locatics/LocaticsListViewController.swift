@@ -10,6 +10,8 @@ import UIKit
 
 class LocaticsListViewController: UIViewController {
 
+    @IBOutlet weak var locaticsListCollectionView: LocaticsListCollectionView!
+    
     var navigationTitleView: NavigationTitleViewInterface?
 
     override func viewDidLoad() {
