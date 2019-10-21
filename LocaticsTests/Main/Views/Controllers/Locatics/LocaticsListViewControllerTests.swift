@@ -15,6 +15,8 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     override func setUp() {
         sut = LocaticsListViewController()
+
+        _ = UINavigationController(rootViewController: sut)
         _ = sut.view
     }
 
@@ -25,5 +27,10 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     func test_view_isNotNil() {
         XCTAssertNotNil(sut.view)
+    }
+
+    func test_setupTabItemImage_setsTabItem() {
+        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .normal))
+        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .selected))
     }
 }

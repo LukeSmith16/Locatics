@@ -10,4 +10,19 @@ import UIKit
 
 class LocaticsListViewController: UIViewController {
 
+    var navigationTitleView: NavigationTitleViewInterface?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTabItemImage()
+    }
+}
+
+private extension LocaticsListViewController {
+    func setupTabItemImage() {
+        self.navigationController?.tabItem.setTabItemImage(UIImage(named: "locaticsTabBarIconNormal")!,
+                                                           for: .normal)
+        self.navigationController?.tabItem.setTabItemImage(UIImage(named: "locaticsTabBarIconSelected")!,
+                                                           for: .selected)
+    }
 }

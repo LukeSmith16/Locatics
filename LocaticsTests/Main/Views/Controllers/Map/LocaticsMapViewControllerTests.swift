@@ -27,6 +27,7 @@ class LocaticsMapViewControllerTests: XCTestCase {
         sut.locaticsMainViewModel = mockLocaticsMainViewModel
         sut.navigationTitleView = mockNavigationTitleView
 
+        _ = UINavigationController(rootViewController: sut)
         _ = sut.view
 
         sut.mapView = mockMapView
@@ -42,6 +43,11 @@ class LocaticsMapViewControllerTests: XCTestCase {
 
     func test_view_isNotNil() {
         XCTAssertNotNil(sut.view)
+    }
+
+    func test_setupTabItemImage_setsTabItem() {
+        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .normal))
+        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .selected))
     }
 
     func test_mapView_isNotNil() {
