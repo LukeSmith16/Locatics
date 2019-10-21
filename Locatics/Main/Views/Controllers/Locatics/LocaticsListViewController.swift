@@ -15,6 +15,7 @@ class LocaticsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabItemImage()
+        setupNavigationTitleView()
     }
 }
 
@@ -24,5 +25,10 @@ private extension LocaticsListViewController {
                                                            for: .normal)
         self.navigationController?.tabItem.setTabItemImage(UIImage(named: "locaticsTabBarIconSelected")!,
                                                            for: .selected)
+    }
+
+    func setupNavigationTitleView() {
+        self.navigationTitleView = navigationItem.setupTitleView(title: "My Locatics",
+                                                                 subtitle: nil)
     }
 }
