@@ -63,30 +63,138 @@ class LocaticsListCollectionViewTests: XCTestCase {
     }
 
     func test_cellForItemAt_dequeuesCell() {
-        let mockCollectionView = MockCollectionView(frame: .zero,
-                                                    collectionViewLayout: UICollectionViewFlowLayout())
+        _ = addLocaticCellViewModel()
+
+        let mockCollectionView = MockLocaticsListCollectionView(frame: .zero,
+                                                                collectionViewLayout: UICollectionViewFlowLayout())
         mockCollectionView.dataSource = sut
+        mockCollectionView.delegate = sut
         mockCollectionView.register(LocaticCollectionViewCell.self,
                                     forCellWithReuseIdentifier: "LocaticCollectionViewCell")
 
-        _ = mockCollectionView.cellForItem(at: IndexPath(item: 0, section: 0))
+        mockCollectionView.reloadData()
+        _ = mockCollectionView.collectionView(mockCollectionView,
+                                              cellForItemAt: IndexPath(item: 0, section: 0))
 
         XCTAssertTrue(mockCollectionView.cellGotDequeued)
     }
 
     func test_cellForItemAt_dequeuesLocaticCell() {
+        _ = addLocaticCellViewModel()
+
         let cell = sut.collectionView(sut, cellForItemAt: IndexPath(item: 0,
                                                                      section: 0))
 
         XCTAssertTrue(cell is LocaticCollectionViewCell)
     }
 
-//    func test_cellForItemAt_configuresLocaticCell() {
-//        guard let locaticCell = sut.collectionView(sut, cellForItemAt: IndexPath(item: 0, section: 0)) as? LocaticCollectionViewCell else {
-//            XCTFail("Cell should be of type 'MockLocaticCollectionViewCell'")
-//            return
-//        }
-//
-//        // TODO: Check values are passed through to LocaticCell
-//    }
+    func test_cellForItemAt_callsLocaticAtIndex() {
+        _ = addLocaticCellViewModel()
+
+        sut.reloadData()
+
+        _ = sut.collectionView(sut, cellForItemAt: IndexPath(item: 0, section: 0))
+
+        XCTAssertTrue(mockLocaticsCollectionViewModel.calledLocaticAtIndex)
+    }
+
+    func test_cellForItemAt_configuresLocaticCell() {
+        let locaticCellViewModel = addLocaticCellViewModel()
+
+        sut.reloadData()
+
+        guard let locaticCell = sut.collectionView(sut, cellForItemAt: IndexPath(item: 0, section: 0)) as? LocaticCollectionViewCell else {
+            XCTFail("Cell should be of type 'LocaticCollectionViewCell'")
+            return
+        }
+
+        XCTAssertNotNil(locaticCell.locaticCellViewModel)
+        XCTAssertEqual(locaticCell.locaticCellViewModel?.locatic.identity,
+                       locaticCellViewModel.locatic.identity)
+    }
+
+    func test_locaticCellViewModelWasAdded_insertsItemAtIndexPath() {
+        _ = addLocaticCellViewModel()
+
+        let mockCollectionView = setupMockCollectionView()
+
+        let expect = expectation(description: "Wait for performBatchUpdates")
+        mockCollectionView.expectation = expect
+
+        mockCollectionView.locaticCellViewModelWasAdded(atIndex: 0)
+
+        wait(for: [expect], timeout: 3)
+
+        XCTAssertTrue(mockCollectionView.calledPerformBatchUpdates)
+        XCTAssertTrue(mockCollectionView.insertedItems)
+
+        XCTAssertEqual(mockCollectionView.passedIndexPath!,
+                       IndexPath(item: 0, section: 0))
+    }
+
+    func test_locaticCellViewModelWasRemoved_removesItemAtIndexPath() {
+        mockLocaticsCollectionViewModel.locaticCellViewModels = [LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic())]
+
+        let mockCollectionView = setupMockCollectionView()
+
+        let expect = expectation(description: "Wait for performBatchUpdates")
+        mockCollectionView.expectation = expect
+
+        mockLocaticsCollectionViewModel.locaticsReturnCount = 3
+        mockCollectionView.locaticCellViewModelWasRemoved(atIndex: 2)
+
+        wait(for: [expect], timeout: 3)
+
+        XCTAssertTrue(mockCollectionView.calledPerformBatchUpdates)
+        XCTAssertTrue(mockCollectionView.deletedItems)
+
+        XCTAssertEqual(mockCollectionView.passedIndexPath!,
+                       IndexPath(item: 2, section: 0))
+    }
+
+    func test_locaticCellViewModelWasUpdated_updatesItemAtIndexPath() {
+        mockLocaticsCollectionViewModel.locaticCellViewModels = [LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic()),
+                                                                 LocaticCellViewModel(locatic: MockLocatic())]
+        let mockCollectionView = setupMockCollectionView()
+
+        let expect = expectation(description: "Wait for performBatchUpdates")
+        mockCollectionView.expectation = expect
+
+        mockLocaticsCollectionViewModel.locaticsReturnCount = 4
+        mockCollectionView.locaticCellViewModelWasUpdated(atIndex: 3)
+
+        wait(for: [expect], timeout: 3)
+
+        XCTAssertTrue(mockCollectionView.calledPerformBatchUpdates)
+        XCTAssertTrue(mockCollectionView.reloadedItems)
+
+        XCTAssertEqual(mockCollectionView.passedIndexPath!,
+                       IndexPath(item: 3, section: 0))
+    }
+}
+
+private extension LocaticsListCollectionViewTests {
+    func addLocaticCellViewModel() -> LocaticCellViewModelInterface {
+        let locaticCellViewModel = LocaticCellViewModel(locatic: MockLocatic())
+        mockLocaticsCollectionViewModel.locaticCellViewModels.append(locaticCellViewModel)
+        mockLocaticsCollectionViewModel.locaticsReturnCount = 1
+
+        return locaticCellViewModel
+    }
+
+    func setupMockCollectionView() -> MockLocaticsListCollectionView {
+        let mockCollectionView = MockLocaticsListCollectionView(frame: .zero,
+                                                                collectionViewLayout: UICollectionViewLayout())
+        mockCollectionView.dataSource = sut
+        mockCollectionView.delegate = sut
+
+        return mockCollectionView
+    }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable force_cast
+
 class LocaticsListCollectionView: UICollectionView {
     var locaticsCollectionViewModel: LocaticsCollectionViewModelInterface? {
         didSet {
@@ -53,20 +55,37 @@ extension LocaticsListCollectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let locaticCell = dequeueReusableCell(withReuseIdentifier: "LocaticCollectionViewCell", for: indexPath) as? LocaticCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let locaticCell = dequeueReusableCell(withReuseIdentifier: "LocaticCollectionViewCell",
+                                              for: indexPath) as! LocaticCollectionViewCell
 
-//        locaticCell.configure()
+        let locaticCellViewModel = locaticsCollectionViewModel?.locaticAtIndex(indexPath)
+        locaticCell.locaticCellViewModel = locaticCellViewModel
 
         return locaticCell
     }
 }
 
-extension LocaticsListCollectionView: UICollectionViewDelegate {
-
-}
+extension LocaticsListCollectionView: UICollectionViewDelegate {}
 
 extension LocaticsListCollectionView: LocaticsCollectionViewModelViewDelegate {
+    func locaticCellViewModelWasAdded(atIndex: Int) {
+        self.performBatchUpdates({
+            let indexPath = IndexPath(item: atIndex, section: 0)
+            self.insertItems(at: [indexPath])
+        }, completion: nil)
+    }
 
+    func locaticCellViewModelWasRemoved(atIndex: Int) {
+        self.performBatchUpdates({
+            let indexPath = IndexPath(item: atIndex, section: 0)
+            self.deleteItems(at: [indexPath])
+        }, completion: nil)
+    }
+
+    func locaticCellViewModelWasUpdated(atIndex: Int) {
+        self.performBatchUpdates({
+            let indexPath = IndexPath(item: atIndex, section: 0)
+            self.reloadItems(at: [indexPath])
+        }, completion: nil)
+    }
 }
