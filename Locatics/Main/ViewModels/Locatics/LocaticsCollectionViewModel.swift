@@ -19,6 +19,8 @@ protocol LocaticsCollectionViewModelViewDelegate: class {
     func locaticCellViewModelWasAdded(atIndex: Int)
     func locaticCellViewModelWasRemoved(atIndex: Int)
     func locaticCellViewModelWasUpdated(atIndex: Int)
+
+    func reloadData()
 }
 
 class LocaticsCollectionViewModel: LocaticsCollectionViewModelInterface {
@@ -29,6 +31,7 @@ class LocaticsCollectionViewModel: LocaticsCollectionViewModelInterface {
     var locaticStorage: LocaticStorageInterface? {
         didSet {
             locaticStorage?.persistentStorageObserver.add(self)
+            fetchAllLocatics()
         }
     }
 
@@ -42,6 +45,28 @@ class LocaticsCollectionViewModel: LocaticsCollectionViewModelInterface {
 }
 
 private extension LocaticsCollectionViewModel {
+    func fetchAllLocatics() {
+        locaticStorage?.fetchLocatics(predicate: nil,
+                                      sortDescriptors: nil,
+                                      completion: { [weak self] (result) in
+                                        switch result {
+                                        case .success(let success):
+                                            self?.setupLocaticCellViewModels(with: success)
+                                        case .failure(let failure):
+                                            print(failure.localizedDescription)
+                                        }
+        })
+    }
+
+    func setupLocaticCellViewModels(with locatics: [LocaticData]) {
+        for locatic in locatics {
+            let newLocaticCellViewModel = LocaticCellViewModel(locatic: locatic)
+            locaticCellViewModels.append(newLocaticCellViewModel)
+        }
+
+        viewDelegate?.reloadData()
+    }
+
     func index(of locatic: LocaticData) -> Int? {
         locaticCellViewModels.firstIndex { (locaticCellVM) -> Bool in
             return locaticCellVM.locatic.identity == locatic.identity

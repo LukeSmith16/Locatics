@@ -13,6 +13,7 @@ class MockLocaticsCollectionViewModelViewDelegate: LocaticsCollectionViewModelVi
     var calledLocaticCellViewModelWasAdded = false
     var calledLocaticCellViewModelWasRemoved = false
     var calledLocaticCellViewModelWasUpdated = false
+    var calledReloadData = false
 
     var passedLocaticCellViewModelWasAdded: Int?
     var passedLocaticCellViewModelWasRemoved: Int?
@@ -31,5 +32,9 @@ class MockLocaticsCollectionViewModelViewDelegate: LocaticsCollectionViewModelVi
     func locaticCellViewModelWasUpdated(atIndex: Int) {
         calledLocaticCellViewModelWasUpdated = true
         passedLocaticCellViewModelWasUpdatedIndex = atIndex
+    }
+
+    func reloadData() {
+        calledReloadData = true
     }
 }

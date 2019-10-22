@@ -22,7 +22,6 @@ class LocaticsCollectionViewModelTests: XCTestCase {
         mockLocaticStorage = MockLocaticStorage()
 
         sut.viewDelegate = mockViewModelViewObserver
-        sut.locaticStorage = mockLocaticStorage
     }
 
     override func tearDown() {
@@ -32,6 +31,8 @@ class LocaticsCollectionViewModelTests: XCTestCase {
     }
 
     func test_conformsTo_locaticStoragePersistentStorageObserver() {
+        sut.locaticStorage = mockLocaticStorage
+
         let expect = expectation(description: "Wait for PersistentStorageObserver")
 
         mockLocaticStorage.persistentStorageObserver.invoke { (delegate) in
@@ -42,6 +43,12 @@ class LocaticsCollectionViewModelTests: XCTestCase {
         wait(for: [expect], timeout: 3)
 
         XCTAssertTrue(mockViewModelViewObserver.calledLocaticCellViewModelWasAdded)
+    }
+
+    func test_locaticStorageDidSet_callsLocaticStorageFetchLocatics() {
+        sut.locaticStorage = mockLocaticStorage
+
+        XCTAssertTrue(mockLocaticStorage.calledFetchLocatics)
     }
 
     func test_locaticsCount_isEqualToLocaticCellViewModelsCount() {
@@ -56,6 +63,18 @@ class LocaticsCollectionViewModelTests: XCTestCase {
 
         XCTAssertEqual(locaticAtIndex.locatic.identity,
                        newLocaticCellViewModel.locatic.identity)
+    }
+
+    func test_fetchAllLocatics_setsUpLocaticCellViewModels() {
+        sut.locaticStorage = mockLocaticStorage
+
+        XCTAssertEqual(sut.locaticCellViewModels.count, 2)
+    }
+
+    func test_setupLocaticCellViewModels_callsViewDelegateReloadData() {
+        sut.locaticStorage = mockLocaticStorage
+
+        XCTAssertTrue(mockViewModelViewObserver.calledReloadData)
     }
 
     func test_locaticWasInserted_addsLocaticToArray() {
