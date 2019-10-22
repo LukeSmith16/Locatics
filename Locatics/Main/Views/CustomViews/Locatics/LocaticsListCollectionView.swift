@@ -6,9 +6,9 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
-import UIKit
-
 // swiftlint:disable force_cast
+
+import UIKit
 
 class LocaticsListCollectionView: UICollectionView {
     var locaticsCollectionViewModel: LocaticsCollectionViewModelInterface? {
