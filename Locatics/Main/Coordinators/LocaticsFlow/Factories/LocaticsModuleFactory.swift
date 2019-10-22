@@ -32,6 +32,11 @@ class LocaticsModuleFactory: LocaticsModuleFactoryInterface {
 
 private extension LocaticsModuleFactory {
     func createLocaticsViewModel() -> LocaticsViewModelInterface {
-        return LocaticsViewModel()
+        let locaticsCollectionViewModel = createLocaticsCollectionViewModel()
+        return LocaticsViewModel(locaticsCollectionViewModel: locaticsCollectionViewModel)
+    }
+
+    func createLocaticsCollectionViewModel() -> LocaticsCollectionViewModelInterface {
+        return LocaticsCollectionViewModel()
     }
 }
