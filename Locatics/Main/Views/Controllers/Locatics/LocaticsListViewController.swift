@@ -24,6 +24,7 @@ class LocaticsListViewController: UIViewController {
         super.viewDidLoad()
         setupTabItemImage()
         setupNavigationTitleView()
+        setupLocaticsListCollectionView()
     }
 }
 
@@ -38,6 +39,10 @@ private extension LocaticsListViewController {
     func setupNavigationTitleView() {
         self.navigationTitleView = navigationItem.setupTitleView(title: "My Locatics",
                                                                  subtitle: nil)
+    }
+
+    func setupLocaticsListCollectionView() {
+        self.locaticsListCollectionView.locaticsCollectionViewModel = locaticsViewModel?.locaticsCollectionViewModel
     }
 }
 

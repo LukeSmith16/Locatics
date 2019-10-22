@@ -51,4 +51,8 @@ class LocaticsListViewControllerTests: XCTestCase {
     func test_locaticsViewModelDidSet_setsViewDelegate() {
         XCTAssertNotNil(mockLocaticsViewModel.viewDelegate)
     }
+
+    func test_locaticsListCollectionViewViewModel_isNotNil() {
+        XCTAssertNotNil(sut.locaticsListCollectionView.locaticsCollectionViewModel)
+    }
 }
