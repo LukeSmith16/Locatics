@@ -11,4 +11,8 @@ import Foundation
 @testable import Locatics
 class MockLocaticsViewModel: LocaticsViewModelInterface {
     weak var viewDelegate: LocaticsViewModelViewDelegate?
+
+    var locaticsCollectionViewModel: LocaticsCollectionViewModelInterface {
+        return MockLocaticsCollectionViewModel()
+    }
 }
