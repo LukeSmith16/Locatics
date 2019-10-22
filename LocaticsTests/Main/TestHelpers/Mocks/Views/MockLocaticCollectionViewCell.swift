@@ -9,10 +9,4 @@
 import UIKit
 
 @testable import Locatics
-class MockLocaticCollectionViewCell: LocaticCollectionViewCell {
-    var calledConfigure = false
-
-    override func configure() {
-        calledConfigure = true
-    }
-}
+class MockLocaticCollectionViewCell: LocaticCollectionViewCell {}

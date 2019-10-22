@@ -10,9 +10,18 @@ import Foundation
 
 @testable import Locatics
 class MockLocaticsCollectionViewModel: LocaticsCollectionViewModelInterface {
-    weak var viewDelegate: LocaticsCollectionViewModelViewDelegate?
+    var calledLocaticAtIndex = false
 
+    weak var viewDelegate: LocaticsCollectionViewModelViewDelegate?
+    var locaticCellViewModels: [LocaticCellViewModelInterface] = []
+
+    var locaticsReturnCount = 0
     func locaticsCount() -> Int {
-        return 0
+        return locaticsReturnCount
+    }
+
+    func locaticAtIndex(_ index: IndexPath) -> LocaticCellViewModelInterface {
+        calledLocaticAtIndex = true
+        return locaticCellViewModels[index.item]
     }
 }
