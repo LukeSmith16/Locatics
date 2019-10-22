@@ -11,12 +11,119 @@ import XCTest
 @testable import Locatics
 class LocaticsCollectionViewModelTests: XCTestCase {
 
+    var sut: LocaticsCollectionViewModel!
+
+    private var mockViewModelViewObserver: MockLocaticsCollectionViewModelViewDelegate!
+    private var mockLocaticStorage: MockLocaticStorage!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = LocaticsCollectionViewModel()
+        mockViewModelViewObserver = MockLocaticsCollectionViewModelViewDelegate()
+        mockLocaticStorage = MockLocaticStorage()
+
+        sut.viewDelegate = mockViewModelViewObserver
+        sut.locaticStorage = mockLocaticStorage
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        mockLocaticStorage = nil
+        super.tearDown()
     }
 
+    func test_conformsTo_locaticStoragePersistentStorageObserver() {
+        let expect = expectation(description: "Wait for PersistentStorageObserver")
+
+        mockLocaticStorage.persistentStorageObserver.invoke { (delegate) in
+            delegate.locaticWasInserted(MockLocatic())
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 3)
+
+        XCTAssertTrue(mockViewModelViewObserver.calledLocaticCellViewModelWasAdded)
+    }
+
+    func test_locaticsCount_isEqualToLocaticCellViewModelsCount() {
+        XCTAssertEqual(sut.locaticsCount(), sut.locaticCellViewModels.count)
+    }
+
+    func test_locaticAtIndex_returnsLocaticAtIndex() {
+        let newLocaticCellViewModel = LocaticCellViewModel(locatic: MockLocatic())
+        sut.locaticCellViewModels.append(newLocaticCellViewModel)
+
+        let locaticAtIndex = sut.locaticAtIndex(IndexPath(item: 0, section: 0))
+
+        XCTAssertEqual(locaticAtIndex.locatic.identity,
+                       newLocaticCellViewModel.locatic.identity)
+    }
+
+    func test_locaticWasInserted_addsLocaticToArray() {
+        sut.locaticWasInserted(MockLocatic())
+
+        XCTAssertEqual(sut.locaticCellViewModels.count, 1)
+    }
+
+    func test_locaticWasInserted_callsViewDelegateLocaticCellViewModelWasAdded() {
+        sut.locaticWasInserted(MockLocatic())
+
+        XCTAssertTrue(mockViewModelViewObserver.calledLocaticCellViewModelWasAdded)
+        XCTAssertEqual(mockViewModelViewObserver.passedLocaticCellViewModelWasAdded!, 0)
+    }
+
+    func test_locaticWasUpdated_updatesLocaticInArray() {
+        let oldLocatic = MockLocatic()
+        sut.locaticCellViewModels.append(LocaticCellViewModel(locatic: oldLocatic))
+
+        let newLocatic = MockLocatic()
+        newLocatic.name = "NewLocatic"
+
+        sut.locaticWasUpdated(newLocatic)
+
+        XCTAssertEqual(sut.locaticCellViewModels.count, 1)
+
+        let locatic = sut.locaticCellViewModels.first!.locatic
+        XCTAssertEqual(locatic.identity,
+                       oldLocatic.identity)
+        XCTAssertEqual(locatic.name, newLocatic.name)
+    }
+
+    func test_locaticWasUpdated_callsLocaticCellViewModelWasUpdated() {
+        sut.locaticCellViewModels.append(LocaticCellViewModel(locatic: MockLocatic()))
+
+        sut.locaticWasUpdated(MockLocatic())
+
+        XCTAssertTrue(mockViewModelViewObserver.calledLocaticCellViewModelWasUpdated)
+        XCTAssertEqual(mockViewModelViewObserver.passedLocaticCellViewModelWasUpdatedIndex, 0)
+    }
+
+    func test_locaticWasUpdated_returnsIfIndexNotFound() {
+        sut.locaticWasUpdated(MockLocatic())
+
+        XCTAssertFalse(mockViewModelViewObserver.calledLocaticCellViewModelWasUpdated)
+    }
+
+    func test_locaticWasDeleted_removesLocaticFromArray() {
+        let locatic = MockLocatic()
+        sut.locaticCellViewModels.append(LocaticCellViewModel(locatic: locatic))
+
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertTrue(sut.locaticCellViewModels.isEmpty)
+    }
+
+    func test_locaticWasDeleted_callsLocaticCellViewModelWasRemoved() {
+        let locatic = MockLocatic()
+        sut.locaticCellViewModels.append(LocaticCellViewModel(locatic: locatic))
+
+        sut.locaticWasDeleted(locatic)
+
+        XCTAssertTrue(mockViewModelViewObserver.calledLocaticCellViewModelWasRemoved)
+    }
+
+    func test_locaticWasDeleted_returnsIfIndexNotFound() {
+        sut.locaticWasDeleted(MockLocatic())
+
+        XCTAssertFalse(mockViewModelViewObserver.calledLocaticCellViewModelWasRemoved)
+    }
 }
