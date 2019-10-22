@@ -9,7 +9,5 @@
 import UIKit
 
 class LocaticCollectionViewCell: UICollectionViewCell {
-    func configure() {
-        
-    }
+    var locaticCellViewModel: LocaticCellViewModelInterface?
 }
