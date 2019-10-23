@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ViewAnimator
 
 class LocaticsListViewController: UIViewController {
 
@@ -28,11 +27,14 @@ class LocaticsListViewController: UIViewController {
         setupLocaticsListCollectionView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareLocaticsListCollectionViewAnimation()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        locaticsListCollectionView.performBatchUpdates({
-            locaticsListCollectionView.animate
-        }, completion: nil)
+        animateLocaticsListCollectionView()
     }
 }
 
@@ -51,6 +53,14 @@ private extension LocaticsListViewController {
 
     func setupLocaticsListCollectionView() {
         self.locaticsListCollectionView.locaticsCollectionViewModel = locaticsViewModel?.locaticsCollectionViewModel
+    }
+
+    func prepareLocaticsListCollectionViewAnimation() {
+        self.locaticsListCollectionView.alpha = 0.0
+    }
+
+    func animateLocaticsListCollectionView() {
+        locaticsListCollectionView.animate()
     }
 }
 

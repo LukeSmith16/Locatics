@@ -13,12 +13,16 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     var sut: LocaticsListViewController!
 
+    private var mockCollectionView: MockLocaticsListCollectionView!
     private var mockLocaticsViewModel: MockLocaticsViewModel!
 
     override func setUp() {
         sut = LocaticsListViewController()
-        mockLocaticsViewModel = MockLocaticsViewModel()
 
+        mockCollectionView = MockLocaticsListCollectionView(frame: .zero,
+                                                            collectionViewLayout: UICollectionViewLayout())
+
+        mockLocaticsViewModel = MockLocaticsViewModel()
         sut.locaticsViewModel = mockLocaticsViewModel
 
         _ = UINavigationController(rootViewController: sut)
@@ -54,5 +58,22 @@ class LocaticsListViewControllerTests: XCTestCase {
 
     func test_locaticsListCollectionViewViewModel_isNotNil() {
         XCTAssertNotNil(sut.locaticsListCollectionView.locaticsCollectionViewModel)
+    }
+
+    func test_viewWillAppear_callsPrepareLocaticsListCollectionViewAnimation() {
+        sut.locaticsListCollectionView = mockCollectionView
+
+        sut.beginAppearanceTransition(true, animated: true)
+
+        XCTAssertEqual(mockCollectionView.alpha, 0.0)
+    }
+
+    func test_viewDidAppear_callsAnimateLocaticsListCollectionView() {
+        sut.locaticsListCollectionView = mockCollectionView
+
+        sut.beginAppearanceTransition(true, animated: true)
+        sut.endAppearanceTransition()
+
+        XCTAssertTrue(mockCollectionView.calledAnimate)
     }
 }

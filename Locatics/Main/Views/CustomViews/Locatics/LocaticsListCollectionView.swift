@@ -9,6 +9,7 @@
 // swiftlint:disable force_cast
 
 import UIKit
+import ViewAnimator
 
 class LocaticsListCollectionView: UICollectionView {
     var locaticsCollectionViewModel: LocaticsCollectionViewModelInterface? {
@@ -16,6 +17,15 @@ class LocaticsListCollectionView: UICollectionView {
             locaticsCollectionViewModel?.viewDelegate = self
             setupCollectionView()
         }
+    }
+
+    func animate() {
+        self.performBatchUpdates({
+            self.alpha = 1.0
+            UIView.animate(views: [self],
+                           animations: [AnimationType.from(direction: .bottom, offset: 100)],
+                           duration: 0.7)
+        }, completion: nil)
     }
 }
 
@@ -36,7 +46,7 @@ private extension LocaticsListCollectionView {
         layout.itemSize = CGSize(width: self.bounds.width,
                                  height: ScreenDesignable.cellHeight)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 25
+        layout.minimumLineSpacing = 35
         layout.scrollDirection = .vertical
 
         self.collectionViewLayout = layout

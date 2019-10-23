@@ -19,8 +19,14 @@ class MockLocaticsListCollectionView: LocaticsListCollectionView {
     var insertedItems = false
     var deletedItems = false
     var reloadedItems = false
+    var calledAnimate = false
 
     var passedIndexPath: IndexPath?
+
+    override func animate() {
+        calledAnimate = true
+        super.animate()
+    }
 
     override func dequeueReusableCell(withReuseIdentifier identifier: String,
                                       for indexPath: IndexPath) -> UICollectionViewCell {

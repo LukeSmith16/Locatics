@@ -49,10 +49,15 @@ class LocaticsListCollectionViewTests: XCTestCase {
             return
         }
 
+        XCTAssertEqual(flowLayout.itemSize.width,
+                       sut.bounds.width)
+        XCTAssertEqual(flowLayout.itemSize.height,
+                       ScreenDesignable.cellHeight)
+
         XCTAssertEqual(flowLayout.minimumInteritemSpacing,
                        0)
         XCTAssertEqual(flowLayout.minimumLineSpacing,
-                       25)
+                       35)
         XCTAssertTrue(flowLayout.scrollDirection == .vertical)
     }
 
