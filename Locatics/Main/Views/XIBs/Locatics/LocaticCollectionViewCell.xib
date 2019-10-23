@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,17 +21,23 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYP-oQ-vmU">
                         <rect key="frame" x="227" y="96.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" name="interactable_main"/>
                 <constraints>
                     <constraint firstItem="lYP-oQ-vmU" firstAttribute="centerY" secondItem="8g7-bF-Jgd" secondAttribute="centerY" id="BjU-gx-Du2"/>
                     <constraint firstItem="lYP-oQ-vmU" firstAttribute="centerX" secondItem="8g7-bF-Jgd" secondAttribute="centerX" id="d0o-gw-wo2"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="496" height="214"/>
-            <point key="canvasLocation" x="313.04347826086956" y="161.38392857142856"/>
+            <point key="canvasLocation" x="311.59420289855075" y="161.38392857142856"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="interactable_main">
+            <color red="0.0" green="0.7369999885559082" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

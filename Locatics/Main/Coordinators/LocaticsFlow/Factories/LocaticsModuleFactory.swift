@@ -37,6 +37,9 @@ private extension LocaticsModuleFactory {
     }
 
     func createLocaticsCollectionViewModel() -> LocaticsCollectionViewModelInterface {
-        return LocaticsCollectionViewModel()
+        let locaticsCollectionViewModel = LocaticsCollectionViewModel()
+        locaticsCollectionViewModel.locaticStorage = locaticStorage
+
+        return locaticsCollectionViewModel
     }
 }
