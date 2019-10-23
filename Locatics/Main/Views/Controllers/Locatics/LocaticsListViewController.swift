@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class LocaticsListViewController: UIViewController {
 
@@ -30,7 +31,7 @@ class LocaticsListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         locaticsListCollectionView.performBatchUpdates({
-            
+            locaticsListCollectionView.animate
         }, completion: nil)
     }
 }
