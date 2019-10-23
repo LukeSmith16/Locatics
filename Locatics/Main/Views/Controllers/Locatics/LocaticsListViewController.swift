@@ -26,6 +26,13 @@ class LocaticsListViewController: UIViewController {
         setupNavigationTitleView()
         setupLocaticsListCollectionView()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locaticsListCollectionView.performBatchUpdates({
+            
+        }, completion: nil)
+    }
 }
 
 private extension LocaticsListViewController {

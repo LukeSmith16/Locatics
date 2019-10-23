@@ -29,6 +29,15 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabledForSubviews" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isShadowPathAutoSizing" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDividerHidden" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="collectionView"/>
+                    </userDefinedRuntimeAttributes>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" name="interactable_secondary"/>
@@ -39,6 +48,10 @@
                 <constraint firstItem="xOk-WA-bnz" firstAttribute="leading" secondItem="s35-jd-o28" secondAttribute="leading" id="tp8-kq-yXf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="s35-jd-o28"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-84" y="-195"/>
         </view>
     </objects>

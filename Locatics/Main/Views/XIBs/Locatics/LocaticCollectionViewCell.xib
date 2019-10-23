@@ -32,6 +32,10 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="496" height="214"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="311.59420289855075" y="161.38392857142856"/>
         </collectionViewCell>
     </objects>

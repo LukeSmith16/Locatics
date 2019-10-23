@@ -1,5 +1,4 @@
 PODS:
-  - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.4.2)
   - Material (3.1.7):
     - Material/Core (= 3.1.7)
@@ -11,26 +10,23 @@ PODS:
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
-  - Hero
   - IQKeyboardManagerSwift
   - Material (~> 3.1.0)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Hero
     - IQKeyboardManagerSwift
     - Material
     - Motion
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   Material: 712eac2d10370eb9f7f0011833d698f025161e47
   Motion: 19dac9d59a1d9ab7485cef18a948bb42da4a051e
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 877e110b37736e8e180f3963a077dcf3739a7272
+PODFILE CHECKSUM: f9fad6db4e9f24b45d119c0ce53dd061d78b84bf
 
 COCOAPODS: 1.7.5
