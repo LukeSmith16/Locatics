@@ -34,9 +34,6 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabledForSubviews" value="NO"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isShadowPathAutoSizing" value="NO"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDividerHidden" value="NO"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="collectionView"/>
                     </userDefinedRuntimeAttributes>
                 </collectionView>
             </subviews>
@@ -48,10 +45,6 @@
                 <constraint firstItem="xOk-WA-bnz" firstAttribute="leading" secondItem="s35-jd-o28" secondAttribute="leading" constant="20" id="tp8-kq-yXf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="s35-jd-o28"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
-            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-84" y="-195"/>
         </view>
     </objects>
