@@ -63,8 +63,6 @@ private extension LocaticsCollectionViewModel {
             let newLocaticCellViewModel = LocaticCellViewModel(locatic: locatic)
             locaticCellViewModels.append(newLocaticCellViewModel)
         }
-
-        viewDelegate?.reloadData()
     }
 
     func index(of locatic: LocaticData) -> Int? {

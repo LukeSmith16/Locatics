@@ -71,12 +71,6 @@ class LocaticsCollectionViewModelTests: XCTestCase {
         XCTAssertEqual(sut.locaticCellViewModels.count, 2)
     }
 
-    func test_setupLocaticCellViewModels_callsViewDelegateReloadData() {
-        sut.locaticStorage = mockLocaticStorage
-
-        XCTAssertTrue(mockViewModelViewObserver.calledReloadData)
-    }
-
     func test_locaticWasInserted_addsLocaticToArray() {
         sut.locaticWasInserted(MockLocatic())
 
