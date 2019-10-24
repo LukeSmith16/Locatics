@@ -10,6 +10,7 @@ target 'Locatics' do
   pod 'IQKeyboardManagerSwift'
   pod 'Material', '~> 3.1.0'
   pod "ViewAnimator"
+  pod 'Charts'
 
   target 'LocaticsTests' do
     inherit! :search_paths
