@@ -21,6 +21,6 @@ struct ScreenDesignable {
 
     static let cellHeight: CGFloat = {
         let screenHeight = UIScreen.main.bounds.height
-        return screenHeight / 3.8
+        return screenHeight / 3.4
     }()
 }
