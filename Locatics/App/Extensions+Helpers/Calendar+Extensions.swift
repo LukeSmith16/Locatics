@@ -14,6 +14,6 @@ extension Calendar {
     }
 
     func isDateInThisWeek(_ date: Date) -> Bool {
-      return isDate(date, equalTo: currentDate, toGranularity: .weekOfYear)
+        return isDate(date, equalTo: currentDate, toGranularity: .weekOfYear)
     }
 }
