@@ -10,9 +10,13 @@ import Foundation
 
 extension Date {
     var startOfWeek: Date {
-        let gregorian = Calendar(identifier: .gregorian)
-        let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
+        let calendar = Calendar.current
+        let sunday = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
 
-        return gregorian.date(byAdding: .day, value: -6, to: sunday)!
+        if TimeZone.current.isDaylightSavingTime(for: self) {
+            return calendar.date(byAdding: .day, value: 1, to: sunday)!
+        } else {
+            return calendar.date(byAdding: .day, value: 1, to: sunday)!.addingTimeInterval(3600)
+        }
     }
 }
