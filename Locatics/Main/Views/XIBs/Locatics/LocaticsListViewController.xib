@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xOk-WA-bnz" customClass="LocaticsListCollectionView" customModule="Locatics" customModuleProvider="target">
-                    <rect key="frame" x="20" y="64" width="374" height="798"/>
+                    <rect key="frame" x="10" y="54" width="394" height="808"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YrW-gR-LMP">
                         <size key="itemSize" width="50" height="50"/>
@@ -39,10 +39,10 @@
             </subviews>
             <color key="backgroundColor" name="interactable_secondary"/>
             <constraints>
-                <constraint firstItem="s35-jd-o28" firstAttribute="trailing" secondItem="xOk-WA-bnz" secondAttribute="trailing" constant="20" id="1LW-Sx-H1I"/>
+                <constraint firstItem="s35-jd-o28" firstAttribute="trailing" secondItem="xOk-WA-bnz" secondAttribute="trailing" constant="10" id="1LW-Sx-H1I"/>
                 <constraint firstItem="s35-jd-o28" firstAttribute="bottom" secondItem="xOk-WA-bnz" secondAttribute="bottom" id="57Y-Wf-i0w"/>
-                <constraint firstItem="xOk-WA-bnz" firstAttribute="top" secondItem="s35-jd-o28" secondAttribute="top" constant="20" id="ElX-bh-wfm"/>
-                <constraint firstItem="xOk-WA-bnz" firstAttribute="leading" secondItem="s35-jd-o28" secondAttribute="leading" constant="20" id="tp8-kq-yXf"/>
+                <constraint firstItem="xOk-WA-bnz" firstAttribute="top" secondItem="s35-jd-o28" secondAttribute="top" constant="10" id="ElX-bh-wfm"/>
+                <constraint firstItem="xOk-WA-bnz" firstAttribute="leading" secondItem="s35-jd-o28" secondAttribute="leading" constant="10" id="tp8-kq-yXf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="s35-jd-o28"/>
             <point key="canvasLocation" x="-84" y="-195"/>
