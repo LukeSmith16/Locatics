@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocaticsListViewController" customModule="Locatics" customModuleProvider="target">
             <connections>
                 <outlet property="locaticsListCollectionView" destination="xOk-WA-bnz" id="Bg0-qM-UTL"/>
+                <outlet property="mapView" destination="WTQ-IO-pkn" id="smw-wS-JJE"/>
                 <outlet property="view" destination="sKX-hf-7IL" id="WZV-LR-is0"/>
+                <outlet property="visualEffectView" destination="6wW-D2-jfz" id="Hv0-Kh-2BU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,6 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTQ-IO-pkn">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </mapView>
+                <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wW-D2-jfz">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aMF-Sp-RQp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xOk-WA-bnz" customClass="LocaticsListCollectionView" customModule="Locatics" customModuleProvider="target">
                     <rect key="frame" x="10" y="54" width="394" height="808"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,20 +49,22 @@
                     </userDefinedRuntimeAttributes>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" name="interactable_secondary"/>
             <constraints>
                 <constraint firstItem="s35-jd-o28" firstAttribute="trailing" secondItem="xOk-WA-bnz" secondAttribute="trailing" constant="10" id="1LW-Sx-H1I"/>
+                <constraint firstAttribute="bottom" secondItem="6wW-D2-jfz" secondAttribute="bottom" id="4Vl-uG-L03"/>
                 <constraint firstItem="s35-jd-o28" firstAttribute="bottom" secondItem="xOk-WA-bnz" secondAttribute="bottom" id="57Y-Wf-i0w"/>
                 <constraint firstItem="xOk-WA-bnz" firstAttribute="top" secondItem="s35-jd-o28" secondAttribute="top" constant="10" id="ElX-bh-wfm"/>
+                <constraint firstItem="6wW-D2-jfz" firstAttribute="leading" secondItem="sKX-hf-7IL" secondAttribute="leading" id="Zbk-rm-2gM"/>
+                <constraint firstItem="WTQ-IO-pkn" firstAttribute="leading" secondItem="sKX-hf-7IL" secondAttribute="leading" id="aXa-in-ncN"/>
+                <constraint firstItem="WTQ-IO-pkn" firstAttribute="top" secondItem="sKX-hf-7IL" secondAttribute="top" id="ace-lT-lUw"/>
+                <constraint firstItem="6wW-D2-jfz" firstAttribute="top" secondItem="sKX-hf-7IL" secondAttribute="top" id="jTe-YC-KGG"/>
+                <constraint firstAttribute="trailing" secondItem="WTQ-IO-pkn" secondAttribute="trailing" id="mVW-hW-xf5"/>
+                <constraint firstAttribute="trailing" secondItem="6wW-D2-jfz" secondAttribute="trailing" id="sqK-SH-tnO"/>
                 <constraint firstItem="xOk-WA-bnz" firstAttribute="leading" secondItem="s35-jd-o28" secondAttribute="leading" constant="10" id="tp8-kq-yXf"/>
+                <constraint firstAttribute="bottom" secondItem="WTQ-IO-pkn" secondAttribute="bottom" id="yNA-cY-DwM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="s35-jd-o28"/>
-            <point key="canvasLocation" x="-84" y="-195"/>
+            <point key="canvasLocation" x="-84.057971014492765" y="-195.53571428571428"/>
         </view>
     </objects>
-    <resources>
-        <namedColor name="interactable_secondary">
-            <color red="0.78200000524520874" green="0.57200002670288086" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-    </resources>
 </document>

@@ -52,6 +52,14 @@ class LocaticsListViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.navigationTitleView)
     }
 
+    func test_mapView_isNotNil() {
+        XCTAssertNotNil(sut.mapView)
+    }
+
+    func test_visualEffectView_isNotNil() {
+        XCTAssertNotNil(sut.visualEffectView)
+    }
+
     func test_locaticsViewModelDidSet_setsViewDelegate() {
         XCTAssertNotNil(mockLocaticsViewModel.viewDelegate)
     }
