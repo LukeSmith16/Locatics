@@ -15,7 +15,6 @@ protocol LocaticCellViewModelInterface {
 }
 
 class LocaticCellViewModel: LocaticCellViewModelInterface {
-
     let locatic: LocaticData
     var hoursSpentThisWeek: String!
     var locaticChartViewModel: LocaticChartViewModelInterface!
