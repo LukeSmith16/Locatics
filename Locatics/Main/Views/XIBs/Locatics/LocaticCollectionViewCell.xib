@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,26 +17,69 @@
                 <rect key="frame" x="0.0" y="0.0" width="496" height="214"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYP-oQ-vmU">
-                        <rect key="frame" x="227" y="96.5" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IU-t2-pIw">
+                        <rect key="frame" x="10" y="10" width="476" height="194"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kpN-h5-Dug">
+                                <rect key="frame" x="15" y="15" width="130.5" height="44.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LocaticName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrc-nR-54y">
+                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 HOURS THIS WEEK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYh-fL-xFK">
+                                        <rect key="frame" x="0.0" y="28.5" width="130.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLocaticIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7JY-P9-SVi">
+                                <rect key="frame" x="411" y="21.5" width="65" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="GUP-V9-e6L"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veV-rX-8uS" customClass="LocaticChartView" customModule="Locatics" customModuleProvider="target">
+                                <rect key="frame" x="15" y="67.5" width="401" height="106.5"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="veV-rX-8uS" secondAttribute="trailing" constant="60" id="ILH-jJ-FYQ"/>
+                            <constraint firstAttribute="bottom" secondItem="veV-rX-8uS" secondAttribute="bottom" constant="20" id="JwS-h2-n8f"/>
+                            <constraint firstAttribute="trailing" secondItem="7JY-P9-SVi" secondAttribute="trailing" id="NCV-nd-g83"/>
+                            <constraint firstItem="7JY-P9-SVi" firstAttribute="centerY" secondItem="kpN-h5-Dug" secondAttribute="centerY" id="aF2-6m-iBy"/>
+                            <constraint firstItem="veV-rX-8uS" firstAttribute="top" secondItem="kpN-h5-Dug" secondAttribute="bottom" constant="8" id="fQT-pa-ugz"/>
+                            <constraint firstItem="kpN-h5-Dug" firstAttribute="leading" secondItem="8IU-t2-pIw" secondAttribute="leading" constant="15" id="i5E-vP-wr0"/>
+                            <constraint firstItem="veV-rX-8uS" firstAttribute="leading" secondItem="kpN-h5-Dug" secondAttribute="leading" id="n7h-YR-551"/>
+                            <constraint firstItem="kpN-h5-Dug" firstAttribute="top" secondItem="8IU-t2-pIw" secondAttribute="top" constant="15" id="sc7-vh-agc"/>
+                        </constraints>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" name="interactable_main"/>
                 <constraints>
-                    <constraint firstItem="lYP-oQ-vmU" firstAttribute="centerY" secondItem="8g7-bF-Jgd" secondAttribute="centerY" id="BjU-gx-Du2"/>
-                    <constraint firstItem="lYP-oQ-vmU" firstAttribute="centerX" secondItem="8g7-bF-Jgd" secondAttribute="centerX" id="d0o-gw-wo2"/>
+                    <constraint firstItem="8IU-t2-pIw" firstAttribute="leading" secondItem="8g7-bF-Jgd" secondAttribute="leading" constant="10" id="Jzg-65-7d7"/>
+                    <constraint firstAttribute="bottom" secondItem="8IU-t2-pIw" secondAttribute="bottom" constant="10" id="QDT-lQ-ZNQ"/>
+                    <constraint firstAttribute="trailing" secondItem="8IU-t2-pIw" secondAttribute="trailing" constant="10" id="ZMu-eG-Ufn"/>
+                    <constraint firstItem="8IU-t2-pIw" firstAttribute="top" secondItem="8g7-bF-Jgd" secondAttribute="top" constant="10" id="uvn-jg-Xgd"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="496" height="214"/>
+            <connections>
+                <outlet property="cellView" destination="8IU-t2-pIw" id="W8p-rP-eL8"/>
+                <outlet property="locaticChartView" destination="veV-rX-8uS" id="M7C-0a-AF2"/>
+                <outlet property="locaticIconImageView" destination="7JY-P9-SVi" id="8kD-H9-2n1"/>
+                <outlet property="locaticNameLabel" destination="zrc-nR-54y" id="u0V-Gm-s47"/>
+                <outlet property="locaticTimeSpentLabel" destination="WYh-fL-xFK" id="WLf-I5-cPY"/>
+            </connections>
             <point key="canvasLocation" x="311.59420289855075" y="161.38392857142856"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="interactable_main">
-            <color red="0.0" green="0.7369999885559082" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
+        <image name="homeLocaticIcon" width="65" height="64"/>
     </resources>
 </document>

@@ -16,7 +16,7 @@ class MockLocatic: LocaticData {
     var radius: Float = 50 // Meters
     var longitude: Double = 12.0
     var latitude: Double = 10.0
-    var iconPath: String = "testIconPath"
+    var iconPath: String = "locaticIcon"
 
     var locaticVisits: NSOrderedSet? = NSOrderedSet(array: [MockLocaticVisit()])
 }
