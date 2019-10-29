@@ -45,11 +45,6 @@ class LocaticsMapViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.view)
     }
 
-    func test_setupTabItemImage_setsTabItem() {
-        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .normal))
-        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .selected))
-    }
-
     func test_mapView_isNotNil() {
         XCTAssertNotNil(sut.mapView)
     }

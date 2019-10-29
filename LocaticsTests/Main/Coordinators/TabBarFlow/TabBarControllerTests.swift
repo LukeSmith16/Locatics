@@ -72,6 +72,30 @@ class TabBarControllerTests: XCTestCase {
 
         wait(for: [mapFlowExpectation, locaticsFlowExpectation], timeout: 3, enforceOrder: true)
     }
+
+    func test_setupTabItemForMapFlow_setsTabItem() {
+        _ = sut.view
+
+        guard let mapNavController = sut.viewControllers.first as? NavigationViewController else {
+            XCTFail("Should be of type 'NavigationViewController'")
+            return
+        }
+
+        XCTAssertNotNil(mapNavController.tabItem.image(for: .normal))
+        XCTAssertNotNil(mapNavController.tabItem.image(for: .selected))
+    }
+
+    func test_setupTabItemForLocaticsFlow_setsTabItem() {
+        _ = sut.view
+
+        guard let locaticsNavController = sut.viewControllers.last as? NavigationViewController else {
+            XCTFail("Should be of type 'NavigationViewController'")
+            return
+        }
+
+        XCTAssertNotNil(locaticsNavController.tabItem.image(for: .normal))
+        XCTAssertNotNil(locaticsNavController.tabItem.image(for: .selected))
+    }
 }
 
 private extension TabBarControllerTests {

@@ -43,11 +43,6 @@ class LocaticsListViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.locaticsListCollectionView)
     }
 
-    func test_setupTabItemImage_setsTabItem() {
-        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .normal))
-        XCTAssertNotNil(sut.navigationController?.tabItem.image(for: .selected))
-    }
-
     func test_navigationTitleView_isNotNil() {
         XCTAssertNotNil(sut.navigationTitleView)
     }
