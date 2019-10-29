@@ -118,49 +118,6 @@ class LocaticsListCollectionViewTests: XCTestCase {
                        locaticCellViewModel.locatic.identity)
     }
 
-    func test_locaticCellViewModelWasAdded_insertsItemAtIndexPath() {
-        _ = addLocaticCellViewModel()
-
-        let mockCollectionView = setupMockCollectionView()
-
-        let expect = expectation(description: "Wait for performBatchUpdates")
-        mockCollectionView.expectation = expect
-
-        mockCollectionView.locaticCellViewModelWasAdded(atIndex: 0)
-
-        wait(for: [expect], timeout: 3)
-
-        XCTAssertTrue(mockCollectionView.calledPerformBatchUpdates)
-        XCTAssertTrue(mockCollectionView.insertedItems)
-
-        XCTAssertEqual(mockCollectionView.passedIndexPath!,
-                       IndexPath(item: 0, section: 0))
-    }
-
-    func test_locaticCellViewModelWasRemoved_removesItemAtIndexPath() {
-        mockLocaticsCollectionViewModel.locaticCellViewModels = [LocaticCellViewModel(locatic: MockLocatic()),
-                                                                 LocaticCellViewModel(locatic: MockLocatic()),
-                                                                 LocaticCellViewModel(locatic: MockLocatic()),
-                                                                 LocaticCellViewModel(locatic: MockLocatic()),
-                                                                 LocaticCellViewModel(locatic: MockLocatic())]
-
-        let mockCollectionView = setupMockCollectionView()
-
-        let expect = expectation(description: "Wait for performBatchUpdates")
-        mockCollectionView.expectation = expect
-
-        mockLocaticsCollectionViewModel.locaticsReturnCount = 3
-        mockCollectionView.locaticCellViewModelWasRemoved(atIndex: 2)
-
-        wait(for: [expect], timeout: 3)
-
-        XCTAssertTrue(mockCollectionView.calledPerformBatchUpdates)
-        XCTAssertTrue(mockCollectionView.deletedItems)
-
-        XCTAssertEqual(mockCollectionView.passedIndexPath!,
-                       IndexPath(item: 2, section: 0))
-    }
-
     func test_locaticCellViewModelWasUpdated_updatesItemAtIndexPath() {
         mockLocaticsCollectionViewModel.locaticCellViewModels = [LocaticCellViewModel(locatic: MockLocatic()),
                                                                  LocaticCellViewModel(locatic: MockLocatic()),
