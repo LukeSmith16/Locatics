@@ -8,4 +8,24 @@
 
 import UIKit
 
-class OnboardingPermissionsPageViewController: UIViewController {}
+class OnboardingPermissionsPageViewController: UIViewController, OnboardingViewControllerDesignable {
+    @IBOutlet weak var onboardingImageView: UIImageView!
+
+    @IBOutlet weak var onboardingTitleLabel: UILabel!
+    @IBOutlet weak var onboardingDetailLabel: UILabel!
+
+    var onboardingNavigationViewModel: OnboardingNavigationViewModelInterface?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    @IBAction func skipTapped(_ sender: Any) {
+        onboardingNavigationViewModel?.skipTapped()
+    }
+
+    @IBAction func nextTapped(_ sender: Any) {
+        onboardingNavigationViewModel?.nextTapped()
+    }
+}
