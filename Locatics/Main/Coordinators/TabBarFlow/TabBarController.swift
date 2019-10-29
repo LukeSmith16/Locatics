@@ -54,6 +54,23 @@ private extension TabBarController {
         }
 
         onMapFlowSelect?(mapNavController)
+        setupTabItemForMapFlow(navigationController: mapNavController)
+
         onLocaticsFlowSelect?(locaticsNavController)
+        setupTabItemForLocaticsFlow(navigationController: locaticsNavController)
+    }
+
+    func setupTabItemForMapFlow(navigationController: NavigationViewController) {
+        navigationController.tabItem.setTabItemImage(UIImage(named: "mapTabBarIconNormal")!,
+                                                           for: .normal)
+        navigationController.tabItem.setTabItemImage(UIImage(named: "mapTabBarIconSelected")!,
+                                                           for: .selected)
+    }
+
+    func setupTabItemForLocaticsFlow(navigationController: NavigationViewController) {
+        navigationController.tabItem.setTabItemImage(UIImage(named: "locaticsTabBarIconNormal")!,
+                                                      for: .normal)
+        navigationController.tabItem.setTabItemImage(UIImage(named: "locaticsTabBarIconSelected")!,
+                                                      for: .selected)
     }
 }
