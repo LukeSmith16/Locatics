@@ -19,7 +19,7 @@ protocol OnboardingNavigationViewModelViewDelegate: class {
 }
 
 class OnboardingNavigationViewModel: OnboardingNavigationViewModelInterface {
-    weak var viewDelegate: OnboardingNavigationViewModelViewDelegate?
+    weak var delegate: OnboardingNavigationViewModelViewDelegate?
 
     private let onboardingIndex: Int
 
@@ -28,10 +28,10 @@ class OnboardingNavigationViewModel: OnboardingNavigationViewModelInterface {
     }
 
     func nextTapped() {
-        viewDelegate?.nextWasTapped(atIndex: onboardingIndex)
+        delegate?.nextWasTapped(atIndex: onboardingIndex)
     }
 
     func skipTapped() {
-        viewDelegate?.skipWasTapped()
+        delegate?.skipWasTapped()
     }
 }

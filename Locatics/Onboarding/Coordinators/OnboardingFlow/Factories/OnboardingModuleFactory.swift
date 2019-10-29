@@ -43,16 +43,16 @@ private extension OnboardingModuleFactory {
 
     func createOnboardingNavigationViewModels(delegate: OnboardingNavigationViewModelViewDelegate) -> [OnboardingNavigationViewModelInterface] {
         let welcomeOnboardingVM = OnboardingNavigationViewModel(onboardingIndex: 0)
-        welcomeOnboardingVM.viewDelegate = delegate
+        welcomeOnboardingVM.delegate = delegate
 
         let aboutOnboardingVM = OnboardingNavigationViewModel(onboardingIndex: 1)
-        aboutOnboardingVM.viewDelegate = delegate
+        aboutOnboardingVM.delegate = delegate
 
         let permissionsOnboardingVM = OnboardingNavigationViewModel(onboardingIndex: 2)
-        permissionsOnboardingVM.viewDelegate = delegate
+        permissionsOnboardingVM.delegate = delegate
 
         let getStartedOnboardingVM = OnboardingNavigationViewModel(onboardingIndex: 3)
-        getStartedOnboardingVM.viewDelegate = delegate
+        getStartedOnboardingVM.delegate = delegate
 
         return [welcomeOnboardingVM, aboutOnboardingVM, permissionsOnboardingVM, getStartedOnboardingVM]
     }
