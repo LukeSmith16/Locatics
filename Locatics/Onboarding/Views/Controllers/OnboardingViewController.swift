@@ -72,4 +72,12 @@ extension OnboardingViewController: OnboardingViewModelViewDelegate {
 
         self.present(alertController, animated: true, completion: nil)
     }
+
+    func goToNextPage(nextVC: UIViewController) {
+        self.setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
+    }
+
+    func goToLastPage(lastVC: UIViewController) {
+        self.setViewControllers([lastVC], direction: .forward, animated: true, completion: nil)
+    }
 }

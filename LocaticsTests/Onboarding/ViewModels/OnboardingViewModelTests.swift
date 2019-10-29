@@ -13,23 +13,27 @@ class OnboardingViewModelTests: XCTestCase {
 
     var expectation: XCTestExpectation?
 
-    private var viewBinder: MockOnboardingViewModelViewDelegate!
+    private var mockViewModelViewObserver: MockOnboardingViewModelViewDelegate!
     private var mockLocationPermManager: MockLocationPermissionsManager!
     var sut: OnboardingViewModel!
 
     override func setUp() {
-        viewBinder = MockOnboardingViewModelViewDelegate()
+        mockViewModelViewObserver = MockOnboardingViewModelViewDelegate()
         mockLocationPermManager = MockLocationPermissionsManager()
 
         sut = OnboardingViewModel()
-        sut.viewDelegate = viewBinder
+        sut.viewDelegate = mockViewModelViewObserver
+        sut.onboardingNavigationViewModels = [MockOnboardingNavigationViewModel(),
+                                              MockOnboardingNavigationViewModel(),
+                                              MockOnboardingNavigationViewModel(),
+                                              MockOnboardingNavigationViewModel()]
         sut.locationPermissionsManager = mockLocationPermManager
         sut.coordinator = self
     }
 
     override func tearDown() {
         expectation = nil
-        viewBinder = nil
+        mockViewModelViewObserver = nil
         mockLocationPermManager = nil
         sut = nil
 
@@ -51,6 +55,15 @@ class OnboardingViewModelTests: XCTestCase {
                        "OnboardingGetStartedPageViewController")
     }
 
+    func test_pageViewControllers_eachHaveAViewModel() {
+        for pageVC in sut.pageViewControllers {
+            let onboardingVC = pageVC as? OnboardingViewControllerDesignable
+
+            XCTAssertNotNil(onboardingVC)
+            XCTAssertNotNil(onboardingVC?.onboardingNavigationViewModel)
+        }
+    }
+
     func test_handleFinishOnboardingCalls_goToOnboardingFinished() {
         mockLocationPermManager.authorizePermsState = .authorizedAlways
 
@@ -69,7 +82,7 @@ class OnboardingViewModelTests: XCTestCase {
 
         sut.handleFinishOnboarding()
 
-        XCTAssertTrue(viewBinder.calledLocationPermissionsWereDenied)
+        XCTAssertTrue(mockViewModelViewObserver.calledLocationPermissionsWereDenied)
     }
 
     func test_handleFinishOnboarding_setsOnboardingValueTrue() {
@@ -110,7 +123,7 @@ class OnboardingViewModelTests: XCTestCase {
     func test_permissionsDenied_callsViewDelegatePermissionsWereDenied() {
         sut.permissionsDenied()
 
-        XCTAssertTrue(viewBinder.calledLocationPermissionsWereDenied)
+        XCTAssertTrue(mockViewModelViewObserver.calledLocationPermissionsWereDenied)
     }
 
     func test_getInitialPageVC_isOnboardingWelcomePageVC() {
@@ -155,6 +168,36 @@ class OnboardingViewModelTests: XCTestCase {
         XCTAssertTrue(onboardingAboutPageViewController is OnboardingAboutPageViewController)
         XCTAssertTrue(onboardingPermissionsPageViewController is OnboardingPermissionsPageViewController)
         XCTAssertTrue(onboardingGetStartedPageViewController is OnboardingGetStartedPageViewController)
+    }
+
+    func test_nextWasTapped_callsGoToNextPage() {
+        sut.nextWasTapped(atIndex: 0)
+
+        XCTAssertTrue(mockViewModelViewObserver.calledGoToNextPage)
+    }
+
+    func test_nextWasTapped_callsGoToNextPageWithNextVC() {
+        sut.nextWasTapped(atIndex: 1)
+
+        XCTAssertTrue(mockViewModelViewObserver.goToNextPagePassedVC! is OnboardingPermissionsPageViewController)
+    }
+
+    func test_nextWasTapped_returnsIfIndexOutOfRange() {
+        sut.nextWasTapped(atIndex: 10)
+
+        XCTAssertFalse(mockViewModelViewObserver.calledGoToNextPage)
+    }
+
+    func test_skipWasTapped_callsGoToLastPage() {
+        sut.skipWasTapped()
+
+        XCTAssertTrue(mockViewModelViewObserver.calledGoToLastPage)
+    }
+
+    func test_skipWasTapped_callsGoToLastPageWithLastVC() {
+        sut.skipWasTapped()
+
+        XCTAssertTrue(mockViewModelViewObserver.goToLastPageVC! is OnboardingGetStartedPageViewController)
     }
 
     func test_handleAuthorizationError_callsHandlePermissionsTappedIfAuthStatusUndetermined() {

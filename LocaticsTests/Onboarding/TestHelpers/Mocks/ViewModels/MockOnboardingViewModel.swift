@@ -30,7 +30,7 @@ class MockOnboardingViewModel: OnboardingViewModelInterface {
     func handleGoToAppSettings() {}
 
     func getInitialPageViewController() -> UIViewController {
-        return OnboardingWelcomePageViewController()
+        return createOnboardingPageVC(with: .onboardingWelcomePageViewController)
     }
 
     func pageViewControllerCount() -> Int {
@@ -40,12 +40,24 @@ class MockOnboardingViewModel: OnboardingViewModelInterface {
     func getPageViewController(before viewController: UIViewController) -> UIViewController? {
         calledGetPageVCBefore = true
 
-        return OnboardingWelcomePageViewController()
+        let onboardingVC = createOnboardingPageVC(with: .onboardingWelcomePageViewController)
+        return onboardingVC
     }
 
     func getPageViewController(after viewController: UIViewController) -> UIViewController? {
         calledGetPageVCAfter = true
 
-        return OnboardingPermissionsPageViewController()
+        let onboardingVC = createOnboardingPageVC(with: .onboardingPermissionsPageViewController)
+        return onboardingVC
+    }
+}
+
+private extension MockOnboardingViewModel {
+    func createOnboardingPageVC(with identifier: OnboardingStoryboardIdentifier) -> UIViewController {
+        let onboardingStoryboard = UIStoryboard.Storyboard.onboarding
+        let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: identifier.rawValue)
+        _ = onboardingVC.view
+
+        return onboardingVC
     }
 }
