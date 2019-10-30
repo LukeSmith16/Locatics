@@ -94,6 +94,22 @@ class OnboardingViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.presentationCount(for: sut) == 4)
     }
 
+    func test_setupSkipButton_values() {
+        XCTAssertEqual(sut.skipButton.title(for: .normal)!, "Skip")
+        XCTAssertEqual(sut.skipButton.titleLabel!.font,
+                       Font.init(.installed(.HelveticaBold), size: .custom(16.0)).instance)
+        XCTAssertEqual(sut.skipButton.titleColor(for: .normal)!, UIColor(colorTheme: .Title_Action))
+        XCTAssertEqual(sut.skipButton.allTargets.count, 1)
+    }
+
+    func test_setupNextButton_values() {
+        XCTAssertEqual(sut.nextButton.title(for: .normal)!, "Next")
+        XCTAssertEqual(sut.nextButton.titleLabel!.font,
+                       Font.init(.installed(.HelveticaRegular), size: .custom(16.0)).instance)
+        XCTAssertEqual(sut.nextButton.titleColor(for: .normal)!, UIColor(colorTheme: .Title_Action))
+        XCTAssertEqual(sut.nextButton.allTargets.count, 1)
+    }
+
     func test_pageVCBefore_callsViewModelBeforeVC() {
         _ = sut.pageViewController(sut, viewControllerBefore: UIViewController())
 
@@ -171,5 +187,20 @@ class OnboardingViewControllerTests: XCTestCase {
         sut.goToLastPage(lastVC: UIViewController())
 
         XCTAssertEqual(sut.pageControl.currentPage, 3)
+    }
+
+    func test_ifLastPage_skipButtonAlphaIsZero() {
+        sut.goToLastPage(lastVC: UIViewController())
+
+        XCTAssertEqual(sut.skipButton.alpha, 0.0)
+    }
+
+    func test_ifLastPage_nextButtonPropertiesChange() {
+        sut.goToLastPage(lastVC: UIViewController())
+
+        XCTAssertEqual(sut.nextButton.title(for: .normal)!, "Done")
+        XCTAssertEqual(sut.nextButton.titleLabel!.font,
+                       Font.init(.installed(.HelveticaBold), size: .custom(16.0)).instance)
+        XCTAssertEqual(sut.nextButton.allTargets.count, 1)
     }
 }

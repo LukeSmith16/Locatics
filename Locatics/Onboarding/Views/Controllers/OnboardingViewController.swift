@@ -17,10 +17,16 @@ class OnboardingViewController: UIPageViewController {
         }
     }
 
+    let skipButton = UIButton()
+    let nextButton = UIButton()
+
     let pageControl = UIPageControl()
 
     private var currentIndex: Int = 0 {
         didSet {
+            updateSkipButton()
+            updateNextButton()
+
             self.pageControl.currentPage = currentIndex
         }
     }
@@ -55,7 +61,9 @@ private extension OnboardingViewController {
         setupDSAndDelegate()
         setupPageViewControllers()
         setupBackgroundOnboardingTextView()
+        setupSkipButton()
         setupPageControl()
+        setupNextButton()
         setupNavigationStackView()
     }
 
@@ -94,15 +102,28 @@ private extension OnboardingViewController {
         onboardingTextBackground.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 
+    func setupSkipButton() {
+        skipButton.setTitle("Skip", for: .normal)
+        skipButton.titleLabel?.font = Font.init(.installed(.HelveticaBold), size: .custom(16.0)).instance
+        skipButton.setTitleColor(UIColor(colorTheme: .Title_Action),
+                                 for: .normal)
+        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .touchUpInside)
+    }
+
     func setupPageControl() {
         pageControl.numberOfPages = 4
         pageControl.currentPage = 0
     }
 
-    func setupNavigationStackView() {
-        let skipButton = setupSkipButton()
-        let nextButton = setupNextButton()
+    func setupNextButton() {
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.titleLabel?.font = Font.init(.installed(.HelveticaRegular), size: .custom(16.0)).instance
+        nextButton.setTitleColor(UIColor(colorTheme: .Title_Action),
+                                 for: .normal)
+        nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
+    }
 
+    func setupNavigationStackView() {
         let stackView = UIStackView(arrangedSubviews: [skipButton, pageControl, nextButton])
         stackView.center = self.view.center
         stackView.distribution = .equalCentering
@@ -112,28 +133,6 @@ private extension OnboardingViewController {
 
         self.view.addSubview(stackView)
         setupConstraintsForNavigationStackView(stackView)
-    }
-
-    func setupSkipButton() -> UIButton {
-        let skipButton = UIButton()
-        skipButton.setTitle("Skip", for: .normal)
-        skipButton.titleLabel?.font = Font.init(.installed(.HelveticaBold), size: .custom(16.0)).instance
-        skipButton.setTitleColor(UIColor(colorTheme: .Title_Action),
-                                 for: .normal)
-        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .touchUpInside)
-
-        return skipButton
-    }
-
-    func setupNextButton() -> UIButton {
-        let nextButton = UIButton()
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.titleLabel?.font = Font.init(.installed(.HelveticaRegular), size: .custom(16.0)).instance
-        nextButton.setTitleColor(UIColor(colorTheme: .Title_Action),
-                                 for: .normal)
-        nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
-
-        return nextButton
     }
 
     func setupConstraintsForNavigationStackView(_ stackView: UIStackView) {
@@ -201,5 +200,28 @@ extension OnboardingViewController: OnboardingViewModelViewDelegate {
     func goToLastPage(lastVC: UIViewController) {
         self.currentIndex = 3
         self.setViewControllers([lastVC], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+private extension OnboardingViewController {
+    func updateSkipButton() {
+        if currentIndex == 3 {
+            self.skipButton.alpha = 0.0
+        } else {
+            self.skipButton.alpha = 1.0
+        }
+    }
+
+    func updateNextButton() {
+        if currentIndex == 3 {
+            nextButton.setTitle("Done", for: .normal)
+            nextButton.titleLabel?.font = Font.init(.installed(.HelveticaBold), size: .custom(16.0)).instance
+
+            nextButton.removeTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
+            nextButton.addTarget(self, action: #selector(doneTapped(_:)), for: .touchUpInside)
+        } else {
+            nextButton.removeTarget(self, action: #selector(doneTapped(_:)), for: .touchUpInside)
+            setupNextButton()
+        }
     }
 }

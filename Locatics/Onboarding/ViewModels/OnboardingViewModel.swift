@@ -62,7 +62,7 @@ class OnboardingViewModel: OnboardingViewModelInterface {
     }()
 
     func nextWasTapped(for index: Int) {
-        guard index < pageViewControllers.count else { return }
+        guard index < (pageViewControllers.count - 1) else { return }
         let nextViewController = pageViewControllers[index+1]
         viewDelegate?.goToNextPage(nextVC: nextViewController)
     }
