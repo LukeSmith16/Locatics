@@ -1,8 +1,11 @@
 os: osx
 osx_image: xcode11
 language: swift
+
+before_install:
+  - gem install cocoapods -v '1.7.5'
+  
 install:
-  - bundle install
   - ./install_swiftlint.sh
 
 script:
@@ -10,5 +13,3 @@ script:
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-
-bundler_args: --retry 5
