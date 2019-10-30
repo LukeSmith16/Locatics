@@ -10,6 +10,11 @@ import XCTest
 
 @testable import Locatics
 class ScreenDesignableTests: XCTestCase {
+    func test_onboardingBackgroundTextViewHeight_isCalculatedFromSceenHeight() {
+        XCTAssertEqual(ScreenDesignable.onboardingBackgroundTextViewHeight,
+                       UIScreen.main.bounds.height * 0.3425)
+    }
+
     func test_cornerRadius_isCalculatedFromScreenWidth() {
         XCTAssertEqual(ScreenDesignable.cornerRadius,
                        (UIScreen.main.bounds.width / 18.5).rounded(.down))
