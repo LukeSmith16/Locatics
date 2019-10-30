@@ -14,16 +14,8 @@ class OnboardingGetStartedPageViewController: UIViewController, OnboardingViewCo
     @IBOutlet weak var onboardingTitleLabel: UILabel!
     @IBOutlet weak var onboardingDetailLabel: UILabel!
 
-    var onboardingNavigationViewModel: OnboardingNavigationViewModelInterface?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
-
-    /// Not required as this is the last PageVC for onboarding
-    func skipTapped(_ sender: Any) {}
-
-    /// Not required as this is the last PageVC for onboarding
-    func nextTapped(_ sender: Any) {}
 }

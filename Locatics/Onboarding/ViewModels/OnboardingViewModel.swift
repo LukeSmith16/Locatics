@@ -23,6 +23,9 @@ protocol OnboardingViewModelViewDelegate: class {
 protocol OnboardingViewModelInterface {
     var viewDelegate: OnboardingViewModelViewDelegate? {get set}
 
+    func nextWasTapped(for index: Int)
+    func skipWasTapped()
+
     func handleFinishOnboarding()
     func handlePermissionsTapped()
     func handleGoToAppSettings()
@@ -32,6 +35,8 @@ protocol OnboardingViewModelInterface {
     func pageViewControllerCount() -> Int
     func getPageViewController(before viewController: UIViewController) -> UIViewController?
     func getPageViewController(after viewController: UIViewController) -> UIViewController?
+
+    func indexOf(viewController: UIViewController) -> Int?
 }
 
 enum OnboardingStoryboardIdentifier: String {
@@ -45,8 +50,6 @@ class OnboardingViewModel: OnboardingViewModelInterface {
     var coordinator: OnboardingViewModelCoordinatorDelegate?
     weak var viewDelegate: OnboardingViewModelViewDelegate?
 
-    var onboardingNavigationViewModels: [OnboardingNavigationViewModelInterface] = []
-
     var locationPermissionsManager: LocationPermissionsManagerInterface?
 
     lazy var pageViewControllers: [UIViewController] = {
@@ -57,6 +60,17 @@ class OnboardingViewModel: OnboardingViewModelInterface {
             self.getViewController(identifier: .onboardingGetStartedPageViewController)
         ]
     }()
+
+    func nextWasTapped(for index: Int) {
+        guard index < pageViewControllers.count else { return }
+        let nextViewController = pageViewControllers[index+1]
+        viewDelegate?.goToNextPage(nextVC: nextViewController)
+    }
+
+    func skipWasTapped() {
+        let lastViewController = pageViewControllers.last!
+        viewDelegate?.goToLastPage(lastVC: lastViewController)
+    }
 
     func handleFinishOnboarding() {
         guard locationPermissionsManager!.hasAuthorizedLocationPermissions() else {
@@ -106,33 +120,18 @@ class OnboardingViewModel: OnboardingViewModelInterface {
         let nextPageVC = pageViewControllers[currentIndex+1]
         return nextPageVC
     }
+
+    func indexOf(viewController: UIViewController) -> Int? {
+        return pageViewControllers.firstIndex(of: viewController)
+    }
 }
 
 private extension OnboardingViewModel {
     func getViewController(identifier: OnboardingStoryboardIdentifier) -> UIViewController {
         let onboardingStoryboard = UIStoryboard.Storyboard.onboarding
         let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: identifier.rawValue)
-        injectViewModelInto(viewController: onboardingVC, with: identifier)
 
         return onboardingVC
-    }
-
-    func injectViewModelInto(viewController: UIViewController,
-                             with identifier: OnboardingStoryboardIdentifier) {
-        switch identifier {
-        case .onboardingWelcomePageViewController:
-            let welcomePageVC = viewController as? OnboardingWelcomePageViewController
-            welcomePageVC?.onboardingNavigationViewModel = onboardingNavigationViewModels[0]
-        case .onboardingAboutPageViewController:
-            let aboutPageVC = viewController as? OnboardingAboutPageViewController
-            aboutPageVC?.onboardingNavigationViewModel = onboardingNavigationViewModels[1]
-        case .onboardingPermissionsPageViewController:
-            let permissionsPageVC = viewController as? OnboardingPermissionsPageViewController
-            permissionsPageVC?.onboardingNavigationViewModel = onboardingNavigationViewModels[2]
-        case .onboardingGetStartedPageViewController:
-            let getStartedPageVC = viewController as? OnboardingGetStartedPageViewController
-            getStartedPageVC?.onboardingNavigationViewModel = onboardingNavigationViewModels[3]
-        }
     }
 
     func indexForPageViewController(_ viewController: UIViewController) -> Int {
@@ -153,18 +152,6 @@ private extension OnboardingViewModel {
         } else {
             permissionsDenied()
         }
-    }
-}
-
-extension OnboardingViewModel: OnboardingNavigationViewModelViewDelegate {
-    func nextWasTapped(atIndex: Int) {
-        guard atIndex < (pageViewControllers.count - 1) else { return }
-        let nextViewController = pageViewControllers[atIndex+1]
-        viewDelegate?.goToNextPage(nextVC: nextViewController)
-    }
-
-    func skipWasTapped() {
-        viewDelegate?.goToLastPage(lastVC: pageViewControllers.last!)
     }
 }
 

@@ -23,10 +23,6 @@ class OnboardingViewModelTests: XCTestCase {
 
         sut = OnboardingViewModel()
         sut.viewDelegate = mockViewModelViewObserver
-        sut.onboardingNavigationViewModels = [MockOnboardingNavigationViewModel(),
-                                              MockOnboardingNavigationViewModel(),
-                                              MockOnboardingNavigationViewModel(),
-                                              MockOnboardingNavigationViewModel()]
         sut.locationPermissionsManager = mockLocationPermManager
         sut.coordinator = self
     }
@@ -55,13 +51,34 @@ class OnboardingViewModelTests: XCTestCase {
                        "OnboardingGetStartedPageViewController")
     }
 
-    func test_pageViewControllers_eachHaveAViewModel() {
-        for pageVC in sut.pageViewControllers {
-            let onboardingVC = pageVC as? OnboardingViewControllerDesignable
+    func test_nextWasTapped_callsGoToNextPage() {
+        sut.nextWasTapped(for: 0)
 
-            XCTAssertNotNil(onboardingVC)
-            XCTAssertNotNil(onboardingVC?.onboardingNavigationViewModel)
-        }
+        XCTAssertTrue(mockViewModelViewObserver.calledGoToNextPage)
+    }
+
+    func test_nextWasTapped_callsGoToNextPageWithNextVC() {
+        sut.nextWasTapped(for: 1)
+
+        XCTAssertTrue(mockViewModelViewObserver.goToNextPagePassedVC! is OnboardingPermissionsPageViewController)
+    }
+
+    func test_nextWasTapped_returnsIfIndexOutOfRange() {
+        sut.nextWasTapped(for: 10)
+
+        XCTAssertFalse(mockViewModelViewObserver.calledGoToNextPage)
+    }
+
+    func test_skipWasTapped_callsGoToLastPage() {
+        sut.skipWasTapped()
+
+        XCTAssertTrue(mockViewModelViewObserver.calledGoToLastPage)
+    }
+
+    func test_skipWasTapped_callsGoToLastPageWithLastVC() {
+        sut.skipWasTapped()
+
+        XCTAssertTrue(mockViewModelViewObserver.goToLastPageVC! is OnboardingGetStartedPageViewController)
     }
 
     func test_handleFinishOnboardingCalls_goToOnboardingFinished() {
@@ -170,34 +187,16 @@ class OnboardingViewModelTests: XCTestCase {
         XCTAssertTrue(onboardingGetStartedPageViewController is OnboardingGetStartedPageViewController)
     }
 
-    func test_nextWasTapped_callsGoToNextPage() {
-        sut.nextWasTapped(atIndex: 0)
+    func test_indexOf_returnsIndexOfPassedViewController() {
+        let index = sut.indexOf(viewController: sut.pageViewControllers[2])
 
-        XCTAssertTrue(mockViewModelViewObserver.calledGoToNextPage)
+        XCTAssertEqual(index!, 2)
     }
 
-    func test_nextWasTapped_callsGoToNextPageWithNextVC() {
-        sut.nextWasTapped(atIndex: 1)
+    func test_indexOf_returnsNilIfViewControllerDoesNotExist() {
+        let invalidIndex = sut.indexOf(viewController: UIViewController())
 
-        XCTAssertTrue(mockViewModelViewObserver.goToNextPagePassedVC! is OnboardingPermissionsPageViewController)
-    }
-
-    func test_nextWasTapped_returnsIfIndexOutOfRange() {
-        sut.nextWasTapped(atIndex: 10)
-
-        XCTAssertFalse(mockViewModelViewObserver.calledGoToNextPage)
-    }
-
-    func test_skipWasTapped_callsGoToLastPage() {
-        sut.skipWasTapped()
-
-        XCTAssertTrue(mockViewModelViewObserver.calledGoToLastPage)
-    }
-
-    func test_skipWasTapped_callsGoToLastPageWithLastVC() {
-        sut.skipWasTapped()
-
-        XCTAssertTrue(mockViewModelViewObserver.goToLastPageVC! is OnboardingGetStartedPageViewController)
+        XCTAssertNil(invalidIndex)
     }
 
     func test_handleAuthorizationError_callsHandlePermissionsTappedIfAuthStatusUndetermined() {

@@ -13,19 +13,13 @@ class OnboardingPageViewControllerTests: XCTestCase {
 
     var sut: OnboardingWelcomePageViewController!
 
-    private var mockOnboardingNavigationViewModel: MockOnboardingNavigationViewModel!
-
     override func setUp() {
         let onboardingVC = createOnboardingPageVC(with: .onboardingWelcomePageViewController)
         sut = onboardingVC as? OnboardingWelcomePageViewController
-
-        mockOnboardingNavigationViewModel = MockOnboardingNavigationViewModel()
-        sut.onboardingNavigationViewModel = mockOnboardingNavigationViewModel
     }
 
     override func tearDown() {
         sut = nil
-        mockOnboardingNavigationViewModel = nil
         super.tearDown()
     }
 
@@ -43,18 +37,6 @@ class OnboardingPageViewControllerTests: XCTestCase {
 
     func test_onboardingDetailLabel_isNotNil() {
         XCTAssertNotNil(sut.onboardingDetailLabel)
-    }
-
-    func test_skipTapped_callsViewModelSkipTapped() {
-        sut.skipTapped(UIButton())
-
-        XCTAssertTrue(mockOnboardingNavigationViewModel.calledSkipTapped)
-    }
-
-    func test_nextTapped_callsViewModelNextTapped() {
-        sut.nextTapped(UIButton())
-
-        XCTAssertTrue(mockOnboardingNavigationViewModel.calledNextTapped)
     }
 }
 

@@ -14,18 +14,8 @@ class OnboardingPermissionsPageViewController: UIViewController, OnboardingViewC
     @IBOutlet weak var onboardingTitleLabel: UILabel!
     @IBOutlet weak var onboardingDetailLabel: UILabel!
 
-    var onboardingNavigationViewModel: OnboardingNavigationViewModelInterface?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-    }
-
-    @IBAction func skipTapped(_ sender: Any) {
-        onboardingNavigationViewModel?.skipTapped()
-    }
-
-    @IBAction func nextTapped(_ sender: Any) {
-        onboardingNavigationViewModel?.nextTapped()
     }
 }

@@ -11,13 +11,29 @@ import UIKit
 @testable import Locatics
 class MockOnboardingViewModel: OnboardingViewModelInterface {
 
+    var calledNextWasTapped = false
+    var calledSkipWasTapped = false
+
     var calledHandleFinishOnboarding = false
     var calledHandlePermissionsTapped = false
 
     var calledGetPageVCBefore = false
     var calledGetPageVCAfter = false
 
+    var calledIndexOf = false
+
     weak var viewDelegate: OnboardingViewModelViewDelegate?
+
+    var nextWasTappedPassedValue: Int?
+    func nextWasTapped(for index: Int) {
+        calledNextWasTapped = true
+
+        nextWasTappedPassedValue = index
+    }
+
+    func skipWasTapped() {
+        calledSkipWasTapped = true
+    }
 
     func handleFinishOnboarding() {
         calledHandleFinishOnboarding = true
@@ -49,6 +65,15 @@ class MockOnboardingViewModel: OnboardingViewModelInterface {
 
         let onboardingVC = createOnboardingPageVC(with: .onboardingPermissionsPageViewController)
         return onboardingVC
+    }
+
+    var indexOfPassedValue: UIViewController?
+    func indexOf(viewController: UIViewController) -> Int? {
+        calledIndexOf = true
+
+        indexOfPassedValue = viewController
+
+        return 0
     }
 }
 

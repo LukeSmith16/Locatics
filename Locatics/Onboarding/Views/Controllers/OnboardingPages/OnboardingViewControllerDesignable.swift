@@ -12,11 +12,6 @@ protocol OnboardingViewControllerDesignable: UIViewController {
     var onboardingImageView: UIImageView! {get}
     var onboardingTitleLabel: UILabel! {get}
     var onboardingDetailLabel: UILabel! {get}
-
-    var onboardingNavigationViewModel: OnboardingNavigationViewModelInterface? {get}
-
-    func skipTapped(_ sender: Any)
-    func nextTapped(_ sender: Any)
 }
 
 extension OnboardingViewControllerDesignable {

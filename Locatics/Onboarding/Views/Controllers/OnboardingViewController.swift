@@ -17,10 +17,27 @@ class OnboardingViewController: UIPageViewController {
         }
     }
 
+    let pageControl = UIPageControl()
+
+    private var currentIndex: Int = 0 {
+        didSet {
+            self.pageControl.currentPage = currentIndex
+        }
+    }
+
+    private var pendingIndex: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDSAndDelegate()
-        setupPageViewControllers()
+        setupViews()
+    }
+
+    @objc func nextTapped(_ sender: UIButton) {
+        onboardingViewModel?.nextWasTapped(for: currentIndex)
+    }
+
+    @objc func skipTapped(_ sender: UIButton) {
+        onboardingViewModel?.skipWasTapped()
     }
 
     @IBAction func doneTapped(_ sender: Any) {
@@ -33,6 +50,19 @@ class OnboardingViewController: UIPageViewController {
 }
 
 private extension OnboardingViewController {
+    func setupViews() {
+        setupBackground()
+        setupDSAndDelegate()
+        setupPageViewControllers()
+        setupBackgroundOnboardingTextView()
+        setupPageControl()
+        setupNavigationStackView()
+    }
+
+    func setupBackground() {
+        self.view.backgroundColor = UIColor(colorTheme: .Background)
+    }
+
     func setupDSAndDelegate() {
         self.dataSource = self
         self.delegate = self
@@ -41,6 +71,84 @@ private extension OnboardingViewController {
     func setupPageViewControllers() {
         let initialPageViewController = onboardingViewModel!.getInitialPageViewController()
         self.setViewControllers([initialPageViewController], direction: .forward, animated: true, completion: nil)
+    }
+
+    func setupBackgroundOnboardingTextView() {
+        let onboardingTextBackground = UIImageView(frame: CGRect(x: 0,
+                                                                 y: 0,
+                                                                 width: view.bounds.width,
+                                                                 height: ScreenDesignable.onboardingBackgroundTextViewHeight))
+        onboardingTextBackground.image = UIImage(named: "onboardingTextBackground")!
+        onboardingTextBackground.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(onboardingTextBackground)
+        view.sendSubviewToBack(onboardingTextBackground)
+
+        NSLayoutConstraint(item: onboardingTextBackground,
+                           attribute: .centerY,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .centerY,
+                           multiplier: 1.76,
+                           constant: 0).isActive = true
+        onboardingTextBackground.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+
+    func setupPageControl() {
+        pageControl.numberOfPages = 4
+        pageControl.currentPage = 0
+    }
+
+    func setupNavigationStackView() {
+        let skipButton = setupSkipButton()
+        let nextButton = setupNextButton()
+
+        let stackView = UIStackView(arrangedSubviews: [skipButton, pageControl, nextButton])
+        stackView.center = self.view.center
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        self.view.addSubview(stackView)
+        setupConstraintsForNavigationStackView(stackView)
+    }
+
+    func setupSkipButton() -> UIButton {
+        let skipButton = UIButton()
+        skipButton.setTitle("Skip", for: .normal)
+        skipButton.titleLabel?.font = Font.init(.installed(.HelveticaBold), size: .custom(16.0)).instance
+        skipButton.setTitleColor(UIColor(colorTheme: .Title_Action),
+                                 for: .normal)
+        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .touchUpInside)
+
+        return skipButton
+    }
+
+    func setupNextButton() -> UIButton {
+        let nextButton = UIButton()
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.titleLabel?.font = Font.init(.installed(.HelveticaRegular), size: .custom(16.0)).instance
+        nextButton.setTitleColor(UIColor(colorTheme: .Title_Action),
+                                 for: .normal)
+        nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
+
+        return nextButton
+    }
+
+    func setupConstraintsForNavigationStackView(_ stackView: UIStackView) {
+        stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+
+        NSLayoutConstraint(item: stackView,
+                           attribute: .centerY,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .centerY,
+                           multiplier: 1.876,
+                           constant: 0).isActive = true
+
+        stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 35).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -35).isActive = true
     }
 }
 
@@ -58,6 +166,18 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return onboardingViewModel?.getPageViewController(after: viewController)
     }
+
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        self.pendingIndex = onboardingViewModel?.indexOf(viewController: pendingViewControllers.first!)
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
+        guard completed, let pendingIndex = pendingIndex else { return }
+        self.currentIndex = pendingIndex
+    }
 }
 
 extension OnboardingViewController: UIPageViewControllerDelegate {}
@@ -67,17 +187,19 @@ extension OnboardingViewController: OnboardingViewModelViewDelegate {
         let alertController = AlertController.create(title: "Location Permissions",
                                                      message: "You must allow Locatics to use your location before proceeding",
                                                      actionTitle: "App Settings") { [unowned self] in
-                                                     self.onboardingViewModel?.handleGoToAppSettings()
+                                                        self.onboardingViewModel?.handleGoToAppSettings()
         }
 
         self.present(alertController, animated: true, completion: nil)
     }
 
     func goToNextPage(nextVC: UIViewController) {
+        self.currentIndex += 1
         self.setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
     }
 
     func goToLastPage(lastVC: UIViewController) {
+        self.currentIndex = 3
         self.setViewControllers([lastVC], direction: .forward, animated: true, completion: nil)
     }
 }
