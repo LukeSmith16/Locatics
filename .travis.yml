@@ -1,8 +1,8 @@
+sudo: false
+
 os: osx
 osx_image: xcode11
 language: swift
-
-sudo: false
 
 before_install:
   - gem install cocoapods -v '1.7.5'
