@@ -1,9 +1,10 @@
 os: osx
-osx_image: xcode11
+osx_image: xcode11.2
 language: swift
 
 before_install:
-  - gem install cocoapods -v '1.7.5'
+  - rvm use system
+  - sudo gem install cocoapods -v '1.7.5'
   
 install:
   - ./install_swiftlint.sh
