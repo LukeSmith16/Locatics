@@ -9,10 +9,7 @@ target 'Locatics' do
   pod 'SwiftLint'
   pod 'IQKeyboardManagerSwift'
   pod 'ViewAnimator'
+  pod 'Material'
   pod 'Charts'
-
-  target 'LocaticsTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+ 
 end
