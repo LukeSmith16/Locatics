@@ -46,12 +46,8 @@ class OnboardingViewController: UIPageViewController {
         onboardingViewModel?.skipWasTapped()
     }
 
-    @IBAction func doneTapped(_ sender: Any) {
+    @objc func doneTapped(_ sender: Any) {
         onboardingViewModel?.handleFinishOnboarding()
-    }
-
-    @IBAction func permissionsTapped(_ sender: Any) {
-        onboardingViewModel?.handlePermissionsTapped()
     }
 }
 

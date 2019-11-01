@@ -83,12 +83,6 @@ class OnboardingViewControllerTests: XCTestCase {
         XCTAssertTrue(mockOnboardingViewModel.calledHandleFinishOnboarding)
     }
 
-    func test_permissionsTapped_callsHandlePermissionsTapped() {
-        sut.permissionsTapped(UIButton())
-
-        XCTAssertTrue(mockOnboardingViewModel.calledHandlePermissionsTapped)
-    }
-
     func test_viewControllerPages_isNotNil() {
         XCTAssertNotNil(sut.viewControllers)
         XCTAssertTrue(sut.presentationCount(for: sut) == 4)

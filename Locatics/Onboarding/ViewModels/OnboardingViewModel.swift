@@ -20,7 +20,7 @@ protocol OnboardingViewModelViewDelegate: class {
     func goToLastPage(lastVC: UIViewController)
 }
 
-protocol OnboardingViewModelInterface {
+protocol OnboardingViewModelInterface: class {
     var viewDelegate: OnboardingViewModelViewDelegate? {get set}
 
     func nextWasTapped(for index: Int)
@@ -131,7 +131,17 @@ private extension OnboardingViewModel {
         let onboardingStoryboard = UIStoryboard.Storyboard.onboarding
         let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: identifier.rawValue)
 
+        setupPermissionsViewController(onboardingVC)
+
         return onboardingVC
+    }
+
+    func setupPermissionsViewController(_ viewController: UIViewController) {
+        guard let permissisionsViewController = viewController as? OnboardingPermissionsPageViewController else {
+            return
+        }
+
+        permissisionsViewController.onboardingViewModel = self
     }
 
     func indexForPageViewController(_ viewController: UIViewController) -> Int {

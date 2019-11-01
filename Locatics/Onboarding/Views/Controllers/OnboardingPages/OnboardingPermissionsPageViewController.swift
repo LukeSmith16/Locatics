@@ -14,8 +14,14 @@ class OnboardingPermissionsPageViewController: UIViewController, OnboardingViewC
     @IBOutlet weak var onboardingTitleLabel: UILabel!
     @IBOutlet weak var onboardingDetailLabel: UILabel!
 
+    weak var onboardingViewModel: OnboardingViewModelInterface?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+
+    @IBAction func permissionsTapped(_ sender: Any) {
+        onboardingViewModel?.handlePermissionsTapped()
     }
 }
