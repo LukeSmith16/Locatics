@@ -6,6 +6,8 @@
 //  Copyright © 2019 Luke Smith. All rights reserved.
 //
 
+// swiftlint:disable line_length
+
 import CoreLocation
 
 enum LocationError: Error {
@@ -19,7 +21,7 @@ extension LocationError: LocalizedError {
         case .locationNotFound:
             return "Your location could not be determined."
         case .notAuthorised:
-            return "You have not enabled loction permissions."
+            return "You have disabled location permissions. To re-enable location permissions go to Settings -> Locatics -> Location"
         }
     }
 }
