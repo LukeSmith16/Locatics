@@ -8,6 +8,9 @@
 
 import Foundation
 
+// swiftlint:disable type_name
+//swiftlint:disable identifier_name
+
 @testable import Locatics
 class MockLocaticsCollectionViewModelViewDelegate: LocaticsCollectionViewModelViewDelegate {
     var calledLocaticCellViewModelWasAdded = false
