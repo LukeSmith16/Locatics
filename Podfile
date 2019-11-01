@@ -8,7 +8,6 @@ target 'Locatics' do
   # Pods for Locatics
   pod 'SwiftLint'
   pod 'IQKeyboardManagerSwift'
-  pod 'Material'
   pod 'ViewAnimator'
   pod 'Charts'
 
