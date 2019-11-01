@@ -10,17 +10,18 @@ import UIKit
 
 @testable import Locatics
 class MockTabBarControllerClosure {
+
     var calledOnMapFlowSelect = false
     var calledOnLocaticsFlowSelect = false
 
-    var calledController: UINavigationController?
+    var calledControllers: [UINavigationController] = []
 
     func addMapSelectClosure(sut: TabBarController) {
         sut.onMapFlowSelect = { [weak self] navController in
             guard let `self` = self else { return }
 
             self.calledOnMapFlowSelect = true
-            self.calledController = navController
+            self.calledControllers.append(navController)
         }
     }
 
@@ -29,7 +30,7 @@ class MockTabBarControllerClosure {
             guard let `self` = self else { return }
 
             self.calledOnLocaticsFlowSelect = true
-            self.calledController = navController
+            self.calledControllers.append(navController)
         }
     }
 }

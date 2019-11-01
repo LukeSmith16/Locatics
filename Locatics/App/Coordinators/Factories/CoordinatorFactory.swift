@@ -52,7 +52,8 @@ final class CoordinatorFactory: CoordinatorFactoryInterface {
     func createLocaticsFlow(root: UINavigationController) -> CoordinatorInterface {
         let locaticsCoordinator = LocaticsCoordinator(root: root,
                                                       coordinatorFactory: CoordinatorFactory(storageManager: storageManager),
-                                                      moduleFactory: LocaticsModuleFactory())
+                                                      moduleFactory: LocaticsModuleFactory(storageManager: storageManager,
+                                                                                           locaticStorage: locaticStorage))
         return locaticsCoordinator
     }
 }

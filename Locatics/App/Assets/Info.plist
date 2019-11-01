@@ -21,13 +21,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Locatics needs to access your location</string>
+	<string>Locatics needs to access your location - location data is only persisted locally on your device and is not shared</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Ok please let us access</string>
+	<string>Locatics needs to access your location - location data is only persisted locally on your device and is not shared</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Locatics needs to access your location ok</string>
+	<string>Locatics needs to access your location - location data is only persisted locally on your device and is not shared</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>When in use</string>
+	<string>Locatics needs to access your location - location data is only persisted locally on your device and is not shared</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

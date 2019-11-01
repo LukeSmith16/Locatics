@@ -11,20 +11,14 @@ import XCTest
 @testable import Locatics
 class TabBarControllerTests: XCTestCase {
 
-    private var mockTabBarControllerClosures: MockTabBarControllerClosure!
     var sut: TabBarController!
 
     override func setUp() {
-        mockTabBarControllerClosures = MockTabBarControllerClosure()
-
         sut = createTabBarController(initialIndex: 0)
-
-        _ = sut.view
     }
 
     override func tearDown() {
         sut = nil
-        mockTabBarControllerClosures = nil
         super.tearDown()
     }
 
@@ -33,16 +27,14 @@ class TabBarControllerTests: XCTestCase {
         XCTAssertEqual(TabIndex.locatics.rawValue, 1)
     }
 
-    func test_delegate_isNotNil() {
-        XCTAssertNotNil(sut.delegate)
-    }
-
     func test_viewControllerCount_isTwo() {
         XCTAssertNotNil(sut.viewControllers)
         XCTAssertEqual(sut.viewControllers.count, 2)
     }
 
     func test_setupTabBar_configuresTabBar() {
+        _ = sut.view
+
         XCTAssertTrue(sut.tabBar.lineAlignment == .top)
         XCTAssertTrue(sut.tabBar.tabBarStyle == .nonScrollable)
 
@@ -60,21 +52,49 @@ class TabBarControllerTests: XCTestCase {
     }
 
     func test_setupGestures_disablesSwipe() {
+        _ = sut.view
+
         XCTAssertFalse(sut.isSwipeEnabled)
     }
 
-    func test_initialTabSelected_isMapFlow() {
-        sut = createTabBarController(initialIndex: 0)
+    func test_setupTabs_setsTabs() {
+        let mapFlowExpectation = expectation(description: "Wait for onMapFlowSelect")
+        sut.onMapFlowSelect = { (navController) in
+            mapFlowExpectation.fulfill()
+        }
 
-        mockTabBarControllerClosures.addMapSelectClosure(sut: sut)
-        mockTabBarControllerClosures.addLocaticsSelectClosure(sut: sut)
+        let locaticsFlowExpectation = expectation(description: "Wait for onLocaticsFlowSelect")
+        sut.onLocaticsFlowSelect = { (navController) in
+            locaticsFlowExpectation.fulfill()
+        }
 
         _ = sut.view
 
-        XCTAssertTrue(mockTabBarControllerClosures.calledOnMapFlowSelect)
-        XCTAssertFalse(mockTabBarControllerClosures.calledOnLocaticsFlowSelect)
+        wait(for: [mapFlowExpectation, locaticsFlowExpectation], timeout: 3, enforceOrder: true)
+    }
 
-        XCTAssertNotNil(mockTabBarControllerClosures.calledController)
+    func test_setupTabItemForMapFlow_setsTabItem() {
+        _ = sut.view
+
+        guard let mapNavController = sut.viewControllers.first as? NavigationViewController else {
+            XCTFail("Should be of type 'NavigationViewController'")
+            return
+        }
+
+        XCTAssertNotNil(mapNavController.tabItem.image(for: .normal))
+        XCTAssertNotNil(mapNavController.tabItem.image(for: .selected))
+    }
+
+    func test_setupTabItemForLocaticsFlow_setsTabItem() {
+        _ = sut.view
+
+        guard let locaticsNavController = sut.viewControllers.last as? NavigationViewController else {
+            XCTFail("Should be of type 'NavigationViewController'")
+            return
+        }
+
+        XCTAssertNotNil(locaticsNavController.tabItem.image(for: .normal))
+        XCTAssertNotNil(locaticsNavController.tabItem.image(for: .selected))
     }
 }
 

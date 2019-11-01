@@ -27,6 +27,7 @@ class LocaticsMapViewControllerTests: XCTestCase {
         sut.locaticsMainViewModel = mockLocaticsMainViewModel
         sut.navigationTitleView = mockNavigationTitleView
 
+        _ = UINavigationController(rootViewController: sut)
         _ = sut.view
 
         sut.mapView = mockMapView

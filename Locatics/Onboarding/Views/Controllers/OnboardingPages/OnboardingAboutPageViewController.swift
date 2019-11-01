@@ -8,4 +8,14 @@
 
 import UIKit
 
-class OnboardingAboutPageViewController: UIViewController {}
+class OnboardingAboutPageViewController: UIViewController, OnboardingViewControllerDesignable {
+    @IBOutlet weak var onboardingImageView: UIImageView!
+
+    @IBOutlet weak var onboardingTitleLabel: UILabel!
+    @IBOutlet weak var onboardingDetailLabel: UILabel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+}

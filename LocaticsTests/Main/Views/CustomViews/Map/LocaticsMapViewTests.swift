@@ -76,7 +76,7 @@ class LocaticsMapViewTests: XCTestCase {
 
         XCTAssertNil(mapViewAnnotation)
     }
-    
+
     func test_addLocaticMapRadiusCircle_isNil() {
         XCTAssertNil(sut.addLocaticMapRadiusCircle)
     }

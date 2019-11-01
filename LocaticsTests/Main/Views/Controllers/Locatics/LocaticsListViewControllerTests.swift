@@ -11,24 +11,72 @@ import XCTest
 @testable import Locatics
 class LocaticsListViewControllerTests: XCTestCase {
 
+    var sut: LocaticsListViewController!
+
+    private var mockCollectionView: MockLocaticsListCollectionView!
+    private var mockLocaticsViewModel: MockLocaticsViewModel!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = LocaticsListViewController()
+
+        mockCollectionView = MockLocaticsListCollectionView(frame: .zero,
+                                                            collectionViewLayout: UICollectionViewLayout())
+
+        mockLocaticsViewModel = MockLocaticsViewModel()
+        sut.locaticsViewModel = mockLocaticsViewModel
+
+        _ = UINavigationController(rootViewController: sut)
+        _ = sut.view
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        mockLocaticsViewModel = nil
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_view_isNotNil() {
+        XCTAssertNotNil(sut.view)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_locaticsListCollectionView_isNotNil() {
+        XCTAssertNotNil(sut.locaticsListCollectionView)
     }
 
+    func test_navigationTitleView_isNotNil() {
+        XCTAssertNotNil(sut.navigationTitleView)
+    }
+
+    func test_mapView_isNotNil() {
+        XCTAssertNotNil(sut.mapView)
+    }
+
+    func test_visualEffectView_isNotNil() {
+        XCTAssertNotNil(sut.visualEffectView)
+    }
+
+    func test_locaticsViewModelDidSet_setsViewDelegate() {
+        XCTAssertNotNil(mockLocaticsViewModel.viewDelegate)
+    }
+
+    func test_locaticsListCollectionViewViewModel_isNotNil() {
+        XCTAssertNotNil(sut.locaticsListCollectionView.locaticsCollectionViewModel)
+    }
+
+    func test_viewWillAppear_callsPrepareLocaticsListCollectionViewAnimation() {
+        sut.locaticsListCollectionView = mockCollectionView
+
+        sut.beginAppearanceTransition(true, animated: true)
+
+        XCTAssertEqual(mockCollectionView.alpha, 0.0)
+    }
+
+    func test_viewDidAppear_callsAnimateLocaticsListCollectionView() {
+        sut.locaticsListCollectionView = mockCollectionView
+
+        sut.beginAppearanceTransition(true, animated: true)
+        sut.endAppearanceTransition()
+
+        XCTAssertTrue(mockCollectionView.calledAnimate)
+    }
 }

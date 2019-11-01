@@ -9,6 +9,8 @@
 import XCTest
 import CoreLocation
 
+// swiftlint:disable type_body_length
+
 @testable import Locatics
 class LocationManagerTests: XCTestCase {
 
@@ -57,7 +59,7 @@ class LocationManagerTests: XCTestCase {
         XCTAssertEqual(LocationError.locationNotFound.localizedDescription,
                        "Your location could not be determined.")
         XCTAssertEqual(LocationError.notAuthorised.localizedDescription,
-                       "You have not enabled loction permissions.")
+                       "You have disabled location permissions. To re-enable location permissions go to Settings -> Locatics -> Location")
     }
 
     func test_lastVisitedLocation_isNilByDefault() {
@@ -132,7 +134,8 @@ class LocationManagerTests: XCTestCase {
             case .success(let success):
                 XCTFail("Should not be getting location if not authorised - \(success)")
             case .failure(let failure):
-                XCTAssertEqual(failure.localizedDescription, "You have not enabled loction permissions.")
+                XCTAssertEqual(failure.localizedDescription,
+                               "You have disabled location permissions. To re-enable location permissions go to Settings -> Locatics -> Location")
             }
         }
     }

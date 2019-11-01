@@ -75,6 +75,22 @@ class AddLocaticViewModelTests: XCTestCase {
         XCTAssertEqual(mockLocaticStorge.changedIconPath!, "homeLocaticIcon")
     }
 
+    func test_locaticIconDidChange_updatesLocaticIconPathWithTagTwo() {
+        sut.locaticIconDidChange(2)
+
+        sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
+
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "activityLocaticIcon")
+    }
+
+    func test_locaticIconDidChange_updatesLocaticIconPathWithTagThree() {
+        sut.locaticIconDidChange(3)
+
+        sut.addLocaticWasTapped(locaticName: "Test", radius: 15)
+
+        XCTAssertEqual(mockLocaticStorge.changedIconPath!, "workLocaticIcon")
+    }
+
     func test_locaticIconDidChange_withInvalidTagUsesDefaultIconPath() {
         sut.locaticIconDidChange(10)
 

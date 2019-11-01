@@ -138,7 +138,7 @@ class LocaticsMapViewModelTests: XCTestCase {
         let coordinate = Coordinate(latitude: 10.0, longitude: 12.0)
         let iconPath = sut.getLocaticIconForCoordinate(coordinate)
 
-        XCTAssertEqual(iconPath, "testIconPath")
+        XCTAssertEqual(iconPath, "locaticIcon")
     }
 
     func test_locaticWasInserted_addsLocaticToLocaticsArray() {

@@ -15,10 +15,16 @@ protocol OnboardingViewModelCoordinatorDelegate: class {
 
 protocol OnboardingViewModelViewDelegate: class {
     func locationPermissionsWereDenied()
+
+    func goToNextPage(nextVC: UIViewController)
+    func goToLastPage(lastVC: UIViewController)
 }
 
-protocol OnboardingViewModelInterface {
+protocol OnboardingViewModelInterface: class {
     var viewDelegate: OnboardingViewModelViewDelegate? {get set}
+
+    func nextWasTapped(for index: Int)
+    func skipWasTapped()
 
     func handleFinishOnboarding()
     func handlePermissionsTapped()
@@ -29,6 +35,8 @@ protocol OnboardingViewModelInterface {
     func pageViewControllerCount() -> Int
     func getPageViewController(before viewController: UIViewController) -> UIViewController?
     func getPageViewController(after viewController: UIViewController) -> UIViewController?
+
+    func indexOf(viewController: UIViewController) -> Int?
 }
 
 enum OnboardingStoryboardIdentifier: String {
@@ -52,6 +60,17 @@ class OnboardingViewModel: OnboardingViewModelInterface {
             self.getViewController(identifier: .onboardingGetStartedPageViewController)
         ]
     }()
+
+    func nextWasTapped(for index: Int) {
+        guard index < (pageViewControllers.count - 1) else { return }
+        let nextViewController = pageViewControllers[index+1]
+        viewDelegate?.goToNextPage(nextVC: nextViewController)
+    }
+
+    func skipWasTapped() {
+        let lastViewController = pageViewControllers.last!
+        viewDelegate?.goToLastPage(lastVC: lastViewController)
+    }
 
     func handleFinishOnboarding() {
         guard locationPermissionsManager!.hasAuthorizedLocationPermissions() else {
@@ -101,6 +120,10 @@ class OnboardingViewModel: OnboardingViewModelInterface {
         let nextPageVC = pageViewControllers[currentIndex+1]
         return nextPageVC
     }
+
+    func indexOf(viewController: UIViewController) -> Int? {
+        return pageViewControllers.firstIndex(of: viewController)
+    }
 }
 
 private extension OnboardingViewModel {
@@ -108,7 +131,17 @@ private extension OnboardingViewModel {
         let onboardingStoryboard = UIStoryboard.Storyboard.onboarding
         let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: identifier.rawValue)
 
+        setupPermissionsViewController(onboardingVC)
+
         return onboardingVC
+    }
+
+    func setupPermissionsViewController(_ viewController: UIViewController) {
+        guard let permissisionsViewController = viewController as? OnboardingPermissionsPageViewController else {
+            return
+        }
+
+        permissisionsViewController.onboardingViewModel = self
     }
 
     func indexForPageViewController(_ viewController: UIViewController) -> Int {

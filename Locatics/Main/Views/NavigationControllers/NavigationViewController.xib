@@ -15,6 +15,9 @@
                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
             </navigationBar>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="delegate" destination="-1" id="DA5-s3-0S6"/>
             </connections>
