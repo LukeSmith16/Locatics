@@ -1,6 +1,5 @@
 [![codecov](https://codecov.io/gh/LukeSmith16/Locatics/branch/onboarding-feature/graph/badge.svg)](https://codecov.io/gh/LukeSmith16/Locatics)
 
-# Locatics
 <p align="center">
   <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/Icon-60%403x.png">
 </p>
