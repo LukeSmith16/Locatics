@@ -1,3 +1,5 @@
 scheme("Locatics")
-skip_build(true)
+devices(["iPhone 8"])
+clean(true)
+skip_build(false)
 open_report(true)
