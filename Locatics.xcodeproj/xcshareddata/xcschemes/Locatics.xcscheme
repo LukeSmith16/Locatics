@@ -57,6 +57,11 @@
                BlueprintName = "LocaticsTests"
                ReferencedContainer = "container:Locatics.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DateExtensionsTests/test_startOfWeek_isMidnightMonday()">
+               </Test>
+            </SkippedTests>
             <LocationScenarioReference
                identifier = "London, England"
                referenceType = "1">
