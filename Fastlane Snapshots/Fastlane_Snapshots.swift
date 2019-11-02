@@ -19,7 +19,5 @@ class FastlaneSnapshots: XCTestCase {
 
     override func tearDown() {}
 
-    func test_snapshot() {
-        
-    }
+    func test_snapshot() {}
 }
