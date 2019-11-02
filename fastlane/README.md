@@ -16,9 +16,24 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios register_app
+```
+fastlane ios register_app
+```
+
 ### ios setup_dev
 ```
 fastlane ios setup_dev
+```
+
+### ios setup_production
+```
+fastlane ios setup_production
+```
+
+### ios setup_appstore
+```
+fastlane ios setup_appstore
 ```
 
 ### ios sync_signing_assets

@@ -4,24 +4,49 @@ default_platform :ios
 
 # ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
 
+app_name = "Locatics"
+app_identifier = "org.lukesmith.locatics.app"
+
 platform :ios do
   ################
   # Before:
   ################
   before_all do
-    ensure_bundle_exec
-    setup_travis
-    scan
+    # ensure_bundle_exec
+    # setup_travis
+    # scan
   end
 
   ################
   # Lanes:
   ################
 
+  lane :register_app do
+    produce(
+      username: "lukeedwardsmith97@gmail.com",
+      app_identifier: app_identifier,
+      app_name: app_name,
+      team_name: "Luke Smith",
+      itc_team_name: "Luke Smith"
+    )
+  end
+
   lane :setup_dev do
     cert(development: true)
     sigh(development: true) 
     cocoapods
+  end
+
+  lane :setup_production do 
+    cert(development: false)
+    sigh(development: false) 
+  end
+
+  lane :setup_appstore do 
+    match(
+      type: 'appstore',
+      app_identifier: "#{app_identifier}"
+    )
   end
 
   lane :sync_signing_assets do |options|
