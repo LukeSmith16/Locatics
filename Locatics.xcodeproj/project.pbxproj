@@ -2263,7 +2263,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
 				INFOPLIST_FILE = "$(SRCROOT)/Locatics/App/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2283,7 +2283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
 				INFOPLIST_FILE = "$(SRCROOT)/Locatics/App/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
