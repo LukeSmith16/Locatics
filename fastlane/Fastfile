@@ -49,6 +49,27 @@ platform :ios do
     )
   end
 
+  lane :build_release do
+    setup_appstore
+    gym(
+      clean: true,
+      configuration: "Release",
+      output_directory: "builds/" + Time.now.strftime('%F'),
+      output_name: "#{app_name}-release.ipa",
+      project: "#{app_name}.xcworkspace",
+      scheme: "#{app_name}",
+    )
+  end
+
+  lane :release_app do
+    deliver(
+      ipa: "builds/#{Time.now.strftime('%F')}/#{app_name}-release.ipa",
+      force: true,
+      skip_metadata: true,
+      skip_screenshots: true
+    )
+  end
+
   lane :sync_signing_assets do |options|
     sync_device_info
     selectedType = options[:type]

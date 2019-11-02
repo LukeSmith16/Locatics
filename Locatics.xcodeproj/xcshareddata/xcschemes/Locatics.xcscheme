@@ -68,12 +68,22 @@
             </LocationScenarioReference>
          </TestableReference>
          <TestableReference
-            skipped = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0773F7152321708C00EA62E1"
                BuildableName = "LocaticsUITests.xctest"
                BlueprintName = "LocaticsUITests"
+               ReferencedContainer = "container:Locatics.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "07AAB629236E1AB70043CA52"
+               BuildableName = "Fastlane Snapshots.xctest"
+               BlueprintName = "Fastlane Snapshots"
                ReferencedContainer = "container:Locatics.xcodeproj">
             </BuildableReference>
          </TestableReference>
