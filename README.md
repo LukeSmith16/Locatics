@@ -11,4 +11,5 @@
   <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/xs-03-iOS-1242x2688.png" width="285" height="600">
 </p>
 
-'Location Analytics' - I would like to know where I’ve been and see detailed statistics on how long I’ve been there and how many times I’ve visited that place previously. 
+## About
+Get analytical data on how you allocate your time on a weekly basis. Customise and add locations that you want to track and get a statistical breakdown for each one.
