@@ -49,9 +49,8 @@
       "scale" : "3x"
     },
     {
-      "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "tiny.png",
+      "size" : "20x20",
       "scale" : "1x"
     },
     {
