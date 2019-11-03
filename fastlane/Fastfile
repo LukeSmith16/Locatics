@@ -13,8 +13,8 @@ platform :ios do
   ################
   before_all do
    ensure_bundle_exec
-   setup_travis
-   scan
+    setup_travis
+    scan
   end
 
   ################
@@ -51,7 +51,6 @@ platform :ios do
 
   lane :build_release do
     setup_appstore
-    increment_build_number
     gym(
       clean: true,
       configuration: "Release",
