@@ -36,6 +36,16 @@ fastlane ios setup_production
 fastlane ios setup_appstore
 ```
 
+### ios build_release
+```
+fastlane ios build_release
+```
+
+### ios release_app
+```
+fastlane ios release_app
+```
+
 ### ios sync_signing_assets
 ```
 fastlane ios sync_signing_assets

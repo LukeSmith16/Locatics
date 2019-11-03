@@ -56,7 +56,7 @@ platform :ios do
       configuration: "Release",
       output_directory: "builds/" + Time.now.strftime('%F'),
       output_name: "#{app_name}-release.ipa",
-      project: "#{app_name}.xcworkspace",
+      workspace: "#{app_name}.xcworkspace",
       scheme: "#{app_name}",
     )
   end
