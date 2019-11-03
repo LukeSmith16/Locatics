@@ -23,20 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        resetStateForUITesting()
         setupIQKeyboardManager()
 
         self.window = UIWindow()
         self.app = App(window: window!)
 
         return true
-    }
-
-    private func resetStateForUITesting() {
-        guard CommandLine.arguments.contains("--uitesting") else { return }
-
-        let bundleID = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: bundleID)
     }
 
     private func setupIQKeyboardManager() {

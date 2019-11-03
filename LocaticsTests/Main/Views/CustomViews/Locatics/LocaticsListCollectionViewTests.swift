@@ -50,7 +50,7 @@ class LocaticsListCollectionViewTests: XCTestCase {
         }
 
         XCTAssertEqual(flowLayout.itemSize.width,
-                       sut.bounds.width)
+                       sut.bounds.width-30)
         XCTAssertEqual(flowLayout.itemSize.height,
                        ScreenDesignable.cellHeight)
 

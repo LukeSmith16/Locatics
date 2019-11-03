@@ -1,4 +1,4 @@
-app_identifier "com.lukesmith.locatics"
+app_identifier "org.lukesmith.locatics.app"
 apple_id ENV["lukeedwardsmith97@gmail.com"]
 
 team_id "RCT493KH2G"

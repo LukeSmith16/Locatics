@@ -10,6 +10,7 @@
 		0706845F231AD01B0023EB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706845E231AD01B0023EB27 /* AppDelegate.swift */; };
 		07068466231AD01C0023EB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07068465231AD01C0023EB27 /* Assets.xcassets */; };
 		07068469231AD01C0023EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07068467231AD01C0023EB27 /* LaunchScreen.storyboard */; };
+		0707F39AC5C4972A9BFB2754 /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1225CA619C9629AD8642FB9 /* Pods_Locatics.framework */; };
 		0709D11C233A7A08001CD360 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0709D11B233A7A08001CD360 /* Managed.swift */; };
 		070E1C602365FC3B00FA70E5 /* Calendar+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070E1C5F2365FC3B00FA70E5 /* Calendar+ExtensionsTests.swift */; };
 		070E1C622365FEB700FA70E5 /* Date+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070E1C612365FEB700FA70E5 /* Date+ExtensionsTests.swift */; };
@@ -61,7 +62,6 @@
 		0773F70B232133A600EA62E1 /* LocationPermissionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */; };
 		0773F70E23216EAD00EA62E1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F70D23216EAD00EA62E1 /* AlertController.swift */; };
 		0773F71123216F6000EA62E1 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F71023216F6000EA62E1 /* AlertControllerTests.swift */; };
-		0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F721232170A600EA62E1 /* OnboardingUITests.swift */; };
 		0773F72623226E2700EA62E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72523226E2700EA62E1 /* TabBarController.swift */; };
 		0773F72A23226EA400EA62E1 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */; };
 		0773F73323227D7800EA62E1 /* TabBarCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */; };
@@ -127,6 +127,8 @@
 		079A4454234A27A5000EA2EF /* LocaticsMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */; };
 		079A4456234A286B000EA2EF /* LocaticsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */; };
 		079A4458234A3428000EA2EF /* LocaticsMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4457234A3428000EA2EF /* LocaticsMapViewModelTests.swift */; };
+		07AAB62D236E1AB70043CA52 /* Fastlane_Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AAB62C236E1AB70043CA52 /* Fastlane_Snapshots.swift */; };
+		07AAB635236E1B410043CA52 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AAB634236E1B410043CA52 /* SnapshotHelper.swift */; };
 		07BC2C44234EB99900D169E9 /* LocaticMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C43234EB99900D169E9 /* LocaticMarkerAnnotationView.swift */; };
 		07BC2C46234EB9C100D169E9 /* LocaticClusterMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C45234EB9C100D169E9 /* LocaticClusterMarkerView.swift */; };
 		07BC2C48234FB5B400D169E9 /* MockLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC2C47234FB5B400D169E9 /* MockLocation.swift */; };
@@ -212,8 +214,7 @@
 		07FC7D9A231C14AF006CA6E0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */; };
 		07FC7D9C231C14C0006CA6E0 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */; };
 		07FC7D9E231C14C9006CA6E0 /* OnboardingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */; };
-		6EDCAB21C3DF4B4455B93B77 /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A88C1F8C5540A87BBEB332 /* Pods_LocaticsTests.framework */; };
-		E50147C53D800A72BFC47EFE /* Pods_Locatics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7110DE1525ACDC2C404FAB /* Pods_Locatics.framework */; };
+		BFFBE52AE85696A8AADF6C3C /* Pods_LocaticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D197D3650C6FBEF098E3642 /* Pods_LocaticsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,7 +225,7 @@
 			remoteGlobalIDString = 0706845A231AD01B0023EB27;
 			remoteInfo = Locatics;
 		};
-		0773F71B2321708C00EA62E1 /* PBXContainerItemProxy */ = {
+		07AAB62F236E1AB70043CA52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07068453231AD01B0023EB27 /* Project object */;
 			proxyType = 1;
@@ -292,9 +293,6 @@
 		0773F70A232133A600EA62E1 /* LocationPermissionsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionsManagerTests.swift; sourceTree = "<group>"; };
 		0773F70D23216EAD00EA62E1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0773F71023216F6000EA62E1 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
-		0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0773F71A2321708C00EA62E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0773F721232170A600EA62E1 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
 		0773F72523226E2700EA62E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0773F72923226EA400EA62E1 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 		0773F73223227D7800EA62E1 /* TabBarCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorTests.swift; sourceTree = "<group>"; };
@@ -360,6 +358,10 @@
 		079A4453234A27A5000EA2EF /* LocaticsMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewTests.swift; sourceTree = "<group>"; };
 		079A4455234A286B000EA2EF /* LocaticsMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModel.swift; sourceTree = "<group>"; };
 		079A4457234A3428000EA2EF /* LocaticsMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticsMapViewModelTests.swift; sourceTree = "<group>"; };
+		07AAB62A236E1AB70043CA52 /* Fastlane Snapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fastlane Snapshots.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07AAB62C236E1AB70043CA52 /* Fastlane_Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fastlane_Snapshots.swift; sourceTree = "<group>"; };
+		07AAB62E236E1AB70043CA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07AAB634236E1B410043CA52 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		07BC2C43234EB99900D169E9 /* LocaticMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		07BC2C45234EB9C100D169E9 /* LocaticClusterMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaticClusterMarkerView.swift; sourceTree = "<group>"; };
 		07BC2C47234FB5B400D169E9 /* MockLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocation.swift; sourceTree = "<group>"; };
@@ -445,12 +447,12 @@
 		07FC7D99231C14AF006CA6E0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		07FC7D9B231C14C0006CA6E0 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		07FC7D9D231C14C9006CA6E0 /* OnboardingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManagerTests.swift; sourceTree = "<group>"; };
-		1A187B308010B725159D6737 /* Pods-Locatics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.release.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.release.xcconfig"; sourceTree = "<group>"; };
-		5EF64C23562B36A513A59A11 /* Pods-LocaticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.debug.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7D97433BB34AFD2D69E3CFBF /* Pods-Locatics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.debug.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.debug.xcconfig"; sourceTree = "<group>"; };
-		86A88C1F8C5540A87BBEB332 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB7110DE1525ACDC2C404FAB /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEFE19197695EB5D8F1B486C /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D197D3650C6FBEF098E3642 /* Pods_LocaticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocaticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4095F64491C5D241AAD4E7FC /* Pods-Locatics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.release.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.release.xcconfig"; sourceTree = "<group>"; };
+		451E4EE637E3F9F49455ABA2 /* Pods-Locatics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locatics.debug.xcconfig"; path = "Target Support Files/Pods-Locatics/Pods-Locatics.debug.xcconfig"; sourceTree = "<group>"; };
+		91AF2138A791304429374752 /* Pods-LocaticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.debug.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD3E5AE851535CC0A683625D /* Pods-LocaticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocaticsTests.release.xcconfig"; path = "Target Support Files/Pods-LocaticsTests/Pods-LocaticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		F1225CA619C9629AD8642FB9 /* Pods_Locatics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locatics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,7 +460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E50147C53D800A72BFC47EFE /* Pods_Locatics.framework in Frameworks */,
+				0707F39AC5C4972A9BFB2754 /* Pods_Locatics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,11 +468,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EDCAB21C3DF4B4455B93B77 /* Pods_LocaticsTests.framework in Frameworks */,
+				BFFBE52AE85696A8AADF6C3C /* Pods_LocaticsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0773F7132321708C00EA62E1 /* Frameworks */ = {
+		07AAB627236E1AB70043CA52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,10 +487,10 @@
 			children = (
 				0706845D231AD01B0023EB27 /* Locatics */,
 				07068477231AD0780023EB27 /* LocaticsTests */,
-				0773F7172321708C00EA62E1 /* LocaticsUITests */,
+				07AAB62B236E1AB70043CA52 /* Fastlane Snapshots */,
 				0706845C231AD01B0023EB27 /* Products */,
 				77F34425DD14F7DB3B921D57 /* Pods */,
-				1B589062260F4491C16B87A8 /* Frameworks */,
+				898280EAF7AFB0AB77D357DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -497,7 +499,7 @@
 			children = (
 				0706845B231AD01B0023EB27 /* Locatics.app */,
 				07068476231AD0780023EB27 /* LocaticsTests.xctest */,
-				0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */,
+				07AAB62A236E1AB70043CA52 /* Fastlane Snapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -738,23 +740,6 @@
 				0775C392232E50A8002AAFDE /* SliderControlTests.swift */,
 			);
 			path = ViewComponents;
-			sourceTree = "<group>";
-		};
-		0773F7172321708C00EA62E1 /* LocaticsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0773F7202321709900EA62E1 /* Onboarding */,
-				0773F71A2321708C00EA62E1 /* Info.plist */,
-			);
-			path = LocaticsUITests;
-			sourceTree = "<group>";
-		};
-		0773F7202321709900EA62E1 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				0773F721232170A600EA62E1 /* OnboardingUITests.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		0773F72323226E0500EA62E1 /* Main */ = {
@@ -1301,6 +1286,16 @@
 			path = Locatics;
 			sourceTree = "<group>";
 		};
+		07AAB62B236E1AB70043CA52 /* Fastlane Snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				07AAB62C236E1AB70043CA52 /* Fastlane_Snapshots.swift */,
+				07AAB634236E1B410043CA52 /* SnapshotHelper.swift */,
+				07AAB62E236E1AB70043CA52 /* Info.plist */,
+			);
+			path = "Fastlane Snapshots";
+			sourceTree = "<group>";
+		};
 		07BC2C49234FB5CE00D169E9 /* CoreLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1651,24 +1646,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		1B589062260F4491C16B87A8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CB7110DE1525ACDC2C404FAB /* Pods_Locatics.framework */,
-				86A88C1F8C5540A87BBEB332 /* Pods_LocaticsTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		77F34425DD14F7DB3B921D57 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7D97433BB34AFD2D69E3CFBF /* Pods-Locatics.debug.xcconfig */,
-				1A187B308010B725159D6737 /* Pods-Locatics.release.xcconfig */,
-				5EF64C23562B36A513A59A11 /* Pods-LocaticsTests.debug.xcconfig */,
-				FEFE19197695EB5D8F1B486C /* Pods-LocaticsTests.release.xcconfig */,
+				451E4EE637E3F9F49455ABA2 /* Pods-Locatics.debug.xcconfig */,
+				4095F64491C5D241AAD4E7FC /* Pods-Locatics.release.xcconfig */,
+				91AF2138A791304429374752 /* Pods-LocaticsTests.debug.xcconfig */,
+				CD3E5AE851535CC0A683625D /* Pods-LocaticsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		898280EAF7AFB0AB77D357DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1225CA619C9629AD8642FB9 /* Pods_Locatics.framework */,
+				2D197D3650C6FBEF098E3642 /* Pods_LocaticsTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1678,12 +1673,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0706846D231AD01C0023EB27 /* Build configuration list for PBXNativeTarget "Locatics" */;
 			buildPhases = (
-				07F0514A5A60162BE5A80F74 /* [CP] Check Pods Manifest.lock */,
+				7E506170E75C48E7E6B4D877 /* [CP] Check Pods Manifest.lock */,
 				07068457231AD01B0023EB27 /* Sources */,
 				07068458231AD01B0023EB27 /* Frameworks */,
 				07068459231AD01B0023EB27 /* Resources */,
 				07068483231B01E00023EB27 /* ShellScript */,
-				48540BF448F6D2000EE16B38 /* [CP] Embed Pods Frameworks */,
+				17D077E213C40C0F203EAD00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1698,7 +1693,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0706847D231AD0780023EB27 /* Build configuration list for PBXNativeTarget "LocaticsTests" */;
 			buildPhases = (
-				5E738B946F90A091221B1248 /* [CP] Check Pods Manifest.lock */,
+				535954FCDD1E2AC6B916A8FE /* [CP] Check Pods Manifest.lock */,
 				07068472231AD0780023EB27 /* Sources */,
 				07068473231AD0780023EB27 /* Frameworks */,
 				07068474231AD0780023EB27 /* Resources */,
@@ -1713,22 +1708,22 @@
 			productReference = 07068476231AD0780023EB27 /* LocaticsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0773F7152321708C00EA62E1 /* LocaticsUITests */ = {
+		07AAB629236E1AB70043CA52 /* Fastlane Snapshots */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0773F71D2321708C00EA62E1 /* Build configuration list for PBXNativeTarget "LocaticsUITests" */;
+			buildConfigurationList = 07AAB631236E1AB70043CA52 /* Build configuration list for PBXNativeTarget "Fastlane Snapshots" */;
 			buildPhases = (
-				0773F7122321708C00EA62E1 /* Sources */,
-				0773F7132321708C00EA62E1 /* Frameworks */,
-				0773F7142321708C00EA62E1 /* Resources */,
+				07AAB626236E1AB70043CA52 /* Sources */,
+				07AAB627236E1AB70043CA52 /* Frameworks */,
+				07AAB628236E1AB70043CA52 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0773F71C2321708C00EA62E1 /* PBXTargetDependency */,
+				07AAB630236E1AB70043CA52 /* PBXTargetDependency */,
 			);
-			name = LocaticsUITests;
-			productName = LocaticsUITests;
-			productReference = 0773F7162321708C00EA62E1 /* LocaticsUITests.xctest */;
+			name = "Fastlane Snapshots";
+			productName = "Fastlane Snapshots";
+			productReference = 07AAB62A236E1AB70043CA52 /* Fastlane Snapshots.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1737,7 +1732,7 @@
 		07068453231AD01B0023EB27 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Luke Smith";
 				TargetAttributes = {
@@ -1754,8 +1749,8 @@
 						LastSwiftMigration = 1030;
 						TestTargetID = 0706845A231AD01B0023EB27;
 					};
-					0773F7152321708C00EA62E1 = {
-						CreatedOnToolsVersion = 10.3;
+					07AAB629236E1AB70043CA52 = {
+						CreatedOnToolsVersion = 11.0;
 						TestTargetID = 0706845A231AD01B0023EB27;
 					};
 				};
@@ -1775,7 +1770,7 @@
 			targets = (
 				0706845A231AD01B0023EB27 /* Locatics */,
 				07068475231AD0780023EB27 /* LocaticsTests */,
-				0773F7152321708C00EA62E1 /* LocaticsUITests */,
+				07AAB629236E1AB70043CA52 /* Fastlane Snapshots */,
 			);
 		};
 /* End PBXProject section */
@@ -1806,7 +1801,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0773F7142321708C00EA62E1 /* Resources */ = {
+		07AAB628236E1AB70043CA52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1833,29 +1828,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		07F0514A5A60162BE5A80F74 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Locatics-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48540BF448F6D2000EE16B38 /* [CP] Embed Pods Frameworks */ = {
+		17D077E213C40C0F203EAD00 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1872,7 +1845,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Locatics/Pods-Locatics-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5E738B946F90A091221B1248 /* [CP] Check Pods Manifest.lock */ = {
+		535954FCDD1E2AC6B916A8FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1888,6 +1861,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-LocaticsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E506170E75C48E7E6B4D877 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Locatics-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2104,11 +2099,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0773F7122321708C00EA62E1 /* Sources */ = {
+		07AAB626236E1AB70043CA52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0773F722232170A600EA62E1 /* OnboardingUITests.swift in Sources */,
+				07AAB62D236E1AB70043CA52 /* Fastlane_Snapshots.swift in Sources */,
+				07AAB635236E1B410043CA52 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2120,10 +2116,10 @@
 			target = 0706845A231AD01B0023EB27 /* Locatics */;
 			targetProxy = 0706847B231AD0780023EB27 /* PBXContainerItemProxy */;
 		};
-		0773F71C2321708C00EA62E1 /* PBXTargetDependency */ = {
+		07AAB630236E1AB70043CA52 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0706845A231AD01B0023EB27 /* Locatics */;
-			targetProxy = 0773F71B2321708C00EA62E1 /* PBXContainerItemProxy */;
+			targetProxy = 07AAB62F236E1AB70043CA52 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2190,7 +2186,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2245,7 +2241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2257,18 +2253,18 @@
 		};
 		0706846E231AD01C0023EB27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D97433BB34AFD2D69E3CFBF /* Pods-Locatics.debug.xcconfig */;
+			baseConfigurationReference = 451E4EE637E3F9F49455ABA2 /* Pods-Locatics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
 				INFOPLIST_FILE = "$(SRCROOT)/Locatics/App/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukesmith.locatics;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lukesmith.locatics.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2277,18 +2273,18 @@
 		};
 		0706846F231AD01C0023EB27 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A187B308010B725159D6737 /* Pods-Locatics.release.xcconfig */;
+			baseConfigurationReference = 4095F64491C5D241AAD4E7FC /* Pods-Locatics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
 				INFOPLIST_FILE = "$(SRCROOT)/Locatics/App/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukesmith.locatics;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lukesmith.locatics.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2297,7 +2293,7 @@
 		};
 		0706847E231AD0780023EB27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EF64C23562B36A513A59A11 /* Pods-LocaticsTests.debug.xcconfig */;
+			baseConfigurationReference = 91AF2138A791304429374752 /* Pods-LocaticsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -2320,7 +2316,7 @@
 		};
 		0706847F231AD0780023EB27 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEFE19197695EB5D8F1B486C /* Pods-LocaticsTests.release.xcconfig */;
+			baseConfigurationReference = CD3E5AE851535CC0A683625D /* Pods-LocaticsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -2340,19 +2336,18 @@
 			};
 			name = Release;
 		};
-		0773F71E2321708C00EA62E1 /* Debug */ = {
+		07AAB632236E1AB70043CA52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
-				INFOPLIST_FILE = LocaticsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				INFOPLIST_FILE = "Fastlane Snapshots/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lukesmith.Fastlane-Snapshots";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2360,19 +2355,18 @@
 			};
 			name = Debug;
 		};
-		0773F71F2321708C00EA62E1 /* Release */ = {
+		07AAB633236E1AB70043CA52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX7QTE483;
-				INFOPLIST_FILE = LocaticsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				INFOPLIST_FILE = "Fastlane Snapshots/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukeedwardsmith.LocaticsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lukesmith.Fastlane-Snapshots";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2410,11 +2404,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0773F71D2321708C00EA62E1 /* Build configuration list for PBXNativeTarget "LocaticsUITests" */ = {
+		07AAB631236E1AB70043CA52 /* Build configuration list for PBXNativeTarget "Fastlane Snapshots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0773F71E2321708C00EA62E1 /* Debug */,
-				0773F71F2321708C00EA62E1 /* Release */,
+				07AAB632236E1AB70043CA52 /* Debug */,
+				07AAB633236E1AB70043CA52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
