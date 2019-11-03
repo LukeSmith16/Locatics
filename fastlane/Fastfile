@@ -1,8 +1,11 @@
-fastlane_version "2.133.0"
+fastlane_version "2.134.0"
 REQUIRED_XCODE_VERSION = "11.0"
 default_platform :ios
 
-ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
+# ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
+
+app_name = "Locatics"
+app_identifier = "org.lukesmith.locatics.app"
 
 platform :ios do
   ################
@@ -18,10 +21,53 @@ platform :ios do
   # Lanes:
   ################
 
+  lane :register_app do
+    produce(
+      username: "lukeedwardsmith97@gmail.com",
+      app_identifier: app_identifier,
+      app_name: app_name,
+      team_name: "Luke Smith",
+      itc_team_name: "Luke Smith"
+    )
+  end
+
   lane :setup_dev do
     cert(development: true)
     sigh(development: true) 
     cocoapods
+  end
+
+  lane :setup_production do 
+    cert(development: false)
+    sigh(development: false) 
+  end
+
+  lane :setup_appstore do 
+    match(
+      type: 'appstore',
+      app_identifier: "#{app_identifier}"
+    )
+  end
+
+  lane :build_release do
+    setup_appstore
+    gym(
+      clean: true,
+      configuration: "Release",
+      output_directory: "builds/" + Time.now.strftime('%F'),
+      output_name: "#{app_name}-release.ipa",
+      workspace: "#{app_name}.xcworkspace",
+      scheme: "#{app_name}",
+    )
+  end
+
+  lane :release_app do
+    deliver(
+      ipa: "builds/#{Time.now.strftime('%F')}/#{app_name}-release.ipa",
+      force: true,
+      skip_metadata: true,
+      skip_screenshots: true
+    )
   end
 
   lane :sync_signing_assets do |options|
@@ -53,55 +99,55 @@ platform :ios do
   # Private Lanes:
   ################
 
-  private_lane :send_slack do |options|
-    msg = options[:message] || ""
-    ver = options[:version] || ""
-    bld = options[:build] || ""
-    pay = options[:payload] || {}
-    suc = options[:success] != false
+  # private_lane :send_slack do |options|
+  #   msg = options[:message] || ""
+  #   ver = options[:version] || ""
+  #   bld = options[:build] || ""
+  #   pay = options[:payload] || {}
+  #   suc = options[:success] != false
 
-    date = Time.new.to_s
+  #   date = Time.new.to_s
 
-    if bld.empty?
-      slack(
-        message: msg,
-        payload: pay,
-        default_payloads: [],
-        success: suc,
-        slack_url: ENV["SLACK_URL"]
-      )
-    elsif pay.empty? && suc
-      slack(
-        payload: {"FASTLANE PRODUCTION - #{ver}(#{bld})" => date},
-        slack_url: slack_hook
-      )
-    else
-      slack(
-        message: msg,
-        payload: pay,
-        success: suc,
-        slack_url: slack_hook
-      )
-  end
+  #   if bld.empty?
+  #     slack(
+  #       message: msg,
+  #       payload: pay,
+  #       default_payloads: [],
+  #       success: suc,
+  #       slack_url: ENV["SLACK_URL"]
+  #     )
+  #   elsif pay.empty? && suc
+  #     slack(
+  #       payload: {"FASTLANE PRODUCTION - #{ver}(#{bld})" => date},
+  #       slack_url: slack_hook
+  #     )
+  #   else
+  #     slack(
+  #       message: msg,
+  #       payload: pay,
+  #       success: suc,
+  #       slack_url: slack_hook
+  #     )
+  # end
 
   ################
   # Success/Error:
   ################
 
-  after_all do
-    send_slack(
-      message: nil,
-      success: true,
-      payload: [:test_result, :git_branch]
-    )
-    clean_build_artifacts
-  end
+  # after_all do
+  #   send_slack(
+  #     message: nil,
+  #     success: true,
+  #     payload: [:test_result, :git_branch]
+  #   )
+  #   clean_build_artifacts
+  # end
 
-  error do |lane, exception, options|
-    send_slack(
-      message: exception.to_s,
-      success: false
-    )
-  end
-end
+  # error do |lane, exception, options|
+  #   send_slack(
+  #     message: exception.to_s,
+  #     success: false
+  #   )
+  # end
+# end
 end

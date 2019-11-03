@@ -43,7 +43,7 @@ private extension LocaticsListCollectionView {
 
     func setupLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.bounds.width,
+        layout.itemSize = CGSize(width: self.bounds.width - 30,
                                  height: ScreenDesignable.cellHeight)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 35
