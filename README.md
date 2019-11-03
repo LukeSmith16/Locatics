@@ -2,7 +2,7 @@
 
 # Locatics
 <p align="center">
-  <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/Icon-60%403x.png">
+  <img src="https://github.com/LukeSmith16/Locatics/blob/master/Icon-60%403x.png">
 </p>
 
 <p align="center">
