@@ -12,7 +12,7 @@ platform :ios do
   # Before:
   ################
   before_all do
-   ensure_bundle_exec
+    ensure_bundle_exec
     setup_travis
     scan
   end
