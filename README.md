@@ -8,7 +8,7 @@
 <p align="center">
   <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/xs-03.png" width="285" height="600">
   <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/1.png" width="285" height="600">
-  <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/xs-03-iOS-1242x2688.png" width="285" height="600">
+  <img src="https://github.com/LukeSmith16/Locatics/blob/pre-release/xs-03-iOS-1242x2688.png.png" width="285" height="600">
 </p>
 
 # What is Locatics?
